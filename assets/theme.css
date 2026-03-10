@@ -102,6 +102,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 .mob-menu.open{transform:translateX(0)}
 .mob-overlay.open{display:block;opacity:1}
 .mob-menu a{display:block;font-family:var(--fb);font-size:18px;font-weight:600;color:var(--ink);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--bdr)}
+.mob-menu-cta{display:block;width:100%;margin-top:18px;background:var(--rose);color:#fff;font-family:var(--fb);font-size:16px;font-weight:700;padding:14px 16px;border:none;border-radius:12px;cursor:pointer}
 .mob-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border:none;background:none;font-size:28px;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent}
 
 @media(prefers-reduced-motion:reduce){

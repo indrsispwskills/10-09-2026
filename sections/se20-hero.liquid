@@ -43,7 +43,17 @@
   <a href="#" class="mob-link" onclick="toggleMobileNav()">5.0 Stationary</a>
   <a href="#" class="mob-link" onclick="toggleMobileNav()">Science</a>
   <a href="#" class="mob-link" onclick="toggleMobileNav()">Reviews</a>
-  <button class="mob-cta" onclick="toggleMobileNav()">Add to Cart — $49</button>
+  <button class="mob-menu-cta" type="button" onclick="toggleMobileNav(); addToCart();">Add to Cart — {{ v1.price | money }}</button>
+</div>
+
+<div class="mob-cta" id="mobileStickyCta">
+  <div class="mob-cta-inner">
+    <div class="mob-cta-copy">
+      <span class="mob-cta-title">ShowerEnvy 2.0</span>
+      <span class="mob-cta-sub">{{ v1.price | money }}</span>
+    </div>
+    <button type="button" data-cta-action="add-to-cart" onclick="addToCart()">Add to Cart</button>
+  </div>
 </div>
 
 <div class="tracker rv rv-d1" id="tracker">
