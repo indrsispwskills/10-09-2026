@@ -307,49 +307,60 @@
     const ctaBtn = document.getElementById('ctaBtn');
     if (!ctaBtn) return;
 
-    // Show loading state
     ctaBtn.classList.add('loading');
     const originalText = ctaBtn.textContent;
     ctaBtn.textContent = 'Adding...';
 
-    // Get form data
     const form = document.getElementById('product-form');
     const formData = new FormData(form);
+    const cartDrawer = document.querySelector('cart-drawer');
 
-    // Ensure variant ID is set
     formData.set('id', currentVariantId);
     formData.set('quantity', currentQuantity);
 
-    // Send AJAX request
-    fetch('/cart/add.js', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Success
-      ctaBtn.classList.remove('loading');
-      ctaBtn.textContent = 'Added to Cart!';
+    if (cartDrawer && typeof cartDrawer.getSectionsToRender === 'function') {
+      formData.append(
+        'sections',
+        cartDrawer.getSectionsToRender().map((section) => section.id)
+      );
+      formData.append('sections_url', window.location.pathname);
+      cartDrawer.setActiveElement(ctaBtn);
+    }
 
-      // Reset button after 2 seconds
-      setTimeout(() => {
-        ctaBtn.textContent = originalText;
-      }, 2000);
+    const config = fetchConfig('javascript');
+    config.headers['X-Requested-With'] = 'XMLHttpRequest';
+    delete config.headers['Content-Type'];
+    config.body = formData;
 
-      // Optionally open cart drawer or redirect
-      // window.location.href = '/cart';
-      // Or trigger custom event for cart drawer
-      document.dispatchEvent(new CustomEvent('cart:updated', { detail: data }));
-    })
-    .catch(error => {
-      console.error('Error adding to cart:', error);
-      ctaBtn.classList.remove('loading');
-      ctaBtn.textContent = 'Error - Try Again';
+    fetch(`${routes.cart_add_url}`, config)
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.status) {
+          throw new Error(response.description || 'Unable to add item to cart.');
+        }
 
-      setTimeout(() => {
-        ctaBtn.textContent = originalText;
-      }, 2000);
-    });
+        ctaBtn.classList.remove('loading');
+        ctaBtn.textContent = 'Added to Cart!';
+
+        setTimeout(() => {
+          ctaBtn.textContent = originalText;
+        }, 2000);
+
+        if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
+          cartDrawer.renderContents(response);
+        } else {
+          document.dispatchEvent(new CustomEvent('cart:updated', { detail: response }));
+        }
+      })
+      .catch((error) => {
+        console.error('Error adding to cart:', error);
+        ctaBtn.classList.remove('loading');
+        ctaBtn.textContent = 'Error - Try Again';
+
+        setTimeout(() => {
+          ctaBtn.textContent = originalText;
+        }, 2000);
+      });
   }
 
   // ============================================
