@@ -346,27 +346,32 @@ function addToCart() {
 
   config.body = formData;
 
-  fetch(`${routes.cart_add_url}`, config)
-    .then((response) => response.json())
-    .then((response) => {
-      if (response.status) {
-        throw new Error(response.description || 'Unable to add item to cart.');
-      }
+  fetch('/?sections=cart-drawer,cart-icon-bubble')
+  .then((res) => res.json())
+  .then((data) => {
+    const parser = new DOMParser();
+    const html = parser.parseFromString(data["cart-drawer"], "text/html");
 
-      return fetch('/?sections=cart-drawer,cart-icon-bubble')
-        .then((res) => res.json())
-        .then((sections) => {
-          const parsedResponse = { sections };
-          const activeDrawer = cartDrawer || document.querySelector('cart-drawer');
+    const newDrawer = html.querySelector("cart-drawer");
+    const currentDrawer = document.querySelector("cart-drawer");
 
-          if (activeDrawer && typeof activeDrawer.renderContents === 'function') {
-            activeDrawer.renderContents(parsedResponse);
-            return;
-          }
+    if (!newDrawer || !currentDrawer) return;
 
-          window.location.href = '/cart';
-        });
-    })
+    currentDrawer.innerHTML = newDrawer.innerHTML;
+    currentDrawer.classList.remove("is-empty");
+
+    if (typeof currentDrawer.open === "function") {
+      currentDrawer.open();
+    }
+
+    const bubbleHtml = parser.parseFromString(data["cart-icon-bubble"], "text/html");
+    const newBubble = bubbleHtml.querySelector("#shopify-section-cart-icon-bubble");
+    const currentBubble = document.querySelector("#shopify-section-cart-icon-bubble");
+
+    if (newBubble && currentBubble) {
+      currentBubble.innerHTML = newBubble.innerHTML;
+    }
+  })
     .catch((error) => {
       console.error('Cart error:', error);
     })
