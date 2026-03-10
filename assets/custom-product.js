@@ -338,19 +338,18 @@
           throw new Error(response.description || 'Unable to add item to cart.');
         }
 
-        const hasDrawerSections = response.sections?.['cart-drawer'] && response.sections?.['cart-icon-bubble'];
-
-        if (cartDrawer && typeof cartDrawer.renderContents === 'function' && hasDrawerSections) {
-          cartDrawer.renderContents(response);
-          return;
-        }
-
         return fetch('/?sections=cart-drawer,cart-icon-bubble')
           .then((res) => res.json())
           .then((sections) => {
             const parsedResponse = { sections };
             const activeDrawer = cartDrawer || document.querySelector('cart-drawer');
-            activeDrawer?.renderContents(parsedResponse);
+
+            if (activeDrawer && typeof activeDrawer.renderContents === 'function') {
+              activeDrawer.renderContents(parsedResponse);
+              return;
+            }
+
+            window.location.href = '/cart';
           });
       })
       .catch((error) => {
