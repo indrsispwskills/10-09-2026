@@ -338,7 +338,9 @@
           throw new Error(response.description || 'Unable to add item to cart.');
         }
 
-        if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
+        const hasDrawerSections = response.sections?.['cart-drawer'] && response.sections?.['cart-icon-bubble'];
+
+        if (cartDrawer && typeof cartDrawer.renderContents === 'function' && hasDrawerSections) {
           cartDrawer.renderContents(response);
           return;
         }
@@ -347,7 +349,8 @@
           .then((res) => res.json())
           .then((sections) => {
             const parsedResponse = { sections };
-            document.querySelector('cart-drawer')?.renderContents(parsedResponse);
+            const activeDrawer = cartDrawer || document.querySelector('cart-drawer');
+            activeDrawer?.renderContents(parsedResponse);
           });
       })
       .catch((error) => {
