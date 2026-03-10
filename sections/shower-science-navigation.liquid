@@ -1,0 +1,132 @@
+<a href="#main" class="skip">{{ section.settings.skip_text }}</a>
+<header class="nav-bar" id="navBar">
+  <div class="nav-progress" id="navProgress"></div>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="/" class="nav-logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></a>
+      <a href="/" class="nav-back">← Back to Home</a>
+    </div>
+    <nav class="nav-links" role="navigation" aria-label="Page sections">
+  {% for block in section.blocks %}
+    {% if block.type == 'desktop_nav' %}
+      <a href="{{ block.settings.link }}" 
+         class="nav-link" 
+         data-section="{{ block.settings.section }}">
+        {{ block.settings.title }}
+      </a>
+    {% endif %}
+  {% endfor %}
+</nav>
+    <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+    <button class="se-ham" aria-label="Menu" onclick="toggleSeMobileNav()"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="science-nav-offset" aria-hidden="true"></div>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="se-mob-overlay" id="seMobOverlay" onclick="toggleSeMobileNav()"></div>
+<div class="se-mob-menu" id="seMobMenu">
+  <div class="se-mob-header">
+    <div class="nav-logo" style="font-size:22px"><svg class="brand-mark" width="22" height="22" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></div>
+    <button class="se-mob-close" onclick="toggleSeMobileNav()">&times;</button>
+  </div>
+ {% for block in section.blocks %}
+  {% if block.type == 'mobile_nav' %}
+    <a href="{{ block.settings.link }}" class="se-mob-link" onclick="toggleSeMobileNav()">
+      {{ block.settings.title }}
+    </a>
+  {% endif %}
+{% endfor %}
+  <button class="se-mob-cta" onclick="toggleSeMobileNav()">Shop Now</button>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Close menu">✕</button>
+{% for block in section.blocks %}
+  {% if block.type == 'mobile_menu' %}
+    <a href="{{ block.settings.link }}" onclick="document.getElementById('mobileMenu').classList.remove('open')">
+      {{ block.settings.title }}
+    </a>
+  {% endif %}
+{% endfor %} 
+</div>
+
+
+{% schema %}
+{
+  "name": "Shower science navigation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "skip_text",
+      "label": "Skip text",
+      "default": "Skip to main content"
+    }
+  ],
+  "blocks": [
+
+    {
+      "type": "desktop_nav",
+      "name": "Desktop Nav Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "section",
+          "label": "Data Section ID"
+        }
+      ]
+    },
+
+    {
+      "type": "mobile_nav",
+      "name": "Mobile Drawer Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+
+    {
+      "type": "mobile_menu",
+      "name": "Mobile Menu Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Shower science navigation"
+    }
+  ]
+}
+{% endschema %}

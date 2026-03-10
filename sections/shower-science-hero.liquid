@@ -1,0 +1,27 @@
+<div class="wrap">
+<section class="hero" id="main" style="margin:0 -24px">
+  <div class="hero-particles"><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div><div class="hero-particle"></div></div>
+  <svg class="hero-dna" width="120" height="300" viewBox="0 0 120 300" fill="none"><path d="M20,10 Q60,40 100,10 Q60,80 20,50 Q60,120 100,90 Q60,160 20,130 Q60,200 100,170 Q60,240 20,210 Q60,280 100,250" stroke="rgba(94,138,106,.3)" stroke-width="1.5" fill="none"/><path d="M100,10 Q60,40 20,10 Q60,80 100,50 Q60,120 20,90 Q60,160 100,130 Q60,200 20,170 Q60,240 100,210 Q60,280 20,250" stroke="rgba(176,134,66,.3)" stroke-width="1.5" fill="none"/><circle cx="20" cy="10" r="3" fill="rgba(94,138,106,.4)"/><circle cx="100" cy="10" r="3" fill="rgba(176,134,66,.4)"/><circle cx="60" cy="50" r="3" fill="rgba(94,138,106,.3)"/><circle cx="60" cy="90" r="3" fill="rgba(176,134,66,.3)"/><circle cx="20" cy="130" r="3" fill="rgba(94,138,106,.4)"/><circle cx="100" cy="130" r="3" fill="rgba(176,134,66,.4)"/><circle cx="60" cy="170" r="3" fill="rgba(94,138,106,.3)"/><circle cx="60" cy="210" r="3" fill="rgba(176,134,66,.3)"/></svg>
+  <div class="hero-inner">
+    <div class="badge badge--hero">{{ section.settings.badge }}</div>
+    <h1>{{ section.settings.title_prefix }}<br><span class="accent">{{ section.settings.title_accent }}</span></h1>
+    <p class="hero-desc">{{ section.settings.description }}</p>
+    <div class="hero-meta"><div><b>6</b><small>Sections</small></div><div><b>12 min</b><small>Read Time</small></div><div><b>14</b><small>Studies Cited</small></div><div><b>4</b><small>Deep Dives</small></div></div>
+  </div>
+</section>
+
+
+</div>
+
+{% schema %}
+{
+  "name": "Shower science hero",
+  "settings": [
+    {"type":"text","id":"badge","label":"Badge","default":"RESEARCH-BACKED SCIENCE"},
+    {"type":"text","id":"title_prefix","label":"Title line 1","default":"The Biology Behind Why"},
+    {"type":"text","id":"title_accent","label":"Title accent","default":"Your Water Matters More Now"},
+    {"type":"textarea","id":"description","label":"Description","default":"The same hormonal changes causing your hair and skin to shift also make you more vulnerable to contaminants in your shower water. Here's the science — no marketing, no fluff, just the research."}
+  ],
+  "presets": [{"name":"Shower science hero"}]
+}
+{% endschema %}

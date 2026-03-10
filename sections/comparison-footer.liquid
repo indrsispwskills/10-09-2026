@@ -1,0 +1,49 @@
+<div class="wrap">
+<section class="se-footer footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="nav-logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>{{ section.settings.brand_text }}<span>{{ section.settings.brand_text_accent }}</span></div><p>{{ section.settings.brand_description }}</p></div>
+    <div><div class="footer-col-title">{{ section.settings.shop_title }}</div><a href="#">{{ section.settings.shop_link_1 }}</a><a href="#">{{ section.settings.shop_link_2 }}</a><a href="#">{{ section.settings.shop_link_3 }}</a><a href="#">{{ section.settings.shop_link_4 }}</a><a href="#">{{ section.settings.shop_link_5 }}</a></div>
+    <div><div class="footer-col-title">{{ section.settings.learn_title }}</div><a href="#">{{ section.settings.learn_link_1 }}</a><a href="#">{{ section.settings.learn_link_2 }}</a><a href="#">{{ section.settings.learn_link_3 }}</a><a href="#">{{ section.settings.learn_link_4 }}</a><a href="#">{{ section.settings.learn_link_5 }}</a></div>
+    <div><div class="footer-col-title">{{ section.settings.support_title }}</div><a href="#">{{ section.settings.support_link_1 }}</a><a href="#">{{ section.settings.support_link_2 }}</a><a href="#">{{ section.settings.support_link_3 }}</a><a href="#">{{ section.settings.support_link_4 }}</a><a href="#">{{ section.settings.support_link_5 }}</a></div>
+  </div>
+  <div class="footer-bottom"><span>{{ section.settings.copyright_text }}</span><span><a href="#">{{ section.settings.privacy_text }}</a> · <a href="#">{{ section.settings.terms_text }}</a> · <a href="#">{{ section.settings.accessibility_text }}</a></span></div>
+</section>
+
+</div><!-- .wrap -->
+
+<button id="btt" class="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="{{ section.settings.back_to_top_label }}">↑</button>
+
+{% schema %}
+{
+  "name": "Comparison footer",
+  "settings": [
+    {"type":"text","id":"brand_text","label":"Brand text","default":"Shower"},
+    {"type":"text","id":"brand_text_accent","label":"Brand accent","default":"Envy"},
+    {"type":"textarea","id":"brand_description","label":"Brand description","default":"Filtered showerheads designed for women navigating hormonal changes. Because your water should help — not hurt."},
+    {"type":"text","id":"shop_title","label":"Shop title","default":"Shop"},
+    {"type":"text","id":"shop_link_1","label":"Shop link 1","default":"2.0 Handheld"},
+    {"type":"text","id":"shop_link_2","label":"Shop link 2","default":"5.0 Stationary"},
+    {"type":"text","id":"shop_link_3","label":"Shop link 3","default":"Replacement Filters"},
+    {"type":"text","id":"shop_link_4","label":"Shop link 4","default":"Bundles"},
+    {"type":"text","id":"shop_link_5","label":"Shop link 5","default":"Gift Cards"},
+    {"type":"text","id":"learn_title","label":"Learn title","default":"Learn"},
+    {"type":"text","id":"learn_link_1","label":"Learn link 1","default":"Our Science"},
+    {"type":"text","id":"learn_link_2","label":"Learn link 2","default":"Water Quality Map"},
+    {"type":"text","id":"learn_link_3","label":"Learn link 3","default":"Results Timeline"},
+    {"type":"text","id":"learn_link_4","label":"Learn link 4","default":"Blog"},
+    {"type":"text","id":"learn_link_5","label":"Learn link 5","default":"Reviews"},
+    {"type":"text","id":"support_title","label":"Support title","default":"Support"},
+    {"type":"text","id":"support_link_1","label":"Support link 1","default":"FAQ"},
+    {"type":"text","id":"support_link_2","label":"Support link 2","default":"Shipping & Returns"},
+    {"type":"text","id":"support_link_3","label":"Support link 3","default":"Guarantee"},
+    {"type":"text","id":"support_link_4","label":"Support link 4","default":"Contact Us"},
+    {"type":"text","id":"support_link_5","label":"Support link 5","default":"Installation Help"},
+    {"type":"text","id":"copyright_text","label":"Copyright text","default":"© 2026 ShowerEnvy. All rights reserved."},
+    {"type":"text","id":"privacy_text","label":"Privacy label","default":"Privacy"},
+    {"type":"text","id":"terms_text","label":"Terms label","default":"Terms"},
+    {"type":"text","id":"accessibility_text","label":"Accessibility label","default":"Accessibility"},
+    {"type":"text","id":"back_to_top_label","label":"Back to top aria label","default":"Back to top"}
+  ],
+  "presets":[{"name":"Comparison footer"}]
+}
+{% endschema %}

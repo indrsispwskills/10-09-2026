@@ -1,0 +1,53 @@
+<!-- ══════════════════════════════════════════════════════════
+     GUARANTEE
+     ══════════════════════════════════════════════════════════ -->
+<section id="guarantee" class="reveal">
+  <div class="guarantee">
+    <div class="guarantee-top"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><h3>{{ section.settings.title }}</h3></div>
+    <p>{{ section.settings.description }}</p>
+    <div class="guarantee-tiers">
+      {% for block in section.blocks %}
+        {% if block.type == 'tier' %}
+          <div class="g-tier" {{ block.shopify_attributes }}>
+            <div class="g-tier-tag" style="color:{% if block.settings.tone == 'gold' %}var(--gold){% else %}var(--sage){% endif %}">{{ block.settings.tag }}</div>
+            <h4>{{ block.settings.days }}</h4>
+            <p>{{ block.settings.desc }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <p style="font-size:15px;color:var(--mut);font-style:italic">{{ section.settings.note }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison guarantee",
+  "settings": [
+    {"type":"text","id":"title","label":"Title","default":"Our Guarantee Is Built Around Your Biology"},
+    {"type":"textarea","id":"description","label":"Description","default":"Most brands give you 30 days. That's not enough to see real hair changes during hormonal transitions. Hair growth cycles take 8–12 weeks. We designed our guarantee around that science."},
+    {"type":"textarea","id":"note","label":"Bottom note","default":"Full refund. No restocking fee. No hoops. We'll even pay for return shipping."}
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Tier",
+      "settings": [
+        {"type":"text","id":"tag","label":"Tag","default":"2.0 HANDHELD"},
+        {"type":"text","id":"days","label":"Days","default":"60 Days"},
+        {"type":"textarea","id":"desc","label":"Description","default":"Skin & softness results come fast with basic filtration"},
+        {"type":"select","id":"tone","label":"Tone","default":"sage","options":[{"value":"sage","label":"Sage"},{"value":"gold","label":"Gold"}]}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison guarantee",
+      "blocks": [
+        {"type":"tier","settings":{"tag":"2.0 HANDHELD","days":"60 Days","desc":"Skin & softness results come fast with basic filtration","tone":"sage"}},
+        {"type":"tier","settings":{"tag":"5.0 STATIONARY","days":"90 Days","desc":"Full hair growth cycle for deep filtration benefits","tone":"gold"}}
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,161 @@
+{% style %}
+#shopify-section-{{ section.id }}{
+  background:{{ section.settings.bg }};
+  color:{{ section.settings.text }};
+  padding-top:{{ section.settings.padding_top }}px;
+  padding-bottom:{{ section.settings.padding_bottom }}px
+}
+{% endstyle %}
+
+<section class="trust-strip__signal-bloom-flare">
+  <div class="trust-strip__signal-bloom-glow">
+
+    <div class="trust-strip__signal-bloom-harbor">
+      <span class="trust-strip__signal-bloom-ivory">🩺</span>
+      {{ section.settings.badge_text_1 }}
+    </div>
+
+    <div class="trust-strip__signal-bloom-harbor">
+      <span class="trust-strip__signal-bloom-jade">⏱</span>
+      {{ section.settings.badge_text_2 }}
+    </div>
+
+    <div class="trust-strip__signal-bloom-harbor">
+      <span class="trust-strip__signal-bloom-kindle">✓</span>
+      {{ section.settings.badge_text_3 }}
+    </div>
+
+    <div class="trust-strip__signal-bloom-harbor">
+      <span class="trust-strip__signal-bloom-lumen">📦</span>
+      {{ section.settings.badge_text_4 }}
+    </div>
+
+    <div class="trust-strip__signal-bloom-harbor trust-strip__signal-bloom-harbor--usa">
+      <span class="trust-strip__signal-bloom-meadow">🇺🇸</span>
+      {{ section.settings.badge_text_5 }}
+    </div>
+
+  </div>
+</section>
+
+
+<div class="reveal-up is-visible hero__panel-bloom-ember">
+  <section class="trust-strip__signal-bloom-nova">
+    <div class="trust-strip__signal-bloom-oasis">
+
+      <!-- LIFESTYLE CARD 1 -->
+      <div class="trust-strip__signal-bloom-pulse">
+        <span class="hero__panel-aurora-oasis">🚿</span>
+        <span class="trust-strip__signal-bloom-quartz">
+          {{ section.settings.life_caption_1 }}
+        </span>
+      </div>
+
+      <!-- LIFESTYLE CARD 2 -->
+      <div class="trust-strip__signal-bloom-solace">
+        <span class="hero__panel-aurora-oasis">✨</span>
+        <span class="trust-strip__signal-bloom-thrive">
+          {{ section.settings.life_caption_2 }}
+        </span>
+      </div>
+
+      <!-- LIFESTYLE CARD 3 -->
+      <div class="trust-strip__signal-bloom-velvet">
+        <span class="hero__panel-aurora-oasis">💇‍♀️</span>
+        <span class="trust-strip__signal-bloom-whisper">
+          {{ section.settings.life_caption_3 }}
+        </span>
+      </div>
+
+      <!-- LIFESTYLE CARD 4 -->
+      <div class="trust-strip__signal-bloom-pulse">
+        <span class="hero__panel-aurora-oasis">😊</span>
+        <span class="trust-strip__signal-bloom-quartz">
+          {{ section.settings.life_caption_4 }}
+        </span>
+      </div>
+
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "SE Trust Strip",
+  "settings": [
+
+    { "type": "color", "id": "bg", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "text", "label": "Text color", "default": "#1f1d1a" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 0 },
+
+    {
+  "type": "header",
+  "content": "Trust Badges"
+},
+{
+  "type": "text",
+  "id": "badge_text_1",
+  "label": "Badge 1 Text",
+  "default": "Dermatologist Recommended"
+},
+{
+  "type": "text",
+  "id": "badge_text_2",
+  "label": "Badge 2 Text",
+  "default": "Installs in 3 Minutes"
+},
+{
+  "type": "text",
+  "id": "badge_text_3",
+  "label": "Badge 3 Text",
+  "default": "NSF/ANSI Certified"
+},
+{
+  "type": "text",
+  "id": "badge_text_4",
+  "label": "Badge 4 Text",
+  "default": "Free Shipping & Returns"
+},
+{
+  "type": "text",
+  "id": "badge_text_5",
+  "label": "Badge 5 Text",
+  "default": "Made in the USA"
+},
+
+    {
+  "type": "header",
+  "content": "Lifestyle Cards"
+},
+{
+  "type": "text",
+  "id": "life_caption_1",
+  "label": "Card 1 Caption",
+  "default": "Lifestyle — Woman 50+ enjoying shower"
+},
+{
+  "type": "text",
+  "id": "life_caption_2",
+  "label": "Card 2 Caption",
+  "default": "Lifestyle — Healthy glowing skin"
+},
+{
+  "type": "text",
+  "id": "life_caption_3",
+  "label": "Card 3 Caption",
+  "default": "Lifestyle — Full healthy hair"
+},
+{
+  "type": "text",
+  "id": "life_caption_4",
+  "label": "Card 4 Caption",
+  "default": "Lifestyle — Happy woman in bathroom"
+}
+  ],
+
+  "presets": [
+    { "name": "SE Trust Strip" }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,31 @@
+/* hide mobile menu on desktop */
+.se-mobile-footer-menu{
+display:none;
+}
+
+@media screen and (max-width:768px){
+
+/* hide desktop footer */
+.site-footer__detail-lumen-solace{
+display:none !important;
+}
+
+/* mobile footer container */
+.se-mobile-footer-menu{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:24px; /* EXACT spacing like your example */
+padding-top:12px;
+}
+
+/* mobile menu item */
+.se-mobile-footer-item{
+font-family:var(--fb);
+font-size:14px;
+color:var(--mut);
+text-decoration:none;
+white-space:nowrap;
+}
+
+}

@@ -1,0 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "refund_policy_header": {"type": "refund-policy-header", "settings": {}},
+    "refund_policy_content": {"type": "refund-policy-content", "settings": {}},
+    "refund_policy_footer": {"type": "refund-policy-footer", "settings": {}}
+  },
+  "order": ["refund_policy_header", "refund_policy_content", "refund_policy_footer"]
+}

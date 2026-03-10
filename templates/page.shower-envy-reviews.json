@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "reviews_top": {
+      "type": "se-reviews-top",
+      "settings": {}
+    },
+    "reviews_featured": {
+      "type": "se-reviews-featured",
+      "settings": {}
+    },
+    "reviews_breakdown": {
+      "type": "se-reviews-breakdown",
+      "settings": {}
+    },
+    "reviews_feed": {
+      "type": "se-reviews-feed",
+      "settings": {}
+    },
+    "reviews_bottom": {
+      "type": "se-reviews-bottom",
+      "settings": {}
+    }
+  },
+  "order": [
+    "reviews_top",
+    "reviews_featured",
+    "reviews_breakdown",
+    "reviews_feed",
+    "reviews_bottom"
+  ]
+}

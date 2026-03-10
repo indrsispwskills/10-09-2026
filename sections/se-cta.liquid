@@ -1,0 +1,40 @@
+{% style %}#shopify-section-{{ section.id }}{background:{{ section.settings.bg }};color:{{ section.settings.text }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}{% endstyle %}
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+<div class="reveal-scale hero__panel-bloom-ember">
+  <section class="dark-section site-footer__detail-lumen-crest">
+    <div class="site-footer__detail-lumen-drift"></div>
+    <div class="site-footer__detail-lumen-ember"></div>
+    <div class="site-footer__detail-lumen-flare"></div>
+    <div class="site-footer__detail-lumen-glow"></div>
+    <div class="site-footer__detail-lumen-harbor">
+      <h2 class="site-footer__detail-lumen-ivory">{{ section.settings.heading }}</h2>
+      <p class="site-footer__detail-lumen-jade">{{ section.settings.description }}</p>
+      <div class="site-footer__detail-lumen-kindle">
+        <a href="{{ section.settings.primary_link }}" class="btn btn-gold site-footer__detail-lumen-lumen">{{ section.settings.primary_label }}</a>
+        <a href="{{ section.settings.secondary_link }}" class="btn btn-ghost site-footer__detail-lumen-lumen">{{ section.settings.secondary_label }}</a>
+      </div>
+    </div>
+  </section>
+</div>
+{% endif %}
+{% schema %}
+{
+  "name":"SE CTA",
+  "settings":[
+    {"type":"liquid","id":"heading","label":"Heading (HTML allowed)","default":"Your Body Is Changing.<br><span class=\"hero__panel-zenith\">Your Water Should Change With It.</span>"},
+    {"type":"textarea","id":"description","label":"Description","default":"ShowerEnvy makes everything else in your routine work better. You'll feel it from the very first shower."},
+    {"type":"text","id":"primary_label","label":"Primary button label","default":"Shop the 5.0 — $89"},
+    {"type":"url","id":"primary_link","label":"Primary button link"},
+    {"type":"text","id":"secondary_label","label":"Secondary button label","default":"Shop the 2.0 — $49"},
+    {"type":"url","id":"secondary_link","label":"Secondary button link"},
+    {"type":"color","id":"bg","label":"Background color","default":"#ffffff"},
+    {"type":"color","id":"text","label":"Text color","default":"#1f1d1a"},
+    {"type":"range","id":"padding_top","label":"Padding top","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":120,"step":4,"unit":"px","default":0},
+  ],
+  "presets":[{"name":"SE CTA"}]
+}
+{% endschema %}

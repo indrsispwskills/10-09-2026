@@ -1,0 +1,20 @@
+<div class="wrap">
+<section class="final-cta reveal" style="margin:0 -48px">
+  <div class="final-cta-inner">
+    <h2>{{ section.settings.title_1 }}<br>{{ section.settings.title_2 }}</h2>
+    <p>{{ section.settings.description }}</p>
+    <div class="final-cta-btns">
+      <a class="btn btn--sage btn--lg" href="{{ section.settings.url_1 | default: "#" }}">{{ section.settings.btn_1 }}</a>
+      <a class="btn btn--gold btn--lg" href="{{ section.settings.url_2 | default: "#" }}">{{ section.settings.btn_2 }}</a>
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name":"Comparison CTA",
+  "settings":[{"type":"text","id":"title_1","label":"Title line 1","default":"Stop Fighting Your Water."},{"type":"text","id":"title_2","label":"Title line 2","default":"Start Working With It."},{"type":"textarea","id":"description","label":"Description","default":"You've already invested in the serums, the supplements, the salon visits. A filtered showerhead is the one thing that makes all of it work better."},{"type":"text","id":"btn_1","label":"Button 1 text","default":"Shop the 2.0 — $49"},{"type":"url","id":"url_1","label":"Button 1 URL"},{"type":"text","id":"btn_2","label":"Button 2 text","default":"Shop the 5.0 — $89"},{"type":"url","id":"url_2","label":"Button 2 URL"}],
+  "presets":[{"name":"Comparison CTA"}]
+}
+{% endschema %}

@@ -1,0 +1,659 @@
+{% comment %} {% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+        <nav class="hero__panel-bloom">
+            <div class="hero__panel-crest"></div>
+            <div>
+                <div class="hero__panel-drift">
+                    <svg width="24" height="24" viewBox="0 0 32 32" class="hero__panel-ember">
+                        <circle cx="16" cy="16" r="14" fill="rgba(255,255,255,.15)"></circle>
+                        <path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"></path>
+                        <circle cx="16" cy="24" r="1.2" fill="#fff"></circle>
+                    </svg><span>Shower<span class="hero__panel-flare">Envy</span></span>
+                </div>
+                <div class="hero__panel-glow">{{ section.settings.tagline }}</div>
+            </div>
+            <div class="hero__panel-harbor"><a href="#science" class="nav-link">{{ section.settings.secondary_label }}</a><a href="#products" class="nav-link">Our Products</a><a href="#results" class="nav-link">Real Results</a><a href="#faq" class="nav-link">Common Questions</a>
+                <button class="btn btn-rose hero__panel-ivory">{{ section.settings.primary_label }}</button>
+            </div>
+            <button class="ham" aria-label="Open menu" type="button">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+        <div class="mob-overlay"></div>
+        <aside class="mob-menu" aria-label="Mobile navigation">
+            <button class="mob-close" aria-label="Close menu" type="button">×</button>
+            <a href="#science">{{ section.settings.secondary_label }}</a>
+            <a href="#products">Our Products</a>
+            <a href="#results">Real Results</a>
+            <a href="#faq">Common Questions</a>
+            <a href="#products" class="btn btn-rose" style="margin-top:20px;justify-content:center">{{ section.settings.primary_label }}</a>
+        </aside>
+        <div class="mob-cta" aria-label="Mobile sticky purchase CTA">
+            <div class="mob-cta-inner">
+                <div class="mob-cta-copy">
+                    <div class="mob-cta-title">ShowerEnvy 5.0 · $89</div>
+                    <div class="mob-cta-sub">Free shipping · 90-day guarantee</div>
+                </div>
+                <button type="button">{{ section.settings.primary_label }}</button>
+            </div>
+        </div>
+        <section class="dark-section hero__panel-jade">
+            <div class="hero__panel-kindle"></div>
+            <div class="hero__panel-lumen"></div>
+            <div class="hero__panel-meadow"></div>
+            <div class="hero__panel-nova"></div>
+            <div class="hero__panel-oasis"></div>
+            <div class="hero__panel-pulse"></div>
+            <div class="hero__panel-quartz"></div>
+            <div class="hero__panel-ripple"></div>
+            <div class="hero__panel-solace"></div>
+            <div class="hero__panel-thrive"></div>
+            <div class="hero__panel-uplift"></div>
+            <div class="hero__panel-velvet">
+                <div>
+                    {% if section.settings.hero_tagline != blank %}
+                    <div class="hero-content-reveal hero__panel-whisper">
+
+                    {% if section.settings.show_tagline_icon %}
+                    <span class="hero__panel-xenial"></span>
+                    {% endif %}
+
+                    {{ section.settings.hero_tagline }}
+
+                    </div>
+                    {% endif %}
+                    <h1 class="hero-content-reveal hero-main-heading hero__panel-yonder">{{ section.settings.headline }}</h1>
+                    <p class="hero-content-reveal hero-support-text hero__panel-aurora-aurora">
+                    {{ section.settings.headline_part_1 }}
+                    Chlorine and hard water are 
+                    <strong class="hero__panel-aurora-bloom">
+                    {{ section.settings.headline_highlight }}
+                    </strong>
+                    {{ section.settings.headline_part_2 }}
+                    </p>
+                    <div class="hero-content-reveal hero-action-row hero__panel-aurora-crest">
+                        <button class="btn btn-rose hero__panel-aurora-drift">{{ section.settings.primary_label }}</button>
+                        <a href="#science" class="hero__panel-aurora-ember">
+                            <button class="btn btn-ghost hero__panel-aurora-flare">How It Works
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="hero-content-reveal hero-metric-row hero__panel-aurora-glow">
+                        <div>
+                            <div class="hero__panel-aurora-harbor"><span class="hero__panel-aurora-ivory">531+</span></div>
+                            <div class="hero__panel-aurora-jade">Women Trust ShowerEnvy</div>
+                        </div>
+                        <div>
+                            <div class="hero__panel-aurora-harbor"><span class="hero__panel-aurora-ivory">0.3%</span></div>
+                            <div class="hero__panel-aurora-jade">Chlorine Removed
+                            </div>
+                        </div>
+                        <div>
+                            <div class="hero__panel-aurora-harbor"><span class="hero__panel-aurora-ivory">0.0 ★</span></div>
+                            <div class="hero__panel-aurora-jade">Average Rating
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-content-reveal hero-action-row hero__panel-aurora-kindle">
+                    <div class="hero__panel-aurora-lumen">
+                        <div class="hero__panel-aurora-meadow">
+                            <div class="hero__panel-aurora-nova"><span class="hero__panel-aurora-oasis">📸</span><span class="hero__panel-aurora-pulse">Hero — Product lifestyle shot or woman in shower</span><span class="hero__panel-aurora-quartz">{% if section.settings.hero_image != blank %}<img src="{{ section.settings.hero_image | image_url: width: 900 }}" alt="{{ section.settings.hero_image.alt | escape }}" loading="lazy">{% else %}Upload image here{% endif %}</span></div>
+                        </div>
+                        <div class="hero__panel-aurora-ripple">
+                            {% if section.settings.custom_shower_svg != blank %}{{ section.settings.custom_shower_svg }}{% else %}<svg viewBox="0 0 280 380" fill="none" class="hero__panel-aurora-solace">
+                                <rect x="130" y="20" width="20" height="60" rx="10" fill="#4A4541" opacity=".6"></rect>
+                                <rect x="125" y="10" width="30" height="15" rx="7" fill="#5A564F" opacity=".5"></rect>
+                                <ellipse cx="140" cy="100" rx="52" ry="20" fill="url(#showerhead-gradient)" stroke="rgba(255,255,255,.1)" stroke-width="1"></ellipse>
+                                <ellipse cx="140" cy="96" rx="48" ry="16" fill="#3D3A35"></ellipse>
+                                <ellipse cx="140" cy="96" rx="44" ry="13" fill="#2C2825"></ellipse>
+                                <g>
+                                    <circle cx="105" cy="120" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="118;280;118" dur="2s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="102" cy="150" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="140;320;140" dur="2.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="2.5s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="115" cy="123" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="120;290;120" dur="2.3s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2.3s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="112" cy="155" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="144;328;144" dur="2.7s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="2.7s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="125" cy="126" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="122;300;122" dur="2.6s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2.6s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="122" cy="160" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="148;336;148" dur="2.9s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="2.9s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="135" cy="129" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="124;310;124" dur="2.9s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2.9s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="132" cy="165" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="152;344;152" dur="3.1s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.1s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="145" cy="132" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="126;320;126" dur="3.2s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="3.2s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="142" cy="170" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="156;352;156" dur="3.3s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.3s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="155" cy="135" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="128;330;128" dur="3.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="3.5s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="152" cy="175" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="160;360;160" dur="3.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.5s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="165" cy="138" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="130;340;130" dur="3.8s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="3.8s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="162" cy="180" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="164;368;164" dur="3.7s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.7s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="175" cy="141" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="132;350;132" dur="4.1s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="4.1s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="172" cy="185" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="168;376;168" dur="3.9000000000000004s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.9000000000000004s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g opacity=".7">
+                                    <rect x="108" y="180" width="18" height="9" rx="4.5" fill="var(--rose)" opacity=".6">
+                                        <animate attributeName="y" values="175;220;175" dur="4s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values=".3;.7;.3" dur="4s" repeatCount="indefinite"></animate>
+                                    </rect>
+                                    <text x="113" y="187" fill="#fff" font-size="5" font-weight="700" font-family="var(--fb)">
+                                        <animate attributeName="y" values="182;227;182" dur="4s" repeatCount="indefinite"></animate>A</text>
+                                </g>
+                                <g opacity=".7">
+                                    <rect x="150" y="200" width="18" height="9" rx="4.5" fill="var(--gold)" opacity=".6">
+                                        <animate attributeName="y" values="195;245;195" dur="3.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values=".3;.7;.3" dur="3.5s" repeatCount="indefinite"></animate>
+                                    </rect>
+                                    <text x="155" y="207" fill="#fff" font-size="5" font-weight="700" font-family="var(--fb)">
+                                        <animate attributeName="y" values="202;252;202" dur="3.5s" repeatCount="indefinite"></animate>C</text>
+                                </g>
+                                <g opacity=".7">
+                                    <rect x="125" y="220" width="18" height="9" rx="4.5" fill="var(--sage)" opacity=".6">
+                                        <animate attributeName="y" values="215;270;215" dur="4.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values=".3;.7;.3" dur="4.5s" repeatCount="indefinite"></animate>
+                                    </rect>
+                                    <text x="130" y="227" fill="#fff" font-size="5" font-weight="700" font-family="var(--fb)">
+                                        <animate attributeName="y" values="222;277;222" dur="4.5s" repeatCount="indefinite"></animate>E</text>
+                                </g>
+                                <circle cx="90" cy="160" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-thrive"></circle>
+                                <circle cx="180" cy="190" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-uplift"></circle>
+                                <circle cx="100" cy="240" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-velvet"></circle>
+                                <circle cx="170" cy="260" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-whisper"></circle>
+                                <text x="140" y="330" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="11" font-family="var(--fb)" font-weight="600" letter-spacing="2">SHOWERENVY 5.0</text>
+                                <text x="140" y="346" text-anchor="middle" fill="rgba(255,255,255,.15)" font-size="8" font-family="var(--fb)" letter-spacing="1">15-STAGE · VITAMIN A, C &amp; E</text>
+                                <defs>
+                                    <linearGradient id="showerhead-gradient" x1="88" y1="80" x2="192" y2="120">
+                                        <stop stop-color="#6B6560"></stop>
+                                        <stop offset="1" stop-color="#4A4541"></stop>
+                                    </linearGradient>
+                                </defs>
+                            </svg>{% endif %}
+                        </div>
+                    </div>
+                    <div class="card hero__panel-aurora-xenial">
+                        <div class="hero__panel-aurora-yonder">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                        </div>
+                        <p class="hero__panel-aurora-zenith">"I felt the difference from the very first shower. My skin wasn't tight anymore."</p>
+                        <div class="hero__panel-bloom-aurora">
+                            <div class="hero__panel-bloom-bloom">M</div>
+                            <div>
+                                <div class="hero__panel-bloom-crest">Margaret R., age 58</div>
+                                <div class="hero__panel-bloom-drift">Verified · Post-menopausal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endif %}
+{% schema %}
+{
+  "name": "SE Hero",
+  "settings": [
+    {"type":"text","id":"tagline","label":"Tagline","default":"Filtered Showerheads for Women Over 50"},
+   {
+  "type": "text",
+  "id": "hero_tagline",
+  "label": "Hero Tagline Text",
+  "default": "Designed for Women Over 50"
+},
+{
+  "type": "checkbox",
+  "id": "show_tagline_icon",
+  "label": "Show Tagline Icon",
+  "default": true
+},
+    {"type":"liquid","id":"headline","label":"Headline (HTML allowed)","default":"You Spend $200/mo<br>on Hair &amp; Skin.<br><span class=\"hero__panel-zenith\">Your Shower Undoes It Every Morning.</span>"},
+   {
+  "type": "text",
+  "id": "headline_part_1",
+  "label": "Headline Part 1",
+  "default": "Menopause is already thinning your hair and drying your skin."
+},
+{
+  "type": "text",
+  "id": "headline_highlight",
+  "label": "Highlighted Text",
+  "default": "doubling the damage"
+},
+{
+  "type": "text",
+  "id": "headline_part_2",
+  "label": "Headline Part 2",
+  "default": "— and blocking every product you apply."
+},
+    {"type":"text","id":"primary_label","label":"Primary button label","default":"Find Your Filter"},
+    {"type":"text","id":"secondary_label","label":"Secondary button label","default":"How It Works"},
+    {"type":"image_picker","id":"hero_image","label":"Hero image"}
+  ],
+  "presets":[{"name":"SE Hero"}]
+}
+{% endschema %} {% endcomment %}
+ <link rel="stylesheet" href="{{ 'se-mobile-menu-footer.css' | asset_url }}" media="print" onload="this.media='all'">
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+{% liquid
+  assign has_mobile_header_menu = false
+  for block in section.blocks
+    if block.type == 'mobile_header_menu'
+      assign has_mobile_header_menu = true
+    endif
+  endfor
+%}
+        <nav class="hero__panel-bloom">
+            <div class="hero__panel-crest"></div>
+            <div>
+                <div class="hero__panel-drift">
+                    <svg width="24" height="24" viewBox="0 0 32 32" class="hero__panel-ember">
+                        <circle cx="16" cy="16" r="14" fill="rgba(255,255,255,.15)"></circle>
+                        <path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"></path>
+                        <circle cx="16" cy="24" r="1.2" fill="#fff"></circle>
+                    </svg><span>Shower<span class="hero__panel-flare">Envy</span></span>
+                </div>
+                <div class="hero__panel-glow">{{ section.settings.tagline }}</div>
+            </div>
+            <div class="hero__panel-harbor"><a href="#science" class="nav-link">{{ section.settings.secondary_label }}</a><a href="#products" class="nav-link">Our Products</a><a href="#results" class="nav-link">Real Results</a><a href="#faq" class="nav-link">Common Questions</a>
+                <button class="btn btn-rose hero__panel-ivory">{{ section.settings.primary_label }}</button>
+            </div>
+            <button class="ham" aria-label="Open menu" type="button">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+        <div class="mob-overlay"></div>
+        <aside class="mob-menu" aria-label="Mobile navigation">
+            <button class="mob-close" aria-label="Close menu" type="button">×</button>
+            {% if has_mobile_header_menu %}
+              {% for block in section.blocks %}
+                {% if block.type == 'mobile_header_menu' %}
+                  <a href="{{ block.settings.mobile_menu_link }}">
+                    {% if block.settings.mobile_menu_icon != blank %}
+                      {{ block.settings.mobile_menu_icon | image_url: width: 24 | image_tag: loading: 'lazy', alt: block.settings.mobile_menu_title }}
+                    {% endif %}
+                    {{ block.settings.mobile_menu_title }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              <a href="#science">{{ section.settings.secondary_label }}</a>
+              <a href="#products">Our Products</a>
+              <a href="#results">Real Results</a>
+              <a href="#faq">Common Questions</a>
+            {% endif %}
+            <a href="#products" class="btn btn-rose" style="margin-top:20px;justify-content:center">{{ section.settings.primary_label }}</a>
+        </aside>
+        <div class="mob-cta" aria-label="Mobile sticky purchase CTA">
+            <div class="mob-cta-inner">
+                <div class="mob-cta-copy">
+                    <div class="mob-cta-title">ShowerEnvy 5.0 · $89</div>
+                    <div class="mob-cta-sub">Free shipping · 90-day guarantee</div>
+                </div>
+                <button type="button">{{ section.settings.primary_label }}</button>
+            </div>
+        </div>
+        <section class="dark-section hero__panel-jade">
+            <div class="hero__panel-kindle"></div>
+            <div class="hero__panel-lumen"></div>
+            <div class="hero__panel-meadow"></div>
+            <div class="hero__panel-nova"></div>
+            <div class="hero__panel-oasis"></div>
+            <div class="hero__panel-pulse"></div>
+            <div class="hero__panel-quartz"></div>
+            <div class="hero__panel-ripple"></div>
+            <div class="hero__panel-solace"></div>
+            <div class="hero__panel-thrive"></div>
+            <div class="hero__panel-uplift"></div>
+            <div class="hero__panel-velvet">
+                <div>
+                    {% if section.settings.hero_tagline != blank %}
+                    <div class="hero-content-reveal hero__panel-whisper">
+
+                    {% if section.settings.show_tagline_icon %}
+                    <span class="hero__panel-xenial"></span>
+                    {% endif %}
+
+                    {{ section.settings.hero_tagline }}
+
+                    </div>
+                    {% endif %}
+                    <h1 class="hero-content-reveal hero-main-heading hero__panel-yonder">{{ section.settings.headline }}</h1>
+                    <p class="hero-content-reveal hero-support-text hero__panel-aurora-aurora">
+                    {{ section.settings.headline_part_1 }}
+                    Chlorine and hard water are
+                    <strong class="hero__panel-aurora-bloom">
+                    {{ section.settings.headline_highlight }}
+                    </strong>
+                    {{ section.settings.headline_part_2 }}
+                    </p>
+                    <div class="hero-content-reveal hero-action-row hero__panel-aurora-crest">
+                        <button class="btn btn-rose hero__panel-aurora-drift">{{ section.settings.primary_label }}</button>
+                        <a href="#science" class="hero__panel-aurora-ember">
+                            <button class="btn btn-ghost hero__panel-aurora-flare">How It Works
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="hero-content-reveal hero-metric-row hero__panel-aurora-glow">
+                        <div>
+                            <div class="hero__panel-aurora-harbor"><span class="hero__panel-aurora-ivory">531+</span></div>
+                            <div class="hero__panel-aurora-jade">Women Trust ShowerEnvy</div>
+                        </div>
+                        <div>
+                            <div class="hero__panel-aurora-harbor"><span class="hero__panel-aurora-ivory">0.3%</span></div>
+                            <div class="hero__panel-aurora-jade">Chlorine Removed
+                            </div>
+                        </div>
+                        <div>
+                            <div class="hero__panel-aurora-harbor"><span class="hero__panel-aurora-ivory">0.0 ★</span></div>
+                            <div class="hero__panel-aurora-jade">Average Rating
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-content-reveal hero-action-row hero__panel-aurora-kindle">
+                    <div class="hero__panel-aurora-lumen">
+                        <div class="hero__panel-aurora-meadow">
+                            <div class="hero__panel-aurora-nova"><span class="hero__panel-aurora-oasis">📸</span><span class="hero__panel-aurora-pulse">Hero — Product lifestyle shot or woman in shower</span><span class="hero__panel-aurora-quartz">{% if section.settings.hero_image != blank %}<img src="{{ section.settings.hero_image | image_url: width: 900 }}" alt="{{ section.settings.hero_image.alt | escape }}" loading="lazy">{% else %}Upload image here{% endif %}</span></div>
+                        </div>
+                        <div class="hero__panel-aurora-ripple">
+                            {% if section.settings.custom_shower_svg != blank %}{{ section.settings.custom_shower_svg }}{% else %}<svg viewBox="0 0 280 380" fill="none" class="hero__panel-aurora-solace">
+                                <rect x="130" y="20" width="20" height="60" rx="10" fill="#4A4541" opacity=".6"></rect>
+                                <rect x="125" y="10" width="30" height="15" rx="7" fill="#5A564F" opacity=".5"></rect>
+                                <ellipse cx="140" cy="100" rx="52" ry="20" fill="url(#showerhead-gradient)" stroke="rgba(255,255,255,.1)" stroke-width="1"></ellipse>
+                                <ellipse cx="140" cy="96" rx="48" ry="16" fill="#3D3A35"></ellipse>
+                                <ellipse cx="140" cy="96" rx="44" ry="13" fill="#2C2825"></ellipse>
+                                <g>
+                                    <circle cx="105" cy="120" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="118;280;118" dur="2s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="102" cy="150" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="140;320;140" dur="2.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="2.5s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="115" cy="123" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="120;290;120" dur="2.3s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2.3s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="112" cy="155" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="144;328;144" dur="2.7s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="2.7s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="125" cy="126" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="122;300;122" dur="2.6s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2.6s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="122" cy="160" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="148;336;148" dur="2.9s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="2.9s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="135" cy="129" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="124;310;124" dur="2.9s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="2.9s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="132" cy="165" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="152;344;152" dur="3.1s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.1s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="145" cy="132" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="126;320;126" dur="3.2s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="3.2s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="142" cy="170" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="156;352;156" dur="3.3s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.3s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="155" cy="135" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="128;330;128" dur="3.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="3.5s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="152" cy="175" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="160;360;160" dur="3.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.5s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="165" cy="138" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="130;340;130" dur="3.8s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="3.8s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="162" cy="180" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="164;368;164" dur="3.7s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.7s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g>
+                                    <circle cx="175" cy="141" r="1.5" fill="rgba(147,200,220,.5)">
+                                        <animate attributeName="cy" values="132;350;132" dur="4.1s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.6;0" dur="4.1s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="172" cy="185" r="1" fill="rgba(147,200,220,.35)">
+                                        <animate attributeName="cy" values="168;376;168" dur="3.9000000000000004s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values="0;.4;0" dur="3.9000000000000004s" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                                <g opacity=".7">
+                                    <rect x="108" y="180" width="18" height="9" rx="4.5" fill="var(--rose)" opacity=".6">
+                                        <animate attributeName="y" values="175;220;175" dur="4s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values=".3;.7;.3" dur="4s" repeatCount="indefinite"></animate>
+                                    </rect>
+                                    <text x="113" y="187" fill="#fff" font-size="5" font-weight="700" font-family="var(--fb)">
+                                        <animate attributeName="y" values="182;227;182" dur="4s" repeatCount="indefinite"></animate>A</text>
+                                </g>
+                                <g opacity=".7">
+                                    <rect x="150" y="200" width="18" height="9" rx="4.5" fill="var(--gold)" opacity=".6">
+                                        <animate attributeName="y" values="195;245;195" dur="3.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values=".3;.7;.3" dur="3.5s" repeatCount="indefinite"></animate>
+                                    </rect>
+                                    <text x="155" y="207" fill="#fff" font-size="5" font-weight="700" font-family="var(--fb)">
+                                        <animate attributeName="y" values="202;252;202" dur="3.5s" repeatCount="indefinite"></animate>C</text>
+                                </g>
+                                <g opacity=".7">
+                                    <rect x="125" y="220" width="18" height="9" rx="4.5" fill="var(--sage)" opacity=".6">
+                                        <animate attributeName="y" values="215;270;215" dur="4.5s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="opacity" values=".3;.7;.3" dur="4.5s" repeatCount="indefinite"></animate>
+                                    </rect>
+                                    <text x="130" y="227" fill="#fff" font-size="5" font-weight="700" font-family="var(--fb)">
+                                        <animate attributeName="y" values="222;277;222" dur="4.5s" repeatCount="indefinite"></animate>E</text>
+                                </g>
+                                <circle cx="90" cy="160" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-thrive"></circle>
+                                <circle cx="180" cy="190" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-uplift"></circle>
+                                <circle cx="100" cy="240" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-velvet"></circle>
+                                <circle cx="170" cy="260" r="2" fill="#fff" opacity=".3" class="hero__panel-aurora-whisper"></circle>
+                                <text x="140" y="330" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="11" font-family="var(--fb)" font-weight="600" letter-spacing="2">SHOWERENVY 5.0</text>
+                                <text x="140" y="346" text-anchor="middle" fill="rgba(255,255,255,.15)" font-size="8" font-family="var(--fb)" letter-spacing="1">15-STAGE · VITAMIN A, C &amp; E</text>
+                                <defs>
+                                    <linearGradient id="showerhead-gradient" x1="88" y1="80" x2="192" y2="120">
+                                        <stop stop-color="#6B6560"></stop>
+                                        <stop offset="1" stop-color="#4A4541"></stop>
+                                    </linearGradient>
+                                </defs>
+                            </svg>{% endif %}
+                        </div>
+                    </div>
+                    <div class="card hero__panel-aurora-xenial">
+                        <div class="hero__panel-aurora-yonder">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                            </svg>
+                        </div>
+                        <p class="hero__panel-aurora-zenith">"I felt the difference from the very first shower. My skin wasn't tight anymore."</p>
+                        <div class="hero__panel-bloom-aurora">
+                            <div class="hero__panel-bloom-bloom">M</div>
+                            <div>
+                                <div class="hero__panel-bloom-crest">Margaret R., age 58</div>
+                                <div class="hero__panel-bloom-drift">Verified · Post-menopausal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endif %}
+{% schema %}
+{
+  "name": "SE Hero",
+  "settings": [
+    {"type":"text","id":"tagline","label":"Tagline","default":"Filtered Showerheads for Women Over 50"},
+   {
+  "type": "text",
+  "id": "hero_tagline",
+  "label": "Hero Tagline Text",
+  "default": "Designed for Women Over 50"
+},
+{
+  "type": "checkbox",
+  "id": "show_tagline_icon",
+  "label": "Show Tagline Icon",
+  "default": true
+},
+    {"type":"liquid","id":"headline","label":"Headline (HTML allowed)","default":"You Spend $200/mo<br>on Hair &amp; Skin.<br><span class=\"hero__panel-zenith\">Your Shower Undoes It Every Morning.</span>"},
+   {
+  "type": "text",
+  "id": "headline_part_1",
+  "label": "Headline Part 1",
+  "default": "Menopause is already thinning your hair and drying your skin."
+},
+{
+  "type": "text",
+  "id": "headline_highlight",
+  "label": "Highlighted Text",
+  "default": "doubling the damage"
+},
+{
+  "type": "text",
+  "id": "headline_part_2",
+  "label": "Headline Part 2",
+  "default": "— and blocking every product you apply."
+},
+    {"type":"text","id":"primary_label","label":"Primary button label","default":"Find Your Filter"},
+    {"type":"text","id":"secondary_label","label":"Secondary button label","default":"How It Works"},
+    {"type":"image_picker","id":"hero_image","label":"Hero image"}
+  ],
+  "blocks": [
+    {
+      "type": "mobile_header_menu",
+      "name": "Mobile Header Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "mobile_menu_title",
+          "label": "Mobile menu title"
+        },
+        {
+          "type": "url",
+          "id": "mobile_menu_link",
+          "label": "Mobile menu link"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_menu_icon",
+          "label": "Mobile menu icon (optional)"
+        }
+      ]
+    }
+  ],
+  "presets":[{"name":"SE Hero"}]
+}
+{% endschema %}

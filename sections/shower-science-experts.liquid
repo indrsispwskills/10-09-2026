@@ -1,0 +1,143 @@
+<div class="wrap">
+<section id="dermatologists" class="section-cream rv">
+  <div class="content-max">
+
+    <div class="s-head">
+      <div class="section-icon section-icon--gold rv-scale">
+        {{ section.settings.section_icon }}
+      </div>
+
+      <div class="s-tag" style="color:var(--gold)">
+        {{ section.settings.section_tag }}
+      </div>
+
+      <h2 class="s-title">
+        {{ section.settings.section_title }}
+      </h2>
+
+      <p class="s-sub">
+        {{ section.settings.section_subtitle }}
+      </p>
+    </div>
+
+
+    <div class="derm-grid">
+
+      {% for block in section.blocks %}
+
+        <div class="derm-card {{ block.settings.animation_class }}" {{ block.shopify_attributes }}>
+
+          <div class="derm-area">
+            {{ block.settings.area }}
+          </div>
+
+          <p class="derm-quote">
+            "{{ block.settings.quote }}"
+          </p>
+
+          <p class="derm-source">
+            {{ block.settings.source }}
+          </p>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "Shower science experts",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "section_icon",
+      "label": "Section Icon",
+      "default": "👩‍⚕️"
+    },
+
+    {
+      "type": "text",
+      "id": "section_tag",
+      "label": "Tag Line",
+      "default": "CLINICAL PERSPECTIVE"
+    },
+
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "What Dermatologists Say"
+    },
+
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Peer-reviewed research and clinical perspectives from board-certified dermatologists on the relationship between water quality, hormonal changes, and skin health."
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "derm_card",
+      "name": "Dermatologist Quote",
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "area",
+          "label": "Topic / Area",
+          "default": "On Chlorine & Skin"
+        },
+
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Dermatologist research quote here."
+        },
+
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source",
+          "default": "— Dermatology Research"
+        },
+
+        {
+          "type": "select",
+          "id": "animation_class",
+          "label": "Animation Class",
+          "default": "rv-left rv-d1",
+          "options": [
+            { "value": "rv-left rv-d1", "label": "Left Animation 1" },
+            { "value": "rv-right rv-d2", "label": "Right Animation 2" },
+            { "value": "rv-left rv-d3", "label": "Left Animation 3" },
+            { "value": "rv-right rv-d4", "label": "Right Animation 4" }
+          ]
+        }
+
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Shower science experts",
+      "blocks": [
+        { "type": "derm_card" },
+        { "type": "derm_card" },
+        { "type": "derm_card" },
+        { "type": "derm_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

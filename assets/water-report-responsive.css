@@ -1,0 +1,24 @@
+@media(max-width:680px){
+  .gauge-wrap{flex-direction:column;text-align:center}
+  .gauge-svg{width:180px;height:180px}
+  .gauge-info{min-width:0}
+  .gauge-stats{grid-template-columns:1fr 1fr}
+  .damage-grid{grid-template-columns:1fr}
+  .filter-grid{grid-template-columns:1fr 1fr}
+  .rcard{padding:24px 18px}
+  .zip-form{flex-direction:column;max-width:280px}
+  .zip-btn{width:100%}
+  .removal-name{width:90px;font-size:13px}
+  .vit-row{flex-direction:column}
+  .vit-pill{min-width:0}
+}
+@media(max-width:400px){
+  .rcard{padding:20px 16px;border-radius:14px}
+  .filter-grid{gap:10px}
+  .fc-val{font-size:28px}
+  .gauge-stats{gap:8px}
+  .entry-title{font-size:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}

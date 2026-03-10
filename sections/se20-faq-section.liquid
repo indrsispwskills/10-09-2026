@@ -1,0 +1,77 @@
+<!-- ═══ FAQ ═══ -->
+{% comment %} <div class="w">
+<section id="faq" class="sec">
+  <div class="sh rv"><div class="tag" style="color:var(--sage)">FAQ</div><h2>Questions We Get Most</h2></div>
+  <div style="max-width:680px;margin:0 auto">
+    <div class="xp rv rv-d1"><button class="xp-btn" onclick="xpToggle(this)"><span>Will this fit my shower?</span><span class="xp-ico">+</span></button><div class="xp-body">Fits any standard ½" shower pipe — that's 99% of U.S. homes. Fits by hand — no adapters, no plumber needed.</div></div>
+    <div class="xp rv rv-d2"><button class="xp-btn" onclick="xpToggle(this)"><span>How is this different from the $30 Amazon filters?</span><span class="xp-ico">+</span></button><div class="xp-body">Three things: filtration depth (5 stages vs. 1), build quality (stainless not plastic), and pressure. Cheap filters clog in weeks and turn your shower into a trickle. ShowerEnvy lasts 3 full months and micro-nozzle tech actually improves pressure.</div></div>
+    <div class="xp rv rv-d3"><button class="xp-btn" onclick="xpToggle(this)"><span>How often do I replace the filter?</span><span class="xp-ico">+</span></button><div class="xp-body">Every 3 months (~5,000 gallons). We're honest — it varies with household size and water quality. Subscribe and save 17%, shipped automatically so you never forget.</div></div>
+    <div class="xp rv rv-d4"><button class="xp-btn" onclick="xpToggle(this)"><span>Does it actually work or is this placebo?</span><span class="xp-ico">+</span></button><div class="xp-body">Thousands of women 45+ have felt the difference in their first shower. Less itching, softer hair, skin that doesn't feel tight. You'll know within the first week — and you have 60 days risk-free if you don't.</div></div>
+    <div class="xp rv rv-d5"><button class="xp-btn" onclick="xpToggle(this)"><span>I'm in perimenopause — will this help?</span><span class="xp-ico">+</span></button><div class="xp-body">ShowerEnvy can't reverse hormonal changes. What it does is remove the chlorine and heavy metals that compound the dryness, thinning, and itchiness you're already experiencing. Your shower shouldn't be making things worse.</div></div>
+    <div class="xp rv rv-d6"><button class="xp-btn" onclick="xpToggle(this)"><span>What if it doesn't work for me?</span><span class="xp-ico">+</span></button><div class="xp-body">Full refund within 60 days. No hoops, we even cover return shipping. We give you 60 days because hair results take 4–6 weeks. Most brands only give you 30.</div></div>
+  </div>
+</section>
+</div> {% endcomment %}
+
+<div class="w">
+<section id="faq" class="sec">
+
+<div class="sh rv">
+<div class="tag" style="color:var(--sage)">FAQ</div>
+<h2>Questions We Get Most</h2>
+</div>
+
+<div style="max-width:680px;margin:0 auto">
+
+{% for block in section.blocks %}
+
+<div class="xp rv rv-d{{ forloop.index }}">
+<button class="xp-btn" onclick="xpToggle(this)">
+<span>{{ block.settings.q }}</span>
+<span class="xp-ico">+</span>
+</button>
+
+<div class="xp-body">
+{{ block.settings.a }}
+</div>
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+</div>
+
+
+{% comment %} {% schema %}{"name":"SE20 FAQ","settings":[],"blocks":[{"type":"faq","name":"FAQ","settings":[{"type":"text","id":"q","label":"FAQ items"}]}],"presets":[{"name":"SE20 FAQ"}]}{% endschema %} {% endcomment %}
+
+{% schema %}
+{
+  "name": "SE20 FAQ",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "q",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "a",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SE20 FAQ"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,47 @@
+<div class="pp-page">
+  <!-- NAV -->
+  <nav class="topnav">
+    <div style="display:flex;align-items:center;gap:24px">
+      <div class="logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">2.0 Handheld</a>
+        <a href="#">5.0 Stationary</a>
+        <a href="#">Science</a>
+        <a href="#">Reviews</a>
+      </div>
+    </div>
+    <button class="cart-btn">Shop Now</button>
+    <button class="ham" aria-label="Menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mob-overlay" id="mobOverlay" onclick="toggleMobileNav()"></div>
+  <div class="mob-menu" id="mobMenu">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+      <div class="logo" style="font-size:22px"><svg width="20" height="20" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:5px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></div>
+      <button onclick="toggleMobileNav()" style="background:none;border:none;font-size:24px;color:var(--ink);cursor:pointer;padding:4px">✕</button>
+    </div>
+    <a href="#" class="mob-link">Home</a>
+    <a href="#" class="mob-link">2.0 Handheld</a>
+    <a href="#" class="mob-link">5.0 Stationary</a>
+    <a href="#" class="mob-link">Science</a>
+    <a href="#" class="mob-link">Reviews</a>
+    <a href="#" class="mob-link">Filters</a>
+    <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--bdr)">
+      <button class="cart-btn" style="width:100%;text-align:center;padding:14px 0;font-size:15px;border-radius:12px">Shop Now</button>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Privacy policy header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Privacy policy header"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,44 @@
+@media(max-width:900px){.policy-layout{grid-template-columns:1fr}.toc{display:none}.product-compare{grid-template-columns:1fr}}
+
+@media(max-width:480px){
+  .page{padding:0 14px}
+  .policy-hero h1{font-size:28px}
+  .policy-section{padding:20px 16px}
+  .promise-box{padding:20px 16px}
+  .contact-card{padding:28px 16px}
+  .guarantee-banner{padding:24px 16px}
+}
+
+@media(max-width:768px){
+  .page{padding:0 18px}
+  .topnav{padding:16px 0}
+  .nav-links{display:none}
+  .ham{display:flex!important}
+  .policy-hero{padding:40px 0 32px}
+  .policy-hero h1{font-size:32px}
+  .policy-hero-sub{font-size:16px}
+  .promise-box{padding:24px 20px;border-radius:16px}
+  .promise-grid{grid-template-columns:1fr}
+  .policy-section{padding:24px 20px;border-radius:16px}
+  .section-header h2{font-size:20px}
+  .section-icon{width:40px;height:40px;border-radius:12px;font-size:20px}
+  .contact-card{padding:32px 20px;border-radius:18px}
+  .contact-card h2{font-size:22px}
+  .contact-methods{flex-direction:column;align-items:stretch}
+  .contact-method{min-width:auto}
+  .footer-inner{flex-direction:column;text-align:center;gap:14px}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:14px}
+  .scroll-top{bottom:20px;right:20px;width:44px;height:44px}
+  .highlight-box{padding:16px 18px}
+  .cart-btn{padding:10px 18px;font-size:14px}
+  .topnav>.cart-btn{display:none}
+  .guarantee-banner{padding:28px 20px;border-radius:18px}
+  .guarantee-banner h3{font-size:22px}
+  .guarantee-shield{font-size:44px}
+  .product-compare{grid-template-columns:1fr}
+  .pc-card{padding:24px 20px}
+  .product-diff{grid-template-columns:1fr}
+  .pd-card{padding:20px 16px}
+  .friendly-banner{flex-direction:column;gap:16px;padding:24px 20px;border-radius:16px}
+  .quick-nav{gap:8px}
+}

@@ -1,0 +1,34 @@
+<div class="wrap">
+<section id="science" class="science reveal">
+  <div>
+    <div class="s-tag" style="color:var(--gold)">{{ section.settings.tag }}</div>
+    <h3>{{ section.settings.title }}</h3>
+    <p>{{ section.settings.desc_1 }}</p>
+    <p>{{ section.settings.desc_2 }}</p>
+    <a class="btn btn--gold" style="margin-top:8px" href="{{ section.settings.button_url | default: "#" }}">{{ section.settings.button_text }}</a>
+  </div>
+  <div class="science-stats">
+    {% for block in section.blocks %}
+      {% if block.type == 'stat' %}
+        <div class="sci-stat" {{ block.shopify_attributes }}><b style="color:{{ block.settings.color }}">{{ block.settings.value }}</b><small>{{ block.settings.label }}</small></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name":"Comparison science",
+  "settings":[
+    {"type":"text","id":"tag","label":"Tag","default":"THE RESEARCH"},
+    {"type":"text","id":"title","label":"Title","default":"The Science Is Clear: Your Water Matters More Now"},
+    {"type":"textarea","id":"desc_1","label":"Paragraph 1","default":"Peer-reviewed research shows women lose up to 30% of skin collagen in the first 5 years post-menopause, with ongoing losses of 2.1% per year. Skin thickness decreases 1.1% annually. Your body's ability to recover from chlorine exposure fundamentally changes."},
+    {"type":"textarea","id":"desc_2","label":"Paragraph 2","default":"We've compiled the research — hair growth cycle biology, skin barrier science, the compounding effect, dermatologist perspectives — into an honest resource. No marketing fluff."},
+    {"type":"text","id":"button_text","label":"Button text","default":"Read the Full Science →"},
+    {"type":"url","id":"button_url","label":"Button URL"}
+  ],
+  "blocks":[{"type":"stat","name":"Stat","settings":[{"type":"text","id":"value","label":"Value","default":"30%"},{"type":"text","id":"label","label":"Label","default":"Collagen lost in first 5 years post-menopause"},{"type":"text","id":"color","label":"Color var","default":"var(--rose)"}]}],
+  "presets":[{"name":"Comparison science","blocks":[{"type":"stat","settings":{"value":"30%","label":"Collagen lost in first 5 years post-menopause","color":"var(--rose)"}},{"type":"stat","settings":{"value":"2.1%","label":"Annual collagen decline per year","color":"var(--gold)"}},{"type":"stat","settings":{"value":"85%","label":"Of U.S. homes have hard water","color":"var(--sage)"}},{"type":"stat","settings":{"value":"8–12 wk","label":"For one full hair growth cycle","color":"var(--ink)"}}]}]
+}
+{% endschema %}

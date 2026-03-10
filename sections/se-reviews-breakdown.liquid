@@ -1,0 +1,28 @@
+<div class="page">
+  <section class="breakdown rv" id="breakdown">
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="breakdown-sub">{{ section.settings.subheading }}</p>
+    <div class="bar-chart" id="barChart">
+      <div class="bar-row"><div class="bar-label">Hair Thinning</div><div class="bar-track"><div class="bar-fill bf" data-w="78%" style="background:linear-gradient(90deg,#7C3AED,#A78BFA)"></div></div><div class="bar-pct">78%<span class="bar-count">(1,051)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Dry Skin</div><div class="bar-track"><div class="bar-fill bf" data-w="72%" style="background:linear-gradient(90deg,#DB2777,#F472B6)"></div></div><div class="bar-pct">72%<span class="bar-count">(970)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Frizzy Hair</div><div class="bar-track"><div class="bar-fill bf" data-w="65%" style="background:linear-gradient(90deg,var(--gold),#D4AA7D)"></div></div><div class="bar-pct">65%<span class="bar-count">(876)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Scalp Itchiness</div><div class="bar-track"><div class="bar-fill bf" data-w="58%" style="background:linear-gradient(90deg,#EA580C,#FB923C)"></div></div><div class="bar-pct">58%<span class="bar-count">(781)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Color Fading</div><div class="bar-track"><div class="bar-fill bf" data-w="52%" style="background:linear-gradient(90deg,#9333EA,#C084FC)"></div></div><div class="bar-pct">52%<span class="bar-count">(700)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Hard Water Buildup</div><div class="bar-track"><div class="bar-fill bf" data-w="48%" style="background:linear-gradient(90deg,#B45309,#F59E0B)"></div></div><div class="bar-pct">48%<span class="bar-count">(647)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Eczema / Dermatitis</div><div class="bar-track"><div class="bar-fill bf" data-w="35%" style="background:linear-gradient(90deg,#059669,#34D399)"></div></div><div class="bar-pct">35%<span class="bar-count">(471)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Low Pressure Fear</div><div class="bar-track"><div class="bar-fill bf" data-w="28%" style="background:linear-gradient(90deg,#2563EB,#60A5FA)"></div></div><div class="bar-pct">28%<span class="bar-count">(377)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Brittle Nails</div><div class="bar-track"><div class="bar-fill bf" data-w="22%" style="background:linear-gradient(90deg,#DC2626,#F87171)"></div></div><div class="bar-pct">22%<span class="bar-count">(296)</span></div></div>
+      <div class="bar-row"><div class="bar-label">Chlorine Sensitivity</div><div class="bar-track"><div class="bar-fill bf" data-w="18%" style="background:linear-gradient(90deg,#0891B2,#22D3EE)"></div></div><div class="bar-pct">18%<span class="bar-count">(242)</span></div></div>
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "SE reviews breakdown",
+  "settings": [
+    {"type":"text","id":"heading","label":"Heading","default":"What Problems Did It Solve?"},
+    {"type":"textarea","id":"subheading","label":"Subheading","default":"Self-reported by verified purchasers. Many reported improvement in multiple areas."}
+  ],
+  "presets": [{"name":"SE reviews breakdown"}]
+}
+{% endschema %}

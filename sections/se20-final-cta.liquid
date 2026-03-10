@@ -1,0 +1,140 @@
+<!-- ═══ FINAL CTA ═══ -->
+<div class="w">
+<div class="cta-end rv">
+  {% comment %} <h2>Your Hair &amp; Skin Deserve<br>Better Than Unfiltered Water</h2> {% endcomment %}
+  {% comment %} <div class="cta-stats">
+    <div class="cta-stat"><b>3 Modes</b><small>Spray</small></div>
+    <div class="cta-stat"><b>60"</b><small>Stainless Hose</small></div>
+    <div class="cta-stat"><b>60 Days</b><small>Guarantee</small></div>
+    <div class="cta-stat"><b>5 Min</b><small>Install</small></div>
+  </div>
+
+   {% endcomment %}
+
+   <h2>
+  {{ section.settings.heading_line_1 }}<br>
+  {{ section.settings.heading_line_2 }}
+</h2>
+
+<div class="cta-stats">
+  <div class="cta-stat">
+    <b>{{ section.settings.stat1_value }}</b>
+    <small>{{ section.settings.stat1_label }}</small>
+  </div>
+
+  <div class="cta-stat">
+    <b>{{ section.settings.stat2_value }}</b>
+    <small>{{ section.settings.stat2_label }}</small>
+  </div>
+
+  <div class="cta-stat">
+    <b>{{ section.settings.stat3_value }}</b>
+    <small>{{ section.settings.stat3_label }}</small>
+  </div>
+
+  <div class="cta-stat">
+    <b>{{ section.settings.stat4_value }}</b>
+    <small>{{ section.settings.stat4_label }}</small>
+  </div>
+</div>
+  <div style="max-width:480px;margin:0 auto">
+    <div onclick="selectOpt(1);document.getElementById('heroCta').scrollIntoView({behavior:'smooth'})" style="padding:16px 24px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);margin-bottom:12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .3s"><div style="color:rgba(255,255,255,.9);font-size:17px;font-weight:600">2.0 Handheld Kit</div><div style="color:#fff;font-family:var(--fh);font-size:24px;font-weight:700">$49</div></div>
+    <div onclick="selectOpt(2);document.getElementById('heroCta').scrollIntoView({behavior:'smooth'})" style="padding:16px 24px;border-radius:14px;background:linear-gradient(135deg,rgba(176,134,66,.2),rgba(176,134,66,.1));border:2px solid rgba(176,134,66,.4);margin-bottom:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .3s"><div><div style="color:#fff;font-size:17px;font-weight:600">2.0 + 15-Stage Protection</div><div style="font-size:14px;color:rgba(255,255,255,.5)">Advanced filtration for women 45+</div></div><div style="text-align:right"><div style="color:var(--gold);font-family:var(--fh);font-size:24px;font-weight:700">$79</div><div style="font-size:14px;color:rgba(255,255,255,.4);text-decoration:line-through">$108</div></div></div>
+    <button class="btn btn--rose" style="font-size:18px" onclick="window.scrollTo({top:0,behavior:'smooth'})">Choose Your Kit ↑</button>
+  </div>
+  <p style="font-size:14px;color:rgba(255,255,255,.35);margin-top:14px">Free shipping · 60-day guarantee · 5-minute install</p>
+</div>
+
+<footer class="footer">
+  <div style="margin-bottom:16px"><a href="#" style="font-family:var(--fh);font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px"><svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span style="color:var(--sage);font-weight:700;font-style:italic">Envy</span></a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--mut)"><a href="#">Home</a><a href="#">5.0 Stationary</a><a href="#">The Science</a><a href="#">Reviews</a><a href="#">FAQ</a><a href="#">Contact</a></div>
+  <div style="font-size:14px;color:var(--light);margin-top:12px">© 2026 ShowerEnvy · Privacy · Terms · Accessibility</div>
+</footer>
+
+</div>
+  
+{% comment %} {% schema %}{"name":"SE20 Final CTA","settings":[{"type":"text","id":"cta_button_text","label":"CTA button text","default":"Choose Your Kit"}],"presets":[{"name":"SE20 Final CTA"}]}{% endschema %} {% endcomment %}
+
+{% schema %}
+{
+  "name": "SE20 Final CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "Your Hair & Skin Deserve"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading Line 2",
+      "default": "Better Than Unfiltered Water"
+    },
+
+    {
+      "type": "text",
+      "id": "stat1_value",
+      "label": "Stat 1 Value",
+      "default": "3 Modes"
+    },
+    {
+      "type": "text",
+      "id": "stat1_label",
+      "label": "Stat 1 Label",
+      "default": "Spray"
+    },
+
+    {
+      "type": "text",
+      "id": "stat2_value",
+      "label": "Stat 2 Value",
+      "default": "60\""
+    },
+    {
+      "type": "text",
+      "id": "stat2_label",
+      "label": "Stat 2 Label",
+      "default": "Stainless Hose"
+    },
+
+    {
+      "type": "text",
+      "id": "stat3_value",
+      "label": "Stat 3 Value",
+      "default": "60 Days"
+    },
+    {
+      "type": "text",
+      "id": "stat3_label",
+      "label": "Stat 3 Label",
+      "default": "Guarantee"
+    },
+
+    {
+      "type": "text",
+      "id": "stat4_value",
+      "label": "Stat 4 Value",
+      "default": "5 Min"
+    },
+    {
+      "type": "text",
+      "id": "stat4_label",
+      "label": "Stat 4 Label",
+      "default": "Install"
+    },
+
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "CTA Button Text",
+      "default": "Choose Your Kit"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SE20 Final CTA"
+    }
+  ]
+}
+{% endschema %}

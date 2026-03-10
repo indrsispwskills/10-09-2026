@@ -1,0 +1,111 @@
+<section id="reviews" class="reveal">
+  <div class="wrap">
+    <div class="s-head">
+     <div class="s-tag" style="color:var(--gold)">
+  {{ section.settings.tag }}
+</div>
+      <h2 class="s-title">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="reviews-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'review' %}
+          <div class="rev-card" {{ block.shopify_attributes }}>
+            
+            <div class="rev-stars">★★★★★</div>
+
+            <p class="rev-quote">“{{ block.settings.quote }}”</p>
+
+            <div class="rev-meta">
+              {{ block.settings.meta }}
+            </div>
+
+            {% if block.settings.verified != blank %}
+              <div class="rev-verified">
+                {{ block.settings.verified }}
+              </div>
+            {% endif %}
+
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison reviews",
+  "settings": [
+    {
+    "type": "text",
+    "id": "tag",
+    "label": "Tag Text",
+    "default": "SOCIAL PROOF"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Real Women, Real Results"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote",
+          "default": "My hair finally stopped feeling like straw."
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Reviewer Name / Age",
+          "default": "Sarah, 52"
+        },
+        {
+          "type": "text",
+          "id": "verified",
+          "label": "Verified Text",
+          "default": "Verified · 5.0 user"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "My hair finally stopped feeling like straw.",
+            "meta": "Sarah, 52",
+            "verified": "Verified · 5.0 user"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "The 2.0 made my scalp less itchy in one week.",
+            "meta": "Tina, 47",
+            "verified": "Verified · 2.0 Handheld"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Wish I knew this 10 years ago.",
+            "meta": "Monica, 58",
+            "verified": "Verified · 5.0 user"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

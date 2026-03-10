@@ -1,0 +1,283 @@
+<div class="wrap">
+<section id="products" class="reveal">
+
+  <div class="s-head">
+    <div class="s-tag" style="color:var(--sage)">{{ section.settings.tag }}</div>
+    <h2 class="s-title">{{ section.settings.title }}</h2>
+    <p class="s-sub">{{ section.settings.subtitle }}</p>
+  </div>
+
+  <div class="prod-grid">
+
+    {% assign product_one = all_products[section.settings.product_one] %}
+    {% assign product_two = all_products[section.settings.product_two] %}
+
+    <!-- PRODUCT 1 -->
+    <div class="prod-card" style="border:2px solid var(--bdr)">
+      
+      <div class="prod-img prod-img--sage">
+        {% if product_one.featured_image %}
+          <img src="{{ product_one.featured_image | image_url: width:600 }}" alt="{{ product_one.title }}">
+        {% endif %}
+      </div>
+
+      <div class="prod-body">
+
+        <div class="prod-badges">
+          <span class="badge badge--sage">{{ section.settings.badge_one }}</span>
+          <span class="badge badge--muted">{{ section.settings.badge_two }}</span>
+        </div>
+
+        <h3 style="font-size:26px;margin-bottom:10px">
+          {{ product_one.title }}
+        </h3>
+
+        <p style="font-size:16px;color:var(--mut);line-height:1.65;margin-bottom:18px">
+          {{ product_one.description | strip_html | truncate: 160 }}
+        </p>
+
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px">
+          <span class="prod-price">{{ product_one.price | money }}</span>
+
+          {% if product_one.compare_at_price > product_one.price %}
+            <span class="prod-was">{{ product_one.compare_at_price | money }}</span>
+          {% endif %}
+
+          <span class="badge badge--save">{{ section.settings.save_text_1 }}</span>
+        </div>
+
+        {% for block in section.blocks %}
+          {% if block.type == "product1_feature" %}
+          <div class="cr">
+
+            <!-- SVG MUST STAY SAME -->
+            <svg class="ci" width="18" height="18" viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" fill="var(--sage)" opacity=".15"/>
+              <path d="M5 8l2 2 4-4" stroke="var(--sage)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+
+            <span>{{ block.settings.text }}</span>
+          </div>
+          {% endif %}
+        {% endfor %}
+
+        <a href="{{ product_one.url }}" class="btn btn--sage" style="width:100%;margin-top:22px">
+          {{ section.settings.button_one }}
+        </a>
+
+        <p class="prod-best">{{ section.settings.best_for_one }}</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- PRODUCT 2 -->
+    <div class="prod-card" style="border:2px solid rgba(176,134,66,.5)">
+
+      <div class="badge badge--popular" style="position:absolute;top:16px;right:16px;z-index:2;border-radius:16px;padding:6px 16px;font-size:14px">
+        {{ section.settings.popular_badge }}
+      </div>
+
+      <div class="prod-img prod-img--gold">
+        {% if product_two.featured_image %}
+          <img src="{{ product_two.featured_image | image_url: width:600 }}" alt="{{ product_two.title }}">
+        {% endif %}
+      </div>
+
+      <div class="prod-body">
+
+        <div class="prod-badges">
+          <span class="badge badge--gold">{{ section.settings.badge_three }}</span>
+          <span class="badge badge--muted">{{ section.settings.badge_four }}</span>
+        </div>
+
+        <h3 style="font-size:26px;margin-bottom:10px">
+          {{ product_two.title }}
+        </h3>
+
+        <p style="font-size:16px;color:var(--mut);line-height:1.65;margin-bottom:18px">
+          {{ product_two.description | strip_html | truncate: 160 }}
+        </p>
+
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px">
+          <span class="prod-price">{{ product_two.price | money }}</span>
+
+          {% if product_two.compare_at_price > product_two.price %}
+            <span class="prod-was">{{ product_two.compare_at_price | money }}</span>
+          {% endif %}
+
+          <span class="badge badge--save">{{ section.settings.save_text_2 }}</span>
+        </div>
+
+        {% for block in section.blocks %}
+          {% if block.type == "product2_feature" %}
+          <div class="cr">
+
+            <!-- SVG MUST STAY SAME -->
+            <svg class="ci" width="18" height="18" viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" fill="var(--gold)" opacity=".15"/>
+              <path d="M5 8l2 2 4-4" stroke="var(--gold)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+
+            <span>{{ block.settings.text }}</span>
+          </div>
+          {% endif %}
+        {% endfor %}
+
+        <a href="{{ product_two.url }}" class="btn btn--gold" style="width:100%;margin-top:22px">
+          {{ section.settings.button_two }}
+        </a>
+
+        <p class="prod-best">{{ section.settings.best_for_two }}</p>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "Comparison Products",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Section Tag",
+      "default": "CHOOSE YOUR PROTECTION"
+    },
+
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Two Products. One Mission."
+    },
+
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+
+    {
+      "type": "product",
+      "id": "product_one",
+      "label": "First Product"
+    },
+
+    {
+      "type": "product",
+      "id": "product_two",
+      "label": "Second Product"
+    },
+
+    {
+      "type": "text",
+      "id": "badge_one",
+      "label": "Product 1 Badge"
+    },
+
+    {
+      "type": "text",
+      "id": "badge_two",
+      "label": "Product 1 Filter Badge"
+    },
+
+    {
+      "type": "text",
+      "id": "save_text_1",
+      "label": "Product 1 Save Text"
+    },
+
+    {
+      "type": "text",
+      "id": "button_one",
+      "label": "Product 1 Button",
+      "default": "Shop Product"
+    },
+
+    {
+      "type": "text",
+      "id": "best_for_one",
+      "label": "Product 1 Best For"
+    },
+
+    {
+      "type": "text",
+      "id": "badge_three",
+      "label": "Product 2 Badge"
+    },
+
+    {
+      "type": "text",
+      "id": "badge_four",
+      "label": "Product 2 Filter Badge"
+    },
+
+    {
+      "type": "text",
+      "id": "save_text_2",
+      "label": "Product 2 Save Text"
+    },
+
+    {
+      "type": "text",
+      "id": "button_two",
+      "label": "Product 2 Button",
+      "default": "Shop Product"
+    },
+
+    {
+      "type": "text",
+      "id": "best_for_two",
+      "label": "Product 2 Best For"
+    },
+
+    {
+      "type": "text",
+      "id": "popular_badge",
+      "label": "Popular Badge",
+      "default": "MOST POPULAR"
+    }
+
+  ],
+
+  "blocks": [
+
+    {
+      "type": "product1_feature",
+      "name": "Product 1 Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Text"
+        }
+      ]
+    },
+
+    {
+      "type": "product2_feature",
+      "name": "Product 2 Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Text"
+        }
+      ]
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Comparison Products"
+    }
+  ]
+}
+{% endschema %}

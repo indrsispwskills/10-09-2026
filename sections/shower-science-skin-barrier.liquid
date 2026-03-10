@@ -1,0 +1,308 @@
+<div class="wrap">
+<section id="skin" class="rv">
+  <div class="content-max">
+
+    <div class="s-head">
+      <div class="section-icon section-icon--gold rv-scale">
+        {{ section.settings.section_icon }}
+      </div>
+
+      <div class="s-tag" style="color:var(--gold)">
+        {{ section.settings.section_tag }}
+      </div>
+
+      <h2 class="s-title">
+        {{ section.settings.section_title }}
+      </h2>
+    </div>
+
+
+    <!-- SVG LEFT UNCHANGED -->
+    <div class="illust rv-scale rv-d1">
+      <svg width="360" height="140" viewBox="0 0 360 140" fill="none">
+        <!-- SVG CONTENT UNCHANGED -->
+       <text x="10" y="28" font-family="DM Sans,sans-serif" font-size="9" fill="#5E8A6A" font-weight="600">ACID MANTLE</text>
+        <text x="10" y="58" font-family="DM Sans,sans-serif" font-size="9" fill="#B08642" font-weight="600">STRATUM CORNEUM</text>
+        <text x="10" y="88" font-family="DM Sans,sans-serif" font-size="9" fill="#1B3A4B" font-weight="600">EPIDERMIS</text>
+        <text x="10" y="118" font-family="DM Sans,sans-serif" font-size="9" fill="#8A857D" font-weight="600">DERMIS</text>
+        <text x="180" y="12" font-family="DM Sans,sans-serif" font-size="10" fill="#5E8A6A" font-weight="700" text-anchor="middle">HEALTHY (pH 4.5–5.5)</text>
+        <rect x="110" y="20" width="120" height="10" rx="5" fill="#5E8A6A" opacity=".2" stroke="#5E8A6A" stroke-width=".5"/>
+        <rect x="110" y="36" width="120" height="24" rx="4" fill="#F5EDE3" stroke="#B08642" stroke-width=".5"/>
+        <rect x="110" y="66" width="120" height="24" rx="4" fill="#fff" stroke="#1B3A4B" stroke-width=".5" opacity=".6"/>
+        <rect x="110" y="96" width="120" height="30" rx="4" fill="#f3f4f6" stroke="#B5B0A8" stroke-width=".5"/>
+        <text x="310" y="12" font-family="DM Sans,sans-serif" font-size="10" fill="#DC2626" font-weight="700" text-anchor="middle">DAMAGED (pH 7–8.5)</text>
+        <rect x="250" y="20" width="120" height="5" rx="2.5" fill="#DC2626" opacity=".15" stroke="#DC2626" stroke-width=".5" stroke-dasharray="3,3"/>
+        <rect x="250" y="36" width="120" height="16" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width=".5" stroke-dasharray="3,3"/>
+        <rect x="250" y="58" width="120" height="18" rx="4" fill="#fff" stroke="#DC2626" stroke-width=".5" opacity=".4"/>
+        <rect x="250" y="82" width="120" height="24" rx="4" fill="#f3f4f6" stroke="#B5B0A8" stroke-width=".5"/>
+        <text x="310" y="50" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#DC2626">THINNING</text>
+        <text x="310" y="74" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="#DC2626">GAPS FORMING</text>
+        <circle cx="280" cy="14" r="3" fill="#DC2626" opacity=".3"/><circle cx="310" cy="10" r="2" fill="#DC2626" opacity=".2"/><circle cx="340" cy="16" r="2.5" fill="#DC2626" opacity=".25"/>
+        <text x="170" y="134" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B5B0A8">Strong barrier retains moisture</text>
+        <text x="310" y="118" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#DC2626">Chlorine + hard water = accelerated TEWL</text>
+        <!-- rest unchanged -->
+      </svg>
+    </div>
+
+
+    <!-- STATS -->
+    <div class="stat-grid">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'stat' %}
+
+        <div class="stat-box rv-scale {{ block.settings.anim }}" {{ block.shopify_attributes }}>
+
+          <div class="stat-num"
+            style="color:{{ block.settings.color }}">
+            {{ block.settings.value }}
+          </div>
+
+          <div class="stat-label">
+            {{ block.settings.label }}
+          </div>
+
+          <div class="stat-sub">
+            {{ block.settings.sub }}
+          </div>
+
+          <div class="a-bar">
+            <div class="a-bar-fill {{ block.settings.bar_class }}"
+                 style="--fill:{{ block.settings.bar_fill }}"></div>
+          </div>
+
+        </div>
+
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+
+
+    <!-- CONTENT CARDS -->
+
+    <div class="card-grid">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'card' %}
+
+        <div class="content-card {{ block.settings.anim }}" {{ block.shopify_attributes }}>
+
+          <div class="s-tag"
+               style="color:{{ block.settings.tag_color }};font-size:11px">
+            {{ block.settings.tag }}
+          </div>
+
+          <h4>{{ block.settings.title }}</h4>
+
+          {{ block.settings.content }}
+
+        </div>
+
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+
+
+    <!-- EXPAND -->
+
+    <div class="expand rv rv-d3">
+
+      <button class="expand-btn"
+        onclick="toggleExpand(this)"
+        aria-expanded="false">
+
+        <span>
+          {{ section.settings.expand_title }}
+        </span>
+
+        <span class="expand-icon">+</span>
+
+      </button>
+
+
+      <div class="expand-body">
+        <div class="expand-body-inner">
+
+          {{ section.settings.expand_content }}
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "Science skin barrier",
+
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "section_icon",
+      "label": "Section Icon",
+      "default": "🛡️"
+    },
+
+    {
+      "type": "text",
+      "id": "section_tag",
+      "label": "Section Tag",
+      "default": "SKIN BIOLOGY"
+    },
+
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Your Skin Barrier Is Thinning — And Your Water Is Making It Worse"
+    },
+
+
+
+    {
+      "type": "text",
+      "id": "expand_title",
+      "label": "Expand Title",
+      "default": "Deep Dive: Why Dermatologists Recommend Shower Filters for Skin Conditions"
+    },
+
+    {
+      "type": "richtext",
+      "id": "expand_content",
+      "label": "Expand Content",
+      "default": "<p>Explain the dermatology research here.</p>"
+    }
+
+  ],
+
+
+
+  "blocks": [
+
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "30%"
+        },
+
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Collagen Lost"
+        },
+
+        {
+          "type": "text",
+          "id": "sub",
+          "label": "Subtext",
+          "default": "In first 5 years post-menopause"
+        },
+
+        {
+          "type": "text",
+          "id": "color",
+          "label": "Number Color",
+          "default": "#DC2626"
+        },
+
+        {
+          "type": "text",
+          "id": "bar_class",
+          "label": "Bar Class",
+          "default": "a-bar-fill--red"
+        },
+
+        {
+          "type": "text",
+          "id": "bar_fill",
+          "label": "Bar Fill",
+          "default": "75%"
+        },
+
+        {
+          "type": "text",
+          "id": "anim",
+          "label": "Animation Class",
+          "default": "rv-d1"
+        }
+
+      ]
+    },
+
+
+
+    {
+      "type": "card",
+      "name": "Content Card",
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "FAILURE #1"
+        },
+
+        {
+          "type": "text",
+          "id": "tag_color",
+          "label": "Tag Color",
+          "default": "#B08642"
+        },
+
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Collagen Collapse"
+        },
+
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+
+        {
+          "type": "text",
+          "id": "anim",
+          "label": "Animation Class",
+          "default": "rv-left rv-d2"
+        }
+
+      ]
+    }
+
+  ],
+
+
+
+  "presets": [
+    {
+      "name": "Science skin barrier",
+      "blocks": [
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

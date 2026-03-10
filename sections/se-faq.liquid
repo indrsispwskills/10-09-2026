@@ -1,0 +1,67 @@
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+<section id="faq" class="water-science__fact-crest-oasis">
+  <div class="faq-section__entry-kindle-kindle">
+    <div class="reveal-up hero__panel-bloom-ember">
+      <div class="water-science__fact-crest-quartz">
+        {% if section.settings.custom_svg != blank %}
+          <div class="faq-section__entry-kindle-lumen">{{ section.settings.custom_svg }}</div>
+        {% else %}
+          <div class="faq-section__entry-kindle-lumen">{{ section.settings.icon_emoji }}</div>
+        {% endif %}
+        <div class="section-eyebrow water-science__fact-crest-solace">{{ section.settings.eyebrow }}</div>
+        <h2 class="faq-section__entry-kindle-meadow">{{ section.settings.heading }}</h2>
+      </div>
+    </div>
+
+    <div class="faq-section__entry-kindle-nova">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="reveal-up hero__panel-bloom-ember" {{ block.shopify_attributes }}>
+            <div class="card faq-section__entry-kindle-oasis">
+              <button class="faq-section__entry-kindle-pulse"><span>{{ block.settings.question }}</span><span class="faq-section__entry-kindle-quartz">+</span></button>
+              <div class="faq-section__entry-kindle-ripple">
+                <div class="faq-section__entry-kindle-solace">{{ block.settings.answer }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="reveal-up hero__panel-bloom-ember">
+          <div class="card faq-section__entry-kindle-oasis">
+            <button class="faq-section__entry-kindle-pulse"><span>When will I see results?</span><span class="faq-section__entry-kindle-quartz">+</span></button>
+            <div class="faq-section__entry-kindle-ripple"><div class="faq-section__entry-kindle-solace">Most women feel softer water and less tightness from shower one. Skin improvements typically show in 2–3 weeks.</div></div>
+          </div>
+        </div>
+        <div class="reveal-up hero__panel-bloom-ember">
+          <div class="card faq-section__entry-kindle-oasis">
+            <button class="faq-section__entry-kindle-pulse"><span>Will it reduce my water pressure?</span><span class="faq-section__entry-kindle-quartz">+</span></button>
+            <div class="faq-section__entry-kindle-ripple"><div class="faq-section__entry-kindle-solace">No. The 5.0 uses micro-nozzle acceleration technology to maintain perceived pressure while filtering.</div></div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name":"SE FAQ",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"QUESTIONS WE HEAR MOST"},
+    {"type":"text","id":"heading","label":"Heading","default":"Common Questions"},
+    {"type":"text","id":"icon_emoji","label":"Icon emoji","default":"❓"},
+   
+  ],
+  "blocks":[
+    {"type":"item","name":"FAQ item","settings":[
+      {"type":"text","id":"question","label":"Question","default":"When will I see results?"},
+      {"type":"textarea","id":"answer","label":"Answer","default":"Most women feel softer water and less tightness from shower one. Skin improvements typically show in 2–3 weeks."}
+    ]}
+  ],
+  "max_blocks":12,
+  "presets":[{"name":"SE FAQ","blocks":[{"type":"item"},{"type":"item"},{"type":"item"},{"type":"item"}]}]
+}
+{% endschema %}

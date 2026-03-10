@@ -1,0 +1,56 @@
+<a href="#main" class="skip">{{ section.settings.skip_text }}</a>
+
+<header class="nav-bar" id="navBar">
+  <div class="nav-progress" id="navProgress"></div>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>{{ section.settings.brand_text }}<span>{{ section.settings.brand_text_accent }}</span></a>
+    <nav class="nav-links" role="navigation" aria-label="Main">
+      <a href="#products" class="nav-link" data-section="products">{{ section.settings.nav_products }}</a>
+      <a href="#pressure" class="nav-link" data-section="pressure">{{ section.settings.nav_pressure }}</a>
+      <a href="#installation" class="nav-link" data-section="installation">{{ section.settings.nav_installation }}</a>
+      <a href="#timeline" class="nav-link" data-section="timeline">{{ section.settings.nav_timeline }}</a>
+      <a href="#science" class="nav-link" data-section="science">{{ section.settings.nav_science }}</a>
+      <a href="#reviews" class="nav-link" data-section="reviews">{{ section.settings.nav_reviews }}</a>
+      <a href="#faq" class="nav-link" data-section="faq">{{ section.settings.nav_faq }}</a>
+    </nav>
+    <button class="nav-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">{{ section.settings.shop_now_text }}</button>
+    <button class="se-ham" aria-label="Menu" onclick="toggleSeMobileNav()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-spacer" aria-hidden="true"></div>
+
+<div class="se-mob-overlay" id="seMobOverlay" onclick="toggleSeMobileNav()"></div>
+<div class="se-mob-menu" id="seMobMenu">
+  <div class="se-mob-header">
+    <div class="nav-logo" style="font-size:22px"><svg class="brand-mark" width="22" height="22" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>{{ section.settings.brand_text }}<span>{{ section.settings.brand_text_accent }}</span></div>
+    <button class="se-mob-close" onclick="toggleSeMobileNav()">&times;</button>
+  </div>
+  <a href="#products" class="se-mob-link" onclick="toggleSeMobileNav()">{{ section.settings.nav_products }}</a>
+  <a href="#pressure" class="se-mob-link" onclick="toggleSeMobileNav()">{{ section.settings.nav_pressure }}</a>
+  <a href="#installation" class="se-mob-link" onclick="toggleSeMobileNav()">{{ section.settings.nav_installation }}</a>
+  <a href="#timeline" class="se-mob-link" onclick="toggleSeMobileNav()">{{ section.settings.nav_timeline }}</a>
+  <a href="#science" class="se-mob-link" onclick="toggleSeMobileNav()">{{ section.settings.nav_science }}</a>
+  <a href="#reviews" class="se-mob-link" onclick="toggleSeMobileNav()">{{ section.settings.nav_reviews }}</a>
+  <a href="#faq" class="se-mob-link" onclick="toggleSeMobileNav()">{{ section.settings.nav_faq }}</a>
+  <button class="se-mob-cta" onclick="toggleSeMobileNav()">{{ section.settings.shop_now_text }}</button>
+</div>
+
+{% schema %}
+{
+  "name": "Comparison nav",
+  "settings": [
+    { "type": "text", "id": "skip_text", "label": "Skip link text", "default": "Skip to main content" },
+    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "Shower" },
+    { "type": "text", "id": "brand_text_accent", "label": "Brand accent", "default": "Envy" },
+    { "type": "text", "id": "nav_products", "label": "Products label", "default": "Products" },
+    { "type": "text", "id": "nav_pressure", "label": "Pressure label", "default": "Pressure" },
+    { "type": "text", "id": "nav_installation", "label": "Installation label", "default": "Installation" },
+    { "type": "text", "id": "nav_timeline", "label": "Timeline label", "default": "Timeline" },
+    { "type": "text", "id": "nav_science", "label": "Science label", "default": "Science" },
+    { "type": "text", "id": "nav_reviews", "label": "Reviews label", "default": "Reviews" },
+    { "type": "text", "id": "nav_faq", "label": "FAQ label", "default": "FAQ" },
+    { "type": "text", "id": "shop_now_text", "label": "Shop button text", "default": "Shop Now" }
+  ],
+  "presets": [{ "name": "Comparison nav" }]
+}
+{% endschema %}

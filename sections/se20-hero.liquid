@@ -1,0 +1,488 @@
+{%- comment -%}
+  ShowerEnvy 2.0 Handheld Product Page
+  Auto-converted for Shopify Dawn theme.
+  
+  IMPLEMENTATION:
+  - This is a Custom Liquid section for the Dawn theme.
+  - All CSS is scoped under .se-product-2-0 to prevent conflicts.
+  - Navigation and footer have been removed (Dawn provides its own).
+{%- endcomment -%}
+
+{% comment %} <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+ {% endcomment %}
+
+
+<div class="se-product-2-0">
+
+<svg style="position:absolute;width:0;height:0"><defs>
+<lineargradient id="sageGrad" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#5E8A6A"></stop><stop offset="100%" stop-color="#A8D5B5"></stop></lineargradient>
+<lineargradient id="goldGrad" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#B08642"></stop><stop offset="100%" stop-color="#D4AA7D"></stop></lineargradient>
+</defs></svg>
+<div class="w">
+<!-- ═══ NAV ═══ -->
+<!-- ═══ NAV ═══ -->
+<nav class="topnav rv">
+  <div class="logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></div>
+  <div class="nav-links">
+    <a href="#">Home</a><a href="#">5.0 Stationary</a><a href="#">Science</a><a href="#">Reviews</a>
+    <button class="cart-btn" onclick="addToCart()" data-variant="{{ product.variants[0].id }}">Add to Cart — {{ product.variants[0].price | money }}</button>
+  </div>
+  <button class="ham" aria-label="Menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
+</nav>
+<!-- MOBILE NAV -->
+<div class="mob-overlay" id="mobOverlay" onclick="toggleMobileNav()"></div>
+
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-menu-header">
+    <div class="logo" style="font-size:22px"><svg class="brand-mark" width="22" height="22" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></div>
+    <button class="mob-menu-close" onclick="toggleMobileNav()">&times;</button>
+  </div>
+  <a href="#" class="mob-link" onclick="toggleMobileNav()">Home</a>
+  <a href="#" class="mob-link" onclick="toggleMobileNav()">5.0 Stationary</a>
+  <a href="#" class="mob-link" onclick="toggleMobileNav()">Science</a>
+  <a href="#" class="mob-link" onclick="toggleMobileNav()">Reviews</a>
+  <button class="mob-cta" onclick="toggleMobileNav()">Add to Cart — $49</button>
+</div>
+
+<div class="tracker rv rv-d1" id="tracker">
+<a class="act" href="#hero">Product</a><a href="#science">Science</a><a href="#pressure">Pressure</a><a href="#install">Install</a><a href="#spa">Spa Modes</a><a href="#filter">Filter</a><a href="#compare">Compare</a><a href="#timeline">Timeline</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+</div>
+<!-- ═══════════════════════════════════
+     HERO — Animated product showcase
+     ═══════════════════════════════════ -->
+<section class="sec" id="hero" style="">
+<div class="grid-hero">
+<div class="rv-left">
+<div class="hero-visual" id="heroVis">
+<div class="bg-pattern"></div>
+<div class="hero-drops">
+<div class="hd" style="left:15%;width:3px;height:3px;--d:3s;--dl:0s"></div>
+<div class="hd" style="left:30%;width:4px;height:4px;--d:2.5s;--dl:.5s"></div>
+<div class="hd" style="left:50%;width:3px;height:3px;--d:3.2s;--dl:1s"></div>
+<div class="hd" style="left:70%;width:4px;height:4px;--d:2.8s;--dl:.3s"></div>
+<div class="hd" style="left:85%;width:3px;height:3px;--d:3.5s;--dl:.8s"></div>
+</div>
+
+<div class="se-main-image" id="zoomContainer">
+
+  {% if product.featured_image %}
+    <img
+      id="mainProductImage"
+      src="{{ product.featured_image | image_url: width: 1200 }}"
+      data-zoom="{{ product.featured_image | image_url: width: 2000 }}"
+      alt="{{ product.title }}"
+      loading="lazy"
+    >
+  {% endif %}
+
+</div>
+
+
+</div>
+<div class="se-thumbnails">
+{% for image in product.images limit:4 %}
+  <div class="se-thumb {% if forloop.first %}active{% endif %}">
+    <img
+      src="{{ image | image_url: width:150 }}"
+      data-image="{{ image | image_url: width:1200 }}"
+      data-zoom="{{ image | image_url: width:2000 }}"
+      onclick="changeProductImage(this)"
+      loading="lazy"
+    >
+  </div>
+{% endfor %}
+</div>
+
+
+
+
+
+</div>
+<div class="rv-right">
+<div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+  {% if section.settings.badge_1_text != blank %}
+  <span class="badge" style="color:var(--sage);background:var(--sage3)">
+    {{ section.settings.badge_1_text }}
+  </span>
+  {% endif %}
+
+  {% if section.settings.badge_2_text != blank %}
+  <span class="badge" style="color:var(--gold);background:var(--gold3)">
+    {{ section.settings.badge_2_text }}
+  </span>
+  {% endif %}
+
+  {% if section.settings.badge_3_text != blank %}
+  <span class="badge" style="color:var(--mut);background:#f3f0eb">
+    {{ section.settings.badge_3_text }}
+  </span>
+  {% endif %}
+</div>
+<h1 style="font-size:36px;margin-bottom:10px">{{ product.title }}</h1>
+<p style="color:var(--mut);margin-bottom:24px;line-height:1.7;font-size:17px;max-width:480px">
+  {{ section.settings.description_text }}
+</p>
+{% comment %} <p style="color:var(--mut);margin-bottom:24px;line-height:1.7;font-size:17px;max-width:480px">{{ product.description }}</p> {% endcomment %}
+
+<div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin-bottom:12px">Choose Your Kit</div>
+
+{% assign v1 = product.variants[0] %}
+{% assign v2 = product.variants[1] %}
+
+<!-- Option 1 -->
+<div id="opt1" data-variant-id="{{ v1.id }}" onclick="selectOpt(1,{{ v1.id }})" style="padding:20px 22px;border-radius:16px;border:2px solid var(--sage);background:var(--sage3);margin-bottom:12px;cursor:pointer;transition:all .3s var(--eo);position:relative">
+
+<div style="position:absolute;top:-10px;right:16px">
+<span class="badge" style="color:#fff;background:linear-gradient(135deg,var(--sage),var(--saged));font-size:14px;padding:4px 12px">
+STARTER
+</span>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+
+<div>
+<div style="font-family:var(--fh);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px">
+{{ v1.title }}
+</div>
+
+<div style="font-size:15px;color:var(--mut);line-height:1.6">
+Showerhead + 60" hose + bracket + pre-installed 5-stage filter
+</div>
+</div>
+
+<div style="text-align:right;flex-shrink:0">
+
+<div style="font-family:var(--fh);font-size:28px;font-weight:700;color:var(--ink)">
+{{ v1.price | money }}
+</div>
+
+{% if v1.compare_at_price > v1.price %}
+<div style="font-size:14px;color:var(--light);text-decoration:line-through">
+{{ v1.compare_at_price | money }}
+</div>
+{% endif %}
+
+</div>
+</div>
+</div>
+
+
+
+<!-- Option 2 -->
+<div id="opt2" data-variant-id="{{ v2.id }}" onclick="selectOpt(2,{{ v2.id }})" style="padding:20px 22px;border-radius:16px;border:2px solid var(--bdr);background:#fff;margin-bottom:20px;cursor:pointer;transition:all .3s var(--eo);position:relative">
+
+<div style="position:absolute;top:-10px;right:16px">
+<span class="badge" style="color:#fff;background:linear-gradient(135deg,var(--gold),var(--goldd));font-size:14px;padding:4px 12px">
+BEST VALUE
+</span>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+
+<div>
+<div style="font-family:var(--fh);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px">
+{{ v2.title }}
+</div>
+
+<div style="font-size:15px;color:var(--mut);line-height:1.6">
+Everything above <strong style="color:var(--gold)">+ 15-stage inline filter</strong> for advanced filtration
+</div>
+</div>
+
+<div style="text-align:right;flex-shrink:0">
+
+<div style="font-family:var(--fh);font-size:28px;font-weight:700;color:var(--gold)">
+{{ v2.price | money }}
+</div>
+
+{% if v2.compare_at_price > v2.price %}
+<div style="font-size:14px;color:var(--light);text-decoration:line-through">
+{{ v2.compare_at_price | money }}
+</div>
+{% endif %}
+
+</div>
+</div>
+
+{% comment %} <button id="addToCartBtn">Add To Cart</button> {% endcomment %}
+
+<div style="margin-top:14px;padding:14px 16px;border-radius:12px;background:linear-gradient(135deg,var(--gold3),#fff);border:1px solid rgba(176,134,66,.1)">
+<div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">
+{{ section.settings.why_title }}
+</div>
+
+<div style="font-size:14px;color:var(--ink2);line-height:1.7">
+
+<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:5px">
+<span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>
+<span>{{ section.settings.point_1 }}</span>
+</div>
+
+<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:5px">
+<span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>
+<span>{{ section.settings.point_2 }}</span>
+</div>
+
+<div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:5px">
+<span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>
+<span>{{ section.settings.point_3 }}</span>
+</div>
+
+<div style="display:flex;gap:8px;align-items:flex-start">
+<span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>
+<span>{{ section.settings.point_4 }}</span>
+</div>
+
+</div>
+
+<div style="margin-top:10px;padding:10px 14px;border-radius:10px;background:rgba(176,134,66,.06);font-size:14px;color:var(--gold);font-style:italic;line-height:1.5">
+{{ section.settings.insight_text }}
+</div>
+</div>
+</div>
+<button class="btn btn--rose" id="heroCta" onclick="addToCart()" data-variant="{{ v1.id }}" style="margin-bottom:16px;font-size:18px">Add to Cart — {{ v1.price | money }}</button>
+<div style="display:flex;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--mut);margin-bottom:8px">
+<span style="display:flex;align-items:center;gap:5px"><svg fill="none" height="16" stroke="var(--sage)" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> 60-Day Guarantee</span>
+<span style="display:flex;align-items:center;gap:5px"><svg fill="none" height="16" stroke="var(--sage)" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="13" rx="2" width="15" x="1" y="3"></rect><path d="M16 8h4l3 3v5a2 2 0 01-2 2h-1M7 16h10"></path></svg> Free Shipping</span>
+<span style="display:flex;align-items:center;gap:5px"><svg fill="none" height="16" stroke="var(--sage)" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> 5-Min Install</span>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+{% comment %} trust bar {% endcomment %}
+
+<div id="trustBar" class="rv vis" style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;padding:24px 0;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);margin-bottom:56px;font-size:14px;color:var(--mut);text-align:center">
+  <div><strong class="ctr" data-end="12400" data-suf="+" data-fmt="1" style="color:var(--gold);font-size:24px">12,400+</strong><br>Women Trust ShowerEnvy</div>
+  <div><strong class="ctr" data-end="4.8" data-suf=" ★" data-dec="1" style="color:var(--sage);font-size:24px">4.8 ★</strong><br>Average Rating</div>
+  <div><strong class="ctr" data-end="90" data-suf="%+" style="color:var(--rose);font-size:24px">90%+</strong><br>Chlorine Removed</div>
+  <div><strong style="color:var(--ink);font-family:var(--fh);font-size:24px">60 Days</strong><br>Money-Back Guarantee</div>
+</div>
+
+
+
+
+</div>
+
+
+<!-- Option 2 -->
+</div>
+<script>
+{% comment %} function addToCart() {
+  const btn = document.getElementById("heroCta");
+  const variantId = btn.dataset.variant;
+  const cartDrawer = document.querySelector('cart-drawer');
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      id: variantId,
+      quantity: 1,
+      sections: 'cart-drawer,cart-icon-bubble',
+      sections_url: window.location.pathname
+    })
+  })
+  .then(res => res.json())
+  .then(response => {
+    console.log('Product added:', response);
+
+    if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
+      cartDrawer.renderContents(response);
+    } else {
+      window.location.href = '/cart';
+    }
+  })
+  .catch(err => {
+    console.error('Cart error:', err);
+  });
+} {% endcomment %}
+
+
+function addToCart() {
+
+  const variantId = document.getElementById("heroCta").dataset.variant;
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      id: variantId,
+      quantity: 1
+    })
+  })
+  .then(() => fetch('/?sections=cart-drawer'))
+  .then(res => res.json())
+  .then(data => {
+
+    const parser = new DOMParser();
+    const html = parser.parseFromString(data["cart-drawer"], "text/html");
+
+    const newDrawer = html.querySelector("cart-drawer");
+    const currentDrawer = document.querySelector("cart-drawer");
+
+    currentDrawer.innerHTML = newDrawer.innerHTML;
+
+    /* IMPORTANT FIX */
+
+    currentDrawer.classList.remove("is-empty");
+
+    /* open drawer */
+
+    if (typeof currentDrawer.open === "function") {
+      currentDrawer.open();
+    }
+
+  })
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const container = document.getElementById("zoomContainer");
+  const mainImage = document.getElementById("mainProductImage");
+  const thumbs = document.querySelectorAll(".se-thumb img");
+
+  if (!container || !mainImage) return;
+
+
+  /* -----------------------------
+     Thumbnail Click Change Image
+  ------------------------------*/
+
+  thumbs.forEach(function (thumb) {
+
+    thumb.addEventListener("click", function () {
+
+      const newSrc = this.getAttribute("data-image");
+      const zoomSrc = this.getAttribute("data-zoom");
+
+      if (newSrc) {
+        mainImage.src = newSrc;
+      }
+
+      if (zoomSrc) {
+        mainImage.dataset.zoom = zoomSrc;
+      }
+
+      document.querySelectorAll(".se-thumb").forEach(function (t) {
+        t.classList.remove("active");
+      });
+
+      this.parentElement.classList.add("active");
+
+    });
+
+  });
+
+
+  /* -----------------------------
+        Hover Zoom Effect
+  ------------------------------*/
+
+  container.addEventListener("mousemove", function (e) {
+
+    const rect = container.getBoundingClientRect();
+
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    mainImage.style.transformOrigin = x + "% " + y + "%";
+    mainImage.style.transform = "scale(2)";
+
+  });
+
+
+  /* -----------------------------
+        Reset Zoom
+  ------------------------------*/
+
+  container.addEventListener("mouseleave", function () {
+
+    mainImage.style.transform = "scale(1)";
+    mainImage.style.transformOrigin = "center center";
+
+  });
+
+});
+</script>
+
+
+{% schema %}
+{
+"name": "SE",
+"tag": "section",
+"class": "section",
+"settings": [
+{
+"type": "text",
+"id": "badge_1_text",
+"label": "Badge 1 Text",
+"default": "BEST STARTER"
+},
+{
+"type": "text",
+"id": "badge_2_text",
+"label": "Badge 2 Text",
+"default": "5-STAGE FILTER"
+},
+{
+"type": "text",
+"id": "badge_3_text",
+"label": "Badge 3 Text",
+"default": "3 SPRAY MODES"
+},
+{
+"type": "textarea",
+"id": "description_text",
+"label": "Product Description",
+"default": "Filtered water meets total flexibility. 5-stage filtration, 3 spa-inspired spray modes, and a 60\" hose that reaches everywhere you need it."
+},
+{
+"type": "text",
+"id": "why_title",
+"label": "Why Section Title",
+"default": "Why Women 45+ Choose This"
+},
+{
+"type": "textarea",
+"id": "point_1",
+"label": "Point 1",
+"default": "<strong>Vitamin C infusion</strong> — replaces the antioxidant defense your declining estrogen no longer provides"
+},
+{
+"type": "textarea",
+"id": "point_2",
+"label": "Point 2",
+"default": "<strong>5-Stage Filtration</strong> — Sediment, Calcium Sulfite, Vitamin C, KDF-55, and Catalytic Carbon target every threat to post-menopausal skin and hair"
+},
+{
+"type": "textarea",
+"id": "point_3",
+"label": "Point 3",
+"default": "<strong>Catalytic carbon</strong> — removes chloramines that strip the lipid barrier your body can no longer fully rebuild"
+},
+{
+"type": "textarea",
+"id": "point_4",
+"label": "Point 4",
+"default": "<strong>pH correction</strong> — rebalances water to skin-neutral, reducing transepidermal water loss"
+},
+{
+"type": "textarea",
+"id": "insight_text",
+"label": "Insight Text",
+"default": "<strong>The insight:</strong> Menopause reduced your body's defenses. The 5-stage filter handles chlorine, heavy metals, and PFAS — but the 15-stage handles everything else your body can no longer protect itself from."
+}
+]
+}
+{% endschema %}

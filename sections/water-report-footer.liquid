@@ -1,0 +1,15 @@
+<footer class="ftr">
+  <p>{{ section.settings.copy_line_1 }}</p>
+  <p style="margin-top:4px">{{ section.settings.copy_line_2 }}</p>
+</footer>
+
+{% schema %}
+{
+  "name":"Water report footer",
+  "settings":[
+    {"type":"textarea","id":"copy_line_1","label":"Footer line 1","default":"© 2026 ShowerEnvy® Inc. · Data sourced from EPA SDWIS, EWG Tap Water Database & USGS Water Quality records."},
+    {"type":"textarea","id":"copy_line_2","label":"Footer line 2","default":"These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."}
+  ],
+  "presets":[{"name":"Water report footer"}]
+}
+{% endschema %}

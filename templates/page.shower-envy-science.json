@@ -1,0 +1,951 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "science_navigation": {
+      "type": "shower-science-navigation",
+      "blocks": {
+        "mobile_menu_jABT4Q": {
+          "type": "mobile_menu",
+          "settings": {
+            "title": "Compounding Effect",
+            "link": "#compounding"
+          }
+        },
+        "mobile_menu_dAcMr3": {
+          "type": "mobile_menu",
+          "settings": {
+            "title": "Hair Growth Cycle",
+            "link": "#hair"
+          }
+        },
+        "mobile_menu_GUtXzj": {
+          "type": "mobile_menu",
+          "settings": {
+            "title": "Skin Barrier Science",
+            "link": "#skin"
+          }
+        },
+        "mobile_menu_3z7xhK": {
+          "type": "mobile_menu",
+          "settings": {
+            "title": "Why It Matters at 45+",
+            "link": "#whynow"
+          }
+        },
+        "mobile_menu_HEntNh": {
+          "type": "mobile_menu",
+          "settings": {
+            "title": "What Filters Do",
+            "link": "#solution"
+          }
+        },
+        "mobile_menu_3DRdW8": {
+          "type": "mobile_menu",
+          "settings": {
+            "title": "Dermatologist Perspectives",
+            "link": "#dermatologists"
+          }
+        },
+        "mobile_menu_38FnXe": {
+          "type": "mobile_menu",
+          "settings": {
+            "title": "Shop Now →",
+            "link": "#cta"
+          }
+        },
+        "mobile_nav_T4bDtC": {
+          "type": "mobile_nav",
+          "settings": {
+            "title": "Compounding",
+            "link": "#compounding"
+          }
+        },
+        "mobile_nav_dkJHan": {
+          "type": "mobile_nav",
+          "settings": {
+            "title": "Hair Cycle",
+            "link": "#hair"
+          }
+        },
+        "mobile_nav_kb6KUW": {
+          "type": "mobile_nav",
+          "settings": {
+            "title": "Skin Barrier",
+            "link": "#skin"
+          }
+        },
+        "mobile_nav_hWcY6h": {
+          "type": "mobile_nav",
+          "settings": {
+            "title": "Why 45+",
+            "link": "#whynow"
+          }
+        },
+        "mobile_nav_Vz6e93": {
+          "type": "mobile_nav",
+          "settings": {
+            "title": "Solution",
+            "link": "#solution"
+          }
+        },
+        "mobile_nav_3frkM9": {
+          "type": "mobile_nav",
+          "settings": {
+            "title": "Experts",
+            "link": "#dermatologists"
+          }
+        },
+        "mobile_nav_DAwpBq": {
+          "type": "mobile_nav",
+          "settings": {
+            "title": "Shop Now",
+            "link": "#cta"
+          }
+        },
+        "desktop_nav_NgWYRQ": {
+          "type": "desktop_nav",
+          "settings": {
+            "title": "Compounding",
+            "link": "#compounding",
+            "section": "compounding"
+          }
+        },
+        "desktop_nav_Afm86M": {
+          "type": "desktop_nav",
+          "settings": {
+            "title": "Hair Cycle",
+            "link": "#hair",
+            "section": "hair"
+          }
+        },
+        "desktop_nav_UzHVyN": {
+          "type": "desktop_nav",
+          "settings": {
+            "title": "Skin Barrier",
+            "link": "#skin",
+            "section": "skin"
+          }
+        },
+        "desktop_nav_VVm6T3": {
+          "type": "desktop_nav",
+          "settings": {
+            "title": "Why 45+",
+            "link": "#whynow",
+            "section": "whynow"
+          }
+        },
+        "desktop_nav_QCHBnL": {
+          "type": "desktop_nav",
+          "settings": {
+            "title": "Solution",
+            "link": "#solution",
+            "section": "solution"
+          }
+        },
+        "desktop_nav_7d8fCi": {
+          "type": "desktop_nav",
+          "settings": {
+            "title": "Experts",
+            "link": "#dermatologists",
+            "section": "dermatologists"
+          }
+        }
+      },
+      "block_order": [
+        "mobile_menu_jABT4Q",
+        "mobile_menu_dAcMr3",
+        "mobile_menu_GUtXzj",
+        "mobile_menu_3z7xhK",
+        "mobile_menu_HEntNh",
+        "mobile_menu_3DRdW8",
+        "mobile_menu_38FnXe",
+        "mobile_nav_T4bDtC",
+        "mobile_nav_dkJHan",
+        "mobile_nav_kb6KUW",
+        "mobile_nav_hWcY6h",
+        "mobile_nav_Vz6e93",
+        "mobile_nav_3frkM9",
+        "mobile_nav_DAwpBq",
+        "desktop_nav_NgWYRQ",
+        "desktop_nav_Afm86M",
+        "desktop_nav_UzHVyN",
+        "desktop_nav_VVm6T3",
+        "desktop_nav_QCHBnL",
+        "desktop_nav_7d8fCi"
+      ],
+      "settings": {
+        "skip_text": "Skip to main content"
+      }
+    },
+    "science_hero": {
+      "type": "shower-science-hero",
+      "settings": {
+        "badge": "RESEARCH-BACKED SCIENCE",
+        "title_prefix": "The Biology Behind Why",
+        "title_accent": "Your Water Matters More Now",
+        "description": "The same hormonal changes causing your hair and skin to shift also make you more vulnerable to contaminants in your shower water. Here's the science — no marketing, no fluff, just the research."
+      }
+    },
+    "science_compounding": {
+      "type": "shower-science-compounding",
+      "settings": {
+        "heading": "THE CORE INSIGHT",
+        "title": "The Compounding Effect: 1 + 1 = 3",
+        "description": "Hormonal changes and unfiltered water aren't two separate problems. They compound each other, creating accelerated damage that neither would cause alone.",
+        "card1_title": "Less Oil Produced",
+        "card1_desc": "Estrogen decline reduces sebum production. Your scalp and skin make fewer protective oils.",
+        "card2_title": "Remaining Oil Stripped",
+        "card2_desc": "Chlorine oxidizes and strips what little natural oil your body still produces, leaving nothing.",
+        "card3_title": "Exponential Dryness",
+        "card3_desc": "Zero protective oil layer = extreme vulnerability. Products can't absorb. Follicles are exposed.",
+        "expand_title": "Deep Dive: How Estrogen Loss + Chlorine Create a Vicious Cycle",
+        "p1": "Estrogen directly regulates sebum production through insulin-like growth factor receptors on sebocytes (oil-producing cells). As estrogen levels decline during perimenopause and menopause, sebum output can drop significantly — leaving your skin and scalp with less of its natural protective oil layer.",
+        "p2": "Chlorine is a powerful oxidant. Its entire purpose in municipal water is to kill living organisms by oxidizing their cell walls. When it contacts your skin and hair, it does the same thing to your natural oils — breaking down the lipid barrier that keeps moisture in and irritants out.",
+        "p3_title": "At 25, this isn't a major problem.",
+        "p3": "Young skin produces abundant sebum and can replenish its oil layer quickly after a chlorinated shower. The damage is temporary.",
+        "p4_title": "At 50, it's a completely different situation.",
+        "p4": "Your body is producing less oil AND chlorine is stripping what remains. There isn't enough sebum to rebuild the barrier between showers. Each shower compounds the deficit. This is why dryness, itching, and irritation accelerate — it's not just aging. It's aging plus daily chemical exposure on a body that can no longer compensate.",
+        "citation": "Sources: Ashcroft et al., 1997 (estrogen/sebocyte regulation) · Brincat et al., 1987 (collagen/estrogen correlation) · Aquasana skin disorder research",
+        "tip_number": "2×",
+        "tip_title": "The compounding factor:",
+        "tip_text": "A woman at 50 with unfiltered water faces roughly double the effective moisture loss from each shower compared to her 25-year-old self — not because the water got worse, but because her body's ability to recover from it decreased."
+      }
+    },
+    "science_hair": {
+      "type": "shower-science-hair-cycle",
+      "blocks": {
+        "water_point_cQiCeQ": {
+          "type": "water_point",
+          "settings": {
+            "title": "Chloramines penetrate deeper",
+            "description": "Used in 30%+ of U.S. systems, chloramines penetrate skin effectively, reaching the dermis where follicle roots live."
+          }
+        },
+        "water_point_qzcMPk": {
+          "type": "water_point",
+          "settings": {
+            "title": "Hard water clogs follicles",
+            "description": "Mineral film blocks product absorption and physically occludes follicle openings, stressing miniaturizing hairs."
+          }
+        },
+        "water_point_GU7kcq": {
+          "type": "water_point",
+          "settings": {
+            "title": "Heavy metals cause follicular inflammation",
+            "description": "Lead, mercury, and cadmium cause chronic inflammation around follicles, pushing hairs into telogen prematurely."
+          }
+        },
+        "water_point_hNe8Bw": {
+          "type": "water_point",
+          "settings": {
+            "title": "Chlorine strips protective sebum",
+            "description": "Without sebum, the follicle environment becomes dry and inflamed — accelerating the anagen-to-catagen transition."
+          }
+        },
+        "menopause_point_TFQAV4": {
+          "type": "menopause_point",
+          "settings": {
+            "title": "DHT sensitivity increases",
+            "description": "As estrogen declines, androgens (particularly DHT) shrink follicles — the same mechanism behind male pattern baldness."
+          }
+        },
+        "menopause_point_qYwQ3h": {
+          "type": "menopause_point",
+          "settings": {
+            "title": "Follicle miniaturization begins",
+            "description": "Some follicles produce finer, shorter 'vellus' hairs. Density decreases before you see bald spots."
+          }
+        },
+        "menopause_point_K9wtiQ": {
+          "type": "menopause_point",
+          "settings": {
+            "title": "Telogen phase lengthens",
+            "description": "More follicles sit in the resting phase for longer. Fewer hairs are actively growing at any given time."
+          }
+        },
+        "menopause_point_dtUANc": {
+          "type": "menopause_point",
+          "settings": {
+            "title": "Anagen phase shortens",
+            "description": "Hair doesn't grow as long or as thick. The proportion of anagen hairs decreases — especially across the frontal scalp."
+          }
+        },
+        "timeline_iQcRXa": {
+          "type": "timeline",
+          "settings": {
+            "label": "Weeks 8–12",
+            "title": "The full picture.",
+            "description": "New growth stronger and thicker. Cumulative follicle cycling shows visible density improvement. This is why we offer 60–90 day guarantees."
+          }
+        },
+        "timeline_Cq8ar3": {
+          "type": "timeline",
+          "settings": {
+            "label": "Weeks 4–8",
+            "title": "Hair starts improving.",
+            "description": "Reduced breakage, less shedding, better product absorption. Existing hairs healthier; early new growth begins."
+          }
+        },
+        "timeline_ezFLnV": {
+          "type": "timeline",
+          "settings": {
+            "label": "Weeks 1–3",
+            "title": "Skin & scalp respond first.",
+            "description": "Reduced itching, less tightness, softer feel. Chlorine removal works on surface oils immediately."
+          }
+        }
+      },
+      "block_order": [
+        "water_point_cQiCeQ",
+        "water_point_qzcMPk",
+        "water_point_GU7kcq",
+        "water_point_hNe8Bw",
+        "menopause_point_TFQAV4",
+        "menopause_point_qYwQ3h",
+        "menopause_point_K9wtiQ",
+        "menopause_point_dtUANc",
+        "timeline_iQcRXa",
+        "timeline_Cq8ar3",
+        "timeline_ezFLnV"
+      ],
+      "settings": {
+        "tag": "HAIR BIOLOGY",
+        "title": "Your Hair Growth Cycle Is Changing",
+        "description": "Every hair on your head goes through a 3-phase cycle. Menopause alters the timing. Unfiltered water stresses the cycle further.",
+        "menopause_title": "What Menopause Does to This Cycle",
+        "water_title": "What Unfiltered Water Does to This Already Compromised Cycle",
+        "timeline_title": "What to Expect: Your Results Timeline",
+        "timeline_description": "Based on hair biology and customer feedback",
+        "expand_title": "Deep Dive: The 8–12 Week Timeline Explained",
+        "expand_text_1": "When people ask \"how long until I see results?\", the answer is rooted in hair biology. Each hair follicle cycles independently. When you remove environmental stressors, follicles in anagen begin growing healthier immediately — but you won't see the effect until that hair grows visibly.",
+        "expand_text_2": "Scalp hair grows at approximately 1 cm per month. A follicle entering anagen on install day won't produce visible hair for 2–3 weeks. You need enough follicles to transition for the cumulative effect to become noticeable.",
+        "expand_text_3": "This is why our 5.0 Stationary includes a 90-day guarantee and our 2.0 Handheld includes 60 days — calibrated to the biological timeline.",
+        "expand_source": "Sources: Paus & Cotsarelis, 1999 (hair follicle biology) · StatPearls Hair Physiology · ScienceDirect Menopause and Hair Loss, 2025"
+      }
+    },
+    "science_skin": {
+      "type": "shower-science-skin-barrier",
+      "blocks": {
+        "card_RXMGkq": {
+          "type": "card",
+          "settings": {
+            "tag": "FAILURE #1: STRUCTURAL",
+            "tag_color": "var(--gold)",
+            "title": "Collagen Collapse",
+            "content": "<p>Estrogen stimulates production of Type I and Type III collagen — the structural proteins that give skin its firmness. It also maintains elastin, hyaluronic acid, and glycosaminoglycans (the molecules that hold moisture in your skin).</p><p>Clinical studies show that collagen content declines with <strong>menopausal age rather than chronological age</strong> — meaning it's driven by estrogen loss, not simply getting older. The decline is dramatic: up to 30% in just five years, then 2.1% every year after that.</p>",
+            "anim": "rv-left rv-d2"
+          }
+        },
+        "card_LNgGnV": {
+          "type": "card",
+          "settings": {
+            "tag": "FAILURE #2: CHEMICAL",
+            "tag_color": "var(--red)",
+            "title": "Acid Mantle Disruption",
+            "content": "<p>Your skin maintains a slightly acidic surface (pH 4.5–5.5) called the acid mantle. This invisible film of sebum and sweat protects against bacteria, retains moisture, and keeps your microbiome healthy.</p><p>Hard water is alkaline (pH 7–8.5). Every shower pushes your skin's pH upward, disrupting the acid mantle. Chlorine (pH 11.7 in concentrated form) compounds this further. <strong>For skin that's already producing less sebum, this pH disruption is far harder to recover from.</strong></p>",
+            "anim": "rv-right rv-d3"
+          }
+        },
+        "stat_rwYVqG": {
+          "type": "stat",
+          "settings": {
+            "value": "30%",
+            "label": "Collagen Lost",
+            "sub": "In first 5 years post-menopause",
+            "color": "#DC2626",
+            "bar_class": "a-bar-fill--red",
+            "bar_fill": "75%",
+            "anim": "rv-d1"
+          }
+        },
+        "stat_6LWCjB": {
+          "type": "stat",
+          "settings": {
+            "value": "2.1%",
+            "label": "Annual Decline",
+            "sub": "Collagen per postmenopausal year",
+            "color": "#DC2626",
+            "bar_class": "a-bar-fill a-bar-fill--gold",
+            "bar_fill": "42%",
+            "anim": "rv-d2"
+          }
+        },
+        "stat_XBCfwx": {
+          "type": "stat",
+          "settings": {
+            "value": "1.1%",
+            "label": "Collagen Lost",
+            "sub": "In first 5 years post-menopause",
+            "color": "#DC2626",
+            "bar_class": "a-bar-fill a-bar-fill--gold",
+            "bar_fill": "30%",
+            "anim": "rv-d3"
+          }
+        },
+        "stat_JcAydk": {
+          "type": "stat",
+          "settings": {
+            "value": "↓ 40%",
+            "label": "Collagen Lost",
+            "sub": "In first 5 years post-menopause",
+            "color": "#DC2626",
+            "bar_class": "a-bar-fill--red",
+            "bar_fill": "65%",
+            "anim": "rv-d4"
+          }
+        }
+      },
+      "block_order": [
+        "card_RXMGkq",
+        "card_LNgGnV",
+        "stat_rwYVqG",
+        "stat_6LWCjB",
+        "stat_XBCfwx",
+        "stat_JcAydk"
+      ],
+      "settings": {
+        "section_icon": "🛡️",
+        "section_tag": "SKIN BIOLOGY",
+        "section_title": "Your Skin Barrier Is Thinning — And Your Water Is Making It Worse",
+        "expand_title": "Deep Dive: Why Dermatologists Recommend Shower Filters for Skin Conditions",
+        "expand_content": "<p>Eczema, psoriasis, and chronic dryness are all conditions where the skin barrier is already compromised. The stratum corneum (outermost skin layer) acts like a fine mesh — keeping moisture in and irritants out. In these conditions, that mesh has gaps.</p><p>When you shower in chlorinated hard water, you're pushing two aggressive agents through an already weakened barrier: chlorine (which kills beneficial bacteria and strips oils) and calcium/magnesium minerals (which deposit on the skin and increase pH). For healthy skin, this is manageable. For menopausal skin with eczema or psoriasis, it triggers a cascade of moisture loss, inflammation, cracking, and flare-ups.</p><p>Most municipal water systems maintain chlorine levels above 1.5 ppm — which is actually higher than the recommended maximum for swimming pools. You're showering in water more chlorinated than pool water, with skin that has less protection than it had a decade ago.</p><p><em>Sources: Brincat et al., 1987 (collagen/menopausal age) · Duarte et al., 2016 (stratum corneum/estrogen) · PMC Estrogens and Aging Skin</em></p>"
+      }
+    },
+    "science_why_now": {
+      "type": "shower-science-why-now",
+      "blocks": {
+        "table_row_WcBmej": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Sebum production",
+            "age25": "Abundant — recovers quickly",
+            "age50": "Declining — slow recovery"
+          }
+        },
+        "table_row_XMUzVa": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Collagen content",
+            "age25": "Peak levels",
+            "age50": "30%+ lost post-menopause"
+          }
+        },
+        "table_row_BYW6kY": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Skin thickness",
+            "age25": "Full thickness",
+            "age50": "Decreasing ~1.1%/year"
+          }
+        },
+        "table_row_rQxmqd": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Follicle density",
+            "age25": "Maximum density",
+            "age50": "Miniaturizing, fewer anagen hairs"
+          }
+        },
+        "table_row_UJM7EG": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Acid mantle recovery",
+            "age25": "Hours after disruption",
+            "age50": "Days after disruption"
+          }
+        },
+        "table_row_G4zTdY": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Antioxidant defense",
+            "age25": "Estrogen provides protection",
+            "age50": "Estrogen protection declining"
+          }
+        },
+        "table_row_RbWn3A": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Product absorption",
+            "age25": "Good — minimal buildup",
+            "age50": "Blocked by mineral deposits"
+          }
+        },
+        "table_row_Apn3fW": {
+          "type": "table_row",
+          "settings": {
+            "metric": "Damage from chlorine",
+            "age25": "Temporary — rebounds next day",
+            "age50": "Cumulative — compounds daily"
+          }
+        },
+        "age50_item_pUDKpK": {
+          "type": "age50_item",
+          "settings": {
+            "text": "Sebum declining rapidly"
+          }
+        },
+        "age50_item_c4bRwK": {
+          "type": "age50_item",
+          "settings": {
+            "text": "30%+ collagen lost"
+          }
+        },
+        "age50_item_83FkRt": {
+          "type": "age50_item",
+          "settings": {
+            "text": "Days to recover pH balance"
+          }
+        },
+        "age50_item_N9YfWH": {
+          "type": "age50_item",
+          "settings": {
+            "text": "Estrogen protection gone"
+          }
+        },
+        "age50_item_reyqPi": {
+          "type": "age50_item",
+          "settings": {
+            "text": "Each shower adds damage"
+          }
+        },
+        "age25_item_L7jUyM": {
+          "type": "age25_item",
+          "settings": {
+            "text": "Abundant sebum production"
+          }
+        },
+        "age25_item_mnbLTQ": {
+          "type": "age25_item",
+          "settings": {
+            "text": "Peak collagen levels"
+          }
+        },
+        "age25_item_NkGg4G": {
+          "type": "age25_item",
+          "settings": {
+            "text": "Quick acid mantle recovery"
+          }
+        },
+        "age25_item_N8JzH7": {
+          "type": "age25_item",
+          "settings": {
+            "text": "Strong estrogen protection"
+          }
+        },
+        "age25_item_K6Kiy3": {
+          "type": "age25_item",
+          "settings": {
+            "text": "Damage rebounds overnight"
+          }
+        }
+      },
+      "block_order": [
+        "table_row_WcBmej",
+        "table_row_XMUzVa",
+        "table_row_BYW6kY",
+        "table_row_rQxmqd",
+        "table_row_UJM7EG",
+        "table_row_G4zTdY",
+        "table_row_RbWn3A",
+        "table_row_Apn3fW",
+        "age50_item_pUDKpK",
+        "age50_item_c4bRwK",
+        "age50_item_83FkRt",
+        "age50_item_N9YfWH",
+        "age50_item_reyqPi",
+        "age25_item_L7jUyM",
+        "age25_item_mnbLTQ",
+        "age25_item_NkGg4G",
+        "age25_item_N8JzH7",
+        "age25_item_K6Kiy3"
+      ],
+      "settings": {
+        "section_icon": "⏳",
+        "section_tag": "THE TIMING FACTOR",
+        "section_title": "Why Filtered Water Matters More at 45+",
+        "section_subtitle": "The same contaminants were in your water at 25. Here's why they didn't matter as much then — and why they matter enormously now.",
+        "left_icon": "🌿",
+        "left_title": "At 25",
+        "left_sub": "Your body compensates naturally",
+        "vs_text": "VS",
+        "right_icon": "⚠️",
+        "right_title": "At 50+",
+        "right_sub": "Damage compounds daily",
+        "table_col1": "At 25",
+        "table_col2": "At 50+",
+        "expand_title": "Deep Dive: Why Dermatologists Recommend Shower Filters for Skin Conditions",
+        "expand_content": "<p>Estrogen is one of your body's primary antioxidant defenses. It protects skin cells against oxidative damage by modulating free radical production. The dramatic decrease of estrogen levels during menopause renders skin significantly more susceptible to oxidative damage from environmental sources.</p><p>Chlorine is an oxidant. It literally works by oxidizing organic matter. When your body's internal antioxidant defense (estrogen) is declining, and your external oxidant exposure (chlorine) remains constant, the net oxidative stress on your skin and hair <em>increases</em> — even though the water hasn't changed.</p><p>This is why many women report that their hair and skin suddenly got \"worse\" in their mid-40s even though nothing else changed. The water didn't get worse. Their body's ability to defend against it decreased. This is also why our 5.0 filter includes Vitamin C and E infusion — to provide external antioxidant support where your body's internal production has declined.</p><p><em>Sources: Bottai et al., 2013 (estrogen/oxidative damage) · PMC Estrogen-deficient Skin · ScienceDirect Topical Therapy for EDS</em></p>"
+      }
+    },
+    "science_solution": {
+      "type": "shower-science-solution",
+      "blocks": {
+        "cannot_item_hVPAzg": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Reverse hormonal hair loss or restore estrogen levels"
+          }
+        },
+        "cannot_item_ctUrj4": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Regrow hair from follicles that have permanently miniaturized"
+          }
+        },
+        "cannot_item_3Y7JA3": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Replace medical treatments like minoxidil or HRT"
+          }
+        },
+        "cannot_item_3xCVkb": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Cure eczema, psoriasis, or dermatitis"
+          }
+        },
+        "cannot_item_FjL373": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Change your genetic predisposition for hair thinning"
+          }
+        },
+        "cannot_item_XRXFNA": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Compensate for nutritional deficiencies (iron, zinc, B12, vitamin D)"
+          }
+        },
+        "cannot_item_dxdn3N": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Replace a dermatologist's evaluation for significant hair loss"
+          }
+        },
+        "cannot_item_d4CdCN": {
+          "type": "cannot_item",
+          "settings": {
+            "text": "Work miracles overnight (real results take 4–12 weeks)"
+          }
+        },
+        "can_item_3iqTBX": {
+          "type": "can_item",
+          "settings": {
+            "text": "Stop chlorine from stripping your remaining natural oils every shower"
+          }
+        },
+        "can_item_rfptf4": {
+          "type": "can_item",
+          "settings": {
+            "text": "Remove heavy metals that cause chronic scalp inflammation"
+          }
+        },
+        "can_item_LdbiwQ": {
+          "type": "can_item",
+          "settings": {
+            "text": "Eliminate hard water mineral deposits that block product absorption"
+          }
+        },
+        "can_item_qmXnWp": {
+          "type": "can_item",
+          "settings": {
+            "text": "Rebalance water pH closer to your skin's acid mantle"
+          }
+        },
+        "can_item_tFgXey": {
+          "type": "can_item",
+          "settings": {
+            "text": "Reduce eczema, psoriasis, and dermatitis flare triggers"
+          }
+        },
+        "can_item_afArcX": {
+          "type": "can_item",
+          "settings": {
+            "text": "Allow your existing products to actually penetrate and work"
+          }
+        },
+        "can_item_Pgk7H4": {
+          "type": "can_item",
+          "settings": {
+            "text": "Create a less hostile environment for follicles under hormonal stress"
+          }
+        },
+        "can_item_jMHrWV": {
+          "type": "can_item",
+          "settings": {
+            "text": "Infuse Vitamin C/E to supplement declining antioxidant defense (5.0 only)"
+          }
+        }
+      },
+      "block_order": [
+        "cannot_item_hVPAzg",
+        "cannot_item_ctUrj4",
+        "cannot_item_3Y7JA3",
+        "cannot_item_3xCVkb",
+        "cannot_item_FjL373",
+        "cannot_item_XRXFNA",
+        "cannot_item_dxdn3N",
+        "cannot_item_d4CdCN",
+        "can_item_3iqTBX",
+        "can_item_rfptf4",
+        "can_item_LdbiwQ",
+        "can_item_qmXnWp",
+        "can_item_tFgXey",
+        "can_item_afArcX",
+        "can_item_Pgk7H4",
+        "can_item_jMHrWV"
+      ],
+      "settings": {
+        "section_icon": "💧",
+        "section_tag": "THE SOLUTION",
+        "section_title": "What Filtered Water Actually Does",
+        "section_subtitle": "We're not claiming to reverse menopause. Here's what a shower filter can and cannot do — honestly.",
+        "can_title": "✓ What ShowerEnvy Can Do",
+        "cannot_title": "✗ What ShowerEnvy Cannot Do",
+        "tip_icon": "💡",
+        "tip_text": "Think of it this way: A filtered showerhead doesn't fix the hormonal problem. It removes the environmental problem that's making the hormonal problem worse."
+      }
+    },
+    "science_experts": {
+      "type": "shower-science-experts",
+      "blocks": {
+        "derm_card_N8ptjY": {
+          "type": "derm_card",
+          "settings": {
+            "area": "On Shower Filters",
+            "quote": "Dermatologists often recommend shower filters for patients with sensitive skin or chronic conditions like eczema and acne. Removing chlorine and metals helps prevent dryness and irritation while maintaining skin hydration and elasticity.\"",
+            "source": "— Dr. Dendy Engelman / AAD research",
+            "animation_class": "rv-left rv-d1"
+          }
+        },
+        "derm_card_6AzLC8": {
+          "type": "derm_card",
+          "settings": {
+            "area": "On Menopause & Skin",
+            "quote": "\"The perimenopausal years are marked by an accelerated decline in skin quality, largely due to declining estrogen levels. Collagen content declines at 2.1% per postmenopausal year, correlating with estrogen deficiency rather than chronological age.\"",
+            "source": "— Brincat et al. / European Medical Journal",
+            "animation_class": "rv-right rv-d2"
+          }
+        },
+        "derm_card_7w9jDf": {
+          "type": "derm_card",
+          "settings": {
+            "area": "On Hard Water & Eczema",
+            "quote": "\"Hard water leaves behind mineral residue that can clog pores and dry out skin by disrupting its natural barrier. For people with eczema or psoriasis, the barrier is already thinner and more delicate — making filtered water a particularly meaningful intervention.\"",
+            "source": "— Vitaclean / dermatology research",
+            "animation_class": "rv-left rv-d1"
+          }
+        },
+        "derm_card_BpXVjP": {
+          "type": "derm_card",
+          "settings": {
+            "area": "On Chlorine & Skin",
+            "quote": "\"Chlorine is a strong oxidant that causes damage to skin and hair even at very low levels. Most tap water maintains chlorine levels greater than recommended for swimming pools. It kills beneficial bacteria on the skin surface that provides natural defense against skin disorders.\"",
+            "source": "— Aquasana dermatological research",
+            "animation_class": "rv-right rv-d2"
+          }
+        }
+      },
+      "block_order": [
+        "derm_card_N8ptjY",
+        "derm_card_6AzLC8",
+        "derm_card_7w9jDf",
+        "derm_card_BpXVjP"
+      ],
+      "settings": {
+        "section_icon": "👩‍⚕️",
+        "section_tag": "CLINICAL PERSPECTIVE",
+        "section_title": "What Dermatologists Say",
+        "section_subtitle": "Peer-reviewed research and clinical perspectives from board-certified dermatologists on the relationship between water quality, hormonal changes, and skin health."
+      }
+    },
+    "science_cta": {
+      "type": "shower-science-cta",
+      "settings": {
+        "heading_line_1": "Now You Know the Science.",
+        "heading_line_2": "Here's What to Do About It.",
+        "description": "You can't control hormonal changes. But you can control what touches your hair and skin every single day.",
+        "button_1_text": "Shop the 2.0 — $49",
+        "button_1_url": "",
+        "button_2_text": "Shop the 5.0 — $89",
+        "button_2_url": "",
+        "note": "Both include water quality test strips so you can see the difference yourself."
+      }
+    },
+    "science_footer": {
+      "type": "shower-science-footer",
+      "blocks": {
+        "footer_link_dQipTk": {
+          "type": "footer_link",
+          "settings": {
+            "column": "support",
+            "text": "Installation Guide",
+            "link": ""
+          }
+        },
+        "footer_link_gtEeCV": {
+          "type": "footer_link",
+          "settings": {
+            "column": "support",
+            "text": "Contact Us",
+            "link": ""
+          }
+        },
+        "footer_link_aiGcgP": {
+          "type": "footer_link",
+          "settings": {
+            "column": "support",
+            "text": "Shipping Info",
+            "link": ""
+          }
+        },
+        "footer_link_rUAN67": {
+          "type": "footer_link",
+          "settings": {
+            "column": "support",
+            "text": "Returns & Guarantee",
+            "link": ""
+          }
+        },
+        "footer_link_YUXMFe": {
+          "type": "footer_link",
+          "settings": {
+            "column": "support",
+            "text": "Accessibility",
+            "link": ""
+          }
+        },
+        "footer_link_UUdtyA": {
+          "type": "footer_link",
+          "settings": {
+            "column": "learn",
+            "text": "The Science",
+            "link": ""
+          }
+        },
+        "footer_link_tWAH3W": {
+          "type": "footer_link",
+          "settings": {
+            "column": "learn",
+            "text": "Water Quality Quiz",
+            "link": ""
+          }
+        },
+        "footer_link_UzmzzU": {
+          "type": "footer_link",
+          "settings": {
+            "column": "learn",
+            "text": "Reviews",
+            "link": ""
+          }
+        },
+        "footer_link_zFWAA3": {
+          "type": "footer_link",
+          "settings": {
+            "column": "learn",
+            "text": "Blog",
+            "link": ""
+          }
+        },
+        "footer_link_JVBr8y": {
+          "type": "footer_link",
+          "settings": {
+            "column": "learn",
+            "text": "FAQ",
+            "link": ""
+          }
+        },
+        "footer_link_BbpnrK": {
+          "type": "footer_link",
+          "settings": {
+            "column": "shop",
+            "text": "2.0 Handheld — $49",
+            "link": ""
+          }
+        },
+        "footer_link_GBTMr9": {
+          "type": "footer_link",
+          "settings": {
+            "column": "shop",
+            "text": "5.0 Stationary — $89",
+            "link": ""
+          }
+        },
+        "footer_link_TPpnyq": {
+          "type": "footer_link",
+          "settings": {
+            "column": "shop",
+            "text": "15-Stage Filter Upgrade",
+            "link": ""
+          }
+        },
+        "footer_link_U8PkVq": {
+          "type": "footer_link",
+          "settings": {
+            "column": "shop",
+            "text": "Replacement Filters",
+            "link": ""
+          }
+        },
+        "footer_link_gXKjAt": {
+          "type": "footer_link",
+          "settings": {
+            "column": "shop",
+            "text": "Hose & Holder",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "footer_link_dQipTk",
+        "footer_link_gtEeCV",
+        "footer_link_aiGcgP",
+        "footer_link_rUAN67",
+        "footer_link_YUXMFe",
+        "footer_link_UUdtyA",
+        "footer_link_tWAH3W",
+        "footer_link_UzmzzU",
+        "footer_link_zFWAA3",
+        "footer_link_JVBr8y",
+        "footer_link_BbpnrK",
+        "footer_link_GBTMr9",
+        "footer_link_TPpnyq",
+        "footer_link_U8PkVq",
+        "footer_link_gXKjAt"
+      ],
+      "settings": {
+        "footer_description": "Science-backed filtration designed for women navigating hormonal changes. Because what touches your hair and skin every day matters more now.",
+        "shop_title": "Shop",
+        "learn_title": "Learn",
+        "support_title": "Support",
+        "copyright_text": "© 2026 ShowerEnvy · All rights reserved",
+        "policy_text": "Privacy Policy",
+        "policy_link": "",
+        "terms_text": "Terms",
+        "terms_link": "",
+        "accessibility_text": "Accessibility",
+        "accessibility_link": ""
+      }
+    }
+  },
+  "order": [
+    "science_navigation",
+    "science_hero",
+    "science_compounding",
+    "science_hair",
+    "science_skin",
+    "science_why_now",
+    "science_solution",
+    "science_experts",
+    "science_cta",
+    "science_footer"
+  ]
+}

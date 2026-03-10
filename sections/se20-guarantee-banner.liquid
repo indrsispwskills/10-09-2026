@@ -1,0 +1,57 @@
+<!-- ═══ GUARANTEE ═══ -->
+<div class="w">
+<section class="guarantee rv sec">
+  <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;position:relative;z-index:1">
+    <div style="flex-shrink:0;width:52px;height:52px;border-radius:50%;background:rgba(94,138,106,.12);display:flex;align-items:center;justify-content:center;animation:gentlePulse 3s ease-in-out infinite"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    {% comment %} <div style="flex:1;min-width:240px"><h3 style="font-size:22px;margin-bottom:10px">60-Day Full Money-Back Guarantee</h3><p style="font-size:17px;color:var(--ink2);line-height:1.7;margin-bottom:12px">Hair improvements take time, especially during hormonal transitions. That's why we give you the <strong>full 60 days</strong> — not 30 like most brands.</p><p style="font-size:15px;color:var(--mut);line-height:1.6">If you don't feel the difference, full refund. No hoops. We even cover return shipping.</p></div> {% endcomment %}
+  <div style="flex:1;min-width:240px">
+  <h3 style="font-size:22px;margin-bottom:10px">
+    {{ section.settings.title }}
+  </h3>
+
+  <p style="font-size:17px;color:var(--ink2);line-height:1.7;margin-bottom:12px">
+    {{ section.settings.description_1 }}
+  </p>
+
+  <p style="font-size:15px;color:var(--mut);line-height:1.6">
+    {{ section.settings.description_2 }}
+  </p>
+</div>
+  
+  </div>
+</section>
+</div>
+<div class="divider rv"><span>✦</span></div>
+
+
+
+{% schema %}
+{
+  "name": "SE20 Guarantee",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "60-Day Full Money-Back Guarantee"
+    },
+    {
+      "type": "textarea",
+      "id": "description_1",
+      "label": "Main Description",
+      "default": "Hair improvements take time, especially during hormonal transitions. That's why we give you the full 60 days — not 30 like most brands."
+    },
+    {
+      "type": "textarea",
+      "id": "description_2",
+      "label": "Secondary Description",
+      "default": "If you don't feel the difference, full refund. No hoops. We even cover return shipping."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SE20 Guarantee"
+    }
+  ]
+}
+{% endschema %}

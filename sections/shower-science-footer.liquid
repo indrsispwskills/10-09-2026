@@ -1,0 +1,196 @@
+<div class="wrap">
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:12px">
+        <svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px">
+          <circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/>
+          <path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <circle cx="16" cy="24" r="1.2" fill="var(--sage)"/>
+        </svg>
+        Shower<span>Envy</span>
+      </div>
+
+      <p>{{ section.settings.footer_description }}</p>
+    </div>
+
+
+    <!-- SHOP COLUMN -->
+    <div>
+      <div class="footer-col-title">{{ section.settings.shop_title }}</div>
+
+      {% for block in section.blocks %}
+        {% if block.settings.column == "shop" %}
+          <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+
+    <!-- LEARN COLUMN -->
+    <div>
+      <div class="footer-col-title">{{ section.settings.learn_title }}</div>
+
+      {% for block in section.blocks %}
+        {% if block.settings.column == "learn" %}
+          <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+
+    <!-- SUPPORT COLUMN -->
+    <div>
+      <div class="footer-col-title">{{ section.settings.support_title }}</div>
+
+      {% for block in section.blocks %}
+        {% if block.settings.column == "support" %}
+          <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    <span>{{ section.settings.copyright_text }}</span>
+
+    <span>
+      <a href="{{ section.settings.policy_link }}">{{ section.settings.policy_text }}</a> ·
+      <a href="{{ section.settings.terms_link }}">{{ section.settings.terms_text }}</a> ·
+      <a href="{{ section.settings.accessibility_link }}">{{ section.settings.accessibility_text }}</a>
+    </span>
+  </div>
+
+</footer>
+</div>
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+{% schema %}
+{
+  "name": "SE Footer",
+  "settings": [
+
+    {
+      "type": "textarea",
+      "id": "footer_description",
+      "label": "Footer Description",
+      "default": "Science-backed filtration designed for women navigating hormonal changes. Because what touches your hair and skin every day matters more now."
+    },
+
+    {
+      "type": "text",
+      "id": "shop_title",
+      "label": "Shop Title",
+      "default": "Shop"
+    },
+
+    {
+      "type": "text",
+      "id": "learn_title",
+      "label": "Learn Title",
+      "default": "Learn"
+    },
+
+    {
+      "type": "text",
+      "id": "support_title",
+      "label": "Support Title",
+      "default": "Support"
+    },
+
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright",
+      "default": "© 2026 ShowerEnvy · All rights reserved"
+    },
+
+    {
+      "type": "text",
+      "id": "policy_text",
+      "label": "Privacy Text",
+      "default": "Privacy Policy"
+    },
+
+    {
+      "type": "url",
+      "id": "policy_link",
+      "label": "Privacy URL"
+    },
+
+    {
+      "type": "text",
+      "id": "terms_text",
+      "label": "Terms Text",
+      "default": "Terms"
+    },
+
+    {
+      "type": "url",
+      "id": "terms_link",
+      "label": "Terms URL"
+    },
+
+    {
+      "type": "text",
+      "id": "accessibility_text",
+      "label": "Accessibility Text",
+      "default": "Accessibility"
+    },
+
+    {
+      "type": "url",
+      "id": "accessibility_link",
+      "label": "Accessibility URL"
+    }
+
+  ],
+
+  "blocks": [
+    {
+      "type": "footer_link",
+      "name": "Footer Link",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "options": [
+            { "value": "shop", "label": "Shop" },
+            { "value": "learn", "label": "Learn" },
+            { "value": "support", "label": "Support" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "SE Footer",
+      "blocks": [
+        { "type": "footer_link" },
+        { "type": "footer_link" },
+        { "type": "footer_link" }
+      ]
+    }
+  ]
+}
+{% endschema %}

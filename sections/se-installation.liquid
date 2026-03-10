@@ -1,0 +1,145 @@
+{% style %}#shopify-section-{{ section.id }}{background:{{ section.settings.bg }};color:{{ section.settings.text }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}{% endstyle %}
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+        <section class="water-science__fact-crest-oasis">
+            <div class="install-steps__note-harbor-flare">
+                <div class="reveal-up hero__panel-bloom-ember is-visible">
+                    <div class="concern-section__point-bloom-zenith">
+                        <div class="install-steps__note-harbor-glow">🔧</div>
+                        <div class="section-eyebrow product-showcase__detail-ember-harbor">{{ section.settings.section_eyebrow }}</div>
+                        <h2 class="install-steps__note-harbor-harbor"> {{ section.settings.section_heading }}</h2></div>
+                </div>
+                <div class="content-layout install-steps__note-harbor-ivory is-visible">
+                    <div class="install-steps__note-harbor-jade">
+                        <div class="install-steps__note-harbor-kindle">
+                            <div class="install-steps__note-harbor-lumen"><span class="hero__panel-aurora-oasis">🔩</span><span class="trust-strip__signal-bloom-quartz">{{ section.settings.step1_heading }}</span><span class="trust-strip__signal-bloom-ripple">Upload image here</span></div>
+                        </div>
+                        <div class="install-steps__note-harbor-meadow">
+                            <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
+                                <circle cx="55" cy="55" r="52" fill="var(--sage)" opacity=".08"></circle>
+                                <circle cx="55" cy="55" r="42" fill="var(--sage)" opacity=".1"></circle>
+                                <circle cx="55" cy="55" r="32" fill="var(--sage)"></circle>
+                                <text x="55" y="48" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="var(--fb)" opacity=".8">STEP</text>
+                                <text x="55" y="70" text-anchor="middle" fill="#fff" font-size="26" font-weight="800" font-family="var(--fh)">01</text>
+                            </svg>
+                        </div>
+                        <h4 class="install-steps__note-harbor-nova">{{ section.settings.step1_title }}</h4>
+                        <p class="install-steps__note-harbor-oasis">{{ section.settings.step1_content }}</p>
+                    </div>
+                    <div class="install-steps__note-harbor-jade">
+                        <div class="install-steps__note-harbor-kindle">
+                            <div class="install-steps__note-harbor-pulse"><span class="hero__panel-aurora-oasis">💧</span><span class="trust-strip__signal-bloom-whisper">{{ section.settings.step2_heading }}</span><span class="trust-strip__signal-bloom-xenial">Upload image here</span></div>
+                        </div>
+                        <div class="install-steps__note-harbor-meadow">
+                            <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
+                                <circle cx="55" cy="55" r="52" fill="var(--gold)" opacity=".08"></circle>
+                                <circle cx="55" cy="55" r="42" fill="var(--gold)" opacity=".1"></circle>
+                                <circle cx="55" cy="55" r="32" fill="var(--gold)"></circle>
+                                <text x="55" y="48" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="var(--fb)" opacity=".8">STEP</text>
+                                <text x="55" y="70" text-anchor="middle" fill="#fff" font-size="26" font-weight="800" font-family="var(--fh)">02</text>
+                            </svg>
+                        </div>
+                        <h4 class="install-steps__note-harbor-nova">{{ section.settings.step2_title }}</h4>
+                        <p class="install-steps__note-harbor-oasis">{{ section.settings.step2_content }}</p>
+                    </div>
+                    <div class="install-steps__note-harbor-jade">
+                        <div class="install-steps__note-harbor-kindle">
+                            <div class="install-steps__note-harbor-quartz"><span class="hero__panel-aurora-oasis">🧪</span><span class="trust-strip__signal-bloom-thrive">{{ section.settings.step3_heading }}</span><span class="trust-strip__signal-bloom-uplift">Upload image here</span></div>
+                        </div>
+                        <div class="install-steps__note-harbor-meadow">
+                            <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
+                                <circle cx="55" cy="55" r="52" fill="var(--rose)" opacity=".08"></circle>
+                                <circle cx="55" cy="55" r="42" fill="var(--rose)" opacity=".1"></circle>
+                                <circle cx="55" cy="55" r="32" fill="var(--rose)"></circle>
+                                <text x="55" y="48" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="var(--fb)" opacity=".8">STEP</text>
+                                <text x="55" y="70" text-anchor="middle" fill="#fff" font-size="26" font-weight="800" font-family="var(--fh)">03</text>
+                            </svg>
+                        </div>
+                        <h4 class="install-steps__note-harbor-nova">{{ section.settings.step3_title }}</h4>
+                        <p class="install-steps__note-harbor-oasis">{{ section.settings.step3_content }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endif %}
+{% schema %}
+{
+  "name":"SE Installation",
+  "settings":[
+    {"type":"color","id":"bg","label":"Background color","default":"#ffffff"},
+    {"type":"color","id":"text","label":"Text color","default":"#1f1d1a"},
+    {"type":"range","id":"padding_top","label":"Padding top","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":120,"step":4,"unit":"px","default":0},
+     {
+      "type": "text",
+      "id": "section_eyebrow",
+      "label": "Section Eyebrow Title",
+      "default": "INSTALLATION"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Main Heading",
+      "default": "Under 3 Minutes. No Plumber. No Tools."
+    },
+     {
+      "type": "text",
+      "id": "step1_heading",
+      "label": "Step 1 heading",
+      "default": "Step 1 — Unscrewing old showerhead"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "Unscrew the Old One"
+    },
+    {
+      "type": "text",
+      "id": "step1_content",
+      "label": "Step 1 Content",
+      "default": "Standard ½″ fits every U.S. shower. No plumber needed."
+    },
+     {
+      "type": "text",
+      "id": "step2_heading",
+      "label": "Step 2 heading",
+      "default": "Step 2 — Hand-tightening ShowerEnvy"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "Twist On ShowerEnvy"
+    },
+    {
+      "type": "text",
+      "id": "step2_content",
+      "label": "Step 2 Content",
+      "default": "Filter comes pre-installed. Hand-tighten. Run water 30 seconds."
+    },
+    {
+      "type": "text",
+      "id": "step3_heading",
+      "label": "Step 3 heading",
+      "default": "Step 3 — Water test strip result"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "Test & See the Proof"
+    },
+    {
+      "type": "text",
+      "id": "step3_content",
+      "label": "Step 3 Content",
+      "default": "Included test strips show what was in your water."
+    }
+  ],
+  "presets":[{"name":"SE Installation"}]
+}
+{% endschema %}

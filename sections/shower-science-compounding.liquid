@@ -1,0 +1,252 @@
+<div class="wrap">
+<section id="compounding" class="rv">
+  <div class="content-max">
+    <div class="s-head">
+      <div class="section-icon section-icon--gold rv-scale">🧬</div>
+      <div class="s-tag" style="color:var(--gold)">{{ section.settings.heading }}</div>
+     <h2 class="s-title">{{ section.settings.title }}</h2>
+<p class="s-sub">{{ section.settings.description }}</p>
+  </div>
+    <div class="illust illust--float rv-scale rv-d1">
+      <svg width="360" height="100" viewBox="0 0 360 100" fill="none">
+        <rect x="0" y="60" width="360" height="40" rx="8" fill="#FAF7F2" stroke="#E8E5E0"/>
+        <text x="180" y="84" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#B5B0A8">SKIN SURFACE</text>
+        <rect x="20" y="48" width="100" height="14" rx="7" fill="#5E8A6A" opacity=".25"/><rect x="20" y="48" width="100" height="14" rx="7" stroke="#5E8A6A" stroke-width="1" fill="none"/>
+        <text x="70" y="42" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#5E8A6A" font-weight="600">PROTECTIVE OIL</text>
+        <text x="70" y="26" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B5B0A8">At 25 — Abundant</text>
+        <rect x="145" y="52" width="60" height="8" rx="4" fill="#B08642" opacity=".25"/><rect x="145" y="52" width="60" height="8" rx="4" stroke="#B08642" stroke-width="1" fill="none"/>
+        <text x="175" y="46" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#B08642" font-weight="600">LESS OIL</text>
+        <text x="175" y="26" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B5B0A8">At 45+ — Declining</text>
+        <line x1="260" y1="56" x2="340" y2="56" stroke="#DC2626" stroke-width="1" stroke-dasharray="4,4" opacity=".5"/>
+        <text x="300" y="46" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#DC2626" font-weight="600">NO PROTECTION</text>
+        <text x="300" y="26" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B5B0A8">45+ With Chlorine</text>
+        <path d="M125,38 L140,38" stroke="#B5B0A8" stroke-width="1.5" marker-end="url(#aG)"/>
+        <path d="M210,38 L255,38" stroke="#DC2626" stroke-width="1.5" marker-end="url(#aR)"/>
+        <defs><marker id="aG" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#B5B0A8"/></marker><marker id="aR" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#DC2626"/></marker></defs>
+      </svg>
+    </div>
+    {% comment %} <div class="compound-row">
+      <div class="compound-card rv-left rv-d1" style="background:var(--gold-light);border:1px solid rgba(176,134,66,.15)"><div class="emoji" style="animation:float 3s ease-in-out infinite">🧬</div><div class="s-tag" style="color:var(--gold);font-size:11px">HORMONAL CHANGES</div><h4>Less Oil Produced</h4><p>Estrogen decline reduces sebum production. Your scalp and skin make fewer protective oils.</p></div>
+      <div class="compound-op rv-scale rv-d2">+</div>
+      <div class="compound-card rv-scale rv-d2" style="background:var(--red-light);border:1px solid rgba(220,38,38,.15)"><div class="emoji" style="animation:float 3s ease-in-out infinite .5s">🚿</div><div class="s-tag" style="color:var(--red);font-size:11px">UNFILTERED WATER</div><h4>Remaining Oil Stripped</h4><p>Chlorine oxidizes and strips what little natural oil your body still produces, leaving nothing.</p></div>
+      <div class="compound-op rv-scale rv-d3">=</div>
+      <div class="compound-card rv-right rv-d3" style="background:linear-gradient(135deg,var(--red-light),#FDE8E8);border:1px solid rgba(220,38,38,.2)"><div class="emoji" style="animation:heartbeat 2s ease-in-out infinite">⚠️</div><div class="s-tag" style="color:var(--red);font-size:11px">COMPOUNDED DAMAGE</div><h4>Exponential Dryness</h4><p>Zero protective oil layer = extreme vulnerability. Products can't absorb. Follicles are exposed.</p></div>
+    </div> {% endcomment %}
+
+    <div class="compound-row">
+
+  <div class="compound-card rv-left rv-d1" style="background:var(--gold-light);border:1px solid rgba(176,134,66,.15)">
+    <div class="emoji" style="animation:float 3s ease-in-out infinite">🧬</div>
+    <div class="s-tag" style="color:var(--gold);font-size:11px">HORMONAL CHANGES</div>
+    <h4>{{ section.settings.card1_title }}</h4>
+    <p>{{ section.settings.card1_desc }}</p>
+  </div>
+
+  <div class="compound-op rv-scale rv-d2">+</div>
+
+  <div class="compound-card rv-scale rv-d2" style="background:var(--red-light);border:1px solid rgba(220,38,38,.15)">
+    <div class="emoji" style="animation:float 3s ease-in-out infinite .5s">🚿</div>
+    <div class="s-tag" style="color:var(--red);font-size:11px">UNFILTERED WATER</div>
+    <h4>{{ section.settings.card2_title }}</h4>
+    <p>{{ section.settings.card2_desc }}</p>
+  </div>
+
+  <div class="compound-op rv-scale rv-d3">=</div>
+
+  <div class="compound-card rv-right rv-d3" style="background:linear-gradient(135deg,var(--red-light),#FDE8E8);border:1px solid rgba(220,38,38,.2)">
+    <div class="emoji" style="animation:heartbeat 2s ease-in-out infinite">⚠️</div>
+    <div class="s-tag" style="color:var(--red);font-size:11px">COMPOUNDED DAMAGE</div>
+    <h4>{{ section.settings.card3_title }}</h4>
+    <p>{{ section.settings.card3_desc }}</p>
+  </div>
+
+</div>
+
+
+
+  <div class="expand rv rv-d2">
+  <button class="expand-btn" onclick="toggleExpand(this)" aria-expanded="false">
+    <span>{{ section.settings.expand_title }}</span>
+    <span class="expand-icon">+</span>
+  </button>
+
+  <div class="expand-body">
+    <div class="expand-body-inner">
+
+      <p>{{ section.settings.p1 }}</p>
+
+      <p>{{ section.settings.p2 }}</p>
+
+      <p><strong>{{ section.settings.p3_title }}</strong> {{ section.settings.p3 }}</p>
+
+      <p>
+        <strong style="color:var(--red)">{{ section.settings.p4_title }}</strong>
+        {{ section.settings.p4 }}
+      </p>
+
+      <p class="cite">{{ section.settings.citation }}</p>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="tip-box tip-box--teal rv rv-d3">
+  <div style="font-family:var(--fh);font-size:44px;font-weight:700;color:var(--sage);line-height:1;flex-shrink:0;animation:heartbeat 3s ease-in-out infinite">
+    {{ section.settings.tip_number }}
+  </div>
+
+  <p>
+    <strong>{{ section.settings.tip_title }}</strong>
+    {{ section.settings.tip_text }}
+  </p>
+</div> 
+  
+  
+  </div>
+</section>
+
+
+</div>
+
+
+{% schema %}
+{
+  "name": "Science compounding",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE CORE INSIGHT"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The Compounding Effect: 1 + 1 = 3"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Hormonal changes and unfiltered water aren't two separate problems. They compound each other, creating accelerated damage that neither would cause alone."
+    },{
+  "type": "text",
+  "id": "card1_title",
+  "label": "Card 1 Title",
+  "default": "Less Oil Produced"
+},
+{
+  "type": "textarea",
+  "id": "card1_desc",
+  "label": "Card 1 Description",
+  "default": "Estrogen decline reduces sebum production. Your scalp and skin make fewer protective oils."
+},
+{
+  "type": "text",
+  "id": "card2_title",
+  "label": "Card 2 Title",
+  "default": "Remaining Oil Stripped"
+},
+{
+  "type": "textarea",
+  "id": "card2_desc",
+  "label": "Card 2 Description",
+  "default": "Chlorine oxidizes and strips what little natural oil your body still produces, leaving nothing."
+},
+{
+  "type": "text",
+  "id": "card3_title",
+  "label": "Card 3 Title",
+  "default": "Exponential Dryness"
+},
+{
+  "type": "textarea",
+  "id": "card3_desc",
+  "label": "Card 3 Description",
+  "default": "Zero protective oil layer = extreme vulnerability. Products can't absorb. Follicles are exposed."
+}, {
+      "type": "text",
+      "id": "expand_title",
+      "label": "Expand Title",
+      "default": "Deep Dive: How Estrogen Loss + Chlorine Create a Vicious Cycle"
+    },
+
+    {
+      "type": "textarea",
+      "id": "p1",
+      "label": "Paragraph 1",
+      "default": "Estrogen directly regulates sebum production through insulin-like growth factor receptors on sebocytes (oil-producing cells). As estrogen levels decline during perimenopause and menopause, sebum output can drop significantly — leaving your skin and scalp with less of its natural protective oil layer."
+    },
+
+    {
+      "type": "textarea",
+      "id": "p2",
+      "label": "Paragraph 2",
+      "default": "Chlorine is a powerful oxidant. Its entire purpose in municipal water is to kill living organisms by oxidizing their cell walls. When it contacts your skin and hair, it does the same thing to your natural oils — breaking down the lipid barrier that keeps moisture in and irritants out."
+    },
+
+    {
+      "type": "text",
+      "id": "p3_title",
+      "label": "Paragraph 3 Bold Title",
+      "default": "At 25, this isn't a major problem."
+    },
+
+    {
+      "type": "textarea",
+      "id": "p3",
+      "label": "Paragraph 3 Text",
+      "default": "Young skin produces abundant sebum and can replenish its oil layer quickly after a chlorinated shower. The damage is temporary."
+    },
+
+    {
+      "type": "text",
+      "id": "p4_title",
+      "label": "Paragraph 4 Bold Title",
+      "default": "At 50, it's a completely different situation."
+    },
+
+    {
+      "type": "textarea",
+      "id": "p4",
+      "label": "Paragraph 4 Text",
+      "default": "Your body is producing less oil AND chlorine is stripping what remains. There isn't enough sebum to rebuild the barrier between showers. Each shower compounds the deficit. This is why dryness, itching, and irritation accelerate — it's not just aging. It's aging plus daily chemical exposure on a body that can no longer compensate."
+    },
+
+    {
+      "type": "text",
+      "id": "citation",
+      "label": "Citation",
+      "default": "Sources: Ashcroft et al., 1997 (estrogen/sebocyte regulation) · Brincat et al., 1987 (collagen/estrogen correlation) · Aquasana skin disorder research"
+    },
+
+    {
+      "type": "text",
+      "id": "tip_number",
+      "label": "Tip Highlight Number",
+      "default": "2×"
+    },
+
+    {
+      "type": "text",
+      "id": "tip_title",
+      "label": "Tip Title",
+      "default": "The compounding factor:"
+    },
+
+    {
+      "type": "textarea",
+      "id": "tip_text",
+      "label": "Tip Text",
+      "default": "A woman at 50 with unfiltered water faces roughly double the effective moisture loss from each shower compared to her 25-year-old self — not because the water got worse, but because her body's ability to recover from it decreased."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science compounding"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+<div class="screen" id="screenLoading">
+<div class="load-sec">
+  <div class="load-card anim-up">
+    <div class="scanner">
+      <div class="scanner-ring"></div>
+      <div class="scanner-sweep"></div>
+      <div class="scanner-dot"></div>
+      <div class="scanner-label" id="scanLabel">&#128300;</div>
+    </div>
+    <h2 class="load-title">Analyzing water for <span id="loadZip">00000</span></h2>
+    <div class="load-steps">
+      <div class="load-step" id="ls1"><span class="ico">1</span> Accessing municipal water records</div>
+      <div class="load-step" id="ls2"><span class="ico">2</span> Detecting contaminant levels</div>
+      <div class="load-step" id="ls3"><span class="ico">3</span> Calculating hair &amp; skin impact</div>
+      <div class="load-step" id="ls4"><span class="ico">4</span> Generating your personal report</div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% schema %}
+{"name":"Water report loading","settings":[],"presets":[{"name":"Water report loading"}]}
+{% endschema %}

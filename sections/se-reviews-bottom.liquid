@@ -1,0 +1,48 @@
+<div class="page">
+  <section class="bottom-cta rv">
+    <h2>{{ section.settings.cta_title_line_1 }}<br>{{ section.settings.cta_title_line_2 }}</h2>
+    <p>{{ section.settings.cta_text }}</p>
+    <div class="cta-buttons">
+      <a class="btn-cta-sage" href="{{ section.settings.cta_1_link }}">{{ section.settings.cta_1_label }}</a>
+      <a class="btn-cta-gold" href="{{ section.settings.cta_2_link }}">{{ section.settings.cta_2_label }}</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div style="margin-bottom:12px"><a href="{{ section.settings.footer_logo_link }}" style="font-family:var(--fh);font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px"><svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>{{ section.settings.footer_logo_text }}<span style="color:var(--sage);font-weight:700;font-style:italic">{{ section.settings.footer_logo_accent }}</span></a></div>
+      <div class="footer-links">
+        {% for block in section.blocks %}
+          <a href="{{ block.settings.link }}">{{ block.settings.label }}</a>
+        {% endfor %}
+      </div>
+      <div class="footer-copy">{{ section.settings.footer_copy }}</div>
+    </div>
+  </footer>
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+{% schema %}
+{
+  "name": "SE reviews bottom",
+  "settings": [
+    {"type":"text","id":"cta_title_line_1","label":"CTA title line 1","default":"Ready to See the Difference"},
+    {"type":"text","id":"cta_title_line_2","label":"CTA title line 2","default":"in Your Hair & Skin?"},
+    {"type":"textarea","id":"cta_text","label":"CTA text","default":"Join 1,347 women who stopped fighting their water and started seeing results. 60-day money-back guarantee — if you don't feel the difference, it's free."},
+    {"type":"text","id":"cta_1_label","label":"CTA button 1","default":"Shop 2.0 Handheld — $49"},
+    {"type":"url","id":"cta_1_link","label":"CTA button 1 link"},
+    {"type":"text","id":"cta_2_label","label":"CTA button 2","default":"Shop 5.0 Stationary — $89"},
+    {"type":"url","id":"cta_2_link","label":"CTA button 2 link"},
+    {"type":"text","id":"footer_logo_text","label":"Footer logo text","default":"Shower"},
+    {"type":"text","id":"footer_logo_accent","label":"Footer logo accent","default":"Envy"},
+    {"type":"url","id":"footer_logo_link","label":"Footer logo link"},
+    {"type":"text","id":"footer_copy","label":"Footer copy","default":"© 2026 ShowerEnvy · Privacy · Terms · Accessibility"}
+  ],
+  "blocks": [
+    {"type":"footer_link","name":"Footer link","settings":[{"type":"text","id":"label","label":"Label","default":"Home"},{"type":"url","id":"link","label":"Link"}]}
+  ],
+  "max_blocks": 8,
+  "presets": [{"name":"SE reviews bottom","blocks":[{"type":"footer_link","settings":{"label":"Home"}},{"type":"footer_link","settings":{"label":"2.0 Handheld"}},{"type":"footer_link","settings":{"label":"5.0 Stationary"}},{"type":"footer_link","settings":{"label":"Filters"}},{"type":"footer_link","settings":{"label":"Science"}},{"type":"footer_link","settings":{"label":"Reviews"}},{"type":"footer_link","settings":{"label":"FAQ"}},{"type":"footer_link","settings":{"label":"Contact"}}]}]
+}
+{% endschema %}

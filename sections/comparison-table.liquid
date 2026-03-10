@@ -1,0 +1,66 @@
+<section class="reveal">
+  <div class="wrap">
+    <div class="compare-wrap">
+      <h3>{{ section.settings.title }}</h3>
+      <div class="cmp-row cmp-row--head"><div class="cmp-c"></div><div class="cmp-c">{{ section.settings.col_1 }}</div><div class="cmp-c cmp-c--gold">{{ section.settings.col_2 }}</div></div>
+      {% for block in section.blocks %}
+        {% if block.type == 'row' %}
+          <div class="cmp-row" {% if block.settings.total_row %}style="border-bottom:none"{% endif %} {{ block.shopify_attributes }}>
+            <div class="cmp-c" {% if block.settings.total_row %}style="font-weight:600;color:var(--ink)"{% endif %}>{{ block.settings.feature }}</div>
+            <div class="cmp-c{% if block.settings.style_2 == 'check' %} cmp-ck{% elsif block.settings.style_2 == 'dash' %} cmp-dash{% endif %}" {% if block.settings.total_row %}style="font-weight:700;color:var(--ink)"{% endif %}>{{ block.settings.value_2 }}</div>
+            <div class="cmp-c cmp-c--gold{% if block.settings.style_5 == 'check' %} cmp-gck{% elsif block.settings.style_5 == 'dash' %} cmp-dash{% endif %}" {% if block.settings.total_row %}style="font-weight:700;color:var(--ink)"{% endif %}>{{ block.settings.value_5 }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <p class="compare-note">{{ section.settings.note }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison table",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Side-by-Side Comparison" },
+    { "type": "text", "id": "col_1", "label": "Left column header", "default": "2.0 Handheld" },
+    { "type": "text", "id": "col_2", "label": "Right column header", "default": "5.0 Stationary" },
+    { "type": "textarea", "id": "note", "label": "Note", "default": "Only $20 more over 3 years for 5× the filtration depth and half the filter changes." }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Price" },
+        { "type": "text", "id": "value_2", "label": "2.0 value", "default": "$49" },
+        { "type": "text", "id": "value_5", "label": "5.0 value", "default": "$89" },
+        { "type": "checkbox", "id": "total_row", "label": "Total row style", "default": false },
+        { "type": "select", "id": "style_2", "label": "2.0 style", "default": "normal", "options": [{"value":"normal","label":"Normal"},{"value":"check","label":"Check"},{"value":"dash","label":"Dash"}] },
+        { "type": "select", "id": "style_5", "label": "5.0 style", "default": "normal", "options": [{"value":"normal","label":"Normal"},{"value":"check","label":"Check"},{"value":"dash","label":"Dash"}] }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison table",
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Price", "value_2": "$49", "value_5": "$89" } },
+        { "type": "row", "settings": { "feature": "Filter Stages", "value_2": "3", "value_5": "15" } },
+        { "type": "row", "settings": { "feature": "Filter Life", "value_2": "3 months", "value_5": "6 months" } },
+        { "type": "row", "settings": { "feature": "Chlorine Removal", "value_2": "✓", "value_5": "✓", "style_2": "check", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "Sediment & Rust", "value_2": "✓", "value_5": "✓", "style_2": "check", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "Chloramines", "value_2": "—", "value_5": "✓", "style_2": "dash", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "Fluoride", "value_2": "—", "value_5": "✓", "style_2": "dash", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "VOCs & THMs", "value_2": "—", "value_5": "✓", "style_2": "dash", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "Heavy Metals", "value_2": "Partial", "value_5": "✓", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "Vitamin C/E Infusion", "value_2": "—", "value_5": "✓", "style_2": "dash", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "pH Rebalancing", "value_2": "—", "value_5": "✓", "style_2": "dash", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "Type", "value_2": "Handheld + Hose", "value_5": "Wall Mount Fixed" } },
+        { "type": "row", "settings": { "feature": "Guarantee", "value_2": "60 days", "value_5": "90 days" } },
+        { "type": "row", "settings": { "feature": "NSF Certified", "value_2": "—", "value_5": "✓", "style_2": "dash", "style_5": "check" } },
+        { "type": "row", "settings": { "feature": "3-Year Total", "value_2": "$229", "value_5": "$249", "total_row": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

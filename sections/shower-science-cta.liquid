@@ -1,0 +1,31 @@
+<div class="wrap">
+<section id="cta" class="final-cta rv" style="margin:0 -24px">
+  <div class="cta-orb cta-orb--1"></div><div class="cta-orb cta-orb--2"></div>
+  <div class="final-cta-inner">
+    <h2>{{ section.settings.heading_line_1 }}<br>{{ section.settings.heading_line_2 }}</h2>
+    <p>{{ section.settings.description }}</p>
+    <div class="cta-features"><div class="cta-feat"><span>🧬</span> 15-Stage Filtration</div><div class="cta-feat"><span>🍊</span> Vitamin C & E</div><div class="cta-feat"><span>🔧</span> 3-Min Install</div><div class="cta-feat"><span>💰</span> 60-Day Guarantee</div></div>
+    <div class="final-cta-btns"><a href="{{ section.settings.button_1_url | default: "#" }}" class="btn btn--teal" style="padding:18px 40px;font-size:17px;border-radius:14px">{{ section.settings.button_1_text }}</a><a href="{{ section.settings.button_2_url | default: "#" }}" class="btn btn--gold" style="padding:18px 40px;font-size:17px;border-radius:14px">{{ section.settings.button_2_text }}</a></div>
+    <small>{{ section.settings.note }}</small>
+  </div>
+</section>
+
+
+</div>
+
+{% schema %}
+{
+  "name":"Shower science cta",
+  "settings":[
+    {"type":"text","id":"heading_line_1","label":"Heading line 1","default":"Now You Know the Science."},
+    {"type":"text","id":"heading_line_2","label":"Heading line 2","default":"Here's What to Do About It."},
+    {"type":"textarea","id":"description","label":"Description","default":"You can't control hormonal changes. But you can control what touches your hair and skin every single day."},
+    {"type":"text","id":"button_1_text","label":"Button 1 text","default":"Shop the 2.0 — $49"},
+    {"type":"url","id":"button_1_url","label":"Button 1 URL"},
+    {"type":"text","id":"button_2_text","label":"Button 2 text","default":"Shop the 5.0 — $89"},
+    {"type":"url","id":"button_2_url","label":"Button 2 URL"},
+    {"type":"text","id":"note","label":"Note","default":"Both include water quality test strips so you can see the difference yourself."}
+  ],
+  "presets":[{"name":"Shower science cta"}]
+}
+{% endschema %}

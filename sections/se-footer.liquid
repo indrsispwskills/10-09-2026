@@ -1,0 +1,298 @@
+<link rel="stylesheet" href="{{ 'se-mobile-menu-footer.css' | asset_url }}" media="print" onload="this.media='all'">
+{% style %}#shopify-section-{{ section.id }}{background:{{ section.settings.bg }};color:{{ section.settings.text }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}{% endstyle %}
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+        <footer class="site-footer__detail-lumen-meadow">
+            <div class="site-footer__detail-lumen-nova">
+                <div class="site-footer__detail-lumen-oasis">
+                    <div class="site-footer__detail-lumen-pulse">
+                        <svg width="24" height="24" viewBox="0 0 32 32" class="hero__panel-ember">
+                            <circle cx="16" cy="16" r="14" fill="rgba(94,138,106,.12)"></circle>
+                            <path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"></path>
+                            <circle cx="16" cy="24" r="1.2" fill="var(--sage)"></circle>
+                        </svg><span>Shower<span class="hero__panel-flare">Envy</span></span>
+                    </div>
+                   {% if section.settings.footer_tagline_heading != blank %}
+  <div class="site-footer__detail-lumen-quartz">
+    {{ section.settings.footer_tagline_heading }}
+  </div>
+{% endif %}
+
+{% if section.settings.footer_tagline_text != blank %}
+  <p class="site-footer__detail-lumen-ripple">
+    {{ section.settings.footer_tagline_text }}
+  </p>
+{% endif %}
+                </div>
+
+                <div class="se-mobile-footer-menu">
+  {% for block in section.blocks %}
+    {% if block.type == 'mobile_footer_menu' %}
+      {% if block.settings.mobile_menu_text != blank %}
+        <a href="{{ block.settings.mobile_menu_link }}" class="se-mobile-footer-item">
+          {{ block.settings.mobile_menu_text }}
+        </a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+                <div class="site-footer__detail-lumen-solace">
+
+  {% for block in section.blocks %}
+    <div {{ block.shopify_attributes }}>
+      
+      {% if block.settings.column_title != blank %}
+        <div class="site-footer__detail-lumen-thrive">
+          {{ block.settings.column_title }}
+        </div>
+      {% endif %}
+
+      {% for i in (1..4) %}
+        {% assign item_text = 'item_text_' | append: i %}
+        {% assign item_link = 'item_link_' | append: i %}
+
+        {% if block.settings[item_text] != blank %}
+          <div class="site-footer__detail-lumen-uplift">
+            {% if block.settings[item_link] != blank %}
+              <a href="{{ block.settings[item_link] }}">
+                {{ block.settings[item_text] }}
+              </a>
+            {% else %}
+              {{ block.settings[item_text] }}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  {% endfor %}
+
+</div>
+            </div>
+            <div class="site-footer__detail-lumen-velvet"><span>© 2026 ShowerEnvy</span><span>
+  {% if section.settings.legal_text_1 != blank %}
+    <a href="{{ section.settings.legal_link_1 }}">
+      {{ section.settings.legal_text_1 }}
+    </a>
+  {% endif %}
+
+  {% if section.settings.legal_text_2 != blank %}
+    · 
+    <a href="{{ section.settings.legal_link_2 }}">
+      {{ section.settings.legal_text_2 }}
+    </a>
+  {% endif %}
+
+  {% if section.settings.legal_text_3 != blank %}
+    · 
+    <a href="{{ section.settings.legal_link_3 }}">
+      {{ section.settings.legal_text_3 }}
+    </a>
+  {% endif %}
+</span></div>
+        </footer>
+        <button aria-label="Back to top" class="site-footer__detail-lumen-whisper back-to-top">↑</button>
+
+{% endif %}
+
+
+  
+{% schema %}
+{
+  "name": "SE Footer",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text",
+      "label": "Text color",
+      "default": "#1f1d1a"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }, {
+  "type": "text",
+  "id": "footer_tagline_heading",
+  "label": "Footer Tagline Heading",
+  "default": "Filtered Showerheads for Women Over 50"
+},
+{
+  "type": "textarea",
+  "id": "footer_tagline_text",
+  "label": "Footer Tagline Description",
+  "default": "Designed for women navigating hormonal changes. Because your water should help — not hurt."
+},
+{
+  "type": "text",
+  "id": "legal_text_1",
+  "label": "Legal Link 1 Text",
+  "default": "Privacy"
+},
+{
+  "type": "url",
+  "id": "legal_link_1",
+  "label": "Legal Link 1 URL"
+},
+{
+  "type": "text",
+  "id": "legal_text_2",
+  "label": "Legal Link 2 Text",
+  "default": "Terms"
+},
+{
+  "type": "url",
+  "id": "legal_link_2",
+  "label": "Legal Link 2 URL"
+},
+{
+  "type": "text",
+  "id": "legal_text_3",
+  "label": "Legal Link 3 Text",
+  "default": "Accessibility"
+},
+{
+  "type": "url",
+  "id": "legal_link_3",
+  "label": "Legal Link 3 URL"
+},
+
+  ],
+
+  "blocks": [
+    {
+      "type": "footer_column",
+      "name": "Footer Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "column_title",
+          "label": "Column Title",
+          "default": "Column Title"
+        },
+        {
+          "type": "text",
+          "id": "item_text_1",
+          "label": "Item 1 Text"
+        },
+        {
+          "type": "url",
+          "id": "item_link_1",
+          "label": "Item 1 Link"
+        },
+        {
+          "type": "text",
+          "id": "item_text_2",
+          "label": "Item 2 Text"
+        },
+        {
+          "type": "url",
+          "id": "item_link_2",
+          "label": "Item 2 Link"
+        },
+        {
+          "type": "text",
+          "id": "item_text_3",
+          "label": "Item 3 Text"
+        },
+        {
+          "type": "url",
+          "id": "item_link_3",
+          "label": "Item 3 Link"
+        },
+        {
+          "type": "text",
+          "id": "item_text_4",
+          "label": "Item 4 Text"
+        },
+        {
+          "type": "url",
+          "id": "item_link_4",
+          "label": "Item 4 Link"
+        }
+      ]
+    },
+    {
+  "type": "mobile_footer_menu",
+  "name": "Mobile Footer Menu",
+  "settings": [
+    {
+      "type": "text",
+      "id": "mobile_menu_text",
+      "label": "Menu Text",
+      "default": "Menu"
+    },
+    {
+      "type": "url",
+      "id": "mobile_menu_link",
+      "label": "Menu Link"
+    }
+  ]
+}
+  ],
+
+  "max_blocks": 20,
+
+  "presets": [
+    {
+      "name": "SE Footer",
+      "blocks": [
+        {
+          "type": "footer_column",
+          "settings": {
+            "column_title": "Shop",
+            "item_text_1": "The 2.0 Handheld",
+            "item_text_2": "The 5.0 Stationary",
+            "item_text_3": "Filters",
+            "item_text_4": "Bundles"
+          }
+        },
+        {
+          "type": "footer_column",
+          "settings": {
+            "column_title": "Learn",
+            "item_text_1": "How It Works",
+            "item_text_2": "Results Timeline",
+            "item_text_3": "Blog",
+            "item_text_4": "Reviews"
+          }
+        },
+        {
+          "type": "footer_column",
+          "settings": {
+            "column_title": "Support",
+            "item_text_1": "Questions",
+            "item_text_2": "Returns",
+            "item_text_3": "Guarantee",
+            "item_text_4": "Contact"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

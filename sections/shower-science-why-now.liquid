@@ -1,0 +1,346 @@
+<div class="wrap">
+<section id="whynow" class="section-cream rv">
+  <div class="content-max">
+
+    <div class="s-head">
+      <div class="section-icon section-icon--teal rv-scale">
+        {{ section.settings.section_icon }}
+      </div>
+
+      <div class="s-tag" style="color:var(--sage)">
+        {{ section.settings.section_tag }}
+      </div>
+
+      <h2 class="s-title">
+        {{ section.settings.section_title }}
+      </h2>
+
+      <p class="s-sub">
+        {{ section.settings.section_subtitle }}
+      </p>
+    </div>
+
+
+    <div class="comparison rv rv-d1">
+
+      <!-- LEFT SIDE -->
+      <div class="comparison-side comparison-side--good">
+
+        <span class="comparison-icon" style="animation:float 4s ease-in-out infinite">
+          {{ section.settings.left_icon }}
+        </span>
+
+        <h4 style="color:var(--sage)">
+          {{ section.settings.left_title }}
+        </h4>
+
+        <p style="font-size:14px;color:var(--muted);margin-bottom:12px">
+          {{ section.settings.left_sub }}
+        </p>
+
+        <ul class="comparison-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'age25_item' %}
+              <li {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+      </div>
+
+
+      <div class="comparison-vs">
+        {{ section.settings.vs_text }}
+      </div>
+
+
+      <!-- RIGHT SIDE -->
+      <div class="comparison-side comparison-side--bad">
+
+        <span class="comparison-icon" style="animation:heartbeat 3s ease-in-out infinite">
+          {{ section.settings.right_icon }}
+        </span>
+
+        <h4 style="color:var(--red)">
+          {{ section.settings.right_title }}
+        </h4>
+
+        <p style="font-size:14px;color:var(--muted);margin-bottom:12px">
+          {{ section.settings.right_sub }}
+        </p>
+
+        <ul class="comparison-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'age50_item' %}
+              <li {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- TABLE -->
+    <div class="table-wrap rv rv-d2">
+
+      <table class="age-table">
+
+        <thead>
+          <tr>
+            <th style="min-width:120px"></th>
+            <th style="min-width:160px">
+              {{ section.settings.table_col1 }}
+            </th>
+            <th style="min-width:160px">
+              {{ section.settings.table_col2 }}
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          {% for block in section.blocks %}
+            {% if block.type == 'table_row' %}
+              <tr {{ block.shopify_attributes }}>
+                <td>{{ block.settings.metric }}</td>
+                <td>{{ block.settings.age25 }}</td>
+                <td>{{ block.settings.age50 }}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- EXPANDABLE SECTION -->
+
+    <div class="expand rv rv-d3">
+
+      <button class="expand-btn"
+        onclick="toggleExpand(this)"
+        aria-expanded="false">
+
+        <span>{{ section.settings.expand_title }}</span>
+        <span class="expand-icon">+</span>
+
+      </button>
+
+
+      <div class="expand-body">
+        <div class="expand-body-inner">
+
+          {{ section.settings.expand_content }}
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "Shower science why now",
+
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "section_icon",
+      "label": "Section Icon",
+      "default": "⏳"
+    },
+
+    {
+      "type": "text",
+      "id": "section_tag",
+      "label": "Tag",
+      "default": "THE TIMING FACTOR"
+    },
+
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title",
+      "default": "Why Filtered Water Matters More at 45+"
+    },
+
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Subtitle",
+      "default": "The same contaminants were in your water at 25. Here's why they didn't matter as much then — and why they matter enormously now."
+    },
+
+
+
+    {
+      "type": "text",
+      "id": "left_icon",
+      "label": "Left Icon",
+      "default": "🌿"
+    },
+
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Left Title",
+      "default": "At 25"
+    },
+
+    {
+      "type": "text",
+      "id": "left_sub",
+      "label": "Left Subtitle",
+      "default": "Your body compensates naturally"
+    },
+
+
+
+    {
+      "type": "text",
+      "id": "vs_text",
+      "label": "VS Text",
+      "default": "VS"
+    },
+
+
+
+    {
+      "type": "text",
+      "id": "right_icon",
+      "label": "Right Icon",
+      "default": "⚠️"
+    },
+
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Right Title",
+      "default": "At 50+"
+    },
+
+    {
+      "type": "text",
+      "id": "right_sub",
+      "label": "Right Subtitle",
+      "default": "Damage compounds daily"
+    },
+
+
+
+    {
+      "type": "text",
+      "id": "table_col1",
+      "label": "Table Column 1",
+      "default": "At 25"
+    },
+
+    {
+      "type": "text",
+      "id": "table_col2",
+      "label": "Table Column 2",
+      "default": "At 50+"
+    },
+
+
+
+    {
+      "type": "text",
+      "id": "expand_title",
+      "label": "Expandable Title",
+      "default": "Deep Dive: The Oxidative Stress Multiplier"
+    },
+
+    {
+      "type": "richtext",
+      "id": "expand_content",
+      "label": "Expandable Content",
+      "default": "<p>Estrogen is one of your body's primary antioxidant defenses...</p>"
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "age25_item",
+      "name": "At 25 List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+
+
+
+    {
+      "type": "age50_item",
+      "name": "At 50+ List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+
+
+
+    {
+      "type": "table_row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "metric",
+          "label": "Metric"
+        },
+        {
+          "type": "text",
+          "id": "age25",
+          "label": "At 25"
+        },
+        {
+          "type": "text",
+          "id": "age50",
+          "label": "At 50+"
+        }
+      ]
+    }
+
+  ],
+
+
+  "presets": [
+    {
+      "name": "Shower science why now",
+      "blocks": [
+        { "type": "age25_item" },
+        { "type": "age25_item" },
+        { "type": "age50_item" },
+        { "type": "age50_item" },
+        { "type": "table_row" }
+      ]
+    }
+  ]
+
+}
+{% endschema %}

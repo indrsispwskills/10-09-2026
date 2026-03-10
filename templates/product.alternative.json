@@ -1,0 +1,60 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "se50_hero": {
+      "type": "se50-hero",
+      "settings": {}
+    },
+    "se50_purchase_box": {
+      "type": "se50-purchase-box",
+      "settings": {}
+    },
+    "se50_proof": {
+      "type": "se50-proof",
+      "settings": {}
+    },
+    "se50_stages": {
+      "type": "se50-stages",
+      "settings": {}
+    },
+    "se50_compare": {
+      "type": "se50-compare",
+      "settings": {}
+    },
+    "se50_timeline": {
+      "type": "se50-timeline",
+      "settings": {}
+    },
+    "se50_reviews": {
+      "type": "se50-reviews",
+      "settings": {}
+    },
+    "se50_faq": {
+      "type": "se50-faq",
+      "settings": {}
+    },
+    "se50_guarantee": {
+      "type": "se50-guarantee",
+      "settings": {}
+    }
+  },
+  "order": [
+    "se50_hero",
+    "se50_purchase_box",
+    "se50_proof",
+    "se50_stages",
+    "se50_compare",
+    "se50_timeline",
+    "se50_reviews",
+    "se50_faq",
+    "se50_guarantee"
+  ]
+}

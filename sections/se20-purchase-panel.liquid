@@ -1,0 +1,33 @@
+{% assign selected_product = section.settings.product | default: product %}
+
+{% if selected_product != blank %}
+<div 
+  data-se20-purchase
+  data-product='{{ selected_product.variants | json | escape }}'
+  style="display:none">
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "SE20 Purchase",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Product"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text",
+      "default": "Add to Cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SE20 Purchase"
+    }
+  ]
+}
+{% endschema %}

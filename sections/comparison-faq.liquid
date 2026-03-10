@@ -1,0 +1,54 @@
+<section id="faq" class="reveal">
+  <div class="wrap">
+    <div class="faq-wrap">
+      <div class="s-head" style="margin-bottom:24px"><h2 class="s-title">{{ section.settings.title }}</h2><div class="s-tag" style="color:var(--sage)">  {{ section.settings.faq_tag }}</div></div>
+      {% for block in section.blocks %}
+        {% if block.type == 'faq' %}
+          <div class="faq-item" {{ block.shopify_attributes }}>
+            <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false"><span>{{ block.settings.q }}</span><span class="faq-icon">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner">{{ block.settings.a }}</div></div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison FAQ",
+  "settings": [ 
+    { "type": "text", "id": "title", "label": "Title", "default": "Questions Women Ask Before Buying" },{
+  "type": "text",
+  "id": "faq_tag",
+  "label": "FAQ Tag",
+  "default": "FAQ"
+},
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+       
+        { "type": "text", "id": "q", "label": "Question", "default": "Will this really help hormonal hair thinning?" },
+        { "type": "textarea", "id": "a", "label": "Answer", "default": "Hormones may be the root cause, but harsh water adds a second layer." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison FAQ",
+      "blocks": [
+        { "type": "faq", "settings": { "q": "Will this really help hormonal hair thinning?", "a": "Hormones are one layer. Harsh water adds a second layer. Remove that, and your hair can focus on recovering from just one. Most women see improvement in breakage, shedding, and texture within 4–8 weeks." } },
+        { "type": "faq", "settings": { "q": "I already use expensive hair products. Do I need this too?", "a": "If your water contains chlorine and hard water minerals, those products aren't working at full capacity. Hard water creates a mineral film that blocks product absorption. Many customers report needing less product after switching — because products actually penetrate. A $30 serum on mineral-coated hair is a $30 serum sitting on the surface." } },
+        { "type": "faq", "settings": { "q": "What's the difference between the 2.0 and 5.0?", "a": "The 2.0 Handheld has a 5-stage filter (Sediment, Calcium Sulfite, Vitamin C, KDF-55, Catalytic Carbon) that removes chlorine, chloramines, heavy metals, PFAS, and VOCs. It has 3 spray modes and a flexible hose. The 5.0 Stationary has a 15-stage filter that also removes chloramines, fluoride, VOCs, THMs, and infuses Vitamin C and E. It's wall-mounted with a 6-month filter life vs. 3 months. For women with significant hormonal hair changes, sensitive skin, or very hard water, the 5.0 is worth the upgrade." } },
+        { "type": "faq", "settings": { "q": "How do I know if my water is bad?", "a": "85% of U.S. homes have hard water, and 98% use chlorine-based disinfection. If you live in the U.S., your water almost certainly contains contaminants affecting your hair and skin. Both kits include a test strip so you can see your before and after." } },
+        { "type": "faq", "settings": { "q": "I have eczema/psoriasis. Will this help?", "a": "Dermatologists frequently recommend shower filters for eczema and psoriasis. Chlorine strips natural oils and kills beneficial bacteria — both worsen inflammatory skin conditions. Many customers report significant reduction in flare-ups. The 5.0's vitamin C infusion and pH rebalancing provide additional soothing for sensitive skin." } },
+        { "type": "faq", "settings": { "q": "How hard is installation?", "a": "Under 5 minutes. Both use standard ½-inch connections that fit any U.S. shower arm. Unscrew old head, hand-tighten the new one. The built-in rubber gasket creates a watertight seal. No plumber, no special tools, no YouTube tutorial." } },
+        { "type": "faq", "settings": { "q": "What if it doesn't work for me?", "a": "The 2.0 has a 60-day guarantee. The 5.0 has a 90-day guarantee (because deeper filtration takes longer to show hair results). No hoops, no restocking fees. Full refund. We set the guarantee at 90 days specifically because hair growth cycles take 8–12 weeks." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

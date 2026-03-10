@@ -1,0 +1,45 @@
+<div class="wrap">
+<section class="reveal">
+  <div class="s-head">
+    <div class="s-tag" style="color:var(--gold)">{{ section.settings.tag }}</div>
+    <h2 class="s-title">{{ section.settings.title }}</h2>
+    <p class="s-sub">{{ section.settings.subtitle }}</p>
+  </div>
+  <div class="problem-grid">
+    <div class="problem-card" style="background:var(--gold-light);border:1px solid rgba(176,134,66,.15)">
+      <div class="s-tag" style="color:var(--gold)">WHAT YOU CAN'T CONTROL</div>
+      <h3>The Hormonal Shift</h3>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--gold)">·</span><span>Estrogen decline shortens your hair's growth cycle — fewer hairs growing at any time</span></div>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--gold)">·</span><span>Sebum production drops 30–50%, leaving scalp and skin chronically dry</span></div>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--gold)">·</span><span>100% of women in a 2022 clinical study showed menopausal hair changes</span></div>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--gold)">·</span><span>Skin loses collagen at ~1% per year after menopause, thinning your natural barrier</span></div>
+    </div>
+    <div class="problem-card" style="background:var(--rose-light);border:1px solid rgba(220,38,38,.15)">
+      <div class="s-tag" style="color:var(--rose)">WHAT YOU CAN CONTROL</div>
+      <h3>Your Shower Water</h3>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--rose)">·</span><span>Chlorine strips the natural oils you're already losing — compounding dryness daily</span></div>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--rose)">·</span><span>Hard water minerals block your expensive products from absorbing into hair and skin</span></div>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--rose)">·</span><span>Heavy metals accumulate on your scalp, causing inflammation around fragile follicles</span></div>
+      <div class="problem-bullet"><span class="problem-dot" style="color:var(--rose)">·</span><span>Chlorine kills beneficial skin bacteria, worsening eczema, psoriasis, and chronic dryness</span></div>
+    </div>
+  </div>
+  <div class="callout">
+    <q>{{ section.settings.quote }}</q>
+    <cite>{{ section.settings.cite }}</cite>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name":"Comparison overview",
+  "settings":[
+    {"type":"text","id":"tag","label":"Top tag","default":"THE SCIENCE"},
+    {"type":"text","id":"title","label":"Title","default":"You're Fighting on Two Fronts"},
+    {"type":"textarea","id":"subtitle","label":"Subtitle","default":"Hormonal changes thin your hair and dry your skin from the inside. Unfiltered water accelerates the damage from the outside. You need to control what you can."},
+    {"type":"textarea","id":"quote","label":"Quote","default":"You can't reverse menopause. But you can stop your shower from making it worse — and that's where most women see the fastest improvement."},
+    {"type":"text","id":"cite","label":"Citation","default":"— Board-certified dermatologist recommendation"}
+  ],
+  "presets":[{"name":"Comparison overview"}]
+}
+{% endschema %}

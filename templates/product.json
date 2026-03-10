@@ -1,0 +1,256 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "se20_hero": {
+      "type": "se20-hero",
+      "settings": {
+        "badge_1_text": "BEST STARTER",
+        "badge_2_text": "5-STAGE FILTER",
+        "badge_3_text": "3 SPRAY MODES",
+        "description_text": "Filtered water meets total flexibility. 5-stage filtration, 3 spa-inspired spray modes, and a 60\" hose that reaches everywhere you need it.",
+        "why_title": "Why Women 45+ Choose This",
+        "point_1": "<strong>Vitamin C infusion</strong> — replaces the antioxidant defense your declining estrogen no longer provides",
+        "point_2": "<strong>5-Stage Filtration</strong> — Sediment, Calcium Sulfite, Vitamin C, KDF-55, and Catalytic Carbon target every threat to post-menopausal skin and hair",
+        "point_3": "<strong>Catalytic carbon</strong> — removes chloramines that strip the lipid barrier your body can no longer fully rebuild",
+        "point_4": "<strong>pH correction</strong> — rebalances water to skin-neutral, reducing transepidermal water loss",
+        "insight_text": "<strong>The insight:</strong> Menopause reduced your body's defenses. The 5-stage filter handles chlorine, heavy metals, and PFAS — but the 15-stage handles everything else your body can no longer protect itself from."
+      }
+    },
+    "se20_purchase": {
+      "type": "se20-purchase-panel",
+      "settings": {
+        "product": "",
+        "cta_text": "Add to Cart"
+      }
+    },
+    "se20_trust": {
+      "type": "se20-trust-bar",
+      "settings": {
+        "science_tag": "THE SCIENCE",
+        "science_title": "Why Your Water Matters More After 45",
+        "science_description": "Two forces working against your hair and skin — one from inside, one from outside. Only one is in your control.",
+        "hormonal_tag": "HORMONAL SHIFT",
+        "hormonal_title": "Less Oil, Less Protection",
+        "hormonal_description": "Estrogen decline reduces sebum by 30–50%. Your scalp and skin lose their natural barrier.",
+        "water_tag": "UNFILTERED WATER",
+        "water_title": "Remaining Oil Stripped",
+        "water_description": "Chlorine strips what little oil your body still produces. Hard water coats follicles in mineral film.",
+        "stat_1_number": "85%",
+        "stat_1_title": "U.S. Homes Have Hard Water",
+        "stat_2_number": "30%",
+        "stat_2_title": "Collagen Lost in 5 Years",
+        "stat_2_subtitle": "Post-menopause"
+      }
+    },
+    "se20_benefits": {
+      "type": "se20-benefits-grid",
+      "settings": {
+        "section_tag": "SEE WHAT YOUR WATER HIDES",
+        "section_title": "This Is What ShowerEnvy Catches",
+        "section_description": "Every contaminant trapped in these filters was hitting your skin and hair — every single shower.",
+        "image_one": "shopify://shop_images/showerenvy-2.0_56568145-be48-4e34-ac0c-2adcc2457c6e.jpg",
+        "title_one": "Day 1 — Pure White",
+        "text_one": "Upload Photo",
+        "image_two": "shopify://shop_images/showerenvy-2.0.jpg",
+        "title_two": "Month 3 — Trapped Contaminants",
+        "text_two": "Upload Photo",
+        "highlight_text": "That brown buildup?",
+        "description_text": "Rust, sediment, chlorine residue, and heavy metals — all absorbed through your skin daily."
+      }
+    },
+    "se20_science": {
+      "type": "se20-science-section",
+      "settings": {
+        "science_tag": "THE SCIENCE",
+        "science_title": "Why Your Water Matters More After 45",
+        "science_description": "Two forces working against your hair and skin — one from inside, one from outside. Only one is in your control.",
+        "hormonal_tag": "HORMONAL SHIFT",
+        "hormonal_title": "Less Oil, Less Protection",
+        "hormonal_description": "Estrogen decline reduces sebum by 30–50%. Your scalp and skin lose their natural barrier.",
+        "water_tag": "UNFILTERED WATER",
+        "water_title": "Remaining Oil Stripped",
+        "water_description": "Chlorine strips what little oil your body still produces. Hard water coats follicles in mineral film.",
+        "science_note": "You can't stop hormonal changes. But you can stop your water from making them worse."
+      }
+    },
+    "se20_results": {
+      "type": "se20-results-stats",
+      "settings": {
+        "step1_title": "Unscrew Old Head",
+        "step1_desc": "Counter-clockwise by hand. Takes about 30 seconds — no tools needed.",
+        "step2_title": "Connect 2.0 + Hose",
+        "step2_desc": "Attach hose to shower pipe, click head onto hose. Hand-tighten both connections.",
+        "step3_title": "Test & Enjoy",
+        "step3_desc": "Turn on water. Try all 3 spray modes. Feel the difference from your very first shower.",
+        "install_time": "< 5",
+        "install_unit": "minutes",
+        "install_title": "Average Install Time",
+        "install_subtitle": "Based on 2,400+ customer installations",
+        "install_feature_1": "Standard ½\" fitting",
+        "install_feature_2": "No tools needed",
+        "install_feature_3": "Renter-friendly"
+      }
+    },
+    "se20_filtration": {
+      "type": "se20-filtration-stages",
+      "settings": {}
+    },
+    "se20_compare": {
+      "type": "se20-product-comparison",
+      "settings": {
+        "title": "Side-by-Side Product Photo",
+        "subtitle": "ShowerEnvy 2.0 vs. competitor showerheads"
+      }
+    },
+    "se20_reviews": {
+      "type": "se20-customer-reviews",
+      "blocks": {
+        "review_C3ER6w": {
+          "type": "review",
+          "settings": {
+            "review_text": "\"Bought the 2.0 because it was affordable enough to try. My hair stopped feeling like straw after the first week. The Massage mode on my scalp has become my favorite part of every morning.\"",
+            "name": "Carol M., 51",
+            "meta": "Verified · Perimenopause",
+            "date": "6 weeks ago"
+          }
+        },
+        "review_GNq3TN": {
+          "type": "review",
+          "settings": {
+            "review_text": "\"I'm in perimenopause and my scalp was so itchy I couldn't sleep some nights. My dermatologist suggested trying a shower filter. Two showers in and the itching stopped. Not exaggerating.\"",
+            "name": "Diana K., 47",
+            "meta": "Verified · Chronic itch",
+            "date": "3 months ago"
+          }
+        },
+        "review_KcxDbn": {
+          "type": "review",
+          "settings": {
+            "review_text": "\"I tried the $30 Amazon ones. They clogged in a month and the pressure was horrible. ShowerEnvy's filter still works after 3 months and the pressure is honestly better than my old unfiltered head.\"",
+            "name": "Sandra W., 55",
+            "meta": "Verified · Hard water area",
+            "date": "2 months ago"
+          }
+        },
+        "review_rQRXYU": {
+          "type": "review",
+          "settings": {
+            "review_text": "\"My $180 salon color used to fade in two weeks. Now it's holding nearly the full six weeks. My stylist asked what changed. I can literally feel the difference every time I wash my hair.\"",
+            "name": "Phyllis T., 52",
+            "meta": "Verified · Color-treated",
+            "date": "1 month ago"
+          }
+        }
+      },
+      "block_order": [
+        "review_C3ER6w",
+        "review_GNq3TN",
+        "review_KcxDbn",
+        "review_rQRXYU"
+      ],
+      "settings": {}
+    },
+    "se20_faq": {
+      "type": "se20-faq-section",
+      "blocks": {
+        "faq_iCRWdF": {
+          "type": "faq",
+          "settings": {
+            "q": "Will this fit my shower?",
+            "a": "Fits any standard ½\" shower pipe — that's 99% of U.S. homes. Fits by hand — no adapters, no plumber needed."
+          }
+        },
+        "faq_kWVdAd": {
+          "type": "faq",
+          "settings": {
+            "q": "How is this different from the $30 Amazon filters?",
+            "a": "Three things: filtration depth (5 stages vs. 1), build quality (stainless not plastic), and pressure. Cheap filters clog in weeks and turn your shower into a trickle. ShowerEnvy lasts 3 full months and micro-nozzle tech actually improves pressure."
+          }
+        },
+        "faq_mgHDx3": {
+          "type": "faq",
+          "settings": {
+            "q": "How often do I replace the filter?",
+            "a": "Every 3 months (~5,000 gallons). We're honest — it varies with household size and water quality. Subscribe and save 17%, shipped automatically so you never forget."
+          }
+        },
+        "faq_rVWaHG": {
+          "type": "faq",
+          "settings": {
+            "q": "Does it actually work or is this placebo?",
+            "a": "Thousands of women 45+ have felt the difference in their first shower. Less itching, softer hair, skin that doesn't feel tight. You'll know within the first week — and you have 60 days risk-free if you don't."
+          }
+        },
+        "faq_t3V8iz": {
+          "type": "faq",
+          "settings": {
+            "q": "I'm in perimenopause — will this help?",
+            "a": "ShowerEnvy can't reverse hormonal changes. What it does is remove the chlorine and heavy metals that compound the dryness, thinning, and itchiness you're already experiencing. Your shower shouldn't be making things worse."
+          }
+        },
+        "faq_eLAXEL": {
+          "type": "faq",
+          "settings": {
+            "q": "What if it doesn't work for me?",
+            "a": "Full refund within 60 days. No hoops, we even cover return shipping. We give you 60 days because hair results take 4–6 weeks. Most brands only give you 30."
+          }
+        }
+      },
+      "block_order": [
+        "faq_iCRWdF",
+        "faq_kWVdAd",
+        "faq_mgHDx3",
+        "faq_rVWaHG",
+        "faq_t3V8iz",
+        "faq_eLAXEL"
+      ],
+      "settings": {}
+    },
+    "se20_guarantee": {
+      "type": "se20-guarantee-banner",
+      "settings": {
+        "title": "60-Day Full Money-Back Guarantee",
+        "description_1": "Hair improvements take time, especially during hormonal transitions. That's why we give you the full 60 days — not 30 like most brands.",
+        "description_2": "If you don't feel the difference, full refund. No hoops. We even cover return shipping."
+      }
+    },
+    "se20_final": {
+      "type": "se20-final-cta",
+      "settings": {
+        "heading_line_1": "Your Hair & Skin Deserve",
+        "heading_line_2": "Better Than Unfiltered Water",
+        "stat1_value": "3 Modes",
+        "stat1_label": "Spray",
+        "stat2_value": "60\"",
+        "stat2_label": "Stainless Hose",
+        "stat3_value": "60 Days",
+        "stat3_label": "Guarantee",
+        "stat4_value": "5 Min",
+        "stat4_label": "Install",
+        "cta_button_text": "Choose Your Kit"
+      }
+    }
+  },
+  "order": [
+    "se20_hero",
+    "se20_purchase",
+    "se20_trust",
+    "se20_benefits",
+    "se20_science",
+    "se20_results",
+    "se20_filtration",
+    "se20_compare",
+    "se20_reviews",
+    "se20_faq",
+    "se20_guarantee",
+    "se20_final"
+  ]
+}

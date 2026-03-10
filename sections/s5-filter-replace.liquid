@@ -1,0 +1,496 @@
+{% comment %}
+  Section: Custom Product Template
+  Description: Displays a custom product page layout with dynamic content.
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'custom-product.css' | asset_url }}">
+<script src="{{ 'custom-product.js' | asset_url }}" defer="defer"></script>
+
+<div class="page">
+  {% assign product = all_products[section.settings.product] %}
+
+  {% if product != blank %}
+    <section class="hero-grid">
+      <div class="gallery rv">
+        <div class="gallery-main" id="mainImage">
+          <img src="{{ product.selected_or_first_available_variant.featured_media | img_url: '1024x1024' }}" alt="{{ product.selected_or_first_available_variant.featured_media.alt }}" id="mainImg">
+        </div>
+        <div class="gallery-thumbs">
+          {% for media in product.media %}
+            <div class="thumb" data-image-id="{{ media.id }}" data-image-src="{{ media | img_url: '1024x1024' }}">
+              <img src="{{ media | img_url: '100x100' }}" alt="{{ media.alt }}">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="offer rv rv-d1">
+        <span class="badge badge-premium">{{ section.settings.badge_premium_text }}</span>
+        <h1>{{ section.settings.heading }}</h1>
+        <div class="offer-sub">{{ section.settings.subheading }}</div>
+        <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-text">{{ section.settings.reviews_text }}</span></div>
+
+        <div class="purchase-toggle">
+          <div class="pt-option sub active" data-purchase-type="sub"><span class="pt-save">SAVE 15%</span><span class="pt-label">{{ section.settings.subscribe_save_text }}</span><span class="pt-detail">{{ section.settings.subscribe_save_detail }}</span></div>
+          <div class="pt-option one" data-purchase-type="one"><span class="pt-label">{{ section.settings.one_time_purchase_text }}</span><span class="pt-detail">{{ section.settings.one_time_purchase_detail }}</span></div>
+        </div>
+
+        <form action="/cart/add" method="post" id="product-form" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" id="variant-id-input">
+          <input type="hidden" name="quantity" value="1" min="1" id="quantity-input">
+
+          {% unless product.has_only_default_variant %}
+            <div class="product-variants">
+              {% for option in product.options_with_values %}
+                <div class="variant-option">
+                  <label for="Option-{{ forloop.index0 }}">{{ option.name }}</label>
+                  <fieldset class="variant-swatch-wrapper">
+                    {% for value in option.values %}
+                      <input
+                        type="radio"
+                        id="Option-{{ option.name | handleize }}-{{ value | handleize }}"
+                        name="options[{{ option.name | escape }}]"
+                        value="{{ value | escape }}"
+                        {% if option.selected_value == value %}checked{% endif %}
+                        data-option-position="{{ forloop.parentloop.index0 }}"
+                        data-option-value="{{ value | escape }}"
+                      >
+                      <label for="Option-{{ option.name | handleize }}-{{ value | handleize }}">
+                        {{ value | escape }}
+                      </label>
+                    {% endfor %}
+                  </fieldset>
+                </div>
+              {% endfor %}
+            </div>
+          {% endunless %}
+
+          <div>
+            <span class="qty-label">{{ section.settings.quantity_label }}</span>
+            <div class="qty-grid">
+              {% for i in (1..4) %}
+                <div class="qty-card {% if i == 1 %}active{% endif %}" data-qty="{{ i }}"><span class="qty-num">{{ i }}</span><span class="qty-price">$29.71</span><span class="qty-each">per filter</span></div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="price-display"><span class="price-current" id="priceTotal">{{ product.selected_or_first_available_variant.price | money }}</span><span class="price-original" id="priceOrig"></span><span class="badge badge-save" id="priceSave"></span></div>
+          <p class="price-note" id="priceNote"></p>
+          <button type="submit" name="add" class="cta-btn" id="ctaBtn">Add to Cart</button>
+        </form>
+
+        <div class="trust-row">
+          {% for block in section.blocks %}
+            {% if block.type == 'trust_badge' %}
+              <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="{{ block.settings.icon_svg }}"/></svg> {{ block.settings.text }}</div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="delivery-box">{{ section.settings.delivery_box_text }}</div>
+      </div>
+    </section>
+
+    <div class="divider rv"><span>✦</span></div>
+
+    <!-- WHY REPLACE -->
+    <section class="rv" style="padding:64px 0" id="whyReplace">
+      <div class="why-grid">
+        <div>
+          <div class="badge badge-gold" style="margin-bottom:16px">{{ section.settings.why_replace_badge_text }}</div>
+          <h2 style="font-size:32px;margin-bottom:16px">{{ section.settings.why_replace_heading }}</h2>
+          {{ section.settings.why_replace_text }}
+          <div class="why-cards">
+            {% for block in section.blocks %}
+              {% if block.type == 'feature_block' %}
+                <div class="why-card rv rv-d1"><div class="why-ico" style="background:var(--gold4)"><span style="font-size:24px;animation:float 3s ease-in-out infinite">{{ block.settings.icon }}</span></div><div><h4>{{ block.settings.title }}</h4>{{ block.settings.description }}</div></div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="why-visual rv rv-d2"><img src="{{ 'Showerenvy20-StageFilterwithVitaminCE.png' | asset_img_url: 'master' }}" alt="15-stage filter cross-section showing all filtration layers"></div>
+      </div>
+    </section>
+
+    <div class="divider rv"><span>✦</span></div>
+
+    <!-- WHAT'S INSIDE -->
+    <section style="padding:64px 0" id="insideSection">
+      <div class="sh rv"><span class="gold-line"></span><div class="badge badge-premium" style="margin-bottom:12px">{{ section.settings.whats_inside_badge_text }}</div><h2>{{ section.settings.whats_inside_heading }}</h2>{{ section.settings.whats_inside_text }}</div>
+      <div class="inside-grid">
+        <div class="inside-card rv rv-d1" id="ic1"><div class="inside-ico" style="background:var(--gold4)">🔬</div><h4>KDF-55 &amp; Activated Carbon</h4><p>The heavy lifters. Remove 99%+ of chlorine, heavy metals, and volatile organic compounds on contact. NSF-certified media.</p><div class="inside-eff"><div class="inside-eff-fill" data-w="99" style="background:linear-gradient(90deg,var(--gold),#D4AA7D)"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;margin-top:5px"><span style="color:var(--mut)">Chlorine removal</span><span style="font-weight:700;color:var(--gold)">99%+</span></div></div>
+        <div class="inside-card rv rv-d2" id="ic2"><div class="inside-ico" style="background:var(--sage3)">💎</div><h4>Vitamin A, C &amp; E Infusion</h4><p>Slow-release vitamin beads nourish hair and skin with antioxidants that support collagen production and lock in moisture.</p><div class="inside-eff"><div class="inside-eff-fill" data-w="95" style="background:linear-gradient(90deg,var(--sage),#A8D5B5)"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;margin-top:5px"><span style="color:var(--mut)">Antioxidant delivery</span><span style="font-weight:700;color:var(--sage)">95%</span></div></div>
+        <div class="inside-card rv rv-d3" id="ic3"><div class="inside-ico" style="background:var(--rose3)">🪨</div><h4>Ceramic &amp; Mineral Balls</h4><p>Alkaline ceramic, calcium sulfite, and tourmaline balls soften hard water, balance pH, and release beneficial negative ions.</p><div class="inside-eff"><div class="inside-eff-fill" data-w="90" style="background:linear-gradient(90deg,var(--rose),#E8988D)"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;margin-top:5px"><span style="color:var(--mut)">Hard water softening</span><span style="font-weight:700;color:var(--rose)">90%</span></div></div>
+      </div>
+    </section>
+
+    <div class="divider rv"><span>✦</span></div>
+
+    <!-- HOW TO REPLACE -->
+    <section style="padding:64px 0;overflow:hidden" id="howToReplace">
+      <div class="sh rv"><span class="gold-line"></span><div class="badge badge-gold" style="margin-bottom:12px">{{ section.settings.how_to_replace_badge_text }}</div><h2>{{ section.settings.how_to_replace_heading }}</h2>{{ section.settings.how_to_replace_text }}</div>
+      <div class="rv rv-d1" style="max-width:960px;margin:0 auto">
+        <div class="htc-viewer">
+          <div class="htc-visual">
+            <div class="htc-ring htc-ring-track"></div>
+            <div class="htc-ring htc-ring-progress"></div>
+            <div class="htc-img-wrap active" data-step="0"><img src="{{ '81ed2DqAEZL._AC_UF894_1000_QL80.jpg' | asset_img_url: 'master' }}" alt="Unscrew the filter housing"><div class="htc-particles"><div class="htc-particle" style="left:20%;top:30%;background:rgba(176,134,66,.25);animation-delay:0s"></div><div class="htc-particle" style="left:70%;top:20%;background:rgba(176,134,66,.2);animation-delay:.5s"></div><div class="htc-particle" style="left:50%;top:70%;background:rgba(94,138,106,.15);animation-delay:1s"></div></div></div>
+            <div class="htc-img-wrap" data-step="1"><img src="{{ 'Showerenvy20-StageFilterwithVitaminCE_1.png' | asset_img_url: 'master' }}" alt="Swap the filter cartridge"><div class="htc-particles"><div class="htc-particle" style="left:30%;top:25%;background:rgba(94,138,106,.2);animation-delay:.2s"></div><div class="htc-particle" style="left:65%;top:35%;background:rgba(176,134,66,.25);animation-delay:.7s"></div><div class="htc-particle" style="left:45%;top:65%;background:rgba(176,134,66,.15);animation-delay:1.2s"></div></div></div>
+            <div class="htc-img-wrap" data-step="2"><img src="{{ '186845_ff7895c807874d80bc187d5668df6e82_mv2_9a60f27f-2c12-4945-8cee-457db3532396.webp' | asset_img_url: 'master' }}" alt="Screw it back on"><div class="htc-particles"><div class="htc-particle" style="left:35%;top:30%;background:rgba(94,138,106,.25);animation-delay:0s"></div><div class="htc-particle" style="left:60%;top:20%;background:rgba(176,134,66,.2);animation-delay:.5s"></div><div class="htc-particle" style="left:50%;top:65%;background:rgba(94,138,106,.2);animation-delay:1s"></div></div></div>
+            <div class="htc-glow"></div>
+          </div>
+
+          <div class="htc-content">
+            <div class="htc-step-content active" data-step="0"><div class="htc-step-num"><div class="htc-num-circle"><div class="num-bg"></div><b>1</b></div><span class="htc-step-tag">~10 seconds</span></div><h3 class="htc-step-title">Unscrew the Filter Housing</h3><p class="htc-step-desc">Grip the bottom of the filter housing where it connects to the showerhead body. Twist counterclockwise — it unscrews by hand. No tools needed.</p><div class="htc-step-tip"><span class="htc-step-tip-icon">💡</span><p>The housing has textured grip ridges designed for easy hand-twisting. If tight from use, a dry towel gives you extra grip.</p></div></div>
+            <div class="htc-step-content" data-step="1"><div class="htc-num-circle"><div class="num-bg"></div><b>2</b></div><span class="htc-step-tag">~10 seconds</span></div><h3 class="htc-step-title">Swap the Filter Cartridge</h3><p class="htc-step-desc">Pull out the old cartridge and slide the fresh one into the housing. It only fits one way — just drop it in and you're done.</p><div class="htc-step-tip"><span class="htc-step-tip-icon">👀</span><p>Compare old vs. new — you'll see the difference. The old cartridge will look discolored from months of trapping chlorine, rust, and sediment.</p></div></div>
+            <div class="htc-step-content" data-step="2"><div class="htc-num-circle"><div class="num-bg"></div><b>3</b></div><span class="htc-step-tag">~10 seconds</span></div><h3 class="htc-step-title">Screw It Back On — Done!</h3><p class="htc-step-desc">Twist the housing clockwise until snug. Turn on the shower — fresh, purified water flows immediately through all 15 stages.</p><div class="htc-step-tip"><span class="htc-step-tip-icon">🎉</span><p>Run water for 15 seconds to activate the new cartridge. You may notice the water feels silkier right away — that's all 15 stages working.</p></div></div>
+          </div>
+        </div>
+
+        <div class="htc-timeline">
+          <div class="htc-tl-line"><div class="htc-tl-fill" id="htcFill"></div></div>
+          <div class="htc-tl-step active" data-step="0"><div class="htc-tl-dot"><svg viewBox="0 0 40 40"><circle class="htc-tl-track" cx="20" cy="20" r="18"/><circle class="htc-tl-progress" cx="20" cy="20" r="18"/></svg>1</div><div class="htc-tl-label">Unscrew</div></div>
+          <div class="htc-tl-step" data-step="1"><div class="htc-tl-dot"><svg viewBox="0 0 40 40"><circle class="htc-tl-track" cx="20" cy="20" r="18"/><circle class="htc-tl-progress" cx="20" cy="20" r="18"/></svg>2</div><div class="htc-tl-label">Swap Filter</div></div>
+          <div class="htc-tl-step" data-step="2"><div class="htc-tl-dot"><svg viewBox="0 0 40 40"><circle class="htc-tl-track" cx="20" cy="20" r="18"/><circle class="htc-tl-progress" cx="20" cy="20" r="18"/></svg>3</div><div class="htc-tl-label">Done!</div></div>
+        </div>
+        <div class="htc-controls"><button class="htc-ctrl" data-action="prev">◀</button><button class="htc-ctrl playing" id="htcPlay" data-action="togglePlay">❚❚</button><button class="htc-ctrl" data-action="next">▶</button></div>
+      </div>
+    </section>
+
+    <div class="divider rv"><span>✦</span></div>
+
+    <!-- DECLINE -->
+    <section class="rv" style="padding:64px 0" id="declineSection">
+      <div class="sh"><span class="gold-line"></span><h2>What Happens After 4 Months</h2><p>Even 15 stages have limits. Here's the performance curve your filter follows.</p></div>
+      <div class="decline-wrap" style="max-width:700px;margin:0 auto" id="declineVis">
+        <div class="particles"><i style="--x:90%;--y:15%;--tx:-30px;--ty:20px;--s:4px;--c:rgba(176,134,66,.08);--d:5s;--dl:0s"></i><i style="--x:8%;--y:85%;--tx:25px;--ty:-25px;--s:3px;--c:rgba(194,93,78,.06);--d:6s;--dl:1s"></i></div>
+        <div style="position:relative;z-index:1">
+          <div style="margin-bottom:24px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:14px;font-weight:600;color:var(--ink)">Month 1 — All 15 Stages at Peak</span><span style="font-size:14px;font-weight:700;color:var(--sage)">99%</span></div><div class="decline-bar"><div class="decline-fill" id="d1" style="width:0;background:linear-gradient(90deg,var(--sage),#A8D5B5)"></div></div><p style="font-size:12px;color:var(--mut)">Full 99%+ chlorine removal. Vitamin infusion active. Maximum pressure. Complete contaminant protection.</p></div>
+          <div style="margin-bottom:24px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:14px;font-weight:600;color:var(--ink)">Month 2 — Still Premium</span><span style="font-size:14px;font-weight:700;color:var(--sage)">90%</span></div><div class="decline-bar"><div class="decline-fill" id="d2" style="width:0;background:linear-gradient(90deg,var(--sage),var(--gold))"></div></div><p style="font-size:12px;color:var(--mut)">KDF-55 and carbon still strong. Vitamin release steady. No noticeable change in water quality or hair feel.</p></div>
+          <div style="margin-bottom:24px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:14px;font-weight:600;color:var(--ink)">Month 3 — Outer Stages Fading</span><span style="font-size:14px;font-weight:700;color:var(--gold)">70%</span></div><div class="decline-bar"><div class="decline-fill" id="d3" style="width:0;background:linear-gradient(90deg,var(--gold),var(--goldd))"></div></div><p style="font-size:12px;color:var(--mut)">Sediment and ceramic layers saturating. Vitamin beads ~60% depleted. Time to order your replacement.</p></div>
+          <div style="margin-bottom:24px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:14px;font-weight:600;color:var(--ink)">Month 4 — Replace Now</span><span style="font-size:14px;font-weight:700;color:var(--gold)">45%</span></div><div class="decline-bar"><div class="decline-fill" id="d4" style="width:0;background:linear-gradient(90deg,var(--gold),var(--rose))"></div></div><p style="font-size:12px;color:var(--mut)">Significant breakthrough on chlorine and heavy metals. Vitamins depleted. Your premium water is becoming standard tap water.</p></div>
+          <div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:14px;font-weight:600;color:var(--ink)">Month 5+ — Overdue</span><span style="font-size:14px;font-weight:700;color:var(--rose)">20%</span></div><div class="decline-bar"><div class="decline-fill" id="d5" style="width:0;background:linear-gradient(90deg,var(--rose),var(--rosed))"></div></div><p style="font-size:12px;color:var(--mut)">Most stages exhausted. Pressure drops noticeably. Your shower is actively undoing your haircare and skincare routine.</p></div>
+        </div>
+        <div style="margin-top:28px;padding:16px 20px;border-radius:14px;background:var(--gold4);border:1px solid rgba(176,134,66,.12);position:relative;z-index:1"><p style="font-family:var(--fh);font-size:16px;font-weight:600;color:var(--ink);font-style:italic;text-align:center;line-height:1.5;margin:0">Subscribers get a fresh cartridge at month 4 — you never hit the red zone.</p></div>
+      </div>
+    </section>
+
+    <div class="divider rv"><span>✦</span></div>
+
+    <!-- FAQ -->
+    <section style="padding:64px 0" id="faqSection">
+      <div class="sh rv"><span class="gold-line"></span><h2>{{ section.settings.faq_heading }}</h2>{{ section.settings.faq_text }}</div>
+      <div style="max-width:700px;margin:0 auto" class="rv rv-d1">
+        {% for block in section.blocks %}
+          {% if block.type == 'faq_item' %}
+            <div class="faq-item"><div class="faq-q" data-action="toggleFaq"><h4>{{ block.settings.question }}</h4><div class="faq-arrow">▼</div></div><div class="faq-a">{{ block.settings.answer }}</div></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE BANNER -->
+    <section class="sub-banner rv">
+      <span class="gold-line" style="background:linear-gradient(90deg,rgba(176,134,66,.4),var(--gold),rgba(176,134,66,.4));margin-bottom:20px"></span>
+      <h2>{{ section.settings.sub_banner_heading }}</h2>
+      {{ section.settings.sub_banner_text }}
+      <div class="sub-perks">
+        <div class="sub-perk"><div class="sub-perk-icon" style="animation:float 3s ease-in-out infinite">💰</div><div class="sub-perk-label">15% off every order</div></div>
+        <div class="sub-perk"><div class="sub-perk-icon" style="animation:float 3s ease-in-out infinite .3s">🚚</div><div class="sub-perk-label">Free shipping always</div></div>
+        <div class="sub-perk"><div class="sub-perk-icon" style="animation:float 3s ease-in-out infinite .6s">📧</div><div class="sub-perk-label">7-day email reminder</div></div>
+        <div class="sub-perk"><div class="sub-perk-icon" style="animation:float 3s ease-in-out infinite .9s">🔄</div><div class="sub-perk-label">Skip or cancel anytime</div></div>
+      </div>
+      <a href="{{ section.settings.sub_banner_cta_url }}" class="sub-cta">{{ section.settings.sub_banner_cta_text }}</a>
+    </section>
+
+    <footer class="footer"><div class="footer-inner"><div style="margin-bottom:12px"><a href="#" style="font-family:var(--fh);font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px"><svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<em style="color:var(--sage);font-weight:700;font-style:italic">Envy</em></a></div><div class="footer-links"><a href="#">Home</a><a href="#">2.0 Handheld</a><a href="#">5.0 Stationary</a><a href="#">Reviews</a><a href="#">Privacy</a><a href="#">Refunds</a><a href="#">Terms</a></div><div class="footer-copy">© 2026 ShowerEnvy · Privacy · Terms · Accessibility</div></div></footer>
+  {% else %}
+    <div class="wrapper">
+      <div class="placeholder-svg">
+        {% comment %} {{ 'product-placeholder' | placeholder_svg_tag: 'placeholder-svg--product' }} {% endcomment %}
+      </div>
+      <div class="placeholder-content">
+        {{ 'onboarding.product_title' | t }}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+{% comment %}
+  Variant JSON for JavaScript
+{% endcomment %}
+<script type="application/json" id="product-json">
+  {{ product | json }}
+</script>
+
+{% schema %}
+  {
+    "name": "Custom Product Template",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Product to display",
+        "info": "Select the product to display in this section."
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "15-Stage Filter Cartridge Replacement"
+      },
+      {
+        "type": "richtext",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "<p>The most advanced shower filter on the market. 15 layers of filtration remove 99%+ of chlorine, heavy metals, and 300+ contaminants — with Vitamin A, C &amp; E infusion for your hair and skin.</p>"
+      },
+      {
+        "type": "text",
+        "id": "badge_premium_text",
+        "label": "Premium Badge Text",
+        "default": "PREMIUM 15-STAGE"
+      },
+      {
+        "type": "text",
+        "id": "reviews_text",
+        "label": "Reviews Text",
+        "default": "4.9 · 2,400+ reviews"
+      },
+      {
+        "type": "text",
+        "id": "subscribe_save_text",
+        "label": "Subscribe & Save Text",
+        "default": "Subscribe & Save"
+      },
+      {
+        "type": "text",
+        "id": "subscribe_save_detail",
+        "label": "Subscribe & Save Detail",
+        "default": "Auto-ship every 4 months · Cancel anytime"
+      },
+      {
+        "type": "text",
+        "id": "one_time_purchase_text",
+        "label": "One-Time Purchase Text",
+        "default": "One-Time Purchase"
+      },
+      {
+        "type": "text",
+        "id": "one_time_purchase_detail",
+        "label": "One-Time Purchase Detail",
+        "default": "No commitment"
+      },
+      {
+        "type": "text",
+        "id": "quantity_label",
+        "label": "Quantity Label",
+        "default": "Quantity"
+      },
+      {
+        "type": "richtext",
+        "id": "delivery_box_text",
+        "label": "Delivery Box Text",
+        "default": "<p><strong>Fits:</strong> ShowerEnvy 5.0 Wall Mount only · <strong>Stages:</strong> 15-stage cartridge · <strong>Capacity:</strong> ~10,000 gallons · <strong>Replace:</strong> Every 4 months</p>"
+      },
+      {
+        "type": "text",
+        "id": "why_replace_badge_text",
+        "label": "Why Replace Badge Text",
+        "default": "DESIGNED FOR WOMEN 45+"
+      },
+      {
+        "type": "text",
+        "id": "why_replace_heading",
+        "label": "Why Replace Heading",
+        "default": "15 Stages of Protection.<br>Don't Let Them Fade."
+      },
+      {
+        "type": "richtext",
+        "id": "why_replace_text",
+        "label": "Why Replace Text",
+        "default": "<p>Your 5.0 filter works harder than any other shower filter on the market — 15 stages filtering 300+ contaminants. But after 4 months, those layers lose effectiveness, and for women experiencing hormonal changes, that means chlorine and heavy metals attacking already-vulnerable hair and skin.</p>"
+      },
+      {
+        "type": "text",
+        "id": "whats_inside_badge_text",
+        "label": "What's Inside Badge Text",
+        "default": "15-STAGE FILTRATION"
+      },
+      {
+        "type": "text",
+        "id": "whats_inside_heading",
+        "label": "What's Inside Heading",
+        "default": "What's Inside Your Filter"
+      },
+      {
+        "type": "richtext",
+        "id": "whats_inside_text",
+        "label": "What's Inside Text",
+        "default": "<p>Industry-leading 15 layers of protection in a single cartridge — nothing else comes close.</p>"
+      },
+      {
+        "type": "text",
+        "id": "how_to_replace_badge_text",
+        "label": "How to Replace Badge Text",
+        "default": "UNDER 30 SECONDS"
+      },
+      {
+        "type": "text",
+        "id": "how_to_replace_heading",
+        "label": "How to Replace Heading",
+        "default": "How to Replace Your Filter"
+      },
+      {
+        "type": "richtext",
+        "id": "how_to_replace_text",
+        "label": "How to Replace Text",
+        "default": "<p>Three steps, no tools. Unscrew, swap, screw back on — that's it.</p>"
+      },
+      {
+        "type": "text",
+        "id": "faq_heading",
+        "label": "FAQ Heading",
+        "default": "Frequently Asked Questions"
+      },
+      {
+        "type": "richtext",
+        "id": "faq_text",
+        "label": "FAQ Text",
+        "default": "<p>Quick answers about your 5.0 filter replacement.</p>"
+      },
+      {
+        "type": "text",
+        "id": "sub_banner_heading",
+        "label": "Subscribe Banner Heading",
+        "default": "Premium Protection, Delivered"
+      },
+      {
+        "type": "richtext",
+        "id": "sub_banner_text",
+        "label": "Subscribe Banner Text",
+        "default": "<p>Subscribe once and a fresh 15-stage cartridge arrives at your door every 4 months. No reminders, no hassle — just pure water.</p>"
+      },
+      {
+        "type": "text",
+        "id": "sub_banner_cta_text",
+        "label": "Subscribe Banner CTA Text",
+        "default": "Subscribe & Save 15% →"
+      },
+      {
+        "type": "url",
+        "id": "sub_banner_cta_url",
+        "label": "Subscribe Banner CTA URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature_block",
+        "name": "Feature Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "icon",
+            "label": "Icon (Emoji)",
+            "default": "🧬"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Filtration Breaks Down Layer by Layer"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>Each of the 15 stages has a finite capacity. As media saturates, contaminants pass through — undoing the protection your hair and skin depend on.</p>"
+          }
+        ]
+      },
+      {
+        "type": "trust_badge",
+        "name": "Trust Badge",
+        "settings": [
+          {
+            "type": "text",
+            "id": "icon_svg",
+            "label": "Icon SVG (path data only)",
+            "default": "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "90-Day Guarantee"
+          }
+        ]
+      },
+      {
+        "type": "faq_item",
+        "name": "FAQ Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "How often should I replace the 5.0 filter?"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>Every 4 months, or approximately every 10,000 gallons. If you notice changes in water pressure, flow rate, or your hair and skin feel different, it's time. Subscribing ensures a fresh cartridge arrives exactly when you need it.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Product Template",
+        "blocks": [
+          {
+            "type": "feature_block"
+          },
+          {
+            "type": "feature_block"
+          },
+          {
+            "type": "feature_block"
+          },
+          {
+            "type": "trust_badge"
+          },
+          {
+            "type": "trust_badge"
+          },
+          {
+            "type": "trust_badge"
+          },
+          {
+            "type": "trust_badge"
+          },
+          {
+            "type": "faq_item"
+          },
+          {
+            "type": "faq_item"
+          },
+          {
+            "type": "faq_item"
+          },
+          {
+            "type": "faq_item"
+          },
+          {
+            "type": "faq_item"
+          },
+          {
+            "type": "faq_item"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

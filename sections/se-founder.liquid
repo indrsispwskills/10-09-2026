@@ -1,0 +1,121 @@
+{% style %}#shopify-section-{{ section.id }}{background:{{ section.settings.bg }};color:{{ section.settings.text }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}{% endstyle %}
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+        <section class="founder-story__moment-harbor-ripple">
+            <div class="water-science__fact-crest-pulse">
+                <div class="reveal-up hero__panel-bloom-ember">
+                    <div class="concern-section__point-bloom-zenith">
+                        <div class="founder-story__moment-harbor-solace">👩&zwj;⚕️</div>
+                       
+                       
+                        {% if section.settings.founder_eyebrow != blank %}
+  <div class="section-eyebrow concern-section__point-crest-bloom">
+    {{ section.settings.founder_eyebrow }}
+  </div>
+{% endif %}
+
+{% if section.settings.founder_heading_line1 != blank or section.settings.founder_heading_highlight != blank %}
+  <h2 class="water-science__fact-crest-thrive">
+    
+    {% if section.settings.founder_heading_line1 != blank %}
+      {{ section.settings.founder_heading_line1 }}
+    {% endif %}
+    
+    {% if section.settings.founder_heading_highlight != blank %}
+      <br>
+      <span class="water-science__fact-crest-uplift">
+        {{ section.settings.founder_heading_highlight }}
+      </span>
+    {% endif %}
+   
+
+  </h2>
+  
+{% endif %}
+ </div>
+                    </div>
+                <div class="founder-story__moment-harbor-thrive">
+                    <div class="reveal-left hero__panel-bloom-ember">
+                        <div>
+                            <div class="founder-story__moment-harbor-uplift">
+                                <div class="founder-story__moment-harbor-velvet"><span class="hero__panel-aurora-oasis">👩&zwj;⚕️</span><span class="trust-strip__signal-bloom-thrive">Dr. Emily Hart — Founder Portrait</span><span class="trust-strip__signal-bloom-uplift">Upload image here</span></div>
+                            </div>
+                            <div class="founder-story__moment-harbor-whisper">
+                                <div class="founder-story__moment-harbor-xenial">Dr. Emily Hart, MD</div>
+                                <div class="founder-story__moment-harbor-yonder">Dermatologist · Water Quality Researcher</div>
+                                <div class="founder-story__moment-harbor-zenith">Board-Certified, 22+ Years in Practice</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal-right hero__panel-bloom-ember">
+                        <div>
+                            <p class="founder-story__moment-ivory-aurora">For two decades, Dr. Emily Hart treated women over 45 for the same frustrating pattern: chronic dry skin, thinning hair, and treatments that never seemed to hold. She prescribed the best dermatological products available. They
+                                helped — but never fully.</p>
+                            <p class="founder-story__moment-ivory-aurora">Then, at 52, it happened to her. The same crepe-like skin. The same hair in the drain. The same serums that worked at 40 suddenly failing. As a dermatologist, she knew the biology — estrogen decline reduces collagen by 30%
+                                in the first five years of menopause. But something else was accelerating the damage.</p>
+                            <div class="founder-story__moment-ivory-bloom">
+                                <p class="founder-story__moment-ivory-crest">"I tested my shower water on a whim. What came back stunned me — chlorine levels high enough to damage keratin bonds, calcium deposits that physically block product absorption, and trace heavy metals I'd never want near
+                                    my patients' skin."</p>
+                                <p class="founder-story__moment-ivory-drift">— Dr. Emily Hart</p>
+                            </div>
+                            <p class="founder-story__moment-ivory-aurora">She realized something that changed everything: she had spent 22 years treating symptoms while her patients went home and showered in the cause. Every morning, untreated water stripped the natural oils their bodies were already
+                                struggling to produce. Every serum she prescribed was fighting water chemistry it could never overcome.</p>
+                            <p class="founder-story__moment-ivory-aurora">Existing shower filters removed chlorine — partially. None addressed the full spectrum: chloramines, heavy metals, VOCs, hard water minerals. And none replaced what menopausal skin actually needs. So she built one that does
+                                both.</p>
+                            <p class="founder-story__moment-ivory-ember">ShowerEnvy's 15-stage filtration was designed by a doctor who knows what a woman's body loses after 45 — and what her water should put back. Vitamin A to support collagen production. Vitamin C to neutralize chlorine and protect
+                                against oxidative stress. Vitamin E to rebuild the moisture barrier her hormones can no longer maintain alone.</p>
+                            <div class="content-layout founder-story__moment-ivory-flare">
+                                <div class="card founder-story__moment-ivory-glow"><span class="founder-story__moment-ivory-harbor">🎓</span><span class="founder-story__moment-ivory-ivory">MD from Johns Hopkins School of Medicine</span></div>
+                                <div class="card founder-story__moment-ivory-jade"><span class="founder-story__moment-ivory-harbor">🏥</span><span class="founder-story__moment-ivory-ivory">22 years in clinical dermatology practice</span></div>
+                                <div class="card founder-story__moment-ivory-kindle"><span class="founder-story__moment-ivory-harbor">📋</span><span class="founder-story__moment-ivory-ivory">Published researcher on water quality &amp; skin health</span></div>
+                                <div class="card founder-story__moment-ivory-glow"><span class="founder-story__moment-ivory-harbor">👩&zwj;👩&zwj;👧</span><span class="founder-story__moment-ivory-ivory">Created ShowerEnvy after experiencing menopause firsthand</span></div>
+                            </div>
+                            <div class="founder-story__moment-ivory-lumen">
+                                <p class="founder-story__moment-ivory-meadow">"I didn't create ShowerEnvy to sell showerheads. I created it because I was tired of watching women spend thousands on products that can't work — while the real problem runs through their pipes every morning."</p>
+                                <div class="founder-story__moment-ivory-nova">
+                                    <div class="founder-story__moment-ivory-oasis">EH</div>
+                                    <div>
+                                        <div class="founder-story__moment-ivory-pulse">Dr. Emily Hart, MD</div>
+                                        <div class="founder-story__moment-ivory-quartz">Founder, ShowerEnvy</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endif %}
+{% schema %}
+{
+  "name":"SE Founder",
+  "settings":[
+    {"type":"color","id":"bg","label":"Background color","default":"#ffffff"},
+    {"type":"color","id":"text","label":"Text color","default":"#1f1d1a"},
+    {"type":"range","id":"padding_top","label":"Padding top","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {
+  "type": "text",
+  "id": "founder_eyebrow",
+  "label": "Founder Eyebrow Text",
+  "default": "THE WOMAN BEHIND SHOWERENVY"
+},
+{
+  "type": "text",
+  "id": "founder_heading_line1",
+  "label": "Founder Heading Line 1",
+  "default": "She Didn't Set Out to Build a Product."
+},
+{
+  "type": "text",
+  "id": "founder_heading_highlight",
+  "label": "Founder Highlight Line",
+  "default": "She Set Out to Solve Her Own Problem."
+}
+],
+  "presets":[{"name":"SE Founder"}]
+}
+{% endschema %}

@@ -1,0 +1,325 @@
+{% style %}#shopify-section-{{ section.id }}{background:{{ section.settings.bg }};color:{{ section.settings.text }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}{% endstyle %}
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+        <section id="products" class="product-showcase__detail-ember-flare">
+            <div class="reveal-up hero__panel-bloom-ember is-visible">
+                <div class="concern-section__point-bloom-zenith">
+                    <div class="concern-section__point-crest-aurora">🛡️</div>
+
+
+                    {% if section.settings.protection_eyebrow != blank %}
+  <div class="section-eyebrow concern-section__point-crest-bloom">
+    {{ section.settings.protection_eyebrow }}
+  </div>
+{% endif %}
+
+{% if section.settings.protection_heading != blank %}
+  <h2 class="install-steps__note-glow-jade">
+    {{ section.settings.protection_heading }}
+  </h2>
+{% endif %}
+
+
+                </div>
+            </div>
+            <div class="install-steps__note-glow-kindle">
+                {% assign product = all_products[section.settings.product] %}
+
+<div class="reveal-left hero__panel-bloom-ember is-visible">
+  <div class="card install-steps__note-glow-lumen">
+    <div class="install-steps__note-glow-meadow">
+      <div class="install-steps__note-glow-nova">
+        <span class="hero__panel-aurora-oasis">🚿</span>
+        <span class="trust-strip__signal-bloom-quartz">
+          {{ product.title }}
+        </span>
+        <span class="trust-strip__signal-bloom-ripple">
+          Upload image here
+        </span>
+      </div>
+      <div class="install-steps__note-glow-oasis">
+        💧 3 Spray Modes · Handheld
+      </div>
+    </div>
+
+    <div class="install-steps__note-glow-pulse">
+
+      <span class="install-steps__note-glow-quartz">
+        GREAT STARTER
+      </span>
+
+      <!-- ✅ Dynamic Title -->
+      <h3 class="install-steps__note-glow-ripple">
+        {{ product.title }}
+      </h3>
+
+      <p class="install-steps__note-glow-solace">
+        Removes chlorine, sediment, and heavy metals. The quickest way to stop daily damage.
+      </p>
+
+      <!-- ✅ Dynamic Price -->
+      <div class="install-steps__note-glow-thrive">
+        <span class="install-steps__note-glow-uplift">
+          {{ product.price | money }}
+        </span>
+
+        {% if product.compare_at_price > product.price %}
+          <span class="install-steps__note-glow-velvet">
+            {{ product.compare_at_price | money }}
+          </span>
+        {% endif %}
+      </div>
+
+      <!-- SVGs untouched -->
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--sage)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        {{ section.settings.feature_1 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--sage)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+         {{ section.settings.feature_2 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--sage)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+          {{ section.settings.feature_3 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--sage)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+         {{ section.settings.feature_4 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--sage)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+         {{ section.settings.feature_5 }}
+      </div>
+
+      <!-- ✅ Dynamic Button -->
+      <a href="{{ product.url }}" class="btn btn-sage install-steps__note-glow-yonder">
+        Shop {{ product.title }} — {{ product.price | money }}
+      </a>
+
+    </div>
+  </div>
+</div>
+                {% assign product_advanced = all_products[section.settings.product_advanced] %}
+
+<div class="reveal-right hero__panel-bloom-ember is-visible">
+  <div class="card install-steps__note-glow-zenith">
+
+    <div class="install-steps__note-harbor-aurora">
+      MOST CHOSEN BY WOMEN 50+
+    </div>
+
+    <div class="install-steps__note-harbor-bloom">
+      <div class="install-steps__note-harbor-crest">
+        <span class="hero__panel-aurora-oasis">🛡️</span>
+        <span class="trust-strip__signal-bloom-whisper">
+          {{ product_advanced.title }}
+        </span>
+        <span class="trust-strip__signal-bloom-xenial">
+          Upload image here
+        </span>
+      </div>
+
+      <div class="install-steps__note-harbor-drift">
+        🛡 15 Stages + Vitamin A, C & E
+      </div>
+    </div>
+
+    <div class="install-steps__note-glow-pulse">
+
+      <span class="install-steps__note-harbor-ember">
+        ADVANCED + VITAMINS
+      </span>
+
+      <!-- ✅ Dynamic Title -->
+      <h3 class="install-steps__note-glow-ripple">
+        {{ product_advanced.title }}
+      </h3>
+
+      <p class="install-steps__note-glow-solace">
+        Everything in the 2.0 plus chloramines, fluoride, VOCs, and the vitamin infusion that sets ShowerEnvy apart.
+      </p>
+
+      <!-- ✅ Dynamic Price -->
+      <div class="install-steps__note-glow-thrive">
+        <span class="install-steps__note-glow-uplift">
+          {{ product_advanced.price | money }}
+        </span>
+
+        {% if product_advanced.compare_at_price > product_advanced.price %}
+          <span class="install-steps__note-glow-velvet">
+            {{ product_advanced.compare_at_price | money }}
+          </span>
+        {% endif %}
+      </div>
+
+      <!-- SVG untouched -->
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--gold)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        {{ section.settings.feature_6 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--gold)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        {{ section.settings.feature_7 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--gold)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        {{ section.settings.feature_8 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--gold)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+         {{ section.settings.feature_9 }}
+      </div>
+
+      <div class="install-steps__note-glow-whisper">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="install-steps__note-glow-xenial">
+          <circle cx="11" cy="11" r="11" fill="var(--gold)" opacity=".14"></circle>
+          <path d="M7 11l3 3L16 9" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        {{ section.settings.feature_10 }}
+      </div>
+
+      <!-- ✅ Dynamic Button -->
+      <a href="{{ product_advanced.url }}" class="btn btn-gold install-steps__note-glow-yonder">
+        Shop {{ product_advanced.title }} — {{ product_advanced.price | money }}
+      </a>
+
+    </div>
+  </div>
+</div>
+            </div>
+            
+        </section>
+
+{% endif %}
+{% schema %}
+{
+  "name":"SE Products",
+  "settings":[
+    {"type":"color","id":"bg","label":"Background color","default":"#ffffff"},
+    {"type":"color","id":"text","label":"Text color","default":"#1f1d1a"},
+    {"type":"range","id":"padding_top","label":"Padding top","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {
+  "type": "text",
+  "id": "protection_eyebrow",
+  "label": "Protection Eyebrow Text",
+  "default": "CHOOSE YOUR PROTECTION"
+},
+{
+  "type": "text",
+  "id": "protection_heading",
+  "label": "Protection Main Heading",
+  "default": "Two Ways to Protect What Your Body Is Already Losing"
+},
+    {
+  "type": "product",
+  "id": "product",
+  "label": "Select Product"
+},
+
+{
+  "type": "text",
+  "id": "feature_1",
+  "label": "Feature 1",
+  "default": "Chlorine + sediment + heavy metals"
+},
+{
+  "type": "text",
+  "id": "feature_2",
+  "label": "Feature 2",
+  "default": "3 spray modes"
+},
+{
+  "type": "text",
+  "id": "feature_3",
+  "label": "Feature 3",
+  "default": "Filter life: 3 months"
+},
+{
+  "type": "text",
+  "id": "feature_4",
+  "label": "Feature 4",
+  "default": "60-day money-back guarantee"
+},
+{
+  "type": "text",
+  "id": "feature_5",
+  "label": "Feature 5",
+  "default": "Free shipping"
+},
+{
+  "type": "product",
+  "id": "product_advanced",
+  "label": "Select Advanced Product (5.0)"
+},
+{
+  "type": "text",
+  "id": "feature_6",
+  "label": "Feature 6",
+  "default": "Full 15-stage + Vitamin A, C & E"
+},
+{
+  "type": "text",
+  "id": "feature_7",
+  "label": "Feature 7",
+  "default": "Chloramines, fluoride, VOCs removed"
+},
+{
+  "type": "text",
+  "id": "feature_8",
+  "label": "Feature 8",
+  "default": "NSF/ANSI Certified · Wall mount"
+},
+{
+  "type": "text",
+  "id": "feature_9",
+  "label": "Feature 9",
+  "default": "Filter life: 6 months"
+},
+{
+  "type": "text",
+  "id": "feature_10",
+  "label": "Feature 10",
+  "default": "90-day money-back guarantee"
+},
+  ],
+  "presets":[{"name":"SE Products"}]
+}
+{% endschema %}

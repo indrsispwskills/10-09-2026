@@ -1,0 +1,164 @@
+<!-- ═══ FILTER PROOF — Visual Evidence ═══ -->
+<div class="w">
+<section class="sec">
+  <div class="sh rv">
+  <div class="tag" style="color:var(--rose)">
+    {{ section.settings.section_tag }}
+  </div>
+
+  <h2>
+    {{ section.settings.section_title }}
+  </h2>
+
+  <p>
+    {{ section.settings.section_description }}
+  </p>
+</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:600px;margin:0 auto" class="img-ph-grid rv">
+    {% comment %} <div style="border:2px dashed var(--sage);border-radius:20px;padding:28px 20px;background:rgba(94,138,106,.04);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+      <span style="font-size:32px;opacity:.5">🔵</span>
+      <span style="font-size:14px;font-weight:700;color:var(--sage);text-transform:uppercase;letter-spacing:.04em">Day 1 — Pure White</span>
+      <span style="font-size:14px;color:var(--sage);opacity:.5">Upload clean filter photo</span>
+    </div>
+    <div style="border:2px dashed var(--rose);border-radius:20px;padding:28px 20px;background:rgba(194,93,78,.04);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+      <span style="font-size:32px;opacity:.5">🟤</span>
+      <span style="font-size:14px;font-weight:700;color:var(--rose);text-transform:uppercase;letter-spacing:.04em">Month 3 — Trapped Contaminants</span>
+      <span style="font-size:14px;color:var(--rose);opacity:.5">Upload used filter photo</span>
+    </div> {% endcomment %}
+
+
+    <div style="border:2px dashed var(--sage);border-radius:20px;padding:28px 20px;background:rgba(94,138,106,.04);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+
+  <span style="font-size:32px;opacity:.5">🔵</span>
+
+  {% if section.settings.image_one %}
+    <img 
+      src="{{ section.settings.image_one | image_url: width: 400 }}" 
+      alt=""
+      style="max-width:120px;border-radius:10px">
+  {% endif %}
+
+  <span style="font-size:14px;font-weight:700;color:var(--sage);text-transform:uppercase;letter-spacing:.04em">
+    {{ section.settings.title_one }}
+  </span>
+
+  <span style="font-size:14px;color:var(--sage);opacity:.5">
+    {{ section.settings.text_one }}
+  </span>
+
+</div>
+
+
+<div style="border:2px dashed var(--rose);border-radius:20px;padding:28px 20px;background:rgba(194,93,78,.04);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+
+  <span style="font-size:32px;opacity:.5">🟤</span>
+
+  {% if section.settings.image_two %}
+    <img 
+      src="{{ section.settings.image_two | image_url: width: 400 }}" 
+      alt=""
+      style="max-width:120px;border-radius:10px">
+  {% endif %}
+
+  <span style="font-size:14px;font-weight:700;color:var(--rose);text-transform:uppercase;letter-spacing:.04em">
+    {{ section.settings.title_two }}
+  </span>
+
+  <span style="font-size:14px;color:var(--rose);opacity:.5">
+    {{ section.settings.text_two }}
+  </span>
+
+</div>
+  </div>
+  {% comment %} <div class="rv" style="max-width:600px;margin:20px auto 0;padding:16px 20px;border-radius:14px;background:var(--rose2);text-align:center;font-size:15px;color:var(--rose);line-height:1.6"><strong>That brown buildup?</strong> Rust, sediment, chlorine residue, and heavy metals — all absorbed through your skin daily.</div> {% endcomment %}
+
+  <div class="rv" style="max-width:600px;margin:20px auto 0;padding:16px 20px;border-radius:14px;background:var(--rose2);text-align:center;font-size:15px;color:var(--rose);line-height:1.6">
+
+  <strong>{{ section.settings.highlight_text }}</strong>
+  {{ section.settings.description_text }}
+
+</div>
+
+</section>
+</div>
+
+
+{% schema %}
+{
+"name": "SE20 Benefits",
+"settings": [
+{
+  "type": "text",
+  "id": "section_tag",
+  "label": "Section Tag",
+  "default": "SEE WHAT YOUR WATER HIDES"
+},
+{
+  "type": "text",
+  "id": "section_title",
+  "label": "Section Title",
+  "default": "This Is What ShowerEnvy Catches"
+},
+{
+  "type": "textarea",
+  "id": "section_description",
+  "label": "Section Description",
+  "default": "Every contaminant trapped in these filters was hitting your skin and hair — every single shower."
+},
+
+
+{
+  "type": "image_picker",
+  "id": "image_one",
+  "label": "Day 1 Filter Image"
+},
+{
+  "type": "text",
+  "id": "title_one",
+  "label": "Day 1 Title",
+  "default": "Day 1 — Pure White"
+},
+{
+  "type": "text",
+  "id": "text_one",
+  "label": "Day 1 Description",
+  "default": "Upload clean filter photo"
+},
+
+{
+  "type": "image_picker",
+  "id": "image_two",
+  "label": "Month 3 Filter Image"
+},
+{
+  "type": "text",
+  "id": "title_two",
+  "label": "Month 3 Title",
+  "default": "Month 3 — Trapped Contaminants"
+},
+{
+  "type": "text",
+  "id": "text_two",
+  "label": "Month 3 Description",
+  "default": "Upload used filter photo"
+},
+{
+"type": "text",
+"id": "highlight_text",
+"label": "Highlighted Text",
+"default": "That brown buildup?"
+},
+{
+"type": "textarea",
+"id": "description_text",
+"label": "Description",
+"default": "Rust, sediment, chlorine residue, and heavy metals — all absorbed through your skin daily."
+}
+],
+"presets": [
+{
+  "name": "SE20 Benefits"
+}
+]
+}
+{% endschema %}

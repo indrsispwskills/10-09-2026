@@ -1,0 +1,46 @@
+<div class="wrap">
+<section class="hero" id="main" style="margin:0 -48px">
+  <div class="hero-inner">
+    <div class="badge badge--hero">{{ section.settings.hero_badge }}</div>
+    <h1>{{ section.settings.title_prefix }}<br><span class="accent">{{ section.settings.title_accent }}</span></h1>
+    <p class="hero-desc">{{ section.settings.description }}</p>
+    <div class="hero-btns">
+      <button class="btn btn--sage btn--lg" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">{{ section.settings.primary_text }}</button>
+      <a class="btn btn--outline btn--lg" href="{{ section.settings.secondary_url | default: "#" }}">{{ section.settings.secondary_text }}</a>
+    </div>
+    <div class="hero-stats">
+      {% for block in section.blocks %}
+        {% if block.type == 'stat' %}
+          <div class="hero-stat" {{ block.shopify_attributes }}><b>{{ block.settings.value }}</b><small>{{ block.settings.label }}</small></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <!-- Hero Image Placeholder -->
+    <div class="hero-img-ph" style="margin-top:40px;border-radius:20px;border:2px dashed rgba(94,138,106,.3);background:rgba(94,138,106,.03);padding:48px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px">
+      <span style="font-size:40px;opacity:.4">📸</span>
+      <span style="font-size:15px;font-weight:700;color:var(--sage);text-transform:uppercase;letter-spacing:.06em;opacity:.6">Hero Image</span>
+      <span style="font-size:14px;color:var(--sage);opacity:.4">Side-by-side: 2.0 Handheld &amp; 5.0 Stationary in bathroom setting · 1200×500px</span>
+    </div>
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "Comparison hero",
+  "settings": [
+    {"type":"text","id":"hero_badge","label":"Badge","default":"FOR WOMEN 45+ WITH HORMONAL HAIR & SKIN CHANGES"},
+    {"type":"text","id":"title_prefix","label":"Title line 1","default":"Your Products Aren't Failing."},
+    {"type":"text","id":"title_accent","label":"Title line 2","default":"Your Water Is."},
+    {"type":"textarea","id":"description","label":"Description","default":"Chlorine and hard water minerals strip the oils your skin and hair are already losing to hormonal changes. Every shower compounds the damage. Our filtered showerheads remove the external attack — so everything else you're doing actually works."},
+    {"type":"text","id":"primary_text","label":"Primary button text","default":"Shop Filtered Showerheads"},
+    {"type":"url","id":"secondary_url","label":"Secondary button URL"},
+    {"type":"text","id":"secondary_text","label":"Secondary button text","default":"Take the Water Quiz →"}
+  ],
+  "blocks": [
+    {"type":"stat","name":"Stat","settings":[{"type":"text","id":"value","label":"Value","default":"12,400+"},{"type":"text","id":"label","label":"Label","default":"Women 45+ Trust Us"}]}
+  ],
+  "max_blocks": 6,
+  "presets":[{"name":"Comparison hero","blocks":[{"type":"stat","settings":{"value":"12,400+","label":"Women 45+ Trust Us"}},{"type":"stat","settings":{"value":"90%+","label":"Chlorine Removed"}},{"type":"stat","settings":{"value":"4.8★","label":"Average Rating"}},{"type":"stat","settings":{"value":"90 Days","label":"Money-Back Guarantee"}}]}]
+}
+{% endschema %}

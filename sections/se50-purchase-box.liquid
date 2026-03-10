@@ -1,0 +1,42 @@
+{% assign selected_product = section.settings.product | default: product %}
+{% if selected_product != blank %}
+{% assign first_variant = selected_product.selected_or_first_available_variant %}
+<!-- PURCHASE BOX -->
+<div class="purchase-box reveal" data-se50-purchase data-product='{{ selected_product.variants | json | escape }}' data-product-title="{{ selected_product.title | escape }}" data-money-format="{{ shop.money_format | escape }}" data-checkout-base-url="{{ section.settings.checkoutchamp_base_url | escape }}" data-variant-key="{{ section.settings.variant_param_key | escape }}" data-purchase-key="{{ section.settings.purchase_param_key | escape }}" data-one-time="{{ section.settings.purchase_one_time_value | escape }}" data-subscription="{{ section.settings.purchase_subscription_value | escape }}">
+<div class="purchase-toggle">
+<div class="toggle-opt active" data-type="subscribe" onclick="togglePurchase('subscribe')"><div class="opt-label">Subscribe &amp; Save</div><div class="opt-price" data-price-display>{{ first_variant.price | money }}</div><div class="opt-sub">+ auto-shipped filters every 6 months</div><div class="opt-save">Save 15% on every filter</div></div>
+<div class="toggle-opt" data-type="onetime" onclick="togglePurchase('onetime')"><div class="opt-label">One-Time Purchase</div><div class="opt-price" data-price-display>{{ first_variant.price | money }}</div><div class="opt-sub">+ filters at full price when needed</div></div>
+</div>
+<div class="finish-selector"><div class="finish-label">Finish: <span id="finishName">{{ first_variant.option1 }}</span></div><div class="finish-options">{% for variant in selected_product.variants %}<div class="finish-opt{% if forloop.first %} active{% endif %}" data-finish="{{ variant.option1 | handleize }}" data-variant-id="{{ variant.id }}" data-variant-sku="{{ variant.sku | escape }}" data-variant-price="{{ variant.price }}" data-variant-price-formatted="{{ variant.price | money | escape }}" onclick="selectFinish(this,'{{ variant.option1 | escape }}')"></div>{% endfor %}</div></div>
+<div class="filter-schedule"><div class="filter-schedule-title">📅 Your Filter Schedule</div>
+<div class="fsr"><span class="fsr-label">Filter lifespan</span><span class="fsr-val">6 months / 10,000 gal</span></div>
+<div class="fsr"><span class="fsr-label">Replacement filter</span><span class="fsr-val" id="filterPrice">$24.65 <span style="font-size:14px;color:var(--sage)">(15% off)</span></span></div>
+<div class="fsr"><span class="fsr-label">Annual filter cost</span><span class="fsr-val" id="annualCost">$49.30/year</span></div>
+<div class="fsr"><span class="fsr-label">Daily cost</span><span class="fsr-val" id="dailyCost" style="color:var(--sage);font-size:17px;font-weight:700">$0.38/day</span></div>
+</div>
+<button class="btn btn-gold add-to-cart" id="se50CheckoutButton" disabled>Buy Now</button>
+<div class="cart-sub">Free shipping · <b>90-day guarantee</b> · 5-min install</div>
+<div class="trust-row">
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1L2 4v4c0 3.3 2.6 6.4 6 7 3.4-.6 6-3.7 6-7V4L8 1z"/></svg> NSF Certified</span>
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5"/><path d="M8 5v3l2 2"/></svg> 5-Min Install</span>
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 8l5 5L15 3"/></svg> 90-Day Guarantee</span>
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="9" rx="2"/><path d="M5 5V3a3 3 0 016 0v2"/></svg> Secure Checkout</span>
+</div></div>
+{% else %}
+<div class="purchase-box reveal"><p>Select a product in section settings.</p></div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "SE50 purchase box",
+  "settings": [
+    {"type":"product","id":"product","label":"Product"},
+    {"type":"text","id":"checkoutchamp_base_url","label":"Checkout base URL","default":"https://checkout.YOURDOMAIN.com/?product=se50"},
+    {"type":"text","id":"variant_param_key","label":"Variant param key","default":"variant"},
+    {"type":"text","id":"purchase_param_key","label":"Purchase param key","default":"purchase"},
+    {"type":"text","id":"purchase_one_time_value","label":"One-time value","default":"one_time"},
+    {"type":"text","id":"purchase_subscription_value","label":"Subscription value","default":"subscription"}
+  ],
+  "presets":[{"name":"SE50 purchase box"}]
+}
+{% endschema %}

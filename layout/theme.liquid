@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.colors_solid_button_labels }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+    <title>{{ page_title }}{% if current_tags %} — {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} — Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} — {{ shop.name }}{% endunless %}</title>
+    
+     {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+
+    {%- if settings.animations_reveal_on_scroll -%}
+      <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    
+    
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'responsive.css' | asset_url | stylesheet_tag }}
+
+    {% if request.page_type == 'index' %}
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {% endif %}
+
+     {% if template.suffix == 'comparison' %}
+      {{ 'comparison-2-vs-5.css' | asset_url | stylesheet_tag }}
+      {{ 'comparison-2-vs-5-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {% endif %}
+
+     {% if template.suffix == 'shower-envy-science' %}
+      {{ 'shower-envy-science.css' | asset_url | stylesheet_tag }}
+      {{ 'shower-envy-science-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {% endif %}
+
+      {% if template.name == 'product' and template.suffix == blank %}
+      {{ 'se20-common.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+    {% endif %}
+
+
+     {% comment %} {% if template.name == 'product' and template.suffix == blank %}
+      {{ 'se50-stationary.css' | asset_url | stylesheet_tag }}
+      {{ 'se50-stationary-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    {% endif %} {% endcomment %}
+
+     {% if template.suffix == 'water-report' %}
+      {{ 'water-report.css' | asset_url | stylesheet_tag }}
+      {{ 'water-report-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    {% endif %}
+
+    {% if template.suffix == 'refund-policy' %}
+      {{ 'refund-policy.css' | asset_url | stylesheet_tag }}
+      {{ 'refund-policy-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {% endif %}
+
+    {% if template.suffix == 'privacy-policy' %}
+      {{ 'privacy-policy.css' | asset_url | stylesheet_tag }}
+      {{ 'privacy-policy-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {% endif %}
+
+    {% if template.suffix == 'terms' %}
+      {{ 'terms.css' | asset_url | stylesheet_tag }}
+      {{ 'terms-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {% endif %}
+
+    {% if template.suffix == 'shower-envy-reviews' %}
+      {{ 'se-reviews.css' | asset_url | stylesheet_tag }}
+      {{ 'se-reviews-responsive.css' | asset_url | stylesheet_tag }}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {% endif %}
+      <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
+      {%- if settings.cart_type == 'drawer' -%}
+      {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+      {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+      {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+      {{ 'component-price.css' | asset_url | stylesheet_tag }}
+      {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+     
+
+  </head>
+  <body>
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">{{ 'accessibility.skip_to_text' | t }}</a>
+    {%- if settings.cart_type == 'drawer' -%}
+      {%- render 'cart-drawer' -%}
+    {%- endif -%}
+    <main id="MainContent" class="content-for-layout" role="main" tabindex="-1">
+      {{ content_for_layout }}
+     
+    </main>
+   
+      <script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}',
+      };
+
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+      };
+
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+      };
+
+      window.quickOrderListStrings = {
+        itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
+        itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
+        itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
+        itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
+        viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
+        each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
+        min_error: `{{- 'sections.quick_order_list.min_error' | t: min: '[min]' }}`,
+        max_error: `{{- 'sections.quick_order_list.max_error' | t: max: '[max]' }}`,
+        step_error: `{{- 'sections.quick_order_list.step_error' | t: step: '[step]' }}`,
+      };
+
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+        recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
+        recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
+        countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
+      };
+    </script>
+
+
+    {{ 'theme.js' | asset_url | script_tag }}
+
+     {% if template.suffix == 'comparison' %}
+      {{ 'comparison-2-vs-5.js' | asset_url | script_tag }}
+    {% endif %}
+
+       {% if template.suffix == 'shower-envy-science' %}
+      {{ 'shower-envy-science.js' | asset_url | script_tag }}
+    {% endif %}
+
+     {% if template.name == 'product' and template.suffix == blank %}
+      {{ 'se20-product.js' | asset_url | script_tag }}
+       {% comment %} {{ 'se50-stationary.js' | asset_url | script_tag }} {% endcomment %}
+    {% endif %}
+
+      {% if template.suffix == 'showerenvy-5-0-stationary' %}
+      {{ 'se50-stationary.js' | asset_url | script_tag }}
+    {% endif %}
+
+
+     {% if template.suffix == 'water-report' %}
+      {{ 'water-report.js' | asset_url | script_tag }}
+    {% endif %}
+    {% if template.suffix == 'privacy-policy' %}
+      {{ 'privacy-policy.js' | asset_url | script_tag }}
+    {% endif %}
+
+    {% if template.suffix == 'refund-policy' %}
+      {{ 'refund-policy.js' | asset_url | script_tag }}
+    {% endif %}
+
+    {% if template.suffix == 'terms' %}
+      {{ 'terms.js' | asset_url | script_tag }}
+    {% endif %}
+
+    {% if template.suffix == 'shower-envy-reviews' %}
+      {{ 'se-reviews.js' | asset_url | script_tag }}
+    {% endif %}
+
+     {%- if settings.cart_type == 'drawer' -%}
+      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+  </body>
+</html>

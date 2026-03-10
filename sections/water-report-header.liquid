@@ -1,0 +1,15 @@
+<header class="hdr">
+  <div class="hdr-logo">{{ section.settings.logo_prefix }}<em>{{ section.settings.logo_emphasis }}</em> <span style="font-size:14px;font-weight:400;color:var(--mute)">{{ section.settings.logo_suffix }}</span></div>
+</header>
+
+{% schema %}
+{
+  "name": "Water report header",
+  "settings": [
+    {"type": "text", "id": "logo_prefix", "label": "Logo prefix", "default": "Shower"},
+    {"type": "text", "id": "logo_emphasis", "label": "Logo emphasis", "default": "Envy"},
+    {"type": "text", "id": "logo_suffix", "label": "Header suffix", "default": "Water Report"}
+  ],
+  "presets": [{"name": "Water report header"}]
+}
+{% endschema %}

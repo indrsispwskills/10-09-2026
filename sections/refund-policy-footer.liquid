@@ -1,0 +1,25 @@
+<div class="page">
+<footer class="footer">
+  <div class="footer-inner">
+    <div style="margin-bottom:14px"><a href="#" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px"><svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span style="color:var(--sage);font-weight:700;font-style:italic">Envy</span></a></div>
+    <div class="footer-links">
+      <a href="#">Home</a><a href="#">2.0 Handheld</a><a href="#">5.0 Stationary</a>
+      <a href="#">Reviews</a><a href="#">Privacy Policy</a>
+      <a href="#" style="color:var(--sage);font-weight:700">Refund Policy</a><a href="#">Terms & Conditions</a>
+    </div>
+    <div class="footer-copy">{{ section.settings.footer_copy }}</div>
+  </div>
+</footer>
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+{% schema %}
+{
+  "name": "Refund policy footer",
+  "settings": [
+    {"type":"text","id":"footer_copy","label":"Footer copyright","default":"© 2026 ShowerEnvy Technologies LLC · Cheyenne, Wyoming"}
+  ],
+  "presets": [{"name": "Refund policy footer"}]
+}
+{% endschema %}

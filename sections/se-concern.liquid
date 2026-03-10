@@ -1,0 +1,232 @@
+{% style %}#shopify-section-{{ section.id }}{background:{{ section.settings.bg }};color:{{ section.settings.text }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px}{% endstyle %}
+{% if section.settings.custom_html != blank %}
+  {{ section.settings.custom_html }}
+{% else %}
+{% if section.settings.custom_svg != blank %}<div class="se-custom-svg">{{ section.settings.custom_svg }}</div>{% endif %}
+        <section class="concern-section__point-bloom-yonder">
+            <div class="reveal-up is-visible hero__panel-bloom-ember">
+                <div class="concern-section__point-bloom-zenith">
+                    <div class="concern-section__point-crest-aurora">💭</div>
+                    {% if section.settings.eyebrow_text != blank %}
+  <div class="section-eyebrow concern-section__point-crest-bloom">
+    {{ section.settings.eyebrow_text }}
+  </div>
+{% endif %}
+
+{% if section.settings.heading_text != blank %}
+  <h2 class="concern-section__point-crest-crest">
+    {{ section.settings.heading_text }}
+  </h2>
+{% endif %}
+
+{% if section.settings.description_text != blank %}
+  <p class="concern-section__point-crest-drift">
+    {{ section.settings.description_text }}
+  </p>
+{% endif %}   </div>
+            </div>
+            <div class="content-layout is-visible concern-section__point-crest-ember">
+                <div class="card concern-section__point-crest-flare">
+                    <div class="concern-section__point-crest-glow">
+                        <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                            <rect x="10" y="22" width="62" height="44" rx="8" fill="var(--rose)" opacity=".1" stroke="var(--rose)" stroke-width="2.5"></rect>
+                            <rect x="52" y="34" width="24" height="20" rx="5" fill="var(--rose)" opacity=".15"></rect>
+                            <circle cx="64" cy="44" r="4.5" fill="var(--rose)" opacity=".35"></circle>
+                            <path d="M18 22V18a7 7 0 0 1 7-7h34a7 7 0 0 1 7 7v4" stroke="var(--rose)" stroke-width="2" opacity=".35"></path>
+                            <text x="34" y="50" fill="var(--rose)" font-size="22" font-weight="800" opacity=".5" font-family="var(--fh)">$</text>
+                        </svg>
+                    </div>
+                    <p class="concern-section__point-crest-harbor">{{ section.settings.point_one }}</p>
+                </div>
+                <div class="card concern-section__point-crest-flare">
+                    <div class="concern-section__point-crest-glow">
+                        <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                            <circle cx="44" cy="44" r="36" fill="var(--rose)" opacity=".08" stroke="var(--rose)" stroke-width="2"></circle>
+                            <circle cx="44" cy="44" r="8" fill="var(--rose)" opacity=".2"></circle>
+                            <line x1="58" y1="44" x2="76" y2="44" stroke="var(--rose)" stroke-width="2" opacity=".25"></line>
+                            <line x1="51" y1="56.12435565298214" x2="60" y2="71.71281292110203" stroke="var(--rose)" stroke-width="2" opacity=".25"></line>
+                            <line x1="37" y1="56.124355652982146" x2="28.000000000000007" y2="71.71281292110204" stroke="var(--rose)" stroke-width="2" opacity=".25"></line>
+                            <line x1="30" y1="44" x2="12" y2="44.00000000000001" stroke="var(--rose)" stroke-width="2" opacity=".25"></line>
+                            <line x1="36.99999999999999" y1="31.87564434701786" x2="27.999999999999986" y2="16.287187078897972" stroke="var(--rose)" stroke-width="2" opacity=".25"></line>
+                            <line x1="51" y1="31.87564434701786" x2="60" y2="16.287187078897965" stroke="var(--rose)" stroke-width="2" opacity=".25"></line>
+                            <path d="M34 28c5 12-4 18 6 26" stroke="var(--rose)" stroke-width="2.5" opacity=".45" fill="none" stroke-linecap="round"></path>
+                            <path d="M48 24c-2 14 6 16-2 30" stroke="var(--rose)" stroke-width="2.5" opacity=".45" fill="none" stroke-linecap="round"></path>
+                            <path d="M58 32c-7 9-2 14-5 22" stroke="var(--rose)" stroke-width="2" opacity=".35" fill="none" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                    <p class="concern-section__point-crest-harbor">{{ section.settings.point_two }}</p>
+                </div>
+                <div class="card concern-section__point-crest-flare">
+                    <div class="concern-section__point-crest-glow">
+                        <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                            <rect x="30" y="8" width="28" height="10" rx="4" fill="var(--rose)" opacity=".2"></rect>
+                            <rect x="24" y="18" width="40" height="58" rx="7" fill="var(--rose)" opacity=".1" stroke="var(--rose)" stroke-width="2.5"></rect>
+                            <rect x="30" y="32" width="28" height="3" rx="1.5" fill="var(--rose)" opacity=".2"></rect>
+                            <rect x="30" y="40" width="20" height="3" rx="1.5" fill="var(--rose)" opacity=".15"></rect>
+                            <text x="44" y="64" text-anchor="middle" fill="var(--rose)" font-size="18" font-weight="800" opacity=".4">✕</text>
+                        </svg>
+                    </div>
+                    <p class="concern-section__point-crest-harbor">{{ section.settings.point_three }}</p>
+                </div>
+                <div class="card concern-section__point-crest-flare">
+                    <div class="concern-section__point-crest-glow">
+                        <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                            <ellipse cx="44" cy="44" rx="36" ry="34" fill="var(--rose)" opacity=".06" stroke="var(--rose)" stroke-width="2"></ellipse>
+                            <path d="M18 58c8-20 14-34 26-40s24 0 28 14" stroke="var(--rose)" stroke-width="2.5" opacity=".4" fill="none" stroke-linecap="round"></path>
+                            <line x1="30" y1="48" x2="38" y2="38" stroke="var(--rose)" stroke-width="2" opacity=".4" stroke-dasharray="4 4"></line>
+                            <line x1="46" y1="36" x2="54" y2="28" stroke="var(--rose)" stroke-width="2" opacity=".4" stroke-dasharray="4 4"></line>
+                            <line x1="58" y1="42" x2="64" y2="34" stroke="var(--rose)" stroke-width="2" opacity=".4" stroke-dasharray="4 4"></line>
+                            <circle cx="25" cy="52" r="3" fill="var(--rose)" opacity=".2"></circle>
+                            <circle cx="42" cy="32" r="3" fill="var(--rose)" opacity=".2"></circle>
+                            <circle cx="62" cy="38" r="3" fill="var(--rose)" opacity=".2"></circle>
+                            <text x="44" y="72" text-anchor="middle" fill="var(--rose)" font-size="8" font-weight="600" opacity=".4">DRY · CRACKED</text>
+                        </svg>
+                    </div>
+                    <p class="concern-section__point-crest-harbor"> {{ section.settings.point_four }}</p>
+                </div>
+                <div class="card concern-section__point-crest-flare">
+                    <div class="concern-section__point-crest-glow">
+                        <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                            <rect x="10" y="22" width="62" height="44" rx="8" fill="var(--rose)" opacity=".1" stroke="var(--rose)" stroke-width="2.5"></rect>
+                            <rect x="52" y="34" width="24" height="20" rx="5" fill="var(--rose)" opacity=".15"></rect>
+                            <circle cx="64" cy="44" r="4.5" fill="var(--rose)" opacity=".35"></circle>
+                            <path d="M18 22V18a7 7 0 0 1 7-7h34a7 7 0 0 1 7 7v4" stroke="var(--rose)" stroke-width="2" opacity=".35"></path>
+                            <text x="34" y="50" fill="var(--rose)" font-size="22" font-weight="800" opacity=".5" font-family="var(--fh)">$</text>
+                        </svg>
+                    </div>
+                    <p class="concern-section__point-crest-harbor"> {{ section.settings.point_five }}</p>
+                </div>
+                <div class="card concern-section__point-crest-flare">
+                    <div class="concern-section__point-crest-glow">
+                        <svg width="88" height="88" viewBox="0 0 88 88" fill="none">
+                            <ellipse cx="44" cy="38" rx="30" ry="34" fill="var(--rose)" opacity=".1" stroke="var(--rose)" stroke-width="2.5"></ellipse>
+                            <rect x="40" y="72" width="8" height="12" rx="4" fill="var(--rose)" opacity=".35"></rect>
+                            <rect x="32" y="82" width="24" height="4" rx="2" fill="var(--rose)" opacity=".2"></rect>
+                            <path d="M32 32c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="var(--rose)" stroke-width="2.5" opacity=".5" stroke-linecap="round"></path>
+                            <circle cx="37" cy="40" r="2.5" fill="var(--rose)" opacity=".4"></circle>
+                            <circle cx="51" cy="40" r="2.5" fill="var(--rose)" opacity=".4"></circle>
+                            <path d="M37 48c3 3 8 3 11 0" stroke="var(--rose)" stroke-width="2" opacity=".3" stroke-linecap="round" fill="none"></path>
+                            <text x="44" y="24" text-anchor="middle" fill="var(--rose)" font-size="12" font-weight="700" opacity=".6">?</text>
+                        </svg>
+                    </div>
+                    <p class="concern-section__point-crest-harbor"> {{ section.settings.point_six }}</p>
+                </div>
+            </div>
+            <div class="reveal-up is-visible concern-section__point-crest-ivory">
+                <div class="concern-section__point-crest-jade">
+                    <div class="concern-section__point-crest-kindle">
+                        <svg width="64" height="64" viewBox="0 0 56 56" fill="none">
+                            <text x="4" y="48" fill="var(--rose)" font-size="68" font-family="var(--fh)" opacity=".2" font-weight="700">"</text>
+                        </svg>
+                    </div>
+                    <div class="concern-section__point-crest-lumen">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path>
+                        </svg>
+                    </div>
+                            {% if section.settings.testimonial_text != blank %}
+                            <p class="concern-section__point-crest-meadow">
+                            {{ section.settings.testimonial_text }}
+                            </p>
+                            {% endif %}
+
+                            {% if section.settings.testimonial_source != blank %}
+                            <p class="concern-section__point-crest-nova">
+                            {{ section.settings.testimonial_source }}
+                            </p>
+                            {% endif %}
+                </div>
+            </div>
+        </section>
+
+{% endif %}
+{% schema %}
+{
+  "name":"SE Concern",
+  "settings":[
+    {"type":"color","id":"bg","label":"Background color","default":"#ffffff"},
+    {"type":"color","id":"text","label":"Text color","default":"#1f1d1a"},
+    {"type":"range","id":"padding_top","label":"Padding top","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":120,"step":4,"unit":"px","default":0},
+    {
+  "type": "text",
+  "id": "eyebrow_text",
+  "label": "Eyebrow Text",
+  "default": "THE PROBLEM NOBODY TALKS ABOUT"
+},
+{
+  "type": "textarea",
+  "id": "heading_text",
+  "label": "Main Heading",
+  "default": "Your Body Is Changing.<br>Your Water Should Change With It."
+},
+{
+  "type": "textarea",
+  "id": "description_text",
+  "label": "Description Text",
+  "default": "You've tried the serums, the salon treatments, the supplements your friend swore by. And maybe they helped — a little. For a while. But the hair in the drain kept coming."
+}
+    ,{
+  "type": "textarea",
+  "id": "point_one",
+  "label": "Concern Point 1",
+  "default": "$80–$250/month on products that sit on the surface of mineral-coated hair"
+},
+{
+  "type": "textarea",
+  "id": "point_two",
+  "label": "Concern Point 2",
+  "default": "Your ponytail is half the thickness it was two years ago"
+},
+{
+  "type": "textarea",
+  "id": "point_three",
+  "label": "Concern Point 3",
+  "default": "Your $200 color fades just two weeks after leaving the salon"
+},
+{
+  "type": "textarea",
+  "id": "point_four",
+  "label": "Concern Point 4",
+  "default": "Your skin feels tight and papery within minutes of showering"
+},
+{
+  "type": "textarea",
+  "id": "point_five",
+  "label": "Concern Point 5",
+  "default": "You slather moisturizer morning and night just to maintain what's left"
+},{
+  "type": "textarea",
+  "id": "point_six",
+  "label": "Concern Point 6",
+  "default": "You avoid mirrors because the person looking back doesn't feel like you"
+}
+    ,{
+  "type": "textarea",
+  "id": "testimonial_text",
+  "label": "Testimonial Text",
+  "default": "I feel like I aged 15 years in the past three. I tried everything. Nobody told me my water was part of the problem."
+},
+{
+  "type": "text",
+  "id": "testimonial_source",
+  "label": "Testimonial Source",
+  "default": "— From a real community discussion on r/Menopause"
+}
+    
+  ],
+  "presets":[{"name":"SE Concern"}]
+}
+{% endschema %}

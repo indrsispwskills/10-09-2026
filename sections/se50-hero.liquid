@@ -1,0 +1,106 @@
+{% assign selected_product = section.settings.product | default: product %}
+{% if selected_product != blank %}
+{% assign first_variant = selected_product.selected_or_first_available_variant %}
+<!-- STICKY MOBILE CART BAR -->
+<div class="mobile-cart-bar" id="mobileCartBar">
+<div class="mobile-cart-inner">
+<div class="mobile-cart-info">
+<div class="mci-title">ShowerEnvy 5.0 · $89</div>
+<div class="mci-sub">Free shipping · 90-day guarantee</div>
+</div>
+<button class="mobile-cart-btn" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">Add to Cart</button>
+</div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav"><div class="sticky-nav-inner">
+<a href="#" class="logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></a>
+<div class="nav-links">
+<a href="#stages">Filtration</a><a href="#pressure">Pressure</a><a href="#offer">Offer</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+<a href="#offer" class="nav-cart">🛒 Add to Cart — $89</a>
+</div><button class="ham" aria-label="Menu" onclick="toggleMobileNav()"><span></span><span></span><span></span></button></div></nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-overlay" id="mobOverlay" onclick="toggleMobileNav()"></div>
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-menu-header">
+    <div class="logo" style="font-size:22px"><svg class="brand-mark" width="22" height="22" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<span>Envy</span></div>
+    <button class="mob-menu-close" onclick="toggleMobileNav()">&times;</button>
+  </div>
+  <a href="#stages" class="mob-link" onclick="toggleMobileNav()">Filtration</a>
+  <a href="#pressure" class="mob-link" onclick="toggleMobileNav()">Pressure</a>
+  <a href="#offer" class="mob-link" onclick="toggleMobileNav()">Offer</a>
+  <a href="#reviews" class="mob-link" onclick="toggleMobileNav()">Reviews</a>
+  <a href="#faq" class="mob-link" onclick="toggleMobileNav()">FAQ</a>
+  <button class="mob-cta" onclick="toggleMobileNav();document.getElementById('offer').scrollIntoView({behavior:'smooth'})">🛒 Add to Cart — $89</button>
+</div>
+
+
+<!-- HERO -->
+<div class="container"><div class="hero-grid">
+<div class="hero-gallery reveal">
+<div class="hero-main-img" style="position:relative">
+  <div class="pp" style="opacity:.15">🚿</div>
+  <div style="position:absolute;inset:16px;border:2px dashed var(--gold);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(176,134,66,.04)">
+    <span style="font-size:40px;opacity:.5">📸</span>
+    <span style="font-size:14px;font-weight:700;color:var(--gold);opacity:.7;text-transform:uppercase;letter-spacing:.04em">5.0 Product Hero Shot</span>
+    <span style="font-size:14px;color:var(--gold);opacity:.4">Upload main product image</span>
+  </div>
+</div>
+<div class="hero-thumbs">
+<div class="hero-thumb active" style="position:relative;overflow:hidden"><span style="opacity:.2">🚿</span><span style="position:absolute;font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase">Front</span></div>
+<div class="hero-thumb" style="position:relative;overflow:hidden"><span style="opacity:.2">🔬</span><span style="position:absolute;font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase">Filter</span></div>
+<div class="hero-thumb" style="position:relative;overflow:hidden"><span style="opacity:.2">📐</span><span style="position:absolute;font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase">Side</span></div>
+<div class="hero-thumb" style="position:relative;overflow:hidden"><span style="opacity:.2">💧</span><span style="position:absolute;font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase">In Use</span></div>
+</div></div>
+<div class="hero-info">
+<div class="hero-badge reveal">🔬 NSF/ANSI 177 Certified · 15-Stage</div>
+<h1 class="hero-title reveal">ShowerEnvy 5.0<br>Stationary</h1>
+<p class="hero-subtitle reveal">15-stage vitamin-infused filtered showerhead — engineered for women navigating menopause, perimenopause &amp; hormonal hair changes.</p>
+<div class="hero-reviews reveal">
+<div class="hero-stars"><svg viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z" fill="#B08642"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z" fill="#B08642"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z" fill="#B08642"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z" fill="#B08642"/></svg><svg viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z" fill="#B08642"/></svg></div>
+<span class="hero-review-text"><b>4.8</b> from 2,847 verified reviews</span>
+</div>
+
+<!-- PURCHASE BOX -->
+<div class="purchase-box reveal" data-se50-purchase data-product='{{ selected_product.variants | json | escape }}' data-product-title="{{ selected_product.title | escape }}" data-money-format="{{ shop.money_format | escape }}" data-checkout-base-url="{{ section.settings.checkoutchamp_base_url | escape }}" data-variant-key="{{ section.settings.variant_param_key | escape }}" data-purchase-key="{{ section.settings.purchase_param_key | escape }}" data-one-time="{{ section.settings.purchase_one_time_value | escape }}" data-subscription="{{ section.settings.purchase_subscription_value | escape }}">
+<div class="purchase-toggle">
+<div class="toggle-opt active" data-type="subscribe" onclick="togglePurchase('subscribe')"><div class="opt-label">Subscribe &amp; Save</div><div class="opt-price" data-price-display>{{ first_variant.price | money }}</div><div class="opt-sub">+ auto-shipped filters every 6 months</div><div class="opt-save">Save 15% on every filter</div></div>
+<div class="toggle-opt" data-type="onetime" onclick="togglePurchase('onetime')"><div class="opt-label">One-Time Purchase</div><div class="opt-price" data-price-display>{{ first_variant.price | money }}</div><div class="opt-sub">+ filters at full price when needed</div></div>
+</div>
+<div class="finish-selector"><div class="finish-label">Finish: <span id="finishName">{{ first_variant.option1 }}</span></div><div class="finish-options">{% for variant in selected_product.variants %}<div class="finish-opt{% if forloop.first %} active{% endif %}" data-finish="{{ variant.option1 | handleize }}" data-variant-id="{{ variant.id }}" data-variant-sku="{{ variant.sku | escape }}" data-variant-price="{{ variant.price }}" data-variant-price-formatted="{{ variant.price | money | escape }}" onclick="selectFinish(this,'{{ variant.option1 | escape }}')"></div>{% endfor %}</div></div>
+<div class="filter-schedule"><div class="filter-schedule-title">📅 Your Filter Schedule</div>
+<div class="fsr"><span class="fsr-label">Filter lifespan</span><span class="fsr-val">6 months / 10,000 gal</span></div>
+<div class="fsr"><span class="fsr-label">Replacement filter</span><span class="fsr-val" id="filterPrice">$24.65 <span style="font-size:14px;color:var(--sage)">(15% off)</span></span></div>
+<div class="fsr"><span class="fsr-label">Annual filter cost</span><span class="fsr-val" id="annualCost">$49.30/year</span></div>
+<div class="fsr"><span class="fsr-label">Daily cost</span><span class="fsr-val" id="dailyCost" style="color:var(--sage);font-size:17px;font-weight:700">$0.38/day</span></div>
+</div>
+<button class="btn btn-gold add-to-cart" id="se50CheckoutButton" disabled>Buy Now</button>
+<div class="cart-sub">Free shipping · <b>90-day guarantee</b> · 5-min install</div>
+<div class="trust-row">
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1L2 4v4c0 3.3 2.6 6.4 6 7 3.4-.6 6-3.7 6-7V4L8 1z"/></svg> NSF Certified</span>
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5"/><path d="M8 5v3l2 2"/></svg> 5-Min Install</span>
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 8l5 5L15 3"/></svg> 90-Day Guarantee</span>
+<span class="trust-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="12" height="9" rx="2"/><path d="M5 5V3a3 3 0 016 0v2"/></svg> Secure Checkout</span>
+</div></div>
+</div>
+
+</div></div>
+{% else %}
+<div class="container"><div class="purchase-box reveal"><p>Select a product in section settings.</p></div></div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "se50 hero",
+  "settings": [
+    {"type":"product","id":"product","label":"Product"},
+    {"type":"text","id":"checkoutchamp_base_url","label":"Checkout base URL","default":"https://checkout.YOURDOMAIN.com/?product=se50"},
+    {"type":"text","id":"variant_param_key","label":"Variant param key","default":"variant"},
+    {"type":"text","id":"purchase_param_key","label":"Purchase param key","default":"purchase"},
+    {"type":"text","id":"purchase_one_time_value","label":"One-time value","default":"one_time"},
+    {"type":"text","id":"purchase_subscription_value","label":"Subscription value","default":"subscription"}
+  ],
+  "presets":[{"name":"se50 hero"}]
+}
+{% endschema %}

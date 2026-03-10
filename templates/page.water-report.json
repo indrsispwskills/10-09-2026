@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "water_report_header": {
+      "type": "water-report-header",
+      "settings": {}
+    },
+    "water_report_entry": {
+      "type": "water-report-entry",
+      "settings": {}
+    },
+    "water_report_loading": {
+      "type": "water-report-loading",
+      "settings": {}
+    },
+    "water_report_results": {
+      "type": "water-report-results",
+      "settings": {}
+    },
+    "water_report_footer": {
+      "type": "water-report-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "water_report_header",
+    "water_report_entry",
+    "water_report_loading",
+    "water_report_results",
+    "water_report_footer"
+  ]
+}

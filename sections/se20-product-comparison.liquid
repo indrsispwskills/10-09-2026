@@ -1,0 +1,82 @@
+<!-- ═══ COMPARISON TABLE ═══ -->
+<div class="w">
+<section id="compare" class="sec">
+  <div class="sh rv"><div class="tag" style="color:var(--gold)">HOW WE COMPARE</div><h2>ShowerEnvy vs. The Competition</h2><p>We looked at every major filtered showerhead. Here's the honest breakdown.</p></div>
+  <div style="overflow-x:auto;border-radius:20px;margin:0" class="rv">
+    <table class="cmp-table" id="cmpTable">
+      <thead><tr><th style="width:30%">Feature</th><th>ShowerEnvy 2.0</th><th>AquaBliss SF100</th><th>Jolie</th></tr></thead>
+      <tbody>
+        <tr class="cmp-row"><td>Price</td><td class="win">$49</td><td>~$30</td><td>~$155</td></tr>
+        <tr class="cmp-row"><td>Filtration Stages</td><td class="win">5-Stage</td><td>1-Stage</td><td>1-Stage</td></tr>
+        <tr class="cmp-row"><td>Spray Modes</td><td class="win">3 Modes</td><td>6 (plastic)</td><td>1</td></tr>
+        <tr class="cmp-row"><td>Pressure After Filter</td><td class="win">Improved (micro-nozzle)</td><td class="lose">Drops fast</td><td class="lose">Standard</td></tr>
+        <tr class="cmp-row"><td>Filter Life</td><td class="win">3 months / 5,000 gal</td><td class="lose">~1 month</td><td>2–3 months</td></tr>
+        <tr class="cmp-row"><td>Handheld Hose</td><td class="win">60" stainless steel</td><td class="lose">No</td><td class="lose">No</td></tr>
+        <tr class="cmp-row"><td>Guarantee</td><td class="win">60 Days</td><td>30 Days</td><td>60 Days</td></tr>
+        <tr class="cmp-row"><td>Built For</td><td class="win">Women 45+</td><td class="lose">Generic</td><td class="lose">Women 25–35</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Product Comparison Photo -->
+  {% comment %} <div class="rv" style="margin-top:28px;border:2px dashed var(--gold);border-radius:20px;padding:32px 24px;background:rgba(176,134,66,.03);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;max-width:500px;margin-left:auto;margin-right:auto">
+    <span style="font-size:28px;opacity:.5">📊</span>
+    <span style="font-size:14px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.04em">Side-by-Side Product Photo</span>
+    <span style="font-size:14px;color:var(--gold);opacity:.5">ShowerEnvy 2.0 vs. competitor showerheads</span>
+  </div> {% endcomment %}
+
+  <div class="rv" style="margin-top:28px;border:2px dashed var(--gold);border-radius:20px;padding:32px 24px;background:rgba(176,134,66,.03);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;max-width:500px;margin-left:auto;margin-right:auto">
+
+  {% if section.settings.compare_image != blank %}
+    <img 
+      src="{{ section.settings.compare_image | image_url: width: 900 }}" 
+      alt="Comparison"
+      style="max-width:100%;border-radius:12px"
+    >
+  {% else %}
+    <span style="font-size:28px;opacity:.5">📊</span>
+    <span style="font-size:14px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.04em">
+      {{ section.settings.title }}
+    </span>
+    <span style="font-size:14px;color:var(--gold);opacity:.5">
+      {{ section.settings.subtitle }}
+    </span>
+  {% endif %}
+
+</div>
+
+
+</section>
+
+<div class="divider rv"><span>✦</span></div>
+</div>
+
+{% comment %} {% schema %}{"name":"SE20 Compare","settings":[],"presets":[{"name":"SE20 Compare"}]}{% endschema %} {% endcomment %}
+  {% schema %}
+{
+  "name": "SE20 Compare",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "compare_image",
+      "label": "Side by Side Product Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Side-by-Side Product Photo"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "ShowerEnvy 2.0 vs. competitor showerheads"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SE20 Compare"
+    }
+  ]
+}
+{% endschema %}

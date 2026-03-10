@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "se20_hero": {
+      "type": "se20-hero",
+      "settings": {}
+    },
+    "se20_purchase": {
+      "type": "se20-purchase-panel",
+      "settings": {}
+    },
+    "se20_trust": {
+      "type": "se20-trust-bar",
+      "settings": {}
+    },
+    "se20_benefits": {
+      "type": "se20-benefits-grid",
+      "settings": {}
+    },
+    "se20_science": {
+      "type": "se20-science-section",
+      "settings": {}
+    },
+    "se20_results": {
+      "type": "se20-results-stats",
+      "settings": {}
+    },
+    "se20_filtration": {
+      "type": "se20-filtration-stages",
+      "settings": {}
+    },
+    "se20_compare": {
+      "type": "se20-product-comparison",
+      "settings": {}
+    },
+    "se20_reviews": {
+      "type": "se20-customer-reviews",
+      "settings": {}
+    },
+    "se20_faq": {
+      "type": "se20-faq-section",
+      "settings": {}
+    },
+    "se20_guarantee": {
+      "type": "se20-guarantee-banner",
+      "settings": {}
+    },
+    "se20_final": {
+      "type": "se20-final-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "se20_hero",
+    "se20_purchase",
+    "se20_trust",
+    "se20_benefits",
+    "se20_science",
+    "se20_results",
+    "se20_filtration",
+    "se20_compare",
+    "se20_reviews",
+    "se20_faq",
+    "se20_guarantee",
+    "se20_final"
+  ]
+}

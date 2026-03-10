@@ -1,0 +1,209 @@
+<div class="wrap">
+<section id="solution" class="rv">
+  <div class="content-max">
+
+    <div class="s-head">
+      <div class="section-icon section-icon--teal rv-scale">
+        {{ section.settings.section_icon }}
+      </div>
+
+      <div class="s-tag" style="color:var(--sage)">
+        {{ section.settings.section_tag }}
+      </div>
+
+      <h2 class="s-title">
+        {{ section.settings.section_title }}
+      </h2>
+
+      <p class="s-sub">
+        {{ section.settings.section_subtitle }}
+      </p>
+    </div>
+
+
+    <div class="illust illust--small rv-scale rv-d1">
+
+      <!-- SVG LEFT UNCHANGED -->
+      <svg width="200" height="100" viewBox="0 0 200 100" fill="none">
+        <path d="M100,8 L160,28 L160,58 C160,78 135,92 100,98 C65,92 40,78 40,58 L40,28 Z" fill="#E8F5F3" stroke="#5E8A6A" stroke-width="1.5"/>
+        <path d="M100,20 L145,36 L145,58 C145,72 128,82 100,86 C72,82 55,72 55,58 L55,36 Z" fill="#5E8A6A" opacity=".15"/>
+        <text x="100" y="52" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#5E8A6A" font-weight="700">FILTRATION</text>
+        <text x="100" y="66" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#5E8A6A">SHIELD</text>
+        <circle cx="75" cy="14" r="4" fill="#DC2626" opacity=".2"/>
+        <circle cx="125" cy="10" r="3" fill="#DC2626" opacity=".15"/>
+        <line x1="75" y1="18" x2="80" y2="28" stroke="#DC2626" stroke-width="1" opacity=".3" stroke-dasharray="2,2"/>
+        <line x1="125" y1="13" x2="120" y2="30" stroke="#DC2626" stroke-width="1" opacity=".3" stroke-dasharray="2,2"/>
+        <circle cx="90" cy="88" r="3" fill="#5E8A6A" opacity=".3"/>
+        <circle cx="110" cy="92" r="2.5" fill="#5E8A6A" opacity=".25"/>
+      </svg>
+
+    </div>
+
+
+    <div class="card-grid">
+
+      <!-- CAN DO CARD -->
+      <div class="content-card content-card--teal rv-left rv-d1">
+
+        <h4>{{ section.settings.can_title }}</h4>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'can_item' %}
+
+          <div class="cr" {{ block.shopify_attributes }}>
+            <svg class="ci" width="16" height="16" viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" fill="#5E8A6A" opacity=".15"/>
+              <path d="M5 8l2 2 4-4" stroke="#5E8A6A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+
+            <span>{{ block.settings.text }}</span>
+          </div>
+
+          {% endif %}
+        {% endfor %}
+
+      </div>
+
+
+      <!-- CANNOT DO CARD -->
+      <div class="content-card rv-right rv-d2">
+
+        <h4>{{ section.settings.cannot_title }}</h4>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'cannot_item' %}
+
+          <div class="item-row" {{ block.shopify_attributes }}>
+            <span class="x-icon">✗</span>
+            <span style="color:var(--muted)">
+              {{ block.settings.text }}
+            </span>
+          </div>
+
+          {% endif %}
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box tip-box--gold rv rv-d3">
+      <span class="tip-emoji" style="animation:float 3s ease-in-out infinite">
+        {{ section.settings.tip_icon }}
+      </span>
+
+      <p>
+        {{ section.settings.tip_text }}
+      </p>
+    </div>
+
+  </div>
+</section>
+</div>
+
+{% schema %}
+{
+  "name": "Shower science solution",
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "section_icon",
+      "label": "Section Icon",
+      "default": "💧"
+    },
+
+    {
+      "type": "text",
+      "id": "section_tag",
+      "label": "Section Tag",
+      "default": "THE SOLUTION"
+    },
+
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "What Filtered Water Actually Does"
+    },
+
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "We're not claiming to reverse menopause. Here's what a shower filter can and cannot do — honestly."
+    },
+
+    {
+      "type": "text",
+      "id": "can_title",
+      "label": "Can Do Title",
+      "default": "✓ What ShowerEnvy Can Do"
+    },
+
+    {
+      "type": "text",
+      "id": "cannot_title",
+      "label": "Cannot Do Title",
+      "default": "✗ What ShowerEnvy Cannot Do"
+    },
+
+    {
+      "type": "text",
+      "id": "tip_icon",
+      "label": "Tip Icon",
+      "default": "💡"
+    },
+
+    {
+      "type": "textarea",
+      "id": "tip_text",
+      "label": "Tip Text",
+      "default": "Think of it this way: A filtered showerhead doesn't fix the hormonal problem. It removes the environmental problem that's making the hormonal problem worse."
+    }
+
+  ],
+
+  "blocks": [
+
+    {
+      "type": "can_item",
+      "name": "Can Do Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Item Text"
+        }
+      ]
+    },
+
+    {
+      "type": "cannot_item",
+      "name": "Cannot Do Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Item Text"
+        }
+      ]
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Shower science solution",
+      "blocks": [
+        { "type": "can_item" },
+        { "type": "can_item" },
+        { "type": "can_item" },
+        { "type": "cannot_item" },
+        { "type": "cannot_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,442 @@
+<style>
+:root{
+  --ink:#1F1D1A;--mut:#8A857D;--light:#B5B0A8;
+  --cream:#FAF6F0;--warm:#FEFCF8;--wh:#FFF;
+  --sage:#5E8A6A;--saged:#4A7254;--sage2:rgba(94,138,106,.08);--sage3:#EBF2ED;--sage4:#D4E5D8;
+  --navy:#1B3A4B;--navyd:#0F2027;
+  --gold:#B08642;--goldd:#8E6B34;--gold3:#FBF6ED;--gold4:#F5EDE3;
+  --rose:#C25D4E;--rosed:#A64A3D;--rose3:#FEF5F3;
+  --sage:#5E8A6A;--sage3:#F0F7F2;
+  --success:#16A34A;
+  --bdr:#E8E3DA;
+  --fh:'Cormorant Garamond',Georgia,serif;--fb:'DM Sans',sans-serif;
+  --sh-sm:0 2px 8px rgba(31,29,26,.05);--sh-md:0 8px 28px rgba(31,29,26,.07);--sh-lg:0 16px 48px rgba(31,29,26,.1);
+  --eo:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--fb);background:var(--warm);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--fh);color:var(--ink);line-height:1.25}
+a{color:var(--sage);text-decoration:none;font-weight:500;transition:color .2s}a:hover{color:var(--saged)}
+button{font-family:var(--fb);cursor:pointer;border:none}
+img{display:block;max-width:100%;border-radius:12px}
+.page{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--eo),transform .7s var(--eo)}.rv.vis{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+/* ═══ KEYFRAMES ═══ */
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+@keyframes gentlePulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.04);opacity:1}}
+@keyframes particle{0%{opacity:0;transform:translate(0,0) scale(0)}20%{opacity:.6}80%{opacity:.3}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(1)}}
+@keyframes numPop{0%{transform:scale(0)}100%{transform:scale(1)}}
+@keyframes dropFall{0%{opacity:0;transform:translateY(-20px)}30%{opacity:.7}100%{opacity:0;transform:translateY(40px)}}
+@keyframes ringPulse{0%,100%{box-shadow:0 0 0 0 rgba(94,138,106,.2)}50%{box-shadow:0 0 0 12px rgba(94,138,106,0)}}
+@keyframes waterFlow{0%{background-position:0 0}100%{background-position:0 40px}}
+
+/* ═══ SHARED ═══ */
+.badge{display:inline-block;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.badge-sage{color:var(--sage);background:var(--sage3)}
+.badge-navy{color:#fff;background:linear-gradient(135deg,var(--navy),var(--navyd));box-shadow:0 2px 8px rgba(27,58,75,.2)}
+.badge-gold{color:var(--gold);background:var(--gold3)}
+.badge-save{color:var(--success);background:#DCFCE7}
+.sh{text-align:center;margin-bottom:40px}.sh h2{font-size:32px;margin-bottom:10px}.sh p{font-size:16px;color:var(--mut);max-width:540px;margin:0 auto;line-height:1.7}
+.sage-line{display:block;width:48px;height:3px;background:linear-gradient(90deg,var(--sage),var(--saged));border-radius:2px;margin:0 auto 16px}
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:56px 0}.divider::before,.divider::after{content:'';height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--bdr),transparent)}.divider i{font-size:18px;color:var(--sage);font-style:normal}
+
+/* ═══ NAV ═══ */
+.topnav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--bdr)}
+.logo{font-family:var(--fh);font-size:28px;font-weight:500;letter-spacing:-.01em;color:var(--ink)}.logo em{color:var(--sage);font-weight:700;font-style:italic}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:14px}.nav-links a{color:var(--mut);font-weight:500}
+.cart-btn{background:linear-gradient(135deg,var(--sage),var(--saged));color:#fff;padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;box-shadow:0 2px 12px rgba(94,138,106,.25);transition:transform .2s}.cart-btn:hover{transform:translateY(-2px)}
+.breadcrumb{padding:14px 0;font-size:13px;color:var(--light)}.breadcrumb a{color:var(--mut);font-weight:400}.breadcrumb b{color:var(--ink);font-weight:500}
+
+/* ═══ HERO ═══ */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:28px 0 64px;align-items:start}
+.gallery{position:sticky;top:100px}
+.gallery-main{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:var(--cream);border:1px solid var(--bdr);margin-bottom:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);position:relative}
+.gallery-main img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .5s var(--eo)}.gallery-main:hover img{transform:scale(1.05)}
+.gallery-main::after{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:linear-gradient(135deg,transparent 50%,rgba(94,138,106,.05) 50%);border-radius:0 20px 0 0;pointer-events:none}
+.gallery-thumbs{display:flex;gap:10px;overflow-x:auto}
+.thumb{width:72px;height:72px;border-radius:12px;overflow:hidden;border:2px solid var(--bdr);cursor:pointer;background:var(--cream);transition:border-color .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.thumb img{width:100%;height:100%;object-fit:contain;padding:4px;border-radius:8px}
+.thumb.active,.thumb:hover{border-color:var(--sage);box-shadow:0 0 0 3px rgba(94,138,106,.15)}
+
+/* Offer */
+.offer{max-width:540px}
+.offer h1{font-size:32px;margin:14px 0 8px;line-height:1.15}
+.offer-sub{font-size:16px;color:var(--mut);margin-bottom:20px;line-height:1.7}
+.stars{display:flex;gap:3px;align-items:center;margin-bottom:20px}.star{color:var(--gold);font-size:16px}.star-text{font-size:13px;color:var(--mut);margin-left:8px;font-weight:500}
+
+/* Compat callout */
+.compat-banner{padding:14px 18px;border-radius:14px;background:linear-gradient(135deg,var(--sage2),rgba(94,138,106,.04));border:1px solid rgba(94,138,106,.15);margin-bottom:20px;display:flex;gap:12px;align-items:center}
+.compat-banner .cb-icon{font-size:28px;flex-shrink:0}
+.compat-banner p{font-size:13px;color:var(--mut);margin:0;line-height:1.5}
+.compat-banner strong{color:var(--ink)}
+
+/* Qty */
+.qty-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:10px;display:block}
+.qty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.qty-card{border:2px solid var(--bdr);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .25s;background:#fff;position:relative}
+.qty-card:hover{border-color:rgba(94,138,106,.4);box-shadow:var(--sh-sm)}
+.qty-card.active{border-color:var(--sage);background:var(--sage3);box-shadow:0 0 0 3px rgba(94,138,106,.1)}
+.qty-card.best .qty-best{display:block}
+.qty-best{display:none;position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--goldd));color:#fff;font-size:8px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:6px;text-transform:uppercase;white-space:nowrap}
+.qty-num{font-size:20px;font-weight:700;color:var(--ink);display:block;font-family:var(--fh)}
+.qty-price{font-size:13px;color:var(--sage);font-weight:600;margin-top:2px;display:block}
+.qty-each{font-size:11px;color:var(--light);display:block;margin-top:1px}
+.price-display{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.price-current{font-size:36px;font-weight:700;color:var(--ink);font-family:var(--fh)}
+.price-original{font-size:18px;color:var(--light);text-decoration:line-through}
+.price-note{font-size:13px;color:var(--mut);margin-bottom:24px}
+
+/* CTA — teal */
+.cta-btn{width:100%;padding:18px;border-radius:14px;font-size:17px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--sage),var(--saged));box-shadow:0 4px 20px rgba(94,138,106,.3);transition:transform .2s,box-shadow .2s;margin-bottom:12px}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(94,138,106,.4)}
+.cta-btn:active{transform:scale(.97)}
+
+/* Trust */
+.trust-row{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.trust-item{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--mut)}
+.delivery-box{background:var(--sage3);border-radius:14px;padding:16px 20px;border:1px solid rgba(94,138,106,.1)}
+.delivery-box p{font-size:13px;color:var(--mut);margin:0;line-height:1.6}
+.delivery-box strong{color:var(--ink)}
+
+/* ═══ WHY ═══ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.why-cards{display:flex;flex-direction:column;gap:14px}
+.why-card{display:flex;gap:14px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid var(--bdr);box-shadow:var(--sh-sm);transition:transform .3s var(--eo),box-shadow .3s}
+.why-card:hover{box-shadow:var(--sh-md);transform:translateY(-3px)}
+.why-ico{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.why-card h4{font-size:15px;margin-bottom:4px;font-family:var(--fh)}
+.why-card p{font-size:13px;color:var(--mut);margin:0;line-height:1.6}
+.why-visual{border-radius:24px;overflow:hidden;box-shadow:var(--sh-lg);position:relative}
+.why-visual img{width:100%;aspect-ratio:4/5;object-fit:contain;border-radius:0;padding:20px;background:var(--cream)}
+
+/* ═══ INSIDE ═══ */
+.inside-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:920px;margin:0 auto}
+.inside-card{text-align:center;padding:32px 24px;border-radius:20px;background:#fff;border:1px solid var(--bdr);box-shadow:var(--sh-sm);transition:transform .4s var(--eo),box-shadow .4s;position:relative;overflow:hidden}
+.inside-card:hover{transform:translateY(-6px);box-shadow:var(--sh-md)}
+.inside-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transform:scaleX(0);transform-origin:left;transition:transform 1s var(--eo) .3s}
+.inside-card.on::before{transform:scaleX(1)}
+.inside-card:nth-child(1)::before{background:linear-gradient(90deg,var(--sage),var(--saged))}
+.inside-card:nth-child(2)::before{background:linear-gradient(90deg,var(--sage),#4A7254)}
+.inside-card:nth-child(3)::before{background:linear-gradient(90deg,var(--gold),var(--goldd))}
+.inside-ico{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px;transition:transform .6s var(--eo)}
+.inside-card.on .inside-ico{transform:scale(1.1)}
+.inside-card h4{font-size:18px;margin-bottom:8px}
+.inside-card p{font-size:14px;color:var(--mut);line-height:1.65;margin:0}
+.inside-eff{height:8px;border-radius:4px;background:#f3f0eb;margin-top:16px;overflow:hidden}
+.inside-eff-fill{height:100%;border-radius:4px;width:0;transition:width 1.8s var(--eo) .5s;position:relative}
+.inside-eff-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:shimmer 2s infinite}
+
+/* ═══ COMPAT ═══ */
+.compat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:720px;margin:0 auto}
+.compat-item{text-align:center;padding:28px 16px;border-radius:20px;background:#fff;border:1px solid var(--bdr);box-shadow:var(--sh-sm);transition:transform .3s var(--eo),box-shadow .3s}
+.compat-item:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.compat-emoji{font-size:40px;margin-bottom:12px;display:block}
+.compat-item h4{font-size:15px;margin-bottom:4px}
+.compat-item p{font-size:12px;color:var(--mut);margin:0;line-height:1.5}
+
+/* ═══ INSTALL ═══ */
+.install-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:960px;margin:0 auto}
+.install-card{text-align:center;position:relative}
+.install-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--saged));color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;font-family:var(--fh);margin:0 auto 16px;box-shadow:0 4px 16px rgba(94,138,106,.25);animation:ringPulse 3s infinite}
+.install-img{border-radius:16px;overflow:hidden;background:var(--cream);border:1px solid var(--bdr);margin-bottom:16px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+.install-img img{width:100%;height:100%;object-fit:contain;border-radius:0;padding:12px}
+.install-card h4{font-size:17px;margin-bottom:6px}
+.install-card p{font-size:13px;color:var(--mut);line-height:1.6;margin:0}
+
+/* ═══ REMOVES ═══ */
+.removes-wrap{position:relative;padding:40px 32px;border-radius:28px;background:linear-gradient(145deg,var(--cream),#fff);border:1px solid var(--bdr);box-shadow:var(--sh-sm);overflow:hidden;max-width:800px;margin:0 auto}
+.removes-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.removes-item{display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:12px;background:var(--sage3);border:1px solid rgba(94,138,106,.08);transition:transform .2s}
+.removes-item:hover{transform:translateX(4px)}
+.removes-check{font-size:18px;flex-shrink:0}
+.removes-item span{font-size:14px;color:var(--ink);font-weight:500}
+
+/* ═══ FAQ ═══ */
+.faq-item{border-bottom:1px solid var(--bdr)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;gap:16px}
+.faq-q h4{font-size:16px;font-weight:600;font-family:var(--fb);color:var(--ink);margin:0;flex:1}
+.faq-arrow{width:30px;height:30px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;color:var(--mut);transition:transform .4s var(--eo),background .3s,color .3s}
+.faq-item.open .faq-arrow{transform:rotate(180deg);background:var(--sage3);color:var(--sage)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--eo),padding .4s}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.faq-a p{font-size:15px;color:var(--mut);line-height:1.7;margin:0}
+
+/* ═══ FINAL CTA ═══ */
+.final-cta{padding:56px 36px;border-radius:28px;background:linear-gradient(150deg,var(--navyd),var(--navy) 50%,#234B5C);color:#fff;text-align:center;position:relative;overflow:hidden;margin-bottom:48px}
+.final-cta::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:48px 48px}
+.final-cta::after{content:'';position:absolute;bottom:-40%;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(94,138,106,.15),transparent 60%);border-radius:50%;animation:floatSlow 10s ease-in-out infinite}
+.final-cta>*{position:relative;z-index:1}
+.final-cta h2{color:#fff;font-size:30px;margin-bottom:12px}
+.final-cta>p{color:rgba(255,255,255,.55);font-size:16px;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+.final-perks{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.final-perk{text-align:center}.final-perk-icon{font-size:28px;margin-bottom:6px}.final-perk-label{font-size:13px;color:rgba(255,255,255,.6);font-weight:500}
+.final-btn{display:inline-block;padding:16px 44px;border-radius:14px;background:linear-gradient(135deg,var(--sage),var(--saged));color:#fff;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(94,138,106,.35);transition:transform .2s;border:none;cursor:pointer}.final-btn:hover{transform:translateY(-2px);color:#fff}
+
+/* ═══ FOOTER ═══ */
+.footer{padding:36px 0 48px;border-top:1px solid var(--bdr)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:20px;font-size:13px;flex-wrap:wrap}.footer-links a{color:var(--mut)}
+.footer-copy{font-size:12px;color:var(--light)}
+.scroll-top{position:fixed;bottom:28px;right:28px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--saged));color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(94,138,106,.3);opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;z-index:200;font-size:18px;border:none;cursor:pointer}.scroll-top.show{opacity:1;transform:none}
+
+@media(min-width:768px){.page{padding:0 40px}.sh h2{font-size:38px}}
+@media(max-width:767px){
+  .hero-grid{display:block}.gallery{position:static;margin-bottom:32px}
+  .offer{max-width:100%}.offer h1{font-size:26px}
+  .why-grid{display:block}.why-visual{margin-top:28px}
+  .inside-grid{grid-template-columns:1fr;max-width:400px}
+  .compat-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .install-grid{grid-template-columns:1fr;max-width:400px;gap:20px}
+  .removes-grid{grid-template-columns:1fr}
+  .removes-wrap{padding:24px 16px}
+  .final-perks{gap:20px}.sh h2{font-size:28px}
+  .nav-links a:not(:last-child){display:none}
+  .qty-grid{gap:6px}.qty-card{padding:12px 6px}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══ NAV ═══ -->
+<nav class="topnav rv">
+  <div style="display:flex;align-items:center;gap:24px">
+    <div class="logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<em>Envy</em></div>
+    <div class="nav-links"><a href="#">Home</a><a href="#">2.0 Handheld</a><a href="#">5.0 Stationary</a><a href="#">Science</a><a href="#">Reviews</a></div>
+  </div>
+  <button class="cart-btn">Shop Now</button>
+</nav>
+<div class="breadcrumb rv rv-d1"><a href="#">Home</a> / <a href="#">Collection</a> / <b>15-Stage Filter Upgrade</b></div>
+
+<!-- ═══════════════════════════════════
+     HERO
+     ═══════════════════════════════════ -->
+<section class="hero-grid">
+  <div class="gallery rv">
+    <div class="gallery-main"><img src="https://showerenvy.com/cdn/shop/products/186845_ff7895c807874d80bc187d5668df6e82_mv2_1865b7e1-e296-4f4d-a8bf-7f2c5ef6bdc6.jpg?v=1762634682" alt="ShowerEnvy 15-Stage Filter Upgrade — universal fit, vitamin C & E" id="mainImg"></div>
+    <div class="gallery-thumbs">
+      <div class="thumb active" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/products/186845_ff7895c807874d80bc187d5668df6e82_mv2_1865b7e1-e296-4f4d-a8bf-7f2c5ef6bdc6.jpg?v=1762634682')"><img src="https://showerenvy.com/cdn/shop/products/186845_ff7895c807874d80bc187d5668df6e82_mv2_1865b7e1-e296-4f4d-a8bf-7f2c5ef6bdc6.jpg?v=1762634682" alt="Filter front"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/products/81pWerdTMrS._AC_SL1500_71f67250-a7d5-466e-8c08-4f204fca656e.jpg?v=1671051217')"><img src="https://showerenvy.com/cdn/shop/products/81pWerdTMrS._AC_SL1500_71f67250-a7d5-466e-8c08-4f204fca656e.jpg?v=1671051217" alt="Installed view"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/products/2_28ca64f8-1f21-484e-881a-4cbf09e4d574.png?v=1671051217')"><img src="https://showerenvy.com/cdn/shop/products/2_28ca64f8-1f21-484e-881a-4cbf09e4d574.png?v=1671051217" alt="Stage diagram"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/products/3_c01a3eec-9c2c-46f3-8ee9-1152cfd2b7d9.png?v=1671051218')"><img src="https://showerenvy.com/cdn/shop/products/3_c01a3eec-9c2c-46f3-8ee9-1152cfd2b7d9.png?v=1671051218" alt="Benefits"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/products/81LBTxrXnUS._AC_SL1500_640670db-bf0a-47a6-9f05-fd5161e56a34.jpg?v=1671051218')"><img src="https://showerenvy.com/cdn/shop/products/81LBTxrXnUS._AC_SL1500_640670db-bf0a-47a6-9f05-fd5161e56a34.jpg?v=1671051218" alt="Cross-section"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/products/81eluyw2vSL._AC_SL1500_ee69923d-d885-4e54-afed-e0c2f09945e3.jpg?v=1762634682')"><img src="https://showerenvy.com/cdn/shop/products/81eluyw2vSL._AC_SL1500_ee69923d-d885-4e54-afed-e0c2f09945e3.jpg?v=1762634682" alt="Filtration layers"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/products/81ocKakSqLS._AC_SL1500_5e82bb33-8570-406b-8fa5-799d26100e8c.jpg?v=1671051218')"><img src="https://showerenvy.com/cdn/shop/products/81ocKakSqLS._AC_SL1500_5e82bb33-8570-406b-8fa5-799d26100e8c.jpg?v=1671051218" alt="Water testing"></div>
+    </div>
+  </div>
+
+  <div class="offer rv rv-d1">
+    <div class="badge badge-navy">UPGRADE ANY SHOWER</div>
+    <h1>15-Stage Shower Filter with Vitamin C &amp; E</h1>
+    <p class="offer-sub">Add 15 stages of premium filtration to any existing showerhead — no replacement, no plumber. Removes 99%+ of chlorine, heavy metals, and 300+ contaminants while infusing Vitamin A, C &amp; E.</p>
+    <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-text">4.8 · 3,200+ reviews</span></div>
+
+    <div class="compat-banner">
+      <span class="cb-icon">🔄</span>
+      <p><strong>Keep your existing showerhead.</strong> This filter screws in between your shower arm and showerhead — wall-mount, handheld, rainfall, or combo. Standard ½" universal fit.</p>
+    </div>
+
+    <div>
+      <span class="qty-label">Quantity — One-Time Purchase</span>
+      <div class="qty-grid">
+        <div class="qty-card" data-qty="1" data-price="39.95" onclick="setQty(this)"><span class="qty-num">1</span><span class="qty-price">$39.95</span><span class="qty-each">per filter</span></div>
+        <div class="qty-card" data-qty="2" data-price="34.95" onclick="setQty(this)"><span class="qty-num">2</span><span class="qty-price">$34.95</span><span class="qty-each">per filter</span></div>
+        <div class="qty-card" data-qty="3" data-price="29.95" onclick="setQty(this)"><span class="qty-num">3</span><span class="qty-price">$29.95</span><span class="qty-each">per filter</span></div>
+        <div class="qty-card best active" data-qty="4" data-price="24.95" onclick="setQty(this)"><span class="qty-best">Best Deal</span><span class="qty-num">4</span><span class="qty-price">$24.95</span><span class="qty-each">per filter</span></div>
+      </div>
+    </div>
+
+    <div class="price-display"><span class="price-current" id="priceTotal">$99.80</span><span class="price-original" id="priceOrig">$159.80</span><span class="badge badge-save" id="priceSave">SAVE $60.00</span></div>
+    <p class="price-note" id="priceNote">One-time purchase · Ships within 1–2 business days</p>
+    <button class="cta-btn" id="ctaBtn">Add to Cart — $99.80</button>
+
+    <div class="trust-row">
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 60-Day Guarantee</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a2 2 0 01-2 2h-1M7 16h10"/></svg> Free Shipping</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Installs in Minutes</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Universal Fit</div>
+    </div>
+    <div class="delivery-box"><p><strong>Fits:</strong> Any standard ½" showerhead · <strong>Type:</strong> Inline filter attachment · <strong>Stages:</strong> 15-stage cartridge with Vitamin C &amp; E · <strong>Capacity:</strong> ~10,000 gallons · <strong>Replace:</strong> Every 4–6 months</p></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ WHY UPGRADE ═══ -->
+<section class="rv" style="padding:64px 0">
+  <div class="why-grid">
+    <div>
+      <div class="badge badge-sage" style="margin-bottom:16px">DESIGNED FOR WOMEN 45+</div>
+      <h2 style="font-size:32px;margin-bottom:16px">Your Shower Looks Clean.<br>Your Water Isn't.</h2>
+      <p style="font-size:16px;color:var(--mut);line-height:1.7;margin-bottom:24px">Clear water doesn't mean clean water. Chlorine, heavy metals, and hard water minerals are invisible — but your hair and skin feel every drop. For women going through hormonal changes, unfiltered water doubles the damage your body is already fighting.</p>
+      <div class="why-cards">
+        <div class="why-card rv rv-d1"><div class="why-ico" style="background:var(--sage3)"><span style="font-size:24px;animation:float 3s ease-in-out infinite">🧬</span></div><div><h4>Chlorine Strips What's Left</h4><p>After 45, natural oil production drops. Chlorine strips the oils you have left — turning normal dryness into cracking, flaking, and thinning that no moisturizer can fix.</p></div></div>
+        <div class="why-card rv rv-d2"><div class="why-ico" style="background:var(--gold3)"><span style="font-size:24px;animation:float 3s ease-in-out infinite .3s">⚗️</span></div><div><h4>Heavy Metals Clog Follicles</h4><p>Lead, mercury, and iron in your pipes deposit on your scalp. Over time, they suffocate hair follicles — accelerating the thinning you're already experiencing.</p></div></div>
+        <div class="why-card rv rv-d3"><div class="why-ico" style="background:var(--rose3)"><span style="font-size:24px;animation:float 3s ease-in-out infinite .6s">💧</span></div><div><h4>Hard Water Undoes Your Routine</h4><p>Calcium and magnesium coat every strand and pore. Your $100 serums and treatments can't penetrate the mineral barrier — so you spend more for less.</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual rv rv-d2"><img src="https://showerenvy.com/cdn/shop/products/81eluyw2vSL._AC_SL1500_ee69923d-d885-4e54-afed-e0c2f09945e3.jpg?v=1762634682" alt="15-stage filter showing all filtration layers"></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ WHAT'S INSIDE ═══ -->
+<section style="padding:64px 0" id="insideSection">
+  <div class="sh rv"><span class="sage-line"></span><div class="badge badge-navy" style="margin-bottom:12px">15-STAGE FILTRATION</div><h2>What's Inside Your Filter</h2><p>15 layers of protection in a single cartridge — the same technology trusted by dermatologists.</p></div>
+  <div class="inside-grid">
+    <div class="inside-card rv rv-d1" id="ic1"><div class="inside-ico" style="background:var(--sage3)">🔬</div><h4>KDF-55 &amp; Activated Carbon</h4><p>Remove 99%+ of chlorine, heavy metals, and VOCs on contact. NSF-certified media that's the backbone of professional water purification.</p><div class="inside-eff"><div class="inside-eff-fill" data-w="99" style="background:linear-gradient(90deg,var(--sage),#5CC4B8)"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;margin-top:5px"><span style="color:var(--mut)">Chlorine removal</span><span style="font-weight:700;color:var(--sage)">99%+</span></div></div>
+    <div class="inside-card rv rv-d2" id="ic2"><div class="inside-ico" style="background:var(--sage3)">💎</div><h4>Vitamin A, C &amp; E Infusion</h4><p>Slow-release vitamin beads nourish hair and skin with antioxidants. Vitamin C neutralizes chlorine, supports collagen. Vitamin E repairs your moisture barrier.</p><div class="inside-eff"><div class="inside-eff-fill" data-w="95" style="background:linear-gradient(90deg,var(--sage),#A8D5B5)"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;margin-top:5px"><span style="color:var(--mut)">Antioxidant delivery</span><span style="font-weight:700;color:var(--sage)">95%</span></div></div>
+    <div class="inside-card rv rv-d3" id="ic3"><div class="inside-ico" style="background:var(--gold3)">🪨</div><h4>Ceramic &amp; Mineral Balls</h4><p>Alkaline ceramic, calcium sulfite, tourmaline, and Maifan stones soften hard water, balance pH, and release beneficial minerals and negative ions.</p><div class="inside-eff"><div class="inside-eff-fill" data-w="90" style="background:linear-gradient(90deg,var(--gold),#D4AA7D)"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;margin-top:5px"><span style="color:var(--mut)">Hard water softening</span><span style="font-weight:700;color:var(--gold)">90%</span></div></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ WHAT IT REMOVES ═══ -->
+<section style="padding:64px 0" id="removesSection">
+  <div class="sh rv"><span class="sage-line"></span><h2>What It Removes</h2><p>300+ contaminants filtered out — here's what your current showerhead is letting through.</p></div>
+  <div class="removes-wrap rv rv-d1" id="removesWrap">
+    <div class="removes-grid">
+      <div class="removes-item"><span class="removes-check">✓</span><span>Chlorine (99.9%)</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Lead &amp; Mercury</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Fluoride (85%)</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Iron &amp; Rust</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Arsenic &amp; Chromium</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Calcium Buildup</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Microplastics</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Bacteria &amp; Algae</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>PFAS (Forever Chemicals)</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Pharmaceutical Residues</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Volatile Organic Compounds</span></div>
+      <div class="removes-item"><span class="removes-check">✓</span><span>Chloramine</span></div>
+    </div>
+    <div style="margin-top:24px;text-align:center"><p style="font-family:var(--fh);font-size:15px;color:var(--ink);font-style:italic;line-height:1.5;margin:0">While it adds: Vitamin A (cell turnover) · Vitamin C (collagen) · Vitamin E (moisture barrier)</p></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ COMPATIBILITY ═══ -->
+<section style="padding:64px 0">
+  <div class="sh rv"><span class="sage-line"></span><div class="badge badge-sage" style="margin-bottom:12px">UNIVERSAL FIT</div><h2>Works With Any Showerhead</h2><p>Standard ½" connection fits 99% of showers. Keep the showerhead you love — just add protection.</p></div>
+  <div class="compat-grid rv rv-d1">
+    <div class="compat-item"><span class="compat-emoji" style="animation:float 3s ease-in-out infinite">🚿</span><h4>Wall Mount</h4><p>Fixed and adjustable shower arms</p></div>
+    <div class="compat-item"><span class="compat-emoji" style="animation:float 3s ease-in-out infinite .2s">🤚</span><h4>Handheld</h4><p>All handheld showerheads incl. ShowerEnvy 2.0</p></div>
+    <div class="compat-item"><span class="compat-emoji" style="animation:float 3s ease-in-out infinite .4s">🌧️</span><h4>Rainfall</h4><p>Overhead rain and ceiling-mount styles</p></div>
+    <div class="compat-item"><span class="compat-emoji" style="animation:float 3s ease-in-out infinite .6s">🏠</span><h4>Combo</h4><p>Dual-head and diverter setups</p></div>
+  </div>
+  <div style="text-align:center;margin-top:24px" class="rv rv-d2"><p style="font-size:14px;color:var(--mut);max-width:480px;margin:0 auto;line-height:1.6">Also works in apartments, rentals, dorms, and RVs. No permanent changes — unscrew to remove anytime.</p></div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ HOW TO INSTALL ═══ -->
+<section style="padding:64px 0" id="installSection">
+  <div class="sh rv"><span class="sage-line"></span><div class="badge badge-sage" style="margin-bottom:12px">NO PLUMBER · NO TOOLS</div><h2>Installs in Under 3 Minutes</h2><p>Three steps. Keep your existing showerhead. No tools, no plumber, no damage.</p></div>
+  <div class="install-grid">
+    <div class="install-card rv rv-d1">
+      <div class="install-num">1</div>
+      <div class="install-img"><img src="https://showerenvy.com/cdn/shop/products/81pWerdTMrS._AC_SL1500_71f67250-a7d5-466e-8c08-4f204fca656e.jpg?v=1671051217" alt="Step 1: Unscrew showerhead"></div>
+      <h4>Unscrew Your Showerhead</h4>
+      <p>Twist your existing showerhead counterclockwise to remove it from the shower arm. Keep it — you'll reattach it in a moment.</p>
+    </div>
+    <div class="install-card rv rv-d2">
+      <div class="install-num">2</div>
+      <div class="install-img"><img src="https://showerenvy.com/cdn/shop/products/186845_ff7895c807874d80bc187d5668df6e82_mv2_1865b7e1-e296-4f4d-a8bf-7f2c5ef6bdc6.jpg?v=1762634682" alt="Step 2: Attach filter to shower arm"></div>
+      <h4>Screw On the Filter</h4>
+      <p>Thread the 15-stage filter onto your shower arm by hand. The standard ½" fitting connects instantly. Add the included Teflon tape for a leak-proof seal.</p>
+    </div>
+    <div class="install-card rv rv-d3">
+      <div class="install-num">3</div>
+      <div class="install-img"><img src="https://showerenvy.com/cdn/shop/products/81LBTxrXnUS._AC_SL1500_640670db-bf0a-47a6-9f05-fd5161e56a34.jpg?v=1671051218" alt="Step 3: Reattach showerhead"></div>
+      <h4>Reattach &amp; Shower</h4>
+      <p>Screw your original showerhead onto the filter's other end. Turn on the water — purified, vitamin-infused water flows immediately. Done!</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:32px" class="rv rv-d3">
+    <div style="display:inline-flex;gap:20px;padding:16px 28px;border-radius:16px;background:var(--sage3);border:1px solid rgba(94,138,106,.1)">
+      <div style="text-align:center"><span style="font-size:28px;font-weight:700;font-family:var(--fh);color:var(--sage);display:block">3 min</span><span style="font-size:12px;color:var(--mut)">Installation</span></div>
+      <div style="width:1px;background:rgba(94,138,106,.15)"></div>
+      <div style="text-align:center"><span style="font-size:28px;font-weight:700;font-family:var(--fh);color:var(--sage);display:block">0</span><span style="font-size:12px;color:var(--mut)">Tools Needed</span></div>
+      <div style="width:1px;background:rgba(94,138,106,.15)"></div>
+      <div style="text-align:center"><span style="font-size:28px;font-weight:700;font-family:var(--fh);color:var(--sage);display:block">100%</span><span style="font-size:12px;color:var(--mut)">Renter-Safe</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ FAQ ═══ -->
+<section style="padding:64px 0">
+  <div class="sh rv"><span class="sage-line"></span><h2>Frequently Asked Questions</h2><p>Quick answers about the 15-stage filter upgrade.</p></div>
+  <div style="max-width:700px;margin:0 auto" class="rv rv-d1">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Will this fit my showerhead?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>Yes — the filter uses standard ½" universal threading that fits 99% of showerheads including wall-mount, handheld, rainfall, and combo styles. It screws in between your shower arm and your existing showerhead. No adapters needed for standard connections.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Do I need to replace my existing showerhead?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>No — that's the beauty of this product. Keep the showerhead you love. The filter attaches between your shower arm and showerhead as an inline attachment. Your spray patterns, settings, and showerhead style stay exactly the same.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>How often do I replace the filter cartridge?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>Every 4–6 months depending on your water quality and usage. Each cartridge handles approximately 10,000 gallons. Signs it's time: slight drop in pressure, hair or skin starting to feel drier, or you notice a faint chlorine smell returning.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Will this reduce my water pressure?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>No. The micro-nozzle technology inside actually maintains consistent pressure. Many customers with older pipes report improved pressure because the filter removes the mineral buildup that restricts flow. If anything, expect the same or better pressure.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Why is this important for women over 45?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>Hormonal changes already reduce your skin's oil production and shorten hair growth cycles. Chlorine and heavy metals in unfiltered water compound this — stripping the oils you have left and clogging follicles with mineral deposits. The 15-stage filter plus Vitamin A, C &amp; E infusion actively protects against this, so your skincare and haircare routine can actually work.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Can I use this in my apartment or rental?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>Absolutely. It hand-screws on and off in seconds — no drilling, no permanent changes, no landlord permission needed. Take it with you when you move. Works in dorms, RVs, and Airbnbs too.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>What's the return policy?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>60-day money-back guarantee. If you don't notice a difference in your hair and skin within 60 days, email us for a full refund. No questions, no hassle. We also replace damaged products free of charge.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta rv">
+  <span class="sage-line" style="background:linear-gradient(90deg,rgba(94,138,106,.4),var(--sage),rgba(94,138,106,.4));margin-bottom:20px"></span>
+  <h2>Upgrade Your Water Today</h2>
+  <p>Keep your showerhead. Add 15 stages of protection. Feel the difference from the very first shower.</p>
+  <div class="final-perks">
+    <div class="final-perk"><div class="final-perk-icon" style="animation:float 3s ease-in-out infinite">🧬</div><div class="final-perk-label">15-Stage Filtration</div></div>
+    <div class="final-perk"><div class="final-perk-icon" style="animation:float 3s ease-in-out infinite .3s">💊</div><div class="final-perk-label">Vitamin A, C &amp; E</div></div>
+    <div class="final-perk"><div class="final-perk-icon" style="animation:float 3s ease-in-out infinite .6s">🔧</div><div class="final-perk-label">No Tools Needed</div></div>
+    <div class="final-perk"><div class="final-perk-icon" style="animation:float 3s ease-in-out infinite .9s">🛡️</div><div class="final-perk-label">60-Day Guarantee</div></div>
+  </div>
+  <button class="final-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Add to Cart — From $24.95 →</button>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div style="margin-bottom:12px"><a href="#" style="font-family:var(--fh);font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px"><svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<em style="color:var(--sage);font-weight:700;font-style:italic">Envy</em></a></div><div class="footer-links"><a href="#">Home</a><a href="#">2.0 Handheld</a><a href="#">5.0 Stationary</a><a href="#">Reviews</a><a href="#">Privacy</a><a href="#">Refunds</a><a href="#">Terms</a></div><div class="footer-copy">© 2026 ShowerEnvy · Privacy · Terms · Accessibility</div></div></footer>
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ═══ Reveal ═══ */
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.05,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+setTimeout(function(){document.querySelectorAll('.rv:not(.vis)').forEach(function(el){el.classList.add('vis')})},3000);
+window.addEventListener('scroll',function(){var b=document.getElementById('scrollTop');if(window.scrollY>500)b.classList.add('show');else b.classList.remove('show')},{passive:true});
+
+/* ═══ Gallery ═══ */
+function swapImg(t,s){document.getElementById('mainImg').src=s;document.querySelectorAll('.thumb').forEach(function(x){x.classList.remove('active')});t.classList.add('active')}
+
+/* ═══ Qty + Pricing (one-time) ═══ */
+function setQty(c){document.querySelectorAll('.qty-card').forEach(function(x){x.classList.remove('active')});c.classList.add('active');updatePrices()}
+function updatePrices(){
+  var ac=document.querySelector('.qty-card.active'),qty=parseInt(ac.getAttribute('data-qty')),price=parseFloat(ac.getAttribute('data-price'));
+  var total=(price*qty).toFixed(2),origTotal=(39.95*qty).toFixed(2),saved=(39.95*qty-price*qty).toFixed(2);
+  document.getElementById('priceTotal').textContent='$'+total;
+  if(parseFloat(saved)>0){document.getElementById('priceOrig').textContent='$'+origTotal;document.getElementById('priceOrig').style.display='inline';document.getElementById('priceSave').textContent='SAVE $'+saved;document.getElementById('priceSave').style.display='inline-block'}
+  else{document.getElementById('priceOrig').style.display='none';document.getElementById('priceSave').style.display='none'}
+  document.getElementById('ctaBtn').textContent='Add to Cart — $'+total;
+}
+updatePrices();
+
+/* ═══ FAQ ═══ */
+function toggleFaq(q){var item=q.parentElement,was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!was)item.classList.add('open')}
+
+/* ═══ Inside Cards Animation ═══ */
+(function(){['ic1','ic2','ic3'].forEach(function(id,i){var el=document.getElementById(id);if(!el)return;var ob=new IntersectionObserver(function(es){if(es[0].isIntersecting){setTimeout(function(){el.classList.add('on');var fill=el.querySelector('.inside-eff-fill');if(fill)setTimeout(function(){fill.style.width=fill.dataset.w+'%'},150)},i*200);ob.unobserve(el)}},{threshold:.15});ob.observe(el)})})();
+
+/* ═══ Removes Grid Stagger ═══ */
+(function(){var el=document.getElementById('removesWrap');if(!el)return;var ob=new IntersectionObserver(function(es){if(es[0].isIntersecting){el.querySelectorAll('.removes-item').forEach(function(r,i){r.style.opacity='0';r.style.transform='translateY(8px)';r.style.transition='opacity .4s ease '+i*60+'ms,transform .4s ease '+i*60+'ms';setTimeout(function(){r.style.opacity='1';r.style.transform='none'},50)});ob.unobserve(el)}},{threshold:.15});ob.observe(el)})();
+</script>

@@ -1,0 +1,71 @@
+<div class="screen active" id="screenEntry">
+<div class="entry-sec">
+  <div class="water-bg"><div class="rip"></div><div class="rip"></div><div class="rip"></div></div>
+  <div class="entry-card anim-up">
+
+    <!-- Animated water drop with contamination particles -->
+    <div class="drop-hero">
+      <svg viewBox="0 0 110 140" fill="none">
+        <defs>
+          <linearGradient id="dropGrad" x1="55" y1="20" x2="55" y2="130" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#5E8A6A" stop-opacity=".15"/>
+            <stop offset="60%" stop-color="#5E8A6A" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#4A7656" stop-opacity=".25"/>
+          </linearGradient>
+          <radialGradient id="dropShine" cx=".35" cy=".3" r=".5">
+            <stop offset="0%" stop-color="#fff" stop-opacity=".5"/>
+            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="55" cy="134" rx="30" ry="6" fill="#5E8A6A" opacity=".1">
+          <animate attributeName="rx" values="30;24;30" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".1;.05;.1" dur="3s" repeatCount="indefinite"/>
+        </ellipse>
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="3s" repeatCount="indefinite"/>
+          <path d="M55 12 C55 12 18 62 18 88 C18 108 35 126 55 126 C75 126 92 108 92 88 C92 62 55 12 55 12Z" fill="url(#dropGrad)" stroke="#5E8A6A" stroke-width="1.5" stroke-opacity=".3"/>
+          <path d="M55 12 C55 12 18 62 18 88 C18 108 35 126 55 126 C75 126 92 108 92 88 C92 62 55 12 55 12Z" fill="url(#dropShine)"/>
+          <ellipse cx="38" cy="72" rx="10" ry="13" fill="#fff" opacity=".25" transform="rotate(-20 38 72)"/>
+        </g>
+      </svg>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <div class="entry-tag">{{ section.settings.badge_text }}</div>
+    <h1 class="entry-title">{{ section.settings.title }}</h1>
+    <p class="entry-sub">{{ section.settings.subtitle }}</p>
+
+    <div class="zip-form">
+      <input type="text" class="zip-input" id="zipInput" placeholder="{{ section.settings.zip_placeholder }}" maxlength="5" inputmode="numeric" autocomplete="postal-code">
+      <button class="zip-btn" id="zipBtn" onclick="startAnalysis()">{{ section.settings.button_text }}</button>
+    </div>
+    <div class="zip-error" id="zipError"></div>
+
+    <p class="zip-note">{{ section.settings.privacy_note }}</p>
+    <div class="entry-trust">
+      <span>&#128202; EPA Data</span>
+      <span>&#128300; Lab Verified</span>
+      <span>&#128274; 100% Private</span>
+    </div>
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Water report entry",
+  "settings": [
+    {"type":"text","id":"badge_text","label":"Badge text","default":"🔬 Free Instant Analysis"},
+    {"type":"html","id":"title","label":"Title","default":"What's <em>Really</em> in Your Shower Water?"},
+    {"type":"textarea","id":"subtitle","label":"Subtitle","default":"Enter your zip code to see the contaminants in your water and how they affect your hair and skin after 45."},
+    {"type":"text","id":"zip_placeholder","label":"ZIP placeholder","default":"ZIP Code"},
+    {"type":"text","id":"button_text","label":"Button text","default":"Analyze →"},
+    {"type":"textarea","id":"privacy_note","label":"Privacy note","default":"🔒 We never store your data. Your zip code is only used to look up public water quality records."}
+  ],
+  "presets":[{"name":"Water report entry"}]
+}
+{% endschema %}

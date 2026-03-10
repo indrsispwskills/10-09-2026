@@ -1,0 +1,661 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "comparison_nav": {
+      "type": "comparison-nav",
+      "settings": {
+        "skip_text": "Skip to main content",
+        "brand_text": "Shower",
+        "brand_text_accent": "Envy",
+        "nav_products": "Products",
+        "nav_pressure": "Pressure",
+        "nav_installation": "Installation",
+        "nav_timeline": "Timeline",
+        "nav_science": "Science",
+        "nav_reviews": "Reviews",
+        "nav_faq": "FAQ",
+        "shop_now_text": "Shop Now"
+      }
+    },
+    "comparison_hero": {
+      "type": "comparison-hero",
+      "blocks": {
+        "stat_NUAaiC": {
+          "type": "stat",
+          "settings": {
+            "value": "12,400+",
+            "label": "Women 45+ Trust Us"
+          }
+        },
+        "stat_fjegKE": {
+          "type": "stat",
+          "settings": {
+            "value": "90%+",
+            "label": "Chlorine Removed"
+          }
+        },
+        "stat_VDFKwL": {
+          "type": "stat",
+          "settings": {
+            "value": "4.8★",
+            "label": "Average Rating"
+          }
+        },
+        "stat_JhC4Hd": {
+          "type": "stat",
+          "settings": {
+            "value": "90 Days",
+            "label": "Money-Back Guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "stat_NUAaiC",
+        "stat_fjegKE",
+        "stat_VDFKwL",
+        "stat_JhC4Hd"
+      ],
+      "settings": {
+        "hero_badge": "FOR WOMEN 45+ WITH HORMONAL HAIR & SKIN CHANGES",
+        "title_prefix": "Your Products Aren't Failing.",
+        "title_accent": "Your Water Is.",
+        "description": "Chlorine and hard water minerals strip the oils your skin and hair are already losing to hormonal changes. Every shower compounds the damage. Our filtered showerheads remove the external attack — so everything else you're doing actually works.",
+        "primary_text": "Shop Filtered Showerheads",
+        "secondary_url": "",
+        "secondary_text": "Take the Water Quiz →"
+      }
+    },
+    "comparison_overview": {
+      "type": "comparison-overview",
+      "settings": {
+        "tag": "THE SCIENCE",
+        "title": "You're Fighting on Two Fronts",
+        "subtitle": "Hormonal changes thin your hair and dry your skin from the inside. Unfiltered water accelerates the damage from the outside. You need to control what you can.",
+        "quote": "You can't reverse menopause. But you can stop your shower from making it worse — and that's where most women see the fastest improvement.",
+        "cite": "— Board-certified dermatologist recommendation"
+      }
+    },
+    "comparison_science": {
+      "type": "comparison-science",
+      "blocks": {
+        "stat_YHAiwg": {
+          "type": "stat",
+          "settings": {
+            "value": "30%",
+            "label": "Collagen lost in first 5 years post-menopause",
+            "color": "var(--rose)"
+          }
+        },
+        "stat_FUAXkR": {
+          "type": "stat",
+          "settings": {
+            "value": "2.1%",
+            "label": "Annual collagen decline per year",
+            "color": "var(--rose)"
+          }
+        },
+        "stat_jtzkhC": {
+          "type": "stat",
+          "settings": {
+            "value": "85%",
+            "label": "Of U.S. homes have hard water",
+            "color": "var(--rose)"
+          }
+        },
+        "stat_CVNwgx": {
+          "type": "stat",
+          "settings": {
+            "value": "8–12 wk",
+            "label": "For one full hair growth cycle",
+            "color": "var(--rose)"
+          }
+        }
+      },
+      "block_order": [
+        "stat_YHAiwg",
+        "stat_FUAXkR",
+        "stat_jtzkhC",
+        "stat_CVNwgx"
+      ],
+      "settings": {
+        "tag": "THE RESEARCH",
+        "title": "The Science Is Clear: Your Water Matters More Now",
+        "desc_1": "Peer-reviewed research shows women lose up to 30% of skin collagen in the first 5 years post-menopause, with ongoing losses of 2.1% per year. Skin thickness decreases 1.1% annually. Your body's ability to recover from chlorine exposure fundamentally changes.",
+        "desc_2": "We've compiled the research — hair growth cycle biology, skin barrier science, the compounding effect, dermatologist perspectives — into an honest resource. No marketing fluff.",
+        "button_text": "Read the Full Science →",
+        "button_url": ""
+      }
+    },
+    "comparison_products": {
+      "type": "comparison-products",
+      "blocks": {
+        "product2_feature_WCJLMx": {
+          "type": "product2_feature",
+          "settings": {
+            "text": "15-stage deep filtration + Vitamin C/E infusion"
+          }
+        },
+        "product2_feature_tGMgyW": {
+          "type": "product2_feature",
+          "settings": {
+            "text": "Wall-mount, high-pressure fixed head"
+          }
+        },
+        "product2_feature_EzEDJB": {
+          "type": "product2_feature",
+          "settings": {
+            "text": "NSF/ANSI 177 certified"
+          }
+        },
+        "product2_feature_6gUwn7": {
+          "type": "product2_feature",
+          "settings": {
+            "text": "Filter life: 6 months / 10,000 gallons"
+          }
+        },
+        "product2_feature_CgGEnP": {
+          "type": "product2_feature",
+          "settings": {
+            "text": "Replacement filters from $32/6 months"
+          }
+        },
+        "product1_feature_y9URfi": {
+          "type": "product1_feature",
+          "settings": {
+            "text": "5-stage filtration (Sediment → Calcium Sulfite → Vitamin C → KDF-55 → Catalytic Carbon)"
+          }
+        },
+        "product1_feature_HeXJim": {
+          "type": "product1_feature",
+          "settings": {
+            "text": "3 spray modes: Rain, Massage, Jet"
+          }
+        },
+        "product1_feature_x6iPC3": {
+          "type": "product1_feature",
+          "settings": {
+            "text": "60″ flexible hose — reaches everywhere"
+          }
+        },
+        "product1_feature_RWgxtb": {
+          "type": "product1_feature",
+          "settings": {
+            "text": "Filter life: 3 months / 5,000 gallons"
+          }
+        },
+        "product1_feature_MNDMiL": {
+          "type": "product1_feature",
+          "settings": {
+            "text": "Replacement filters from $15/quarter"
+          }
+        }
+      },
+      "block_order": [
+        "product2_feature_WCJLMx",
+        "product2_feature_tGMgyW",
+        "product2_feature_EzEDJB",
+        "product2_feature_6gUwn7",
+        "product2_feature_CgGEnP",
+        "product1_feature_y9URfi",
+        "product1_feature_HeXJim",
+        "product1_feature_x6iPC3",
+        "product1_feature_RWgxtb",
+        "product1_feature_MNDMiL"
+      ],
+      "settings": {
+        "tag": "CHOOSE YOUR PROTECTION",
+        "title": "Two Products. One Mission.",
+        "subtitle": "Different filtration levels for different needs. Both designed for women navigating hormonal changes.",
+        "product_one": "filter-replacement-for-showerenvy-2-0",
+        "product_two": "showerenvy®-1-0-high-pressure-shower-head-chrome-finish-bogo",
+        "badge_one": "BEST STARTER",
+        "badge_two": "5-STAGE FILTER",
+        "save_text_1": "SAVE $20",
+        "button_one": "Shop Product",
+        "best_for_one": "Best for: Budget-friendly protection & flexibility",
+        "badge_three": "ADVANCED PROTECTION",
+        "badge_four": "15-STAGE FILTER",
+        "save_text_2": "SAVE $30",
+        "button_two": "Shop Product",
+        "best_for_two": "Best for: Maximum protection for aging hair & skin",
+        "popular_badge": "MOST POPULAR"
+      }
+    },
+    "comparison_table": {
+      "type": "comparison-table",
+      "blocks": {
+        "row_D7RgYY": {
+          "type": "row",
+          "settings": {
+            "feature": "Price",
+            "value_2": "$49",
+            "value_5": "$89",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_NdXCXb": {
+          "type": "row",
+          "settings": {
+            "feature": "Filter Stages",
+            "value_2": "3",
+            "value_5": "15",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_JDDePa": {
+          "type": "row",
+          "settings": {
+            "feature": "Filter Life",
+            "value_2": "3 months",
+            "value_5": "6 months",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_zW6qhf": {
+          "type": "row",
+          "settings": {
+            "feature": "Chlorine Removal",
+            "value_2": "✓",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_3XaQtD": {
+          "type": "row",
+          "settings": {
+            "feature": "Sediment & Rust",
+            "value_2": "✓",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_cchwhx": {
+          "type": "row",
+          "settings": {
+            "feature": "Chloramines",
+            "value_2": "—",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_8enibH": {
+          "type": "row",
+          "settings": {
+            "feature": "Fluoride",
+            "value_2": "—",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_WTde4i": {
+          "type": "row",
+          "settings": {
+            "feature": "VOCs & THMs",
+            "value_2": "—",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_Ve9YTL": {
+          "type": "row",
+          "settings": {
+            "feature": "Heavy Metals",
+            "value_2": "Partial",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_TERimY": {
+          "type": "row",
+          "settings": {
+            "feature": "Vitamin C/E Infusion",
+            "value_2": "—",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_QjFa3m": {
+          "type": "row",
+          "settings": {
+            "feature": "pH Rebalancing",
+            "value_2": "—",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_N3KQkN": {
+          "type": "row",
+          "settings": {
+            "feature": "Type",
+            "value_2": "Handheld + Hose",
+            "value_5": "Wall Mount Fixed",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_dUPzeX": {
+          "type": "row",
+          "settings": {
+            "feature": "Guarantee",
+            "value_2": "60 days",
+            "value_5": "90 days",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_qMFt33": {
+          "type": "row",
+          "settings": {
+            "feature": "NSF Certified",
+            "value_2": "—",
+            "value_5": "✓",
+            "total_row": false,
+            "style_2": "normal",
+            "style_5": "normal"
+          }
+        },
+        "row_gzdhft": {
+          "type": "row",
+          "settings": {
+            "feature": "3-Year Total",
+            "value_2": "$229",
+            "value_5": "$249",
+            "total_row": true,
+            "style_2": "check",
+            "style_5": "check"
+          }
+        }
+      },
+      "block_order": [
+        "row_D7RgYY",
+        "row_NdXCXb",
+        "row_JDDePa",
+        "row_zW6qhf",
+        "row_3XaQtD",
+        "row_cchwhx",
+        "row_8enibH",
+        "row_WTde4i",
+        "row_Ve9YTL",
+        "row_TERimY",
+        "row_QjFa3m",
+        "row_N3KQkN",
+        "row_dUPzeX",
+        "row_qMFt33",
+        "row_gzdhft"
+      ],
+      "settings": {
+        "title": "Side-by-Side Comparison",
+        "col_1": "2.0 Handheld",
+        "col_2": "5.0 Stationary",
+        "note": "Only $20 more over 3 years for 5× the filtration depth and half the filter changes."
+      }
+    },
+    "comparison_pressure": {
+      "type": "comparison-pressure",
+      "settings": {}
+    },
+    "comparison_installation": {
+      "type": "comparison-installation",
+      "settings": {}
+    },
+    "comparison_timeline": {
+      "type": "comparison-timeline",
+      "settings": {}
+    },
+    "comparison_reviews": {
+      "type": "comparison-reviews",
+      "blocks": {
+        "review_eJyYJC": {
+          "type": "review",
+          "settings": {
+            "quote": "I'd tried every shampoo, every supplement. Nobody told me my water was the problem. Within 3 weeks my stylist asked what I changed.\"",
+            "meta": "Sarah, 52 · 5.0 user",
+            "verified": "Verified · 5.0 user"
+          }
+        },
+        "review_dEhd8t": {
+          "type": "review",
+          "settings": {
+            "quote": "\"I'm in perimenopause and my scalp was so itchy I thought something was wrong. Two showers with the 2.0 and the itching stopped. I'm not exaggerating.\"",
+            "meta": "Sarah, 52 · 5.0 user",
+            "verified": "Verified · 5.0 user"
+          }
+        },
+        "review_qRehTV": {
+          "type": "review",
+          "settings": {
+            "quote": "\"My dermatologist told me to get a shower filter for my eczema. My flare-ups are maybe 30% of what they were. The vitamin C infusion is worth the upgrade.\"",
+            "meta": "Sylvia T., 62",
+            "verified": "Verified · 5.0 Stationary"
+          }
+        },
+        "review_QripTJ": {
+          "type": "review",
+          "settings": {
+            "quote": "\"Bought the 2.0 because it was cheap enough to try. My hair stopped feeling like straw after the first week. I've ordered one for my mom and daughter.\"",
+            "meta": "Carol M., 51",
+            "verified": "Verified · 2.0 Handheld"
+          }
+        },
+        "review_TyzLTU": {
+          "type": "review",
+          "settings": {
+            "quote": "\"The before-and-after test strip was eye-opening. After 6 weeks, less hair in the drain and my color lasts twice as long.\"",
+            "meta": "Patricia W., 55",
+            "verified": "Verified · 5.0 Stationary"
+          }
+        },
+        "review_YjDaTq": {
+          "type": "review",
+          "settings": {
+            "quote": "\"I'd tried every shampoo, every supplement. Nobody told me my water was the problem. Within 3 weeks my stylist asked what I changed.\"",
+            "meta": "— Margaret R., 58",
+            "verified": "Verified · 5.0 user"
+          }
+        }
+      },
+      "block_order": [
+        "review_eJyYJC",
+        "review_dEhd8t",
+        "review_qRehTV",
+        "review_QripTJ",
+        "review_TyzLTU",
+        "review_YjDaTq"
+      ],
+      "settings": {
+        "tag": "REAL RESULTS",
+        "title": "Women Like You. Changes Like These."
+      }
+    },
+    "comparison_faq": {
+      "type": "comparison-faq",
+      "blocks": {
+        "faq_DFeDJn": {
+          "type": "faq",
+          "settings": {
+            "q": "Will this actually help with menopausal hair thinning?",
+            "a": "Filtered water doesn't reverse hormonal hair loss — nothing topical can. What it does is remove the external damage (chlorine, heavy metals, mineral buildup) that's compounding what hormones are already doing. Your hair is under stress from declining estrogen. Unfiltered water adds a second layer. Remove that, and your hair can focus on recovering from just one. Most women see improvement in breakage, shedding, and texture within 4–8 weeks."
+          }
+        },
+        "faq_cM8Jj7": {
+          "type": "faq",
+          "settings": {
+            "q": "I already use expensive hair products. Do I need this too?",
+            "a": "If your water contains chlorine and hard water minerals, those products aren't working at full capacity. Hard water creates a mineral film that blocks product absorption. Many customers report needing less product after switching — because products actually penetrate. A $30 serum on mineral-coated hair is a $30 serum sitting on the surface."
+          }
+        },
+        "faq_LrnrNt": {
+          "type": "faq",
+          "settings": {
+            "q": "What's the difference between the 2.0 and 5.0?",
+            "a": "The 2.0 Handheld has a 5-stage filter (Sediment, Calcium Sulfite, Vitamin C, KDF-55, Catalytic Carbon) that removes chlorine, chloramines, heavy metals, PFAS, and VOCs. It has 3 spray modes and a flexible hose. The 5.0 Stationary has a 15-stage filter that also removes chloramines, fluoride, VOCs, THMs, and infuses Vitamin C and E. It's wall-mounted with a 6-month filter life vs. 3 months. For women with significant hormonal hair changes, sensitive skin, or very hard water, the 5.0 is worth the upgrade."
+          }
+        },
+        "faq_yMzaqr": {
+          "type": "faq",
+          "settings": {
+            "q": "How do I know if my water is bad?",
+            "a": "85% of U.S. homes have hard water, and 98% use chlorine-based disinfection. If you live in the U.S., your water almost certainly contains contaminants affecting your hair and skin. Both kits include a test strip so you can see your before and after."
+          }
+        },
+        "faq_N7G7N4": {
+          "type": "faq",
+          "settings": {
+            "q": "I have eczema/psoriasis. Will this help?",
+            "a": "Dermatologists frequently recommend shower filters for eczema and psoriasis. Chlorine strips natural oils and kills beneficial bacteria — both worsen inflammatory skin conditions. Many customers report significant reduction in flare-ups. The 5.0's vitamin C infusion and pH rebalancing provide additional soothing for sensitive skin."
+          }
+        },
+        "faq_6pJ7tM": {
+          "type": "faq",
+          "settings": {
+            "q": "How hard is installation?",
+            "a": "Under 5 minutes. Both use standard ½-inch connections that fit any U.S. shower arm. Unscrew old head, hand-tighten the new one. The built-in rubber gasket creates a watertight seal. No plumber, no special tools, no YouTube tutorial."
+          }
+        },
+        "faq_8ywj8R": {
+          "type": "faq",
+          "settings": {
+            "q": "What if it doesn't work for me?",
+            "a": "The 2.0 has a 60-day guarantee. The 5.0 has a 90-day guarantee (because deeper filtration takes longer to show hair results). No hoops, no restocking fees. Full refund. We set the guarantee at 90 days specifically because hair growth cycles take 8–12 weeks."
+          }
+        }
+      },
+      "block_order": [
+        "faq_DFeDJn",
+        "faq_cM8Jj7",
+        "faq_LrnrNt",
+        "faq_yMzaqr",
+        "faq_N7G7N4",
+        "faq_6pJ7tM",
+        "faq_8ywj8R"
+      ],
+      "settings": {
+        "title": "Questions We Get From Women Like You",
+        "faq_tag": "Real questions. Honest answers. No marketing fluff."
+      }
+    },
+    "comparison_guarantee": {
+      "type": "comparison-guarantee",
+      "blocks": {
+        "tier_bpQQat": {
+          "type": "tier",
+          "settings": {
+            "tag": "2.0 HANDHELD",
+            "days": "60 Days",
+            "desc": "Skin & softness results come fast with basic filtration",
+            "tone": "sage"
+          }
+        },
+        "tier_qaKPPE": {
+          "type": "tier",
+          "settings": {
+            "tag": "5.0 STATIONARY",
+            "days": "90 Days",
+            "desc": "Full hair growth cycle for deep filtration benefits",
+            "tone": "sage"
+          }
+        }
+      },
+      "block_order": [
+        "tier_bpQQat",
+        "tier_qaKPPE"
+      ],
+      "settings": {
+        "title": "Our Guarantee Is Built Around Your Biology",
+        "description": "Most brands give you 30 days. That's not enough to see real hair changes during hormonal transitions. Hair growth cycles take 8–12 weeks. We designed our guarantee around that science.",
+        "note": "Full refund. No restocking fee. No hoops. We'll even pay for return shipping."
+      }
+    },
+    "comparison_cta": {
+      "type": "comparison-cta",
+      "settings": {
+        "title_1": "Stop Fighting Your Water.",
+        "title_2": "Start Working With It.",
+        "description": "You've already invested in the serums, the supplements, the salon visits. A filtered showerhead is the one thing that makes all of it work better.",
+        "btn_1": "Shop the 2.0 — $49",
+        "url_1": "",
+        "btn_2": "Shop the 5.0 — $89",
+        "url_2": ""
+      }
+    },
+    "comparison_footer": {
+      "type": "comparison-footer",
+      "settings": {
+        "brand_text": "Shower",
+        "brand_text_accent": "Envy",
+        "brand_description": "Filtered showerheads designed for women navigating hormonal changes. Because your water should help — not hurt.",
+        "shop_title": "Shop",
+        "shop_link_1": "2.0 Handheld",
+        "shop_link_2": "5.0 Stationary",
+        "shop_link_3": "Replacement Filters",
+        "shop_link_4": "Bundles",
+        "shop_link_5": "Gift Cards",
+        "learn_title": "Learn",
+        "learn_link_1": "Our Science",
+        "learn_link_2": "Water Quality Map",
+        "learn_link_3": "Results Timeline",
+        "learn_link_4": "Blog",
+        "learn_link_5": "Reviews",
+        "support_title": "Support",
+        "support_link_1": "FAQ",
+        "support_link_2": "Shipping & Returns",
+        "support_link_3": "Guarantee",
+        "support_link_4": "Contact Us",
+        "support_link_5": "Installation Help",
+        "copyright_text": "© 2026 ShowerEnvy. All rights reserved.",
+        "privacy_text": "Privacy",
+        "terms_text": "Terms",
+        "accessibility_text": "Accessibility",
+        "back_to_top_label": "Back to top"
+      }
+    }
+  },
+  "order": [
+    "comparison_nav",
+    "comparison_hero",
+    "comparison_overview",
+    "comparison_science",
+    "comparison_products",
+    "comparison_table",
+    "comparison_pressure",
+    "comparison_installation",
+    "comparison_timeline",
+    "comparison_reviews",
+    "comparison_faq",
+    "comparison_guarantee",
+    "comparison_cta",
+    "comparison_footer"
+  ]
+}

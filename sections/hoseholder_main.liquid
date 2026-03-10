@@ -1,0 +1,448 @@
+<style>
+:root{
+  --ink:#1F1D1A;--ink2:#4A4743;--mut:#8A857D;--light:#B5B0A8;
+  --cream:#FAF6F0;--cream2:#F5F0E8;--wh:#FFF;--warm:#FEFCF8;
+  --rose:#C25D4E;--rosed:#A64A3D;--rose3:#FEF5F3;
+  --gold:#B08642;--goldd:#8E6B34;--gold3:#FBF6ED;--gold4:#F5EDE3;
+  --sage:#5E8A6A;--saged:#4A7254;--sage3:#F0F7F2;
+  --navy:#1B3A4B;--navyd:#0F2027;--success:#16A34A;
+  --bdr:#E8E3DA;--bdr2:#D6D0C5;
+  --fh:'Cormorant Garamond',Georgia,serif;--fb:'DM Sans',sans-serif;
+  --sh-sm:0 2px 8px rgba(31,29,26,.05);--sh-md:0 8px 28px rgba(31,29,26,.07);--sh-lg:0 16px 48px rgba(31,29,26,.1);
+  --eo:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--fb);background:var(--warm);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--fh);color:var(--ink);line-height:1.25}
+a{color:var(--sage);text-decoration:none;font-weight:500;transition:color .2s}a:hover{color:var(--saged)}
+button{font-family:var(--fb);cursor:pointer;border:none}
+img{display:block;max-width:100%;border-radius:12px}
+.page{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--eo),transform .7s var(--eo)}
+.rv.vis{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+/* ═══ KEYFRAMES ═══ */
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+@keyframes gentlePulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.04);opacity:1}}
+@keyframes particle{0%{opacity:0;transform:translate(0,0) scale(0)}20%{opacity:.6}80%{opacity:.3}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(1)}}
+@keyframes htcSpin{to{transform:rotate(360deg)}}
+@keyframes numPop{0%{transform:scale(0)}100%{transform:scale(1)}}
+
+/* ═══ SHARED ═══ */
+.badge{display:inline-block;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.badge-sage{color:var(--sage);background:var(--sage3)}
+.badge-gold{color:var(--gold);background:var(--gold3)}
+.badge-save{color:var(--success);background:#DCFCE7}
+.sh{text-align:center;margin-bottom:40px}
+.sh h2{font-size:32px;margin-bottom:10px}
+.sh p{font-size:16px;color:var(--mut);max-width:540px;margin:0 auto;line-height:1.7}
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:56px 0}
+.divider::before,.divider::after{content:'';height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--bdr),transparent)}
+.divider i{font-size:18px;color:var(--sage);font-style:normal}
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.particles b{position:absolute;width:var(--s,4px);height:var(--s,4px);border-radius:50%;background:var(--c,rgba(94,138,106,.12));animation:particle var(--d,4s) var(--dl,0s) infinite ease-out;left:var(--x,50%);top:var(--y,50%);font-weight:normal}
+
+/* ═══ NAV ═══ */
+.topnav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--bdr)}
+.logo{font-family:var(--fh);font-size:28px;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+.logo em{color:var(--sage);font-weight:700;font-style:italic}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:14px}
+.nav-links a{color:var(--mut);font-weight:500}
+.cart-btn{background:linear-gradient(135deg,var(--rose),var(--rosed));color:#fff;padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;box-shadow:0 2px 12px rgba(194,93,78,.25);transition:transform .2s}
+.cart-btn:hover{transform:translateY(-2px)}
+.breadcrumb{padding:14px 0;font-size:13px;color:var(--light)}
+.breadcrumb a{color:var(--mut);font-weight:400}
+.breadcrumb b{color:var(--ink);font-weight:500}
+
+/* ═══ HERO ═══ */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:28px 0 64px;align-items:start}
+.gallery{position:sticky;top:100px}
+.gallery-main{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:var(--cream);border:1px solid var(--bdr);margin-bottom:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);position:relative}
+.gallery-main img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .5s var(--eo)}
+.gallery-main:hover img{transform:scale(1.05)}
+.gallery-thumbs{display:flex;gap:10px}
+.thumb{width:80px;height:80px;border-radius:12px;overflow:hidden;border:2px solid var(--bdr);cursor:pointer;background:var(--cream);transition:border-color .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center}
+.thumb img{width:100%;height:100%;object-fit:contain;padding:4px;border-radius:8px}
+.thumb.active,.thumb:hover{border-color:var(--sage);box-shadow:0 0 0 3px rgba(94,138,106,.15)}
+
+/* Offer */
+.offer{max-width:540px}
+.offer h1{font-size:34px;margin:14px 0 8px;line-height:1.15}
+.offer-sub{font-size:16px;color:var(--mut);margin-bottom:20px;line-height:1.7}
+.stars{display:flex;gap:3px;align-items:center;margin-bottom:20px}
+.star{color:var(--gold);font-size:16px}
+.star-text{font-size:13px;color:var(--mut);margin-left:8px;font-weight:500}
+
+/* Qty — no subscription toggle */
+.qty-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:10px;display:block}
+.qty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.qty-card{border:2px solid var(--bdr);border-radius:14px;padding:14px 10px;text-align:center;cursor:pointer;transition:all .25s;background:#fff;position:relative}
+.qty-card:hover{border-color:rgba(94,138,106,.4);box-shadow:var(--sh-sm)}
+.qty-card.active{border-color:var(--sage);background:var(--sage3);box-shadow:0 0 0 3px rgba(94,138,106,.1)}
+.qty-card.best .qty-best{display:block}
+.qty-best{display:none;position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--goldd));color:#fff;font-size:8px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:6px;text-transform:uppercase;white-space:nowrap}
+.qty-num{font-size:20px;font-weight:700;color:var(--ink);display:block;font-family:var(--fh)}
+.qty-price{font-size:13px;color:var(--sage);font-weight:600;margin-top:2px;display:block}
+.qty-each{font-size:11px;color:var(--light);display:block;margin-top:1px}
+
+/* Price */
+.price-display{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.price-current{font-size:36px;font-weight:700;color:var(--ink);font-family:var(--fh)}
+.price-original{font-size:18px;color:var(--light);text-decoration:line-through}
+.price-note{font-size:13px;color:var(--mut);margin-bottom:24px;line-height:1.6}
+
+/* CTA */
+.cta-btn{width:100%;padding:18px;border-radius:14px;font-size:17px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--rose),var(--rosed));box-shadow:0 4px 20px rgba(194,93,78,.3);transition:transform .2s,box-shadow .2s;margin-bottom:12px}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(194,93,78,.4)}
+.cta-btn:active{transform:scale(.97)}
+
+/* Trust */
+.trust-row{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.trust-item{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--mut)}
+.delivery-box{background:var(--cream);border-radius:14px;padding:16px 20px;border:1px solid var(--bdr)}
+.delivery-box p{font-size:13px;color:var(--mut);margin:0;line-height:1.6}
+.delivery-box strong{color:var(--ink)}
+
+/* ═══ WHY SECTION ═══ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.why-cards{display:flex;flex-direction:column;gap:14px}
+.why-card{display:flex;gap:14px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid var(--bdr);box-shadow:var(--sh-sm);transition:transform .3s var(--eo),box-shadow .3s}
+.why-card:hover{box-shadow:var(--sh-md);transform:translateY(-3px)}
+.why-ico{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.why-card h4{font-size:15px;margin-bottom:4px;font-family:var(--fh)}
+.why-card p{font-size:13px;color:var(--mut);margin:0;line-height:1.6}
+.why-visual{border-radius:24px;overflow:hidden;box-shadow:var(--sh-lg);position:relative}
+.why-visual img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:0}
+
+/* ═══ WHAT'S INCLUDED ═══ */
+.inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:920px;margin:0 auto}
+.inc-card{text-align:center;padding:32px 24px;border-radius:20px;background:#fff;border:1px solid var(--bdr);box-shadow:var(--sh-sm);transition:transform .4s var(--eo),box-shadow .4s;position:relative;overflow:hidden}
+.inc-card:hover{transform:translateY(-6px);box-shadow:var(--sh-md)}
+.inc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transform:scaleX(0);transform-origin:left;transition:transform 1s var(--eo) .3s}
+.inc-card.on::before{transform:scaleX(1)}
+.inc-card:nth-child(1)::before{background:linear-gradient(90deg,var(--sage),var(--saged))}
+.inc-card:nth-child(2)::before{background:linear-gradient(90deg,var(--gold),var(--goldd))}
+.inc-card:nth-child(3)::before{background:linear-gradient(90deg,var(--navy),#2D5A6B)}
+.inc-ico{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px;transition:transform .6s var(--eo)}
+.inc-card.on .inc-ico{transform:scale(1.1)}
+.inc-card h4{font-size:18px;margin-bottom:8px}
+.inc-card p{font-size:14px;color:var(--mut);line-height:1.65;margin:0}
+
+/* ═══ SPECS ═══ */
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bdr);border-radius:16px;overflow:hidden;max-width:640px;margin:0 auto}
+.spec-row{display:contents}
+.spec-row .sl,.spec-row .sv{padding:14px 20px;background:#fff;font-size:14px}
+.spec-row .sl{color:var(--mut);font-weight:500}
+.spec-row .sv{color:var(--ink);font-weight:600}
+.spec-row:first-child .sl,.spec-row:first-child .sv{background:var(--sage3);color:var(--sage);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+
+/* ═══ INSTALL ═══ */
+.install-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:960px;margin:0 auto}
+.install-card{text-align:center;position:relative}
+.install-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--saged));color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;font-family:var(--fh);margin:0 auto 16px;box-shadow:0 4px 16px rgba(94,138,106,.25)}
+.install-img{border-radius:16px;overflow:hidden;background:var(--cream);border:1px solid var(--bdr);margin-bottom:16px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+.install-img img{width:100%;height:100%;object-fit:cover;border-radius:0}
+.install-card h4{font-size:17px;margin-bottom:6px}
+.install-card p{font-size:13px;color:var(--mut);line-height:1.6;margin:0}
+.install-connector{display:none}
+
+/* ═══ VS SECTION ═══ */
+.vs-wrap{position:relative;padding:40px 32px;border-radius:28px;background:linear-gradient(145deg,var(--cream),#fff);border:1px solid var(--bdr);box-shadow:var(--sh-sm);overflow:hidden;max-width:700px;margin:0 auto}
+.vs-row{display:grid;grid-template-columns:1fr 120px 120px;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--bdr)}
+.vs-row:last-child{border-bottom:none}
+.vs-row.hd{font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);padding-bottom:16px;border-bottom:2px solid var(--bdr)}
+.vs-feat{font-size:14px;color:var(--ink);font-weight:500}
+.vs-us{font-size:14px;font-weight:700;color:var(--sage);text-align:center}
+.vs-them{font-size:14px;color:var(--mut);text-align:center}
+.vs-row.hd .vs-us{color:var(--sage);background:var(--sage3);border-radius:8px;padding:6px 0}
+
+/* ═══ FAQ ═══ */
+.faq-item{border-bottom:1px solid var(--bdr)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;gap:16px}
+.faq-q h4{font-size:16px;font-weight:600;font-family:var(--fb);color:var(--ink);margin:0;flex:1}
+.faq-arrow{width:30px;height:30px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;color:var(--mut);transition:transform .4s var(--eo),background .3s,color .3s}
+.faq-item.open .faq-arrow{transform:rotate(180deg);background:var(--sage3);color:var(--sage)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--eo),padding .4s}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
+.faq-a p{font-size:15px;color:var(--mut);line-height:1.7;margin:0}
+
+/* ═══ FINAL CTA ═══ */
+.final-cta{padding:56px 36px;border-radius:28px;background:linear-gradient(150deg,#1A1816,var(--ink) 50%,#2D2A26);color:#fff;text-align:center;position:relative;overflow:hidden;margin-bottom:48px}
+.final-cta::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:48px 48px}
+.final-cta::after{content:'';position:absolute;bottom:-40%;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(94,138,106,.15),transparent 60%);border-radius:50%;animation:floatSlow 10s ease-in-out infinite}
+.final-cta>*{position:relative;z-index:1}
+.final-cta h2{color:#fff;font-size:30px;margin-bottom:12px}
+.final-cta>p{color:rgba(255,255,255,.55);font-size:16px;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+.final-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.final-stat{text-align:center}
+.final-stat-val{font-size:28px;font-weight:700;font-family:var(--fh);color:#fff;display:block}
+.final-stat-lbl{font-size:12px;color:rgba(255,255,255,.5);font-weight:500}
+.final-btn{display:inline-block;padding:16px 44px;border-radius:14px;background:linear-gradient(135deg,var(--rose),var(--rosed));color:#fff;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(194,93,78,.35);transition:transform .2s;border:none;cursor:pointer}
+.final-btn:hover{transform:translateY(-2px);color:#fff}
+
+/* ═══ FOOTER ═══ */
+.footer{padding:36px 0 48px;border-top:1px solid var(--bdr)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:20px;font-size:13px;flex-wrap:wrap}
+.footer-links a{color:var(--mut)}
+.footer-copy{font-size:12px;color:var(--light)}
+.scroll-top{position:fixed;bottom:28px;right:28px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--saged));color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(94,138,106,.3);opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;z-index:200;font-size:18px;border:none;cursor:pointer}
+.scroll-top.show{opacity:1;transform:none}
+
+/* ═══ DESKTOP/MOBILE ═══ */
+@media(min-width:768px){.page{padding:0 40px}.sh h2{font-size:38px}.install-connector{display:block;position:absolute;top:22px;left:calc(50% + 22px);width:calc(100% - 44px);height:2px;background:var(--bdr);z-index:0}.install-card:last-child .install-connector{display:none}}
+@media(max-width:767px){
+  .hero-grid{display:block}.gallery{position:static;margin-bottom:32px}.gallery-thumbs{overflow-x:auto}
+  .offer{max-width:100%}.offer h1{font-size:28px}
+  .why-grid{display:block}.why-visual{margin-top:28px}
+  .inc-grid{grid-template-columns:1fr;max-width:400px}
+  .install-grid{grid-template-columns:1fr;max-width:400px;gap:20px}
+  .vs-wrap{padding:24px 16px}.vs-row{grid-template-columns:1fr 80px 80px}.vs-feat{font-size:13px}
+  .final-stats{gap:20px}.sh h2{font-size:28px}
+  .nav-links a:not(:last-child){display:none}
+  .qty-grid{gap:6px}.qty-card{padding:12px 6px}
+  .spec-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══ NAV ═══ -->
+<nav class="topnav rv">
+  <div style="display:flex;align-items:center;gap:24px">
+    <div class="logo"><svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" style="vertical-align:middle;margin-right:6px"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<em>Envy</em></div>
+    <div class="nav-links"><a href="#">Home</a><a href="#">2.0 Handheld</a><a href="#">5.0 Stationary</a><a href="#">Science</a><a href="#">Reviews</a></div>
+  </div>
+  <button class="cart-btn">Shop Now</button>
+</nav>
+<div class="breadcrumb rv rv-d1"><a href="#">Home</a> / <a href="#">Accessories</a> / <b>Premium Hose &amp; Holder</b></div>
+
+<!-- ═══════════════════════════════════
+     HERO
+     ═══════════════════════════════════ -->
+<section class="hero-grid">
+  <div class="gallery rv">
+    <div class="gallery-main"><img src="https://showerenvy.com/cdn/shop/files/1674074720777_image1x_1.jpg?v=1747278201" alt="ShowerEnvy Premium Stainless Steel Hose and Holder" id="mainImg"></div>
+    <div class="gallery-thumbs">
+      <div class="thumb active" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/files/1674074720777_image1x_1.jpg?v=1747278201')"><img src="https://showerenvy.com/cdn/shop/files/1674074720777_image1x_1.jpg?v=1747278201" alt="Hose and holder"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/files/1674074718161_image2x_1.jpg?v=1747278107')"><img src="https://showerenvy.com/cdn/shop/files/1674074718161_image2x_1.jpg?v=1747278107" alt="Stainless steel detail"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/files/1673917836364_1672817490_image3x_1.jpg?v=1747278107')"><img src="https://showerenvy.com/cdn/shop/files/1673917836364_1672817490_image3x_1.jpg?v=1747278107" alt="Installed view"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/files/1673918971401_image4x_1.png?v=1747278108')"><img src="https://showerenvy.com/cdn/shop/files/1673918971401_image4x_1.png?v=1747278108" alt="Holder bracket"></div>
+      <div class="thumb" onclick="swapImg(this,'https://showerenvy.com/cdn/shop/files/1700519335478_6.jpg?v=1747278162')"><img src="https://showerenvy.com/cdn/shop/files/1700519335478_6.jpg?v=1747278162" alt="In bathroom"></div>
+    </div>
+  </div>
+
+  <div class="offer rv rv-d1">
+    <div class="badge badge-sage">FOR YOUR 2.0 HANDHELD</div>
+    <h1>Premium Stainless Steel Hose &amp; Holder</h1>
+    <p class="offer-sub">The finishing touch your ShowerEnvy 2.0 deserves. 60" extra-long stainless steel hose with adjustable suction bracket — leak-proof, kink-free, and built to last.</p>
+    <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-text">4.7 · 890+ reviews</span></div>
+
+    <!-- Qty — one-time only -->
+    <div>
+      <span class="qty-label">Quantity — One-Time Purchase</span>
+      <div class="qty-grid">
+        <div class="qty-card" data-qty="1" data-price="24.95" onclick="setQty(this)"><span class="qty-num">1</span><span class="qty-price">$24.95</span><span class="qty-each">per unit</span></div>
+        <div class="qty-card" data-qty="2" data-price="19.95" onclick="setQty(this)"><span class="qty-num">2</span><span class="qty-price">$19.95</span><span class="qty-each">per unit</span></div>
+        <div class="qty-card" data-qty="3" data-price="17.95" onclick="setQty(this)"><span class="qty-num">3</span><span class="qty-price">$17.95</span><span class="qty-each">per unit</span></div>
+        <div class="qty-card best active" data-qty="4" data-price="14.95" onclick="setQty(this)"><span class="qty-best">Best Deal</span><span class="qty-num">4</span><span class="qty-price">$14.95</span><span class="qty-each">per unit</span></div>
+      </div>
+    </div>
+
+    <div class="price-display"><span class="price-current" id="priceTotal">$59.80</span><span class="price-original" id="priceOrig">$99.80</span><span class="badge badge-save" id="priceSave">SAVE $40.00</span></div>
+    <p class="price-note" id="priceNote">One-time purchase · Ships within 1–2 business days</p>
+    <button class="cta-btn" id="ctaBtn">Add to Cart — $59.80</button>
+
+    <div class="trust-row">
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 60-Day Guarantee</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a2 2 0 01-2 2h-1M7 16h10"/></svg> Free Shipping</div>
+      <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> 100% Fit Guarantee</div>
+    </div>
+
+    <div class="delivery-box"><p><strong>Fits:</strong> ShowerEnvy 2.0 Handheld · <strong>Hose:</strong> 60" stainless steel, kink-free · <strong>Holder:</strong> Adjustable suction bracket · <strong>Includes:</strong> Teflon tape &amp; washers</p></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ WHY YOU NEED THIS ═══ -->
+<section class="rv" style="padding:64px 0" id="whySection">
+  <div class="why-grid">
+    <div>
+      <div class="badge badge-gold" style="margin-bottom:16px">COMPLETE YOUR SETUP</div>
+      <h2 style="font-size:32px;margin-bottom:16px">Your 2.0 Handheld Deserves<br>a Premium Connection</h2>
+      <p style="font-size:16px;color:var(--mut);line-height:1.7;margin-bottom:24px">Most bathroom hoses are cheap plastic that kinks, leaks, and breaks within months. For women investing in filtered water to protect their hair and skin, a failing hose undermines everything. This premium set completes your ShowerEnvy experience.</p>
+      <div class="why-cards">
+        <div class="why-card rv rv-d1"><div class="why-ico" style="background:var(--sage3)"><span style="font-size:24px;animation:float 3s ease-in-out infinite">🔗</span></div><div><h4>Leak-Proof Brass Connections</h4><p>Precision-machined brass fittings with included washers create a watertight seal every time. No more towel-draping or teflon tape battles.</p></div></div>
+        <div class="why-card rv rv-d2"><div class="why-ico" style="background:var(--gold3)"><span style="font-size:24px;animation:float 3s ease-in-out infinite .3s">💪</span></div><div><h4>Stainless Steel, Not Plastic</h4><p>Double-locked stainless steel construction won't kink, crack, or snap — even after years of daily use. Built for the long haul.</p></div></div>
+        <div class="why-card rv rv-d3"><div class="why-ico" style="background:var(--rose3)"><span style="font-size:24px;animation:float 3s ease-in-out infinite .6s">📐</span></div><div><h4>60" Extra-Long Reach</h4><p>Five feet of flexible hose gives you the freedom to rinse your whole body comfortably — especially helpful for targeted rinsing during hair care routines.</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual rv rv-d2"><img src="https://showerenvy.com/cdn/shop/files/1674074718161_image2x_1.jpg?v=1747278107" alt="Premium stainless steel hose close-up"></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ WHAT'S INCLUDED ═══ -->
+<section style="padding:64px 0" id="includedSection">
+  <div class="sh rv"><div class="badge badge-sage" style="margin-bottom:12px">EVERYTHING IN THE BOX</div><h2>What's Included</h2><p>Everything you need for a perfect installation — no trips to the hardware store.</p></div>
+  <div class="inc-grid">
+    <div class="inc-card rv rv-d1" id="ic1"><div class="inc-ico" style="background:var(--sage3)">🚿</div><h4>60" Stainless Steel Hose</h4><p>Premium double-locked construction with anti-kink inner tube. Brass connectors with rubber washers for a leak-free seal. Standard ½" universal fitting.</p></div>
+    <div class="inc-card rv rv-d2" id="ic2"><div class="inc-ico" style="background:var(--gold3)">📌</div><h4>Adjustable Suction Holder</h4><p>Strong suction-cup bracket mounts to any smooth surface — tile, glass, or acrylic. Adjustable angle lets you position your showerhead exactly where you want it.</p></div>
+    <div class="inc-card rv rv-d3" id="ic3"><div class="inc-ico" style="background:rgba(27,58,75,.06)">🔧</div><h4>Installation Kit</h4><p>Teflon tape, extra rubber washers, and clear instructions included. Everything needed for a 3-minute, tool-free installation. Renter-friendly — no drilling.</p></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ SPECS ═══ -->
+<section style="padding:64px 0" id="specsSection">
+  <div class="sh rv"><h2>Technical Specifications</h2><p>Premium materials, precision engineering.</p></div>
+  <div class="spec-grid rv rv-d1">
+    <div class="spec-row"><div class="sl">Specification</div><div class="sv">Detail</div></div>
+    <div class="spec-row"><div class="sl">Hose Length</div><div class="sv">60 inches (5 feet)</div></div>
+    <div class="spec-row"><div class="sl">Hose Material</div><div class="sv">304 Stainless Steel, Double-Locked</div></div>
+    <div class="spec-row"><div class="sl">Connectors</div><div class="sv">Solid Brass with Rubber Washers</div></div>
+    <div class="spec-row"><div class="sl">Fitting Size</div><div class="sv">Standard ½" (Universal)</div></div>
+    <div class="spec-row"><div class="sl">Inner Tube</div><div class="sv">Anti-Kink EPDM Rubber</div></div>
+    <div class="spec-row"><div class="sl">Holder Type</div><div class="sv">Adjustable Suction Cup Bracket</div></div>
+    <div class="spec-row"><div class="sl">Finish</div><div class="sv">Polished Chrome</div></div>
+    <div class="spec-row"><div class="sl">Compatibility</div><div class="sv">ShowerEnvy 2.0 Handheld + Standard ½" Showerheads</div></div>
+    <div class="spec-row"><div class="sl">Weight</div><div class="sv">0.65 lbs (295g)</div></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ HOW TO INSTALL ═══ -->
+<section style="padding:64px 0" id="installSection">
+  <div class="sh rv"><div class="badge badge-sage" style="margin-bottom:12px">3-MINUTE INSTALL</div><h2>How to Install</h2><p>Three simple steps — no tools, no plumber. You'll be showering in minutes.</p></div>
+  <div class="install-grid">
+    <div class="install-card rv rv-d1" style="position:relative">
+      <div class="install-num">1</div>
+      <div class="install-img"><img src="https://showerenvy.com/cdn/shop/files/2.0_install_gif_2025_A.gif?v=1756280280" alt="Step 1: Connect adapter to shower arm"></div>
+      <h4>Connect the Adapter</h4>
+      <p>Remove your existing showerhead and connect ShowerEnvy's adapter to the shower arm. Wrap the threads with the included Teflon tape for a perfect seal.</p>
+      <div class="install-connector"></div>
+    </div>
+    <div class="install-card rv rv-d2" style="position:relative">
+      <div class="install-num">2</div>
+      <div class="install-img"><img src="https://showerenvy.com/cdn/shop/files/2.0_install_gif_2025_B.gif?v=1756280482" alt="Step 2: Attach the hose"></div>
+      <h4>Attach the Hose</h4>
+      <p>Connect the stainless steel hose to the shower adapter. Hand-tighten the brass fitting — the included rubber washer creates a leak-proof connection.</p>
+      <div class="install-connector"></div>
+    </div>
+    <div class="install-card rv rv-d3" style="position:relative">
+      <div class="install-num">3</div>
+      <div class="install-img"><img src="https://showerenvy.com/cdn/shop/files/2.0_install_gif_2025_C.gif?v=1756280611" alt="Step 3: Mount the holder"></div>
+      <h4>Mount &amp; Enjoy</h4>
+      <p>Press the suction holder onto any smooth surface. Adjust the angle, dock your 2.0 Handheld, and turn on the water. You're done!</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:32px" class="rv rv-d3">
+    <div style="display:inline-flex;gap:20px;padding:16px 28px;border-radius:16px;background:var(--sage3);border:1px solid rgba(94,138,106,.1)">
+      <div style="text-align:center"><span style="font-size:28px;font-weight:700;font-family:var(--fh);color:var(--sage);display:block">3 min</span><span style="font-size:12px;color:var(--mut)">Installation</span></div>
+      <div style="width:1px;background:rgba(94,138,106,.15)"></div>
+      <div style="text-align:center"><span style="font-size:28px;font-weight:700;font-family:var(--fh);color:var(--sage);display:block">0</span><span style="font-size:12px;color:var(--mut)">Tools Required</span></div>
+      <div style="width:1px;background:rgba(94,138,106,.15)"></div>
+      <div style="text-align:center"><span style="font-size:28px;font-weight:700;font-family:var(--fh);color:var(--sage);display:block">100%</span><span style="font-size:12px;color:var(--mut)">Renter-Friendly</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ VS COMPARISON ═══ -->
+<section style="padding:64px 0" id="vsSection">
+  <div class="sh rv"><h2>Stainless Steel vs. Plastic Hoses</h2><p>See why premium materials matter — especially when protecting your hair and skin investment.</p></div>
+  <div class="vs-wrap rv rv-d1" id="vsTable">
+    <div class="vs-row hd"><div class="vs-feat">Feature</div><div class="vs-us">ShowerEnvy</div><div class="vs-them">Generic</div></div>
+    <div class="vs-row"><div class="vs-feat">Hose Material</div><div class="vs-us">Stainless Steel</div><div class="vs-them">PVC Plastic</div></div>
+    <div class="vs-row"><div class="vs-feat">Connectors</div><div class="vs-us">Solid Brass</div><div class="vs-them">Plastic / Chrome-Plated</div></div>
+    <div class="vs-row"><div class="vs-feat">Anti-Kink Design</div><div class="vs-us">✓ Double-Locked</div><div class="vs-them">✗ Kinks in weeks</div></div>
+    <div class="vs-row"><div class="vs-feat">Leak-Proof Seal</div><div class="vs-us">✓ Brass + Washers</div><div class="vs-them">✗ Often leaks</div></div>
+    <div class="vs-row"><div class="vs-feat">Length</div><div class="vs-us">60" (5 feet)</div><div class="vs-them">48" typical</div></div>
+    <div class="vs-row"><div class="vs-feat">Durability</div><div class="vs-us">Years of daily use</div><div class="vs-them">Cracks in months</div></div>
+    <div class="vs-row"><div class="vs-feat">Holder Included</div><div class="vs-us">✓ Adjustable</div><div class="vs-them">✗ Sold separately</div></div>
+    <div class="vs-row"><div class="vs-feat">Install Kit</div><div class="vs-us">✓ Tape + Washers</div><div class="vs-them">✗ Buy your own</div></div>
+  </div>
+</section>
+
+<div class="divider rv"><i>✦</i></div>
+
+<!-- ═══ FAQ ═══ -->
+<section style="padding:64px 0" id="faqSection">
+  <div class="sh rv"><h2>Frequently Asked Questions</h2><p>Quick answers about the hose and holder set.</p></div>
+  <div style="max-width:700px;margin:0 auto" class="rv rv-d1">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Will this fit my ShowerEnvy 2.0?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>Yes — this hose and holder set is designed specifically for the ShowerEnvy 2.0 Handheld. It uses standard ½" fittings, so it also works with most standard showerheads if needed.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Do I need any tools to install it?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>No tools needed. Everything hand-tightens, and we include Teflon tape and extra washers in the box. The suction bracket sticks to any smooth surface — no drilling, no damage. Perfect for renters.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Why stainless steel instead of plastic?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>Plastic hoses kink, crack, and harbor bacteria over time — the #1 complaint in showerhead reviews. Our 304 stainless steel with double-lock construction stays flexible for years without degrading. The brass connectors ensure a leak-proof seal that plastic threads simply can't match.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>How long is the hose?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>60 inches — that's 5 full feet, about 12 inches longer than most standard hoses. The extra length gives you real freedom for full-body rinsing, seated showering, and thorough hair care routines.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>Will the suction holder stay put?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>On smooth, non-porous surfaces (tile, glass, acrylic) — absolutely. The vacuum suction mechanism creates a strong hold that supports the weight of the 2.0 Handheld easily. For textured surfaces, we recommend cleaning the area first for best adhesion.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><h4>What's the return policy?</h4><div class="faq-arrow">▼</div></div><div class="faq-a"><p>60-day money-back guarantee. If you're not happy for any reason, email us for a full refund. If the product arrives damaged, we'll replace it free — no questions asked.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta rv">
+  <h2>Complete Your ShowerEnvy Setup</h2>
+  <p>Premium stainless steel construction. Leak-proof brass connections. Everything included. Your 2.0 Handheld deserves this upgrade.</p>
+  <div class="final-stats">
+    <div class="final-stat"><span class="final-stat-val" style="animation:float 3s ease-in-out infinite">60"</span><span class="final-stat-lbl">Extra-Long Hose</span></div>
+    <div class="final-stat"><span class="final-stat-val" style="animation:float 3s ease-in-out infinite .2s">304</span><span class="final-stat-lbl">Stainless Steel</span></div>
+    <div class="final-stat"><span class="final-stat-val" style="animation:float 3s ease-in-out infinite .4s">3 min</span><span class="final-stat-lbl">Installation</span></div>
+    <div class="final-stat"><span class="final-stat-val" style="animation:float 3s ease-in-out infinite .6s">60-Day</span><span class="final-stat-lbl">Guarantee</span></div>
+  </div>
+  <button class="final-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Add to Cart — From $14.95 →</button>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div style="margin-bottom:12px"><a href="#" style="font-family:var(--fh);font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px"><svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="var(--sage)" opacity=".12"/><path d="M16 8v5M12 16c0-2.2 1.8-4 4-4s4 1.8 4 4M13 19s1 3 3 3 3-3 3-3" stroke="var(--sage)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="16" cy="24" r="1.2" fill="var(--sage)"/></svg>Shower<em style="color:var(--sage);font-weight:700;font-style:italic">Envy</em></a></div><div class="footer-links"><a href="#">Home</a><a href="#">2.0 Handheld</a><a href="#">5.0 Stationary</a><a href="#">Reviews</a><a href="#">Privacy</a><a href="#">Refunds</a><a href="#">Terms</a></div><div class="footer-copy">© 2026 ShowerEnvy · Privacy · Terms · Accessibility</div></div></footer>
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ═══ Reveal ═══ */
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.05,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+setTimeout(function(){document.querySelectorAll('.rv:not(.vis)').forEach(function(el){el.classList.add('vis')})},3000);
+window.addEventListener('scroll',function(){var b=document.getElementById('scrollTop');if(window.scrollY>500)b.classList.add('show');else b.classList.remove('show')},{passive:true});
+
+/* ═══ Gallery ═══ */
+function swapImg(t,s){document.getElementById('mainImg').src=s;document.querySelectorAll('.thumb').forEach(function(x){x.classList.remove('active')});t.classList.add('active')}
+
+/* ═══ Quantity + Pricing (no subscription) ═══ */
+function setQty(c){document.querySelectorAll('.qty-card').forEach(function(x){x.classList.remove('active')});c.classList.add('active');updatePrices()}
+
+function updatePrices(){
+  var ac=document.querySelector('.qty-card.active'),qty=parseInt(ac.getAttribute('data-qty')),price=parseFloat(ac.getAttribute('data-price'));
+  var total=(price*qty).toFixed(2),origTotal=(24.95*qty).toFixed(2),saved=(24.95*qty-price*qty).toFixed(2);
+  document.getElementById('priceTotal').textContent='$'+total;
+  if(parseFloat(saved)>0){document.getElementById('priceOrig').textContent='$'+origTotal;document.getElementById('priceOrig').style.display='inline';document.getElementById('priceSave').textContent='SAVE $'+saved;document.getElementById('priceSave').style.display='inline-block'}
+  else{document.getElementById('priceOrig').style.display='none';document.getElementById('priceSave').style.display='none'}
+  document.getElementById('ctaBtn').textContent='Add to Cart — $'+total;
+  document.getElementById('priceNote').textContent='One-time purchase · Ships within 1–2 business days';
+}
+updatePrices();
+
+/* ═══ FAQ ═══ */
+function toggleFaq(q){var item=q.parentElement,was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!was)item.classList.add('open')}
+
+/* ═══ Inside Cards Animation ═══ */
+(function(){['ic1','ic2','ic3'].forEach(function(id,i){var el=document.getElementById(id);if(!el)return;var ob=new IntersectionObserver(function(es){if(es[0].isIntersecting){setTimeout(function(){el.classList.add('on')},i*200);ob.unobserve(el)}},{threshold:.15});ob.observe(el)})})();
+
+/* ═══ VS Table Row Reveal ═══ */
+(function(){var el=document.getElementById('vsTable');if(!el)return;var ob=new IntersectionObserver(function(es){if(es[0].isIntersecting){var rows=el.querySelectorAll('.vs-row:not(.hd)');rows.forEach(function(r,i){setTimeout(function(){r.style.opacity='1';r.style.transform='none'},i*80)});ob.unobserve(el)}},{threshold:.15});
+el.querySelectorAll('.vs-row:not(.hd)').forEach(function(r){r.style.opacity='0';r.style.transform='translateY(8px)';r.style.transition='opacity .5s ease,transform .5s ease'});
+ob.observe(el)})();
+</script>

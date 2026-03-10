@@ -1,0 +1,425 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "se-hero",
+      "blocks": {
+        "mobile_header_menu_iVNt7N": {
+          "type": "mobile_header_menu",
+          "settings": {
+            "mobile_menu_title": "How It Works",
+            "mobile_menu_link": "#science"
+          }
+        },
+        "mobile_header_menu_ecBJnJ": {
+          "type": "mobile_header_menu",
+          "settings": {
+            "mobile_menu_title": "Our Products",
+            "mobile_menu_link": "#products"
+          }
+        },
+        "mobile_header_menu_9AqjGU": {
+          "type": "mobile_header_menu",
+          "settings": {
+            "mobile_menu_title": "Real Results",
+            "mobile_menu_link": "#results"
+          }
+        },
+        "mobile_header_menu_JFRHTH": {
+          "type": "mobile_header_menu",
+          "settings": {
+            "mobile_menu_title": "Questions",
+            "mobile_menu_link": "#faq"
+          }
+        }
+      },
+      "block_order": [
+        "mobile_header_menu_iVNt7N",
+        "mobile_header_menu_ecBJnJ",
+        "mobile_header_menu_9AqjGU",
+        "mobile_header_menu_JFRHTH"
+      ],
+      "settings": {
+        "tagline": "Filtered Showerheads for Women Over 50",
+        "hero_tagline": "Designed for Women Over 50",
+        "show_tagline_icon": true,
+        "headline": "You Spend $200/mo<br>on Hair &amp; Skin.<br><span class=\"hero__panel-zenith\">Your Shower Undoes It Every Morning.</span>",
+        "headline_part_1": "Menopause is already thinning your hair and drying your skin.",
+        "headline_highlight": "doubling the damage",
+        "headline_part_2": "— and blocking every product you apply.",
+        "primary_label": "Find Your Filter",
+        "secondary_label": "How It Works"
+      }
+    },
+    "trust": {
+      "type": "se-trust-strip",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "badge_text_1": "Dermatologist Recommended",
+        "badge_text_2": "Installs in 3 Minutes",
+        "badge_text_3": "NSF/ANSI Certified",
+        "badge_text_4": "Free Shipping & Returns",
+        "badge_text_5": "Made in the USA",
+        "life_caption_1": "Lifestyle — Woman 50+ enjoying shower",
+        "life_caption_2": "Lifestyle — Healthy glowing skin",
+        "life_caption_3": "Lifestyle — Full healthy hair",
+        "life_caption_4": "Lifestyle — Happy woman in bathroom"
+      }
+    },
+    "concern": {
+      "type": "se-concern",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "eyebrow_text": "THE PROBLEM NOBODY TALKS ABOUT",
+        "heading_text": "Your Body Is Changing.<br>Your Water Should Change With It.",
+        "description_text": "You've tried the serums, the salon treatments, the supplements your friend swore by. And maybe they helped — a little. For a while. But the hair in the drain kept coming.",
+        "point_one": "$80–$250/month on products that sit on the surface of mineral-coated hair",
+        "point_two": "Your ponytail is half the thickness it was two years ago",
+        "point_three": "Your $200 color fades just two weeks after leaving the salon",
+        "point_four": "Your skin feels tight and papery within minutes of showering",
+        "point_five": "You slather moisturizer morning and night just to maintain what's left",
+        "point_six": "You avoid mirrors because the person looking back doesn't feel like you",
+        "testimonial_text": "I feel like I aged 15 years in the past three. I tried everything. Nobody told me my water was part of the problem.",
+        "testimonial_source": "— From a real community discussion on r/Menopause"
+      }
+    },
+    "science": {
+      "type": "se-science",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "section_eyebrow": "THE ROOT CAUSE",
+        "title_line_1": "It's Not Your Products.",
+        "title_highlight": "It's Your Water.",
+        "title_description": "Two forces are working against your skin and hair — one from inside, one from outside."
+      }
+    },
+    "showcase": {
+      "type": "se-showcase",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "eyebrow": "OUR APPROACH",
+        "main_title": "Subtraction, Not Addition.",
+        "main_description": "You don't need another product piled on top. You need to remove what's undoing everything.",
+        "vitamin_title": "The Vitamin Infusion That Sets Us Apart",
+        "vitamin_description": "No other showerhead delivers all three."
+      }
+    },
+    "results": {
+      "type": "se-results",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "results_eyebrow": "REAL RESULTS FROM REAL WOMEN",
+        "results_heading": "Women Like You. Changes Like These."
+      }
+    },
+    "products": {
+      "type": "se-products",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "protection_eyebrow": "CHOOSE YOUR PROTECTION",
+        "protection_heading": "Two Ways to Protect What Your Body Is Already Losing",
+        "product": "2-in-1-bundle-showerenvy-hose-holder",
+        "feature_1": "Chlorine + sediment + heavy metals",
+        "feature_2": "3 spray modes",
+        "feature_3": "Filter life: 3 months",
+        "feature_4": "60-day money-back guarantee",
+        "feature_5": "Free shipping",
+        "product_advanced": "showerenvy-5-0-stationary",
+        "feature_6": "Full 15-stage + Vitamin A, C & E",
+        "feature_7": "Chloramines, fluoride, VOCs removed",
+        "feature_8": "NSF/ANSI Certified · Wall mount",
+        "feature_9": "Filter life: 6 months",
+        "feature_10": "90-day money-back guarantee"
+      }
+    },
+    "installation": {
+      "type": "se-installation",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "section_eyebrow": "INSTALLATION",
+        "section_heading": "Under 3 Minutes. No Plumber. No Tools.",
+        "step1_heading": "Step 1 — Unscrewing old showerhead",
+        "step1_title": "Unscrew the Old One",
+        "step1_content": "Standard ½″ fits every U.S. shower. No plumber needed.",
+        "step2_heading": "Step 2 — Hand-tightening ShowerEnvy",
+        "step2_title": "Twist On ShowerEnvy",
+        "step2_content": "Filter comes pre-installed. Hand-tighten. Run water 30 seconds.",
+        "step3_heading": "Step 3 — Water test strip result",
+        "step3_title": "Test & See the Proof",
+        "step3_content": "Included test strips show what was in your water."
+      }
+    },
+    "founder": {
+      "type": "se-founder",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "founder_eyebrow": "THE WOMAN BEHIND SHOWERENVY",
+        "founder_heading_line1": "She Didn't Set Out to Build a Product.",
+        "founder_heading_highlight": "She Set Out to Solve Her Own Problem."
+      }
+    },
+    "timeline": {
+      "type": "se-timeline",
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "eyebrow_text": "WHAT TO EXPECT — HONESTLY",
+        "heading_text": "Your Results Timeline",
+        "subheading_text": "Real changes take real time. Here's what the biology says — not marketing hype.",
+        "quote_text": "\"Your body wants to heal. It just needs you to stop pouring chemicals on it every morning.\"",
+        "quote_source": "— Based on dermatological research for women 50+"
+      }
+    },
+    "faq": {
+      "type": "se-faq",
+      "blocks": {
+        "item_fzewdA": {
+          "type": "item",
+          "settings": {
+            "question": "Why is my water damaging my hair and skin?",
+            "answer": "Municipal water contains chlorine, chloramines, heavy metals, and hard minerals. After menopause, your body produces less oil, collagen, and antioxidants. So the same water that was \"fine\" at 30 is now overwhelming your body's reduced defenses. The damage compounds daily."
+          }
+        },
+        "item_hM98Hz": {
+          "type": "item",
+          "settings": {
+            "question": "How is ShowerEnvy different from other filters?",
+            "answer": "Most filtered showerheads use 1–3 generic stages. The 5.0 uses 15 sequential stages including KDF-55 for heavy metals, calcium sulfite for instant chlorine removal, vitamin C for antioxidant protection, and catalytic carbon for chloramines — plus Vitamins A, C & E infusion. NSF/ANSI certified."
+          }
+        },
+        "item_rD97jA": {
+          "type": "item",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "Most women feel softer water and less tightness from shower one. Skin improvements (less dryness, calmer patches) typically show within 2–3 weeks. Hair changes take longer — 6–8 weeks for reduced shedding, 8–12 weeks for visible new growth. That's biology, not marketing."
+          }
+        },
+        "item_DQhXjL": {
+          "type": "item",
+          "settings": {
+            "question": "Will it reduce my water pressure?",
+            "answer": "No. The 5.0 uses micro-nozzle acceleration technology. At 1.8 GPM (vs standard 2.5 GPM), it delivers perceived pressure increase while using 28% less water. You get more pressure and better filtration."
+          }
+        },
+        "item_Ny3TPA": {
+          "type": "item",
+          "settings": {
+            "question": "How hard is installation?",
+            "answer": "Under 3 minutes. Unscrew your old showerhead, wrap the included teflon tape, twist on ShowerEnvy. No plumber, no tools. The filter comes pre-installed and ready to go. Renter-friendly — take it when you move."
+          }
+        },
+        "item_kw7Kex": {
+          "type": "item",
+          "settings": {
+            "question": "What does the guarantee cover?",
+            "answer": "The 2.0 comes with a 60-day full refund guarantee. The 5.0 comes with 90 days — because hair growth cycles take 8–12 weeks. We cover return shipping. No restocking fees. No hoops."
+          }
+        }
+      },
+      "block_order": [
+        "item_fzewdA",
+        "item_hM98Hz",
+        "item_rD97jA",
+        "item_DQhXjL",
+        "item_Ny3TPA",
+        "item_kw7Kex"
+      ],
+      "settings": {
+        "eyebrow": "QUESTIONS WE HEAR MOST",
+        "heading": "Common Questions",
+        "icon_emoji": "❓"
+      }
+    },
+    "guarantee": {
+      "type": "se-guarantee",
+      "settings": {
+        "heading": "Our Guarantee Is Built Around Your Biology",
+        "description": "Hair growth cycles take 8–12 weeks. We designed our guarantee around that science.",
+        "bottom_note": "Full refund. No restocking fee. We cover return shipping.",
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "cta": {
+      "type": "se-cta",
+      "settings": {
+        "heading": "Your Body Is Changing.<br><span class=\"hero__panel-zenith\">Your Water Should Change With It.</span>",
+        "description": "ShowerEnvy makes everything else in your routine work better. You'll feel it from the very first shower.",
+        "primary_label": "Shop the 5.0 — $89",
+        "primary_link": "/products/showerenvy-5-0-stationary",
+        "secondary_label": "Shop the 2.0 — $49",
+        "secondary_link": "/products/showerenvy-2-0-handheld-kit",
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "footer": {
+      "type": "se-footer",
+      "blocks": {
+        "mobile_footer_menu_CieDRN": {
+          "type": "mobile_footer_menu",
+          "settings": {
+            "mobile_menu_text": "Shop",
+            "mobile_menu_link": "#"
+          }
+        },
+        "mobile_footer_menu_79XBTr": {
+          "type": "mobile_footer_menu",
+          "settings": {
+            "mobile_menu_text": "How It Works",
+            "mobile_menu_link": "#"
+          }
+        },
+        "mobile_footer_menu_kk97de": {
+          "type": "mobile_footer_menu",
+          "settings": {
+            "mobile_menu_text": "Results",
+            "mobile_menu_link": "#"
+          }
+        },
+        "mobile_footer_menu_gyCMBC": {
+          "type": "mobile_footer_menu",
+          "settings": {
+            "mobile_menu_text": "FAQ",
+            "mobile_menu_link": "#"
+          }
+        },
+        "mobile_footer_menu_BPwrDd": {
+          "type": "mobile_footer_menu",
+          "settings": {
+            "mobile_menu_text": "Support",
+            "mobile_menu_link": "#"
+          }
+        },
+        "mobile_footer_menu_WVaFBq": {
+          "type": "mobile_footer_menu",
+          "settings": {
+            "mobile_menu_text": "Returns",
+            "mobile_menu_link": "#"
+          }
+        },
+        "footer_column_jHBLnE": {
+          "type": "footer_column",
+          "settings": {
+            "column_title": "Shop",
+            "item_text_1": "The 2.0 Handheld",
+            "item_link_1": "",
+            "item_text_2": "The 5.0 Stationary",
+            "item_link_2": "",
+            "item_text_3": "Filters",
+            "item_link_3": "",
+            "item_text_4": "Bundles",
+            "item_link_4": ""
+          }
+        },
+        "footer_column_8fQEcR": {
+          "type": "footer_column",
+          "settings": {
+            "column_title": "Learn",
+            "item_text_1": "How It Works",
+            "item_link_1": "",
+            "item_text_2": "Results Timeline",
+            "item_link_2": "",
+            "item_text_3": "Blog",
+            "item_link_3": "",
+            "item_text_4": "Reviews",
+            "item_link_4": ""
+          }
+        },
+        "footer_column_8GGVBt": {
+          "type": "footer_column",
+          "settings": {
+            "column_title": "Support",
+            "item_text_1": "Questions",
+            "item_link_1": "",
+            "item_text_2": "Returns",
+            "item_link_2": "",
+            "item_text_3": "Guarantee",
+            "item_link_3": "",
+            "item_text_4": "Contact",
+            "item_link_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "mobile_footer_menu_CieDRN",
+        "mobile_footer_menu_79XBTr",
+        "mobile_footer_menu_kk97de",
+        "mobile_footer_menu_gyCMBC",
+        "mobile_footer_menu_BPwrDd",
+        "mobile_footer_menu_WVaFBq",
+        "footer_column_jHBLnE",
+        "footer_column_8fQEcR",
+        "footer_column_8GGVBt"
+      ],
+      "settings": {
+        "bg": "#ffffff",
+        "text": "#1f1d1a",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "footer_tagline_heading": "Filtered Showerheads for Women Over 50",
+        "footer_tagline_text": "Designed for women navigating hormonal changes. Because your water should help — not hurt.",
+        "legal_text_1": "Privacy",
+        "legal_link_1": "",
+        "legal_text_2": "Terms",
+        "legal_link_2": "",
+        "legal_text_3": "Accessibility",
+        "legal_link_3": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "concern",
+    "science",
+    "showcase",
+    "results",
+    "products",
+    "installation",
+    "founder",
+    "timeline",
+    "faq",
+    "guarantee",
+    "cta",
+    "footer"
+  ]
+}

@@ -1,0 +1,378 @@
+/* Responsive styles extracted from comparison-2-vs-5.css */
+
+@media(max-width:900px){
+  .prod-grid{grid-template-columns:1fr!important}
+  .problem-grid{grid-template-columns:1fr!important}
+  .reviews-grid{grid-template-columns:1fr 1fr!important;gap:16px!important}
+  .install-grid{grid-template-columns:1fr!important}
+  .install-compare{grid-template-columns:1fr!important}
+  .pressure-grid{flex-direction:column!important}
+  .tl-tracks{flex-direction:column!important}
+  .tl-spine{display:none!important}
+  .science{flex-direction:column!important}
+}
+
+@media(max-width:767px){
+  html,body{overflow-x:hidden;max-width:100vw}
+  body{font-size:17px;line-height:1.8}
+
+  /* Wrap */
+  .wrap{padding:0 16px!important;overflow-x:hidden}
+
+  /* Nav */
+  .nav-bar{padding:0 16px!important}
+
+  .nav-inner{gap:12px;flex-wrap:wrap}
+  .nav-links{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-link{font-size:14px!important;white-space:nowrap;min-height:44px;display:flex;align-items:center}
+  .nav-cta{padding:12px 20px!important;font-size:14px!important;white-space:nowrap}
+  .nav-logo{font-size:22px!important}
+
+  /* Hero */
+  .hero{padding:48px 24px 40px!important;margin:0 -16px!important}
+  .hero h1{font-size:32px!important;line-height:1.2!important}
+  .hero-desc{font-size:16px!important}
+  .hero-btns{flex-direction:column!important;gap:12px!important;align-items:center}
+  .hero-btns .btn{width:100%!important;max-width:320px;text-align:center}
+  .hero-stats{flex-wrap:wrap!important;gap:16px!important;justify-content:center!important}
+  .hero-stat{min-width:140px}
+  .hero-stat b{font-size:24px!important}
+  .hero-stat small{font-size:14px!important}
+
+  /* Section headers */
+  .s-title{font-size:28px!important}
+  .s-sub{font-size:16px!important}
+  .s-tag{font-size:14px!important}
+
+  /* Problem cards */
+  .problem-card{padding:24px!important}
+  .problem-card h3{font-size:22px!important}
+
+  /* Product cards */
+  .prod-card{padding:0!important}
+  .prod-card-body{padding:24px!important}
+  .prod-badges .badge{font-size:14px!important}
+  .prod-title{font-size:24px!important}
+  .prod-feat{font-size:15px!important}
+
+  /* Comparison table */
+  .compare-wrap{padding:20px!important;overflow-x:auto}
+  .cmp-row{gap:0!important}
+  .cmp-c{font-size:14px!important;padding:10px 8px!important;min-width:90px}
+  .compare-note{font-size:14px!important}
+
+  /* Pressure */
+  .pressure{padding:40px 20px!important;margin:0 -16px!important}
+  .pressure-card{padding:24px!important}
+  .pressure-card h4{font-size:22px!important}
+  .p-feat span{font-size:15px!important}
+  .pressure-vs{padding:16px 0!important;flex-direction:row!important}
+  .pressure-callout{padding:20px!important;font-size:15px!important}
+
+  /* Installation */
+  .install{padding:40px 20px!important;margin:0 -16px!important}
+  .install-step{padding:24px!important}
+  .install-step h4{font-size:18px!important}
+  .install-arrow{display:none!important}
+  .install-compare>div{padding:20px!important}
+
+  /* Timeline */
+  .tl-tracks{gap:24px!important}
+  .tl-head{padding:20px!important}
+  .tl-card{padding:20px!important}
+  .tl-progress-bar,.tl-labels{display:none!important}
+  .tl-insight{padding:24px!important;font-size:15px!important}
+
+  /* Reviews */
+  .reviews-grid{grid-template-columns:1fr!important}
+  .rev-card{padding:22px!important}
+  .rev-quote{font-size:16px!important}
+
+  /* FAQ */
+  .faq-q{padding:18px 16px!important;font-size:17px!important;min-height:54px}
+  .faq-q span:first-child{font-size:16px!important}
+  .faq-a-inner{font-size:16px!important;padding:16px!important}
+
+  /* Guarantee */
+  .guarantee{padding:32px 20px!important}
+  .guarantee h3{font-size:22px!important}
+  .guarantee-tiers{grid-template-columns:1fr!important;gap:16px!important}
+  .g-tier{min-width:auto!important}
+
+  /* Final CTA */
+  .final-cta{padding:48px 24px!important;margin:0 -16px!important}
+  .final-cta h2{font-size:28px!important}
+  .final-cta p{font-size:16px!important}
+  .final-cta-btns{flex-direction:column!important;gap:12px!important;align-items:center}
+  .final-cta-btns .btn{width:100%!important;max-width:320px;text-align:center}
+
+  /* Footer */
+  .se-footer .footer-inner{grid-template-columns:1fr!important;text-align:center;gap:32px!important}
+  .se-footer .footer-bottom{flex-direction:column!important;text-align:center;gap:8px!important}
+
+  /* Buttons — tap targets */
+  .btn{min-height:48px!important;font-size:16px!important}
+  .btn--lg{padding:16px 28px!important;font-size:17px!important}
+  a,button{-webkit-tap-highlight-color:rgba(94,138,106,.15)}
+
+  /* Back to top */
+  .btt{bottom:20px!important;right:20px!important}
+
+  /* Image placeholders */
+  .prod-ph{min-height:200px!important}
+  .hero-img-ph{min-height:180px!important}
+}
+
+@media(max-width:400px){
+  .hero h1{font-size:26px!important}
+  .s-title{font-size:24px!important}
+  .stat b,.hero-stat b{font-size:22px!important}
+}
+
+@media(max-width:768px){
+  html,body{
+    overflow-x:hidden !important;
+    max-width:100vw !important;
+    width:100% !important;
+  }
+  *{
+    max-width:100vw;
+    box-sizing:border-box !important;
+  }
+  img,video,svg,canvas,iframe{
+    max-width:100% !important;
+    height:auto !important;
+  }
+  table{
+    display:block !important;
+    overflow-x:auto !important;
+    max-width:100% !important;
+    -webkit-overflow-scrolling:touch;
+  }
+  pre,code{
+    overflow-x:auto !important;
+    max-width:100% !important;
+    white-space:pre-wrap !important;
+    word-break:break-word !important;
+  }
+  /* Force wrap on all containers */
+  .wrap,.nav-inner,.section,.hero,.footer-inner{
+    max-width:100% !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
+    overflow:hidden !important;
+  }
+  /* Nav: hide links, show logo + CTA only */
+  .nav-links,.nav-link{
+    display:none !important;
+  }
+  .nav-cta{
+    font-size:14px !important;
+    padding:10px 16px !important;
+    flex-shrink:0 !important;
+  }
+  .nav-bar{
+    overflow:hidden !important;
+  }
+  .nav-inner{
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:center !important;
+    flex-wrap:nowrap !important;
+    gap:8px !important;
+    padding:12px 16px !important;
+  }
+  .nav-logo{
+    font-size:22px !important;
+    flex-shrink:0 !important;
+  }
+  .nav-back{
+    display:none !important;
+  }
+  .nav-left{
+    flex-shrink:0 !important;
+  }
+  /* Grid collapses */
+  .prod-grid,.problem-grid,.install-grid,.install-compare,
+  .reviews-grid,.science,.tl-tracks,.pressure-grid,
+  .stat-grid,.grid-2,.grid-3{
+    grid-template-columns:1fr !important;
+    flex-direction:column !important;
+  }
+  /* Hero text sizing */
+  .hero h1,.hero-title{
+    font-size:clamp(28px,7vw,36px) !important;
+    line-height:1.2 !important;
+  }
+  .hero-desc,.hero-sub{
+    font-size:17px !important;
+  }
+  /* Buttons stack on mobile */
+  .hero-btns{
+    flex-direction:column !important;
+    gap:12px !important;
+    align-items:stretch !important;
+  }
+  .hero-btns .btn,.hero-btns a{
+    width:100% !important;
+    text-align:center !important;
+    justify-content:center !important;
+  }
+  /* Section titles */
+  .s-title,.section-title{
+    font-size:clamp(24px,6vw,32px) !important;
+  }
+  /* Cards */
+  .prod-card,.feature-card,.stat-card,.compare-card,
+  .timeline-card,.review-card,.install-card{
+    padding:20px !important;
+  }
+  /* Compare table */
+  .compare-wrap{
+    padding:16px !important;
+    overflow-x:auto !important;
+  }
+  /* Footer */
+  .footer-grid,.footer-cols{
+    grid-template-columns:1fr !important;
+    text-align:center !important;
+  }
+  /* FAQ */
+  .faq-q{
+    font-size:17px !important;
+    padding:16px 0 !important;
+    min-height:48px !important;
+  }
+  .faq-a{
+    font-size:16px !important;
+  }
+}
+
+@media(max-width:768px){.se-ham{display:flex !important}}
+
+@media(min-width:769px){.se-ham,.se-mob-overlay,.se-mob-menu{display:none !important}}
+
+@media(max-width:768px){
+  html,body{overflow-x:hidden !important;max-width:100vw !important}
+  *{max-width:100vw}
+
+  /* Nav: logo + ham only */
+  .nav-bar{padding:0 !important}
+  .nav-spacer{height:62px !important}
+  .nav-inner{
+    padding:10px 16px !important;
+    gap:8px !important;
+  }
+  .nav-logo{font-size:22px !important;white-space:nowrap !important}
+  .nav-logo svg,.brand-mark{width:22px !important;height:22px !important}
+  .nav-links{display:none !important}
+  .nav-cta{display:none !important}
+  .nav-progress{height:3px !important}
+
+  /* Hamburger prominent */
+  .se-ham{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:5px !important;
+    width:44px !important;height:44px !important;
+    background:none !important;
+    border:1.5px solid var(--bdr,#E8E3DA) !important;
+    border-radius:10px !important;
+    cursor:pointer !important;
+    padding:8px !important;
+  }
+  .se-ham span{
+    display:block !important;
+    width:20px !important;height:2.5px !important;
+    background:var(--ink,#1F1D1A) !important;
+    border-radius:2px !important;
+  }
+
+  /* Mobile drawer */
+  .se-mob-overlay{
+    position:fixed !important;inset:0 !important;
+    background:rgba(31,29,26,.45) !important;
+    z-index:998 !important;opacity:0 !important;
+    pointer-events:none !important;transition:opacity .3s !important;
+  }
+  .se-mob-overlay.open{opacity:1 !important;pointer-events:auto !important}
+  .se-mob-menu{
+    position:fixed !important;top:0 !important;right:-310px !important;
+    width:300px !important;height:100% !important;
+    background:var(--warm,var(--cream,#FEFCF8)) !important;
+    z-index:999 !important;padding:24px !important;
+    box-shadow:-4px 0 24px rgba(31,29,26,.12) !important;
+    transition:right .35s cubic-bezier(.16,1,.3,1) !important;
+    overflow-y:auto !important;
+  }
+  .se-mob-menu.open{right:0 !important}
+  .se-mob-header{
+    display:flex !important;justify-content:space-between !important;
+    align-items:center !important;margin-bottom:20px !important;
+    padding-bottom:16px !important;border-bottom:1px solid var(--bdr) !important;
+  }
+  .se-mob-close{
+    background:none !important;border:none !important;font-size:28px !important;
+    color:var(--ink) !important;cursor:pointer !important;
+    width:44px !important;height:44px !important;
+    display:flex !important;align-items:center !important;justify-content:center !important;
+  }
+  .se-mob-link{
+    display:block !important;font-size:18px !important;font-weight:500 !important;
+    color:var(--ink) !important;padding:16px 0 !important;
+    text-decoration:none !important;border-bottom:1px solid var(--bdr) !important;
+  }
+  .se-mob-cta{
+    display:block !important;width:100% !important;text-align:center !important;
+    margin-top:20px !important;padding:16px !important;
+    background:var(--sage) !important;color:#fff !important;
+    border:none !important;border-radius:12px !important;
+    font-size:17px !important;font-weight:700 !important;cursor:pointer !important;
+  }
+
+  /* Content wrap */
+  .wrap{padding:0 16px !important;overflow-x:hidden !important}
+
+  /* Grids collapse */
+  .prod-grid,.problem-grid,.install-grid,.install-compare,
+  .science,.cta-features,.faq-grid{
+    grid-template-columns:1fr !important;
+  }
+  .pressure-grid,.tl-tracks{
+    grid-template-columns:1fr !important;
+  }
+  .reviews-grid{grid-template-columns:1fr !important;gap:16px !important}
+  .compare-wrap{padding:16px !important;overflow-x:auto !important}
+  .hero-btns{flex-direction:column !important;gap:12px !important;align-items:center !important}
+
+  /* Font sizes for 45+ */
+  body{font-size:18px !important;line-height:1.75 !important}
+  p,td,li,.prod-desc,.prod-sub,.p-feat span,.spec-label,.spec-value,
+  .problem-text,.problem-card p,.faq-a,.review-text,.rev-quote,
+  .tl-card p,.install-step p,.pressure-card p{
+    font-size:16px !important;line-height:1.7 !important;
+  }
+  h3,.s-title{font-size:24px !important}
+  .hero h1{font-size:30px !important;line-height:1.2 !important}
+  .hero-desc{font-size:16px !important}
+  .hero-stat b{font-size:22px !important}
+  .hero-stat small{font-size:14px !important}
+  .prod-name{font-size:22px !important}
+  .prod-price{font-size:24px !important}
+  .nav-link{font-size:16px !important}
+  .faq-q{font-size:17px !important;min-height:48px}
+  .btn{font-size:17px !important;padding:16px 28px !important}
+  .breadcrumb{font-size:14px !important}
+  table th{font-size:14px !important;padding:10px 8px !important}
+  table td{font-size:15px !important;padding:10px 8px !important}
+  footer,footer p,footer a{font-size:14px !important}
+  .topbar{font-size:13px !important}
+  .trust-row span{font-size:14px !important}
+}
+
+@media(min-width:769px){
+  .se-ham,.se-mob-overlay,.se-mob-menu{display:none !important}
+}
