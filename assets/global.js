@@ -347,7 +347,6 @@ window.DawnCartLoading = {
     if (!button) return;
 
     const label = ensureButtonLabel(button);
-    const spinner = ensureButtonSpinner(button);
 
     if (!button.dataset.originalText) {
       button.dataset.originalText = label?.textContent?.trim() || button.textContent.trim();
@@ -357,11 +356,21 @@ window.DawnCartLoading = {
     button.setAttribute('aria-busy', String(isLoading));
     button.classList.toggle('dawn-cart-loading', isLoading);
 
-    if (label) {
-      label.textContent = isLoading ? loadingText : button.dataset.originalText;
+    if (isLoading) {
+      const spinner = ensureButtonSpinner(button);
+      if (label) label.textContent = loadingText;
+      spinner?.classList.remove('hidden');
+      return;
     }
 
-    if (spinner) spinner.classList.toggle('hidden', !isLoading);
+    const spinner = button.querySelector(':scope > .dawn-cart-loading__spinner');
+    spinner?.remove();
+
+    if (label) {
+      label.remove();
+    }
+
+    button.textContent = button.dataset.originalText;
   },
 };
 
