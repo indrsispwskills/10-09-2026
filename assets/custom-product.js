@@ -353,10 +353,10 @@
       .catch((error) => {
         hasError = true;
         console.error('Error adding to cart:', error);
-        ctaBtn.classList.remove('loading');
         ctaBtn.disabled = false;
         ctaBtn.setAttribute('aria-busy', 'false');
-        ctaBtn.textContent = 'Error - Try Again';
+        const label = ctaBtn.querySelector('.dawn-cart-loading__label');
+        if (label) label.textContent = 'Error - Try Again';
 
         setTimeout(() => {
           window.DawnCartLoading?.setButtonLoading(ctaBtn, false);

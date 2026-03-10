@@ -311,7 +311,7 @@ function fetchConfig(type = 'json') {
 
 function createButtonSpinner() {
   const spinner = document.createElement('span');
-  spinner.className = 'loading__spinner hidden';
+  spinner.className = 'loading__spinner hidden dawn-cart-loading__spinner';
   spinner.innerHTML =
     '<svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"/></svg>';
   return spinner;
@@ -319,36 +319,49 @@ function createButtonSpinner() {
 
 function ensureButtonSpinner(button) {
   if (!button) return null;
-  let spinner = button.querySelector(':scope > .loading__spinner');
+  let spinner = button.querySelector(':scope > .dawn-cart-loading__spinner');
   if (!spinner) {
     spinner = createButtonSpinner();
-    button.prepend(spinner);
+    button.append(spinner);
   }
   return spinner;
+}
+
+function ensureButtonLabel(button) {
+  if (!button) return null;
+  let label = button.querySelector(':scope > .dawn-cart-loading__label');
+  if (!label) {
+    const originalText = button.textContent.trim();
+    button.textContent = '';
+
+    label = document.createElement('span');
+    label.className = 'dawn-cart-loading__label';
+    label.textContent = originalText;
+    button.append(label);
+  }
+  return label;
 }
 
 window.DawnCartLoading = {
   setButtonLoading(button, isLoading, loadingText = 'Adding...') {
     if (!button) return;
 
+    const label = ensureButtonLabel(button);
     const spinner = ensureButtonSpinner(button);
 
     if (!button.dataset.originalText) {
-      button.dataset.originalText = button.textContent.trim();
+      button.dataset.originalText = label?.textContent?.trim() || button.textContent.trim();
     }
 
     button.disabled = isLoading;
     button.setAttribute('aria-busy', String(isLoading));
-    button.classList.toggle('loading', isLoading);
+    button.classList.toggle('dawn-cart-loading', isLoading);
+
+    if (label) {
+      label.textContent = isLoading ? loadingText : button.dataset.originalText;
+    }
 
     if (spinner) spinner.classList.toggle('hidden', !isLoading);
-    if (isLoading) {
-      button.textContent = loadingText;
-      if (spinner) button.prepend(spinner);
-    } else {
-      button.textContent = button.dataset.originalText;
-      if (spinner) button.prepend(spinner);
-    }
   },
 };
 

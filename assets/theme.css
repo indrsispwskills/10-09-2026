@@ -1027,3 +1027,21 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+/* Custom cart loading states + slower cart drawer slide for better UX */
+.dawn-cart-loading {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.dawn-cart-loading__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dawn-cart-loading .dawn-cart-loading__spinner {
+  position: static;
+  width: 1.6rem;
+}
