@@ -17,27 +17,14 @@ if (!customElements.get('product-form')) {
         this.hideErrors = this.dataset.hideErrors === 'true';
       }
 
-      getMissingSectionsToFetch(response) {
-        if (!this.cart || this.cart.tagName !== 'CART-DRAWER') return null;
-
-        const requiredSections = ['cart-drawer', 'cart-icon-bubble'];
-        const hasMissingSection = requiredSections.some((sectionId) => !response.sections?.[sectionId]);
-
-        return hasMissingSection ? requiredSections.join(',') : null;
-      }
-
       getRenderResponse(response) {
-        const sectionsToFetch = this.getMissingSectionsToFetch(response);
-        if (!sectionsToFetch) return Promise.resolve(response);
+        if (!this.cart || this.cart.tagName !== 'CART-DRAWER') return Promise.resolve(response);
 
-        return fetch(`/?sections=${sectionsToFetch}`)
+        return fetch('/?sections=cart-drawer,cart-icon-bubble')
           .then((res) => res.json())
           .then((sections) => ({
             ...response,
-            sections: {
-              ...(response.sections || {}),
-              ...sections,
-            },
+            sections,
           }))
           .catch((error) => {
             console.error(error);
