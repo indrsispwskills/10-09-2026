@@ -116,11 +116,13 @@
     on(window, 'resize', update);
     update();
 
-    const ctaBtn = mobileCta.querySelector('button');
-    on(ctaBtn, 'click', () => {
-      const products = root.querySelector('#products');
-      if (products) products.scrollIntoView({ behavior: 'smooth' });
-    });
+    const ctaBtn = mobileCta.matches('button') ? mobileCta : mobileCta.querySelector('button');
+    if (ctaBtn && ctaBtn.dataset.ctaAction !== 'add-to-cart') {
+      on(ctaBtn, 'click', () => {
+        const products = root.querySelector('#products');
+        if (products) products.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
   }
 
   function initSmoothScroll(scope = root) {

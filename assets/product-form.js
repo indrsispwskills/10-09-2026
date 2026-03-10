@@ -17,6 +17,22 @@ if (!customElements.get('product-form')) {
         this.hideErrors = this.dataset.hideErrors === 'true';
       }
 
+      getRenderResponse(response) {
+        if (!this.cart || this.cart.tagName !== 'CART-DRAWER') return Promise.resolve(response);
+
+        return fetch('/?sections=cart-drawer,cart-icon-bubble')
+          .then((res) => res.json())
+          .then((sections) => ({
+            ...response,
+            sections,
+          }))
+          .catch((error) => {
+            console.error(error);
+            return response;
+          });
+      }
+
+
       onSubmitHandler(evt) {
         evt.preventDefault();
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
@@ -76,14 +92,17 @@ if (!customElements.get('product-form')) {
                 CartPerformance.measureFromMarker('add:wait-for-subscribers', startMarker);
               });
             this.error = false;
+            const renderResponsePromise = this.getRenderResponse(response);
             const quickAddModal = this.closest('quick-add-modal');
             if (quickAddModal) {
               document.body.addEventListener(
                 'modalClosed',
                 () => {
                   setTimeout(() => {
-                    CartPerformance.measure("add:paint-updated-sections", () => {
-                      this.cart.renderContents(response);
+                    renderResponsePromise.then((renderResponse) => {
+                      CartPerformance.measure("add:paint-updated-sections", () => {
+                        this.cart.renderContents(renderResponse);
+                      });
                     });
                   });
                 },
@@ -91,8 +110,10 @@ if (!customElements.get('product-form')) {
               );
               quickAddModal.hide(true);
             } else {
-              CartPerformance.measure("add:paint-updated-sections", () => {
-                this.cart.renderContents(response);
+              renderResponsePromise.then((renderResponse) => {
+                CartPerformance.measure("add:paint-updated-sections", () => {
+                  this.cart.renderContents(renderResponse);
+                });
               });
             }
           })
