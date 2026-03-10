@@ -933,10 +933,17 @@ html{color-scheme:light only}
 .timeline-live .results-timeline__checkpoint-jade-whisper,
 .timeline-live .results-timeline__checkpoint-kindle-crest{opacity:.15!important}
 .drawer__inner{
-    max-width: 100% !important;
-    padding: 0 1.5rem !important;
+    width: 36rem;
+    max-width: calc(100vw - 2.4rem);
+    padding: 0 1.5rem;
     background-color: #fff;
     box-shadow: 0 0 40px #0000001a;
+}
+@media screen and (max-width: 989px){
+  .drawer__inner{
+    width: calc(100vw - 1.8rem);
+    max-width: calc(100vw - 1.8rem);
+  }
 }
 .drawer__close .svg-wrapper{
     display: inline-flex;
