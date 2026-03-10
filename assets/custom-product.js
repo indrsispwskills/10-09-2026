@@ -307,9 +307,8 @@
     const ctaBtn = document.getElementById('ctaBtn');
     if (!ctaBtn) return;
 
-    ctaBtn.classList.add('loading');
-    const originalText = ctaBtn.textContent;
-    ctaBtn.textContent = 'Adding...';
+    window.DawnCartLoading?.setButtonLoading(ctaBtn, true, 'Adding...');
+    let hasError = false;
 
     const form = document.getElementById('product-form');
     const formData = new FormData(form);
@@ -339,27 +338,32 @@
           throw new Error(response.description || 'Unable to add item to cart.');
         }
 
-        ctaBtn.classList.remove('loading');
-        ctaBtn.textContent = 'Added to Cart!';
-
-        setTimeout(() => {
-          ctaBtn.textContent = originalText;
-        }, 2000);
-
         if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
           cartDrawer.renderContents(response);
-        } else {
-          document.dispatchEvent(new CustomEvent('cart:updated', { detail: response }));
+          return;
         }
+
+        return fetch('/?sections=cart-drawer,cart-icon-bubble')
+          .then((res) => res.json())
+          .then((sections) => {
+            const parsedResponse = { sections };
+            document.querySelector('cart-drawer')?.renderContents(parsedResponse);
+          });
       })
       .catch((error) => {
+        hasError = true;
         console.error('Error adding to cart:', error);
         ctaBtn.classList.remove('loading');
+        ctaBtn.disabled = false;
+        ctaBtn.setAttribute('aria-busy', 'false');
         ctaBtn.textContent = 'Error - Try Again';
 
         setTimeout(() => {
-          ctaBtn.textContent = originalText;
-        }, 2000);
+          window.DawnCartLoading?.setButtonLoading(ctaBtn, false);
+        }, 1500);
+      })
+      .finally(() => {
+        if (!hasError) window.DawnCartLoading?.setButtonLoading(ctaBtn, false);
       });
   }
 

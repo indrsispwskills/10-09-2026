@@ -308,6 +308,50 @@ function fetchConfig(type = 'json') {
   };
 }
 
+
+function createButtonSpinner() {
+  const spinner = document.createElement('span');
+  spinner.className = 'loading__spinner hidden';
+  spinner.innerHTML =
+    '<svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66"><circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"/></svg>';
+  return spinner;
+}
+
+function ensureButtonSpinner(button) {
+  if (!button) return null;
+  let spinner = button.querySelector(':scope > .loading__spinner');
+  if (!spinner) {
+    spinner = createButtonSpinner();
+    button.prepend(spinner);
+  }
+  return spinner;
+}
+
+window.DawnCartLoading = {
+  setButtonLoading(button, isLoading, loadingText = 'Adding...') {
+    if (!button) return;
+
+    const spinner = ensureButtonSpinner(button);
+
+    if (!button.dataset.originalText) {
+      button.dataset.originalText = button.textContent.trim();
+    }
+
+    button.disabled = isLoading;
+    button.setAttribute('aria-busy', String(isLoading));
+    button.classList.toggle('loading', isLoading);
+
+    if (spinner) spinner.classList.toggle('hidden', !isLoading);
+    if (isLoading) {
+      button.textContent = loadingText;
+      if (spinner) button.prepend(spinner);
+    } else {
+      button.textContent = button.dataset.originalText;
+      if (spinner) button.prepend(spinner);
+    }
+  },
+};
+
 /*
  * Shopify Common JS
  *

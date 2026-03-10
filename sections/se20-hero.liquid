@@ -308,11 +308,14 @@ Everything above <strong style="color:var(--gold)">+ 15-stage inline filter</str
 
 
 function addToCart() {
-  const heroButton = document.getElementById('heroCta');
+  const activeButton = document.activeElement?.closest('button[data-variant]');
+  const heroButton = activeButton || document.getElementById('heroCta') || document.querySelector('button[data-variant]');
   if (!heroButton) return;
 
   const variantId = heroButton.dataset.variant;
   const cartDrawer = document.querySelector('cart-drawer');
+
+  window.DawnCartLoading?.setButtonLoading(heroButton, true, 'Adding...');
 
   const config = fetchConfig('javascript');
   config.headers['X-Requested-With'] = 'XMLHttpRequest';
@@ -342,12 +345,21 @@ function addToCart() {
 
       if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
         cartDrawer.renderContents(response);
-      } else {
-        window.location.href = '/cart';
+        return;
       }
+
+      return fetch('/?sections=cart-drawer,cart-icon-bubble')
+        .then((res) => res.json())
+        .then((sections) => {
+          const parsedResponse = { sections };
+          document.querySelector('cart-drawer')?.renderContents(parsedResponse);
+        });
     })
     .catch((error) => {
       console.error('Cart error:', error);
+    })
+    .finally(() => {
+      window.DawnCartLoading?.setButtonLoading(heroButton, false);
     });
 }
 
