@@ -17,6 +17,35 @@ if (!customElements.get('product-form')) {
         this.hideErrors = this.dataset.hideErrors === 'true';
       }
 
+      getMissingSectionsToFetch(response) {
+        if (!this.cart || this.cart.tagName !== 'CART-DRAWER') return null;
+
+        const requiredSections = ['cart-drawer', 'cart-icon-bubble'];
+        const hasMissingSection = requiredSections.some((sectionId) => !response.sections?.[sectionId]);
+
+        return hasMissingSection ? requiredSections.join(',') : null;
+      }
+
+      getRenderResponse(response) {
+        const sectionsToFetch = this.getMissingSectionsToFetch(response);
+        if (!sectionsToFetch) return Promise.resolve(response);
+
+        return fetch(`/?sections=${sectionsToFetch}`)
+          .then((res) => res.json())
+          .then((sections) => ({
+            ...response,
+            sections: {
+              ...(response.sections || {}),
+              ...sections,
+            },
+          }))
+          .catch((error) => {
+            console.error(error);
+            return response;
+          });
+      }
+
+
       onSubmitHandler(evt) {
         evt.preventDefault();
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
@@ -76,14 +105,17 @@ if (!customElements.get('product-form')) {
                 CartPerformance.measureFromMarker('add:wait-for-subscribers', startMarker);
               });
             this.error = false;
+            const renderResponsePromise = this.getRenderResponse(response);
             const quickAddModal = this.closest('quick-add-modal');
             if (quickAddModal) {
               document.body.addEventListener(
                 'modalClosed',
                 () => {
                   setTimeout(() => {
-                    CartPerformance.measure("add:paint-updated-sections", () => {
-                      this.cart.renderContents(response);
+                    renderResponsePromise.then((renderResponse) => {
+                      CartPerformance.measure("add:paint-updated-sections", () => {
+                        this.cart.renderContents(renderResponse);
+                      });
                     });
                   });
                 },
@@ -91,8 +123,10 @@ if (!customElements.get('product-form')) {
               );
               quickAddModal.hide(true);
             } else {
-              CartPerformance.measure("add:paint-updated-sections", () => {
-                this.cart.renderContents(response);
+              renderResponsePromise.then((renderResponse) => {
+                CartPerformance.measure("add:paint-updated-sections", () => {
+                  this.cart.renderContents(renderResponse);
+                });
               });
             }
           })
