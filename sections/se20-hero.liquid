@@ -43,7 +43,17 @@
   <a href="#" class="mob-link" onclick="toggleMobileNav()">5.0 Stationary</a>
   <a href="#" class="mob-link" onclick="toggleMobileNav()">Science</a>
   <a href="#" class="mob-link" onclick="toggleMobileNav()">Reviews</a>
-  <button class="mob-cta" onclick="toggleMobileNav()">Add to Cart — $49</button>
+  <button class="mob-menu-cta" type="button" onclick="toggleMobileNav(); addToCart();">Add to Cart — {{ v1.price | money }}</button>
+</div>
+
+<div class="mob-cta" id="mobileStickyCta">
+  <div class="mob-cta-inner">
+    <div class="mob-cta-copy">
+      <span class="mob-cta-title">ShowerEnvy 2.0</span>
+      <span class="mob-cta-sub">{{ v1.price | money }}</span>
+    </div>
+    <button type="button" data-cta-action="add-to-cart" onclick="addToCart()">Add to Cart</button>
+  </div>
 </div>
 
 <div class="tracker rv rv-d1" id="tracker">
@@ -308,40 +318,61 @@ Everything above <strong style="color:var(--gold)">+ 15-stage inline filter</str
 
 
 function addToCart() {
+  const activeButton = document.activeElement?.closest('button[data-variant]');
+  const heroButton = activeButton || document.getElementById('heroCta') || document.querySelector('button[data-variant]');
+  if (!heroButton) return;
 
-  const variantId = document.getElementById("heroCta").dataset.variant;
+  const variantId = heroButton.dataset.variant;
+  const cartDrawer = document.querySelector('cart-drawer');
 
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      id: variantId,
-      quantity: 1
+  window.DawnCartLoading?.setButtonLoading(heroButton, true, 'Adding...');
+
+  const config = fetchConfig('javascript');
+  config.headers['X-Requested-With'] = 'XMLHttpRequest';
+  delete config.headers['Content-Type'];
+
+  const formData = new FormData();
+  formData.append('id', variantId);
+  formData.append('quantity', 1);
+
+  if (cartDrawer && typeof cartDrawer.getSectionsToRender === 'function') {
+    formData.append(
+      'sections',
+      cartDrawer.getSectionsToRender().map((section) => section.id)
+    );
+    formData.append('sections_url', window.location.pathname);
+    cartDrawer.setActiveElement(heroButton);
+  }
+
+  config.body = formData;
+
+  fetch(`${routes.cart_add_url}`, config)
+    .then((response) => response.json())
+    .then((response) => {
+      if (response.status) {
+        throw new Error(response.description || 'Unable to add item to cart.');
+      }
+
+      return fetch('/?sections=cart-drawer,cart-icon-bubble')
+        .then((res) => res.json())
+        .then((sections) => {
+          const parsedResponse = { sections };
+          const activeDrawer = cartDrawer || document.querySelector('cart-drawer');
+
+          if (activeDrawer && typeof activeDrawer.renderContents === 'function') {
+            activeDrawer.renderContents(parsedResponse);
+            return;
+          }
+
+          window.location.href = '/cart';
+        });
     })
-  })
-  .then(() => fetch('/?sections=cart-drawer'))
-  .then(res => res.json())
-  .then(data => {
-
-    const parser = new DOMParser();
-    const html = parser.parseFromString(data["cart-drawer"], "text/html");
-
-    const newDrawer = html.querySelector("cart-drawer");
-    const currentDrawer = document.querySelector("cart-drawer");
-
-    currentDrawer.innerHTML = newDrawer.innerHTML;
-
-    /* IMPORTANT FIX */
-
-    currentDrawer.classList.remove("is-empty");
-
-    /* open drawer */
-
-    if (typeof currentDrawer.open === "function") {
-      currentDrawer.open();
-    }
-
-  })
+    .catch((error) => {
+      console.error('Cart error:', error);
+    })
+    .finally(() => {
+      window.DawnCartLoading?.setButtonLoading(heroButton, false);
+    });
 }
 
 
