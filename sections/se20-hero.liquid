@@ -356,15 +356,36 @@ function addToCart() {
       return fetch('/?sections=cart-drawer,cart-icon-bubble')
         .then((res) => res.json())
         .then((sections) => {
-          const parsedResponse = { sections };
+          {% comment %} const parsedResponse = { sections };
           const activeDrawer = cartDrawer || document.querySelector('cart-drawer');
 
           if (activeDrawer && typeof activeDrawer.renderContents === 'function') {
             activeDrawer.renderContents(parsedResponse);
             return;
-          }
+          } {% endcomment %}
 
-          window.location.href = '/cart';
+          {% comment %} window.location.href = '/cart'; {% endcomment %}
+
+           const parser = new DOMParser();
+    const html = parser.parseFromString(data["cart-drawer"], "text/html");
+
+    const newDrawer = html.querySelector("cart-drawer");
+    const currentDrawer = document.querySelector("cart-drawer");
+
+    currentDrawer.innerHTML = newDrawer.innerHTML;
+
+    /* IMPORTANT FIX */
+
+    currentDrawer.classList.remove("is-empty");
+
+    /* open drawer */
+
+    if (typeof currentDrawer.open === "function") {
+      currentDrawer.open();
+    }
+
+
+    
         });
     })
     .catch((error) => {
