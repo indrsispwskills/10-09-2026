@@ -22,6 +22,30 @@
   justify-content: center;
   white-space: nowrap;
   }
+
+  /* CART DRAWER ANIMATION */
+
+cart-drawer {
+  transform: translateX(100%);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
+}
+
+cart-drawer.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* overlay animation */
+
+.cart-drawer-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cart-drawer-overlay.active {
+  opacity: 1;
+}
 </style>
 <div class="se-product-2-0">
 
