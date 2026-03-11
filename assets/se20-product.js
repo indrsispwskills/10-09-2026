@@ -83,7 +83,7 @@ function selectOpt(n,m){
   var cb=document.querySelector('.cart-btn');
   if(cb) cb.textContent=n===1?'Add to Cart — $49':'Add Bundle — $79';
 
-  // console.log(m);
+  console.log(m);
   document.getElementById("heroCta").setAttribute("data-variant", m);
   document.querySelector(".cart-btn").setAttribute("data-variant", m);
 }
