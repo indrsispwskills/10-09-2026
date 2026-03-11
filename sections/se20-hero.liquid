@@ -325,8 +325,69 @@ Everything above <strong style="color:var(--gold)">+ 15-stage inline filter</str
   });
 } {% endcomment %}
 
-
 function addToCart() {
+
+  const btn = document.querySelector('[data-variant]');
+  const variantId = btn.dataset.variant;
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: variantId,
+      quantity: 1
+    })
+  })
+  .then(res => res.json())
+  .then(() => {
+
+    /* fetch updated cart drawer */
+
+    return fetch('/?sections=cart-drawer,cart-icon-bubble');
+
+  })
+  .then(res => res.json())
+  .then(data => {
+
+    const parser = new DOMParser();
+
+    /* update drawer */
+
+    const drawerHTML = parser.parseFromString(data["cart-drawer"], "text/html");
+    const newDrawer = drawerHTML.querySelector("cart-drawer");
+    const currentDrawer = document.querySelector("cart-drawer");
+
+    currentDrawer.innerHTML = newDrawer.innerHTML;
+
+    currentDrawer.classList.remove("is-empty");
+
+    /* update cart icon */
+
+    const bubbleHTML = parser.parseFromString(data["cart-icon-bubble"], "text/html");
+    const newBubble = bubbleHTML.querySelector("#cart-icon-bubble");
+    const currentBubble = document.querySelector("#cart-icon-bubble");
+
+    if (newBubble && currentBubble) {
+      currentBubble.innerHTML = newBubble.innerHTML;
+    }
+
+    /* open drawer with animation */
+
+    document.body.classList.add("overflow-hidden");
+
+    if (typeof currentDrawer.open === "function") {
+      currentDrawer.open();
+    }
+
+  })
+  .catch(err => {
+    console.error("Cart error:", err);
+  });
+
+}
+function addToCart_no_use() {
   const activeButton = document.activeElement?.closest('button[data-variant]');
   const heroButton = activeButton || document.getElementById('heroCta') || document.querySelector('button[data-variant]');
   if (!heroButton) return;
