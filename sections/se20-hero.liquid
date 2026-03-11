@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
  {% endcomment %}
 
+
 <style>
  #heroCta{
      width: 100%;
@@ -381,7 +382,7 @@ function addToCart() {
 
     const drawerHTML = parser.parseFromString(data["cart-drawer"], "text/html");
     const newDrawer = drawerHTML.querySelector("cart-drawer");
-    const currentDrawer = document.querySelector("cart-drawer");
+ 
 
     currentDrawer.innerHTML = newDrawer.innerHTML;
 
@@ -401,14 +402,31 @@ function addToCart() {
 
     document.body.classList.add("overflow-hidden");
 
-    if (typeof currentDrawer.open === "function") {
-      currentDrawer.open();
-    }
+        requestAnimationFrame(() => {
+  document.body.classList.add("overflow-hidden");
+  currentDrawer.classList.add("active");
+
+  if (typeof currentDrawer.open === "function") {
+    currentDrawer.open();
+  }
+});
 
   })
   .catch(err => {
     console.error("Cart error:", err);
   });
+
+}
+
+function closeCartDrawer() {
+
+  const drawer = document.querySelector("cart-drawer");
+
+  drawer.classList.remove("active");
+
+  setTimeout(() => {
+    document.body.classList.remove("overflow-hidden");
+  }, 350);
 
 }
 function addToCart_no_use() {
