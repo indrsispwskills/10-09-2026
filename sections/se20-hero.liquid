@@ -317,42 +317,12 @@ Everything above <strong style="color:var(--gold)">+ 15-stage inline filter</str
 <!-- Option 2 -->
 </div>
 <script>
-{% comment %} function addToCart() {
-  const btn = document.getElementById("heroCta");
-  const variantId = btn.dataset.variant;
-  const cartDrawer = document.querySelector('cart-drawer');
-
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-      id: variantId,
-      quantity: 1,
-      sections: 'cart-drawer,cart-icon-bubble',
-      sections_url: window.location.pathname
-    })
-  })
-  .then(res => res.json())
-  .then(response => {
-    console.log('Product added:', response);
-
-    if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
-      cartDrawer.renderContents(response);
-    } else {
-      window.location.href = '/cart';
-    }
-  })
-  .catch(err => {
-    console.error('Cart error:', err);
-  });
-} {% endcomment %}
 
 function addToCart() {
 
   const btn = document.querySelector('[data-variant]');
+  if (!btn) return;
+
   const variantId = btn.dataset.variant;
 
   fetch('/cart/add.js', {
@@ -365,28 +335,36 @@ function addToCart() {
       quantity: 1
     })
   })
+
   .then(res => res.json())
+
   .then(() => {
-
     /* fetch updated cart drawer */
-
     return fetch('/?sections=cart-drawer,cart-icon-bubble');
-
   })
+
   .then(res => res.json())
+
   .then(data => {
 
     const parser = new DOMParser();
+
+    const currentDrawer = document.querySelector("cart-drawer");
+
+    if (!currentDrawer) {
+      console.error("Cart drawer not found");
+      return;
+    }
 
     /* update drawer */
 
     const drawerHTML = parser.parseFromString(data["cart-drawer"], "text/html");
     const newDrawer = drawerHTML.querySelector("cart-drawer");
- 
 
-    currentDrawer.innerHTML = newDrawer.innerHTML;
-
-    currentDrawer.classList.remove("is-empty");
+    if (newDrawer) {
+      currentDrawer.innerHTML = newDrawer.innerHTML;
+      currentDrawer.classList.remove("is-empty");
+    }
 
     /* update cart icon */
 
@@ -398,20 +376,22 @@ function addToCart() {
       currentBubble.innerHTML = newBubble.innerHTML;
     }
 
-    /* open drawer with animation */
+    /* open drawer with smooth animation */
 
-    document.body.classList.add("overflow-hidden");
+    requestAnimationFrame(() => {
 
-        requestAnimationFrame(() => {
-  document.body.classList.add("overflow-hidden");
-  currentDrawer.classList.add("active");
+      document.body.classList.add("overflow-hidden");
 
-  if (typeof currentDrawer.open === "function") {
-    currentDrawer.open();
-  }
-});
+      currentDrawer.classList.add("active");
+
+      if (typeof currentDrawer.open === "function") {
+        currentDrawer.open();
+      }
+
+    });
 
   })
+
   .catch(err => {
     console.error("Cart error:", err);
   });
