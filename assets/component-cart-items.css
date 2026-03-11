@@ -35,9 +35,10 @@ cart-items .title-wrapper-with-link {
 .cart-item__nested-line .cart-item__image-container {
   min-width: calc(10rem / var(--font-body-scale));
   justify-content: right;
-  img {
-    width: 60%;
-  }
+}
+
+.cart-item__nested-line .cart-item__image-container img {
+  width: 60%;
 }
 
 .cart-item__image-container:after {

@@ -957,19 +957,19 @@ html{color-scheme:light only}
 .cart-drawer__overlay{
   background-color: rgba(0, 0, 0, 0.4);
 }
-.cart-items th{
+.cart-drawer .cart-items th{
     font-size: 0.8rem!important;
     letter-spacing: .13rem!important;
     border-bottom: .1rem solid rgb(205 205 205) !important;
     padding-bottom: 0.8rem!important;
 }
-    .cart-item__media {
+    .cart-drawer .cart-item__media {
       width:100px !important
     }
-    .cart-item__name{
+    .cart-drawer .cart-item__name{
        font-size: 1rem!important
     }
-    .cart-item__discounted-prices .cart-item__old-price, .cart-item__discounted-prices .cart-item__old-price,
+    .cart-drawer .cart-item__discounted-prices .cart-item__old-price,
     .cart-drawer .price {
       font-size: 0.9rem!important
     }
@@ -983,15 +983,15 @@ html{color-scheme:light only}
         background: var(--ink);
         color: #fff;
     }
-    .totals>h2, .totals__total-value {
+    .cart-drawer .totals>h2, .cart-drawer .totals__total-value {
         font-size: 1.1rem !important;
     }
-    cart-remove-button .button {
+    .cart-drawer cart-remove-button .button {
         background-color: transparent;
         min-width: 1.9rem!important;
         min-height: 1.9rem!important;
     }
-    cart-remove-button .icon-remove {
+    .cart-drawer cart-remove-button .icon-remove {
         height: 1.2rem!important;
         width: 1.2rem!important;
     }
@@ -1010,17 +1010,17 @@ html{color-scheme:light only}
       font-size: 1rem!important;
       line-height: 1.1!important;
     }
-    quantity-popover .quantity input{
+    .cart-drawer quantity-popover .quantity input{
       max-width: 85px!important;
       text-align: center!important;
       border: 0!important;
       padding: 13px 11px!important;
     }
-    quantity-popover button .svg-wrapper{
+    .cart-drawer quantity-popover button .svg-wrapper{
       width: 14px;
       display: block;
     }
-    quantity-popover .quantity{
+    .cart-drawer quantity-popover .quantity{
       border: 1px solid rgb(18, 18, 18)!important;
       padding: 2px 10px;
     }
