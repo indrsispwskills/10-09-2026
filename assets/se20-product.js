@@ -85,7 +85,11 @@ function selectOpt(n,m){
 
   console.log(m);
   document.getElementById("heroCta").setAttribute("data-variant", m);
-  document.querySelector(".cart-btn").setAttribute("data-variant", m);
+  // document.querySelector(".cart-btn").setAttribute("data-variant", m);
+
+  document.querySelectorAll(".cart-btn").forEach(btn => {
+  btn.setAttribute("data-variant", m);
+});
 }
 
 /* ═══ SE20 Shopify Purchase Sync ═══ */
