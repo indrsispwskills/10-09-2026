@@ -355,27 +355,50 @@ function addToCart() {
 
   config.body = formData;
 
-  fetch(`${routes.cart_add_url}`, config)
-    .then((response) => response.json())
-    .then((response) => {
-      if (response.status) {
-        throw new Error(response.description || 'Unable to add item to cart.');
-      }
+  fetch('/?sections=cart-drawer,cart-icon-bubble')
+  .then(res => res.json())
+  .then(data => {
 
-      return fetch('/?sections=cart-drawer,cart-icon-bubble')
-        .then((res) => res.json())
-        .then((sections) => {
-          const parsedResponse = { sections };
-          const activeDrawer = cartDrawer || document.querySelector('cart-drawer');
+    const parser = new DOMParser();
+    const html = parser.parseFromString(data["cart-drawer"], "text/html");
 
-          if (activeDrawer && typeof activeDrawer.renderContents === 'function') {
-            activeDrawer.renderContents(parsedResponse);
-            return;
-          }
+    const newDrawer = html.querySelector("cart-drawer");
+    const currentDrawer = document.querySelector("cart-drawer");
 
-          window.location.href = '/cart';
-        });
-    })
+    if (!newDrawer || !currentDrawer) {
+      console.error("Cart drawer not found");
+      return;
+    }
+
+    /* replace drawer content */
+
+    currentDrawer.innerHTML = newDrawer.innerHTML;
+
+    /* IMPORTANT */
+
+    currentDrawer.classList.remove("is-empty");
+
+    /* update cart icon bubble */
+
+    const bubbleHTML = parser.parseFromString(data["cart-icon-bubble"], "text/html");
+    const newBubble = bubbleHTML.querySelector("#cart-icon-bubble");
+    const currentBubble = document.querySelector("#cart-icon-bubble");
+
+    if (newBubble && currentBubble) {
+      currentBubble.innerHTML = newBubble.innerHTML;
+    }
+
+    /* OPEN DRAWER WITH DAWN ANIMATION */
+
+    document.body.classList.add("overflow-hidden");
+
+    currentDrawer.classList.add("animate", "active");
+
+    if (typeof currentDrawer.open === "function") {
+      currentDrawer.open();
+    }
+
+  })
     .catch((error) => {
       console.error('Cart error:', error);
     })
@@ -526,3 +549,4 @@ document.addEventListener("DOMContentLoaded", function () {
 ]
 }
 {% endschema %}
+
