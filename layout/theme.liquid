@@ -64,13 +64,13 @@
     {% endif %}
 
 
-     {% comment %} {% if template.name == 'product' and template.suffix == blank %}
+     {% if template.suffix == "alternative" %}
       {{ 'se50-stationary.css' | asset_url | stylesheet_tag }}
       {{ 'se50-stationary-responsive.css' | asset_url | stylesheet_tag }}
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    {% endif %} {% endcomment %}
+    {% endif %} 
 
      {% if template.suffix == 'water-report' %}
       {{ 'water-report.css' | asset_url | stylesheet_tag }}
@@ -193,7 +193,7 @@
        {% comment %} {{ 'se50-stationary.js' | asset_url | script_tag }} {% endcomment %}
     {% endif %}
 
-      {% if template.suffix == 'showerenvy-5-0-stationary' %}
+      {% if template.suffix == 'alternative' %}
       {{ 'se50-stationary.js' | asset_url | script_tag }}
     {% endif %}
 
