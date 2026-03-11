@@ -110,7 +110,7 @@ body.overflow-hidden .cart-drawer-overlay {
   <a href="#" class="mob-link" onclick="toggleMobileNav()">5.0 Stationary</a>
   <a href="#" class="mob-link" onclick="toggleMobileNav()">Science</a>
   <a href="#" class="mob-link" onclick="toggleMobileNav()">Reviews</a>
-  <button class="mob-menu-cta" type="button" onclick="toggleMobileNav(); addToCart(event);">Add to Cart — {{ v1.price | money }}</button>
+  <button class="mob-menu-cta cart-btn" type="button" onclick="toggleMobileNav(); addToCart(event);">Add to Cart — {{ v1.price | money }}</button>
 </div>
 
 <div class="mob-cta" id="mobileStickyCta">
@@ -119,7 +119,7 @@ body.overflow-hidden .cart-drawer-overlay {
       <span class="mob-cta-title">ShowerEnvy 2.0</span>
       <span class="mob-cta-sub">{{ v1.price | money }}</span>
     </div>
-    <button type="button" data-cta-action="add-to-cart" onclick="addToCart(event)">Add to Cart</button>
+    <button type="button" class="cart-btn" data-cta-action="add-to-cart" onclick="addToCart(event)">Add to Cart</button>
   </div>
 </div>
 
