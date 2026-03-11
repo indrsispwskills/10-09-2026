@@ -122,7 +122,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-content-reveal hero-action-row hero__panel-aurora-kindle">
+                <div class="hero-content-reveal hero-action-row hero__panel-aurora-kindle"
+{% if section.settings.hero_image != blank %}
+style="background-image:url('{{ section.settings.hero_image | image_url: width: 1500 }}');
+background-size:contain;
+background-position:center;
+background-repeat:no-repeat;"
+{% endif %}
+>
                     <div class="hero__panel-aurora-lumen">
                         <div class="hero__panel-aurora-meadow">
                             <div class="hero__panel-aurora-nova"><span class="hero__panel-aurora-oasis">📸</span><span class="hero__panel-aurora-pulse">Hero — Product lifestyle shot or woman in shower</span><span class="hero__panel-aurora-quartz">Upload image here</span></div>
