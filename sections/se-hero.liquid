@@ -131,7 +131,13 @@ background-repeat:no-repeat;"
 >
                     <div class="hero__panel-aurora-lumen">
                         <div class="hero__panel-aurora-meadow">
-                            <div class="hero__panel-aurora-nova"><span class="hero__panel-aurora-oasis">📸</span><span class="hero__panel-aurora-pulse">Hero — Product lifestyle shot or woman in shower</span><span class="hero__panel-aurora-quartz">Upload image here</span></div>
+                           {% if section.settings.hero_image == blank %}
+<div class="hero__panel-aurora-nova">
+  <span class="hero__panel-aurora-oasis">📸</span>
+  <span class="hero__panel-aurora-pulse">Hero — Product lifestyle shot or woman in shower</span>
+  <span class="hero__panel-aurora-quartz">Upload image here</span>
+</div>
+{% endif %}
                         </div>
                         <div class="hero__panel-aurora-ripple">
                             {% if section.settings.custom_shower_svg != blank %}{{ section.settings.custom_shower_svg }}{% else %}<svg viewBox="0 0 280 380" fill="none" class="hero__panel-aurora-solace">
