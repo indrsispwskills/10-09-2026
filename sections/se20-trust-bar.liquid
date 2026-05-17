@@ -1,3 +1,131 @@
+
+
+
+{% comment %}
+  ReviewFlow manual product page snippet.
+  Paste this into a product template/section for quick testing only.
+  For a public Shopify App Store app, use the theme app extension app block instead.
+{% endcomment %}
+
+{% if product %}
+  <div
+    id="reviewflow-reviews"
+    style="border-top:1px solid #ddd;margin-top:32px;padding-top:24px;"
+    data-app-url="https://review-flow-ai-vercel-new.vercel.app/"
+    data-store-id="{{ shop.permanent_domain | escape }}"
+    data-shopify-product-id="gid://shopify/Product/{{ product.id }}"
+    data-product-title="{{ product.title | escape }}"
+  >
+    <h2>Customer reviews</h2>
+    <div id="reviewflow-review-list">Loading reviews...</div>
+
+    <form id="reviewflow-review-form" style="display:grid;gap:12px;max-width:560px;margin-top:24px;">
+      <h3>Write a review</h3>
+
+      <label>
+        Email
+        <input name="customer_email" type="email" autocomplete="email" style="display:block;width:100%;padding:10px;">
+      </label>
+
+      <label>
+        Rating
+        <select name="rating" style="display:block;width:100%;padding:10px;">
+          <option value="5">5 stars</option>
+          <option value="4">4 stars</option>
+          <option value="3">3 stars</option>
+          <option value="2">2 stars</option>
+          <option value="1">1 star</option>
+        </select>
+      </label>
+
+      <label>
+        Review
+        <textarea name="review_text" rows="4" required style="display:block;width:100%;padding:10px;"></textarea>
+      </label>
+
+      <button type="submit" style="padding:12px 16px;">Submit review</button>
+      <p id="reviewflow-review-message"></p>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById('reviewflow-reviews');
+      const list = document.getElementById('reviewflow-review-list');
+      const form = document.getElementById('reviewflow-review-form');
+      const message = document.getElementById('reviewflow-review-message');
+      const appUrl = root.dataset.appUrl.replace(/\/$/, '');
+
+      function escapeHtml(value) {
+        return String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      async function loadReviews() {
+        const params = new URLSearchParams({
+          store_id: root.dataset.storeId,
+          shopify_product_id: root.dataset.shopifyProductId
+        });
+
+        const response = await fetch(appUrl + '/api/reviews?' + params.toString());
+        const result = await response.json();
+        const reviews = result.reviews || [];
+
+        if (!reviews.length) {
+          list.innerHTML = '<p>No reviews yet.</p>';
+          return;
+        }
+
+        list.innerHTML = reviews.map(function (review) {
+          return [
+            '<article style="border:1px solid #ddd;border-radius:8px;padding:16px;margin-bottom:12px;">',
+            '<strong>' + '★'.repeat(review.rating || 0) + '</strong>',
+            '<p>' + escapeHtml(review.review_text) + '</p>',
+            '</article>'
+          ].join('');
+        }).join('');
+      }
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        message.textContent = 'Submitting...';
+
+        const response = await fetch(appUrl + '/api/reviews', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            store_id: root.dataset.storeId,
+            shopify_product_id: root.dataset.shopifyProductId,
+            product_title: root.dataset.productTitle,
+            customer_email: formData.get('customer_email') || undefined,
+            rating: Number(formData.get('rating')),
+            review_text: formData.get('review_text')
+          })
+        });
+
+        if (!response.ok) {
+          message.textContent = 'Review could not be submitted.';
+          return;
+        }
+
+        form.reset();
+        message.textContent = 'Thank you. Your review is awaiting approval.';
+      });
+
+      loadReviews().catch(function () {
+        list.innerHTML = '<p>Reviews could not be loaded.</p>';
+      });
+    }());
+  </script>
+{% endif %}
+
+
+
 <!-- ═══ SCIENCE — Animated particles ═══ -->
 <div class="w">
 <section id="science" class="sec" style="padding:36px 28px;background:linear-gradient(145deg,var(--cream),#fff);border-radius:28px;border:1px solid var(--bdr);box-shadow:var(--sh-sm);position:relative;overflow:hidden">
